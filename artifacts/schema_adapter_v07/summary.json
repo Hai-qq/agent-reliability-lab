@@ -1,0 +1,1774 @@
+{
+  "metadata": {
+    "increment_version": "0.7.0",
+    "root_project_version": "0.3.0",
+    "python": "3.12.12",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "environment_version": "schema-adapter-v0.7.0",
+    "task_ids": [
+      "travel.book_policy_compliant_itinerary",
+      "travel.recover_bundle_after_flight_failure"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "runtimes": [
+      "r1_guarded",
+      "r2_schema_adapted"
+    ],
+    "conditions": [
+      "clean",
+      "fault"
+    ],
+    "registered_differences": {
+      "travel.book_policy_compliant_itinerary": "flights.book action contract 1.0 -> 2.0",
+      "travel.recover_bundle_after_flight_failure": "hotels.book success result contract 1.0 -> 2.0"
+    },
+    "model_calls": 0,
+    "external_network_calls": 0,
+    "uses_only_synthetic_data": true,
+    "trace_payload_policy": "digests and typed metadata only",
+    "source_manifest": {
+      "algorithm": "sha256(canonical_json({relative_path: file_sha256}))",
+      "sha256": "75a7ba7fbec5728215e3c0556973a38d05eb378f760bb3b9ef9ad817dae8bf64",
+      "files": {
+        "scripts/run_schema_adapter.py": "d2a03309b91d6466cb42bbfd80d74989ca038d90945dc95c4406fd8b1764f2d7",
+        "src/arl/core/types.py": "58862356fa7aca2817fa1f30a7136409605501efc5a44b8e0a54b4eb2beb76b2",
+        "src/arl/runtime/journal.py": "29082aa1ea86243356aba4f70691593543ea6b4a1bd5d808c22ef1f987474ae3",
+        "src/arl_schema/__init__.py": "d4a6fad3adc9804340c167baf30f357f8bd1691df30eb213b9e7288a67090300",
+        "src/arl_schema/adapter.py": "7187826e8b78a4e11604ff777cceacb0b1bdbe009cb588b013bf0e7257bdc80c",
+        "src/arl_schema/env.py": "d9e366933c051b1a8211a2023313e4454b5de295168a038de67700a410c6129e",
+        "src/arl_schema/experiment.py": "73f14833d50b311ec546c07d23215f899242b12da56f43ba20137b21b515bfa3",
+        "src/arl_schema/runtime.py": "c567d40d6e935e55dd38b555b53d693e396ae7d20ac8a495b217f644b7ac467b",
+        "src/arl_travel/__init__.py": "5e19bfc6a89d6e29d9cfa3783116e4f3c1dd84255635b605d7d6ff088e911342",
+        "src/arl_travel/env.py": "9868befbe859248e628c6068cb7c40fc85504204675bfd27f16a1406efe564b9",
+        "src/arl_travel/evaluator.py": "c6925ab9b01a99a6950c1543b066c3ee63b2c483089843162e11cf3ffaf2f48e",
+        "src/arl_travel/experiment.py": "847839632d76d4d7c8a8d0d47f27f1df2b62ec3f102a23a08175f222ef37c330",
+        "src/arl_travel/runtime.py": "c5fff0e7b41444d224ed413302239dc6bc09ea6bd70c75c3c76ad4c44b646450"
+      }
+    },
+    "trace_manifest": {
+      "algorithm": "sha256(canonical_json({trace_filename: file_sha256}))",
+      "sha256": "7cf55f84381bc661c2cbb971d572182e2a9617239d59aeac245cb0494a41f550",
+      "files": {
+        "schema-book-seed-0-r1_guarded-clean.jsonl": "c1df72fa4cf466d3f6eabc284d713a653162df078c166df58eb138753f8bc6c6",
+        "schema-book-seed-0-r1_guarded-fault.jsonl": "85f6a4557566f8d6e204109c30016a82aa7596319db797c838b7d1674fbec984",
+        "schema-book-seed-0-r2_schema_adapted-clean.jsonl": "4c262791fea7c50cb910007a7045a34e29ec4d06608e88df0260eedf3fba475b",
+        "schema-book-seed-0-r2_schema_adapted-fault.jsonl": "8d7ba5bd1b606e00453f91239bbff380e0319bddc2faa1cd4ce53916b5891194",
+        "schema-book-seed-1-r1_guarded-clean.jsonl": "3e186772e5a0fc2f211d58a25e1c8c662e570b11fd82ad050511226ca76c626d",
+        "schema-book-seed-1-r1_guarded-fault.jsonl": "4f69492a3191294d36dd4db7115492a65b15fc983c87af21f337e07c23034b27",
+        "schema-book-seed-1-r2_schema_adapted-clean.jsonl": "46c94f9887dee730536c65927bec63f04c06bba3862a816f559460b1ec317cf9",
+        "schema-book-seed-1-r2_schema_adapted-fault.jsonl": "967979d25dd08e4dd3d6a43f17fb37940d7a68529bc5aec8f5772c0bd831cb9a",
+        "schema-book-seed-2-r1_guarded-clean.jsonl": "b3fd34de66a2fc83830acaf5b2801f45620aa87cb9894fbdbef875486860e02b",
+        "schema-book-seed-2-r1_guarded-fault.jsonl": "67a2f771e7a7bc1d96146dda29711f71e9978004d98394b91ceaf2369b50ae37",
+        "schema-book-seed-2-r2_schema_adapted-clean.jsonl": "4c97c2273e1092652f936da50f89c40215d22ff9f4a901d9b56dcac72fa82f85",
+        "schema-book-seed-2-r2_schema_adapted-fault.jsonl": "83278c3e243c9b851aac5465099a00bf0d4454d334243d4acd4b1c6543cd898c",
+        "schema-recovery-seed-0-r1_guarded-clean.jsonl": "cdeec6318c5eba08091322de4cec294f1b4f52844de20a8850ed47eec6b0f8f0",
+        "schema-recovery-seed-0-r1_guarded-fault.jsonl": "c0c2624799ee6cb9e7f99813fed1fb4c0c9fc9d42788f326aadd4644c828003c",
+        "schema-recovery-seed-0-r2_schema_adapted-clean.jsonl": "c4a5eebf70818a33acf9053c4019f981d360ed3d2011b3435cd424457878bb16",
+        "schema-recovery-seed-0-r2_schema_adapted-fault.jsonl": "c6bb471c682924ee8da1979b97b580958cd62188401a7c8a358d2ad890cdb037",
+        "schema-recovery-seed-1-r1_guarded-clean.jsonl": "3bd9d2c0f902732bc598a2fef22792471268ecfb3db9880c7438ded5fa4f28cf",
+        "schema-recovery-seed-1-r1_guarded-fault.jsonl": "d1d1c329915277166b636cd14c3582c15fb25287d9659ff75b86d1f56ffcaff1",
+        "schema-recovery-seed-1-r2_schema_adapted-clean.jsonl": "d69cdfc53b8ac686c5eb70b3f53e65e6b3ea3471267f80816d14cccfe30a510c",
+        "schema-recovery-seed-1-r2_schema_adapted-fault.jsonl": "7aba7554a81f81ac80844782a257081239ae7c850144aa5490ba0e90396720fd",
+        "schema-recovery-seed-2-r1_guarded-clean.jsonl": "f2619f7c46d9bace012ae93ccd1e8abe2a793dc80c53ecbb13e11898f172161d",
+        "schema-recovery-seed-2-r1_guarded-fault.jsonl": "b2f3baa92847c20098106e7bf8d42532432f78fc0d9f6f78d2ff10cbc34a8d53",
+        "schema-recovery-seed-2-r2_schema_adapted-clean.jsonl": "2bec818781d710f146511b5d8ef572865fcdae504b048bf3f111c4b1be218ccc",
+        "schema-recovery-seed-2-r2_schema_adapted-fault.jsonl": "f2426c1239f13e6c71287d37549650fecd1ba221ade38ec2352f4403059494ec"
+      }
+    }
+  },
+  "episodes": [
+    {
+      "episode_id": "schema-book-seed-0-r1_guarded-clean",
+      "task_id": "travel.book_policy_compliant_itinerary",
+      "seed": 0,
+      "runtime": "r1_guarded",
+      "condition": "clean",
+      "drift_mode": "none",
+      "initial_state_hash": "e5060f6dfca24c3b82bdcfd2fc172112c73e3a6273bbe7bdf50a72bba147b554",
+      "final_state_hash": "8cad051f6124976145bc46f1f8e5753f568635ce1ab259ab4daf2addc36fb65f",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "policy_compliant_flight_booked": true,
+          "policy_compliant_hotel_booked": true,
+          "inventory_decremented_once": true,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_flight_bookings=1",
+          "matching_hotel_reservations=1",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [],
+      "final_state_counts": {
+        "flight_bookings": 1,
+        "hotel_reservations": 1,
+        "idempotency_records": 0
+      },
+      "trace_file": "schema-book-seed-0-r1_guarded-clean.jsonl",
+      "trace_sha256": "c1df72fa4cf466d3f6eabc284d713a653162df078c166df58eb138753f8bc6c6",
+      "trace_event_count": 8
+    },
+    {
+      "episode_id": "schema-book-seed-1-r1_guarded-clean",
+      "task_id": "travel.book_policy_compliant_itinerary",
+      "seed": 1,
+      "runtime": "r1_guarded",
+      "condition": "clean",
+      "drift_mode": "none",
+      "initial_state_hash": "aae6fe924f50648ed93fd8b71cd4a0ed8c1672dc2f326fe49e43502aaf9e79c2",
+      "final_state_hash": "4e5a5aab188db611d5ca41ef79d5892fbd3bbe481cc9e1597d9995908a232be0",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "policy_compliant_flight_booked": true,
+          "policy_compliant_hotel_booked": true,
+          "inventory_decremented_once": true,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_flight_bookings=1",
+          "matching_hotel_reservations=1",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [],
+      "final_state_counts": {
+        "flight_bookings": 1,
+        "hotel_reservations": 1,
+        "idempotency_records": 0
+      },
+      "trace_file": "schema-book-seed-1-r1_guarded-clean.jsonl",
+      "trace_sha256": "3e186772e5a0fc2f211d58a25e1c8c662e570b11fd82ad050511226ca76c626d",
+      "trace_event_count": 8
+    },
+    {
+      "episode_id": "schema-book-seed-2-r1_guarded-clean",
+      "task_id": "travel.book_policy_compliant_itinerary",
+      "seed": 2,
+      "runtime": "r1_guarded",
+      "condition": "clean",
+      "drift_mode": "none",
+      "initial_state_hash": "ab7ffc5b4e5d6ab6bd99bfd581be9f94197f01cef0fdffa4ac4218b105b7ed3f",
+      "final_state_hash": "5b25f09ed2cad5271a3cdb2e4650cbdef4fcf4bf88e313564c4f702ed41c117e",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "policy_compliant_flight_booked": true,
+          "policy_compliant_hotel_booked": true,
+          "inventory_decremented_once": true,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_flight_bookings=1",
+          "matching_hotel_reservations=1",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [],
+      "final_state_counts": {
+        "flight_bookings": 1,
+        "hotel_reservations": 1,
+        "idempotency_records": 0
+      },
+      "trace_file": "schema-book-seed-2-r1_guarded-clean.jsonl",
+      "trace_sha256": "b3fd34de66a2fc83830acaf5b2801f45620aa87cb9894fbdbef875486860e02b",
+      "trace_event_count": 8
+    },
+    {
+      "episode_id": "schema-book-seed-0-r1_guarded-fault",
+      "task_id": "travel.book_policy_compliant_itinerary",
+      "seed": 0,
+      "runtime": "r1_guarded",
+      "condition": "fault",
+      "drift_mode": "flight_action_schema_v2",
+      "initial_state_hash": "e5060f6dfca24c3b82bdcfd2fc172112c73e3a6273bbe7bdf50a72bba147b554",
+      "final_state_hash": "e5060f6dfca24c3b82bdcfd2fc172112c73e3a6273bbe7bdf50a72bba147b554",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "tool_attempts": 1,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 0,
+        "failure_code": "schema_version_unsupported",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "policy_compliant_flight_booked": false,
+          "policy_compliant_hotel_booked": false,
+          "inventory_decremented_once": false,
+          "booking_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_flight_bookings=0",
+          "matching_hotel_reservations=0",
+          "flight_inventory_correct=False",
+          "hotel_inventory_correct=False",
+          "request_resolved=False",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [
+        "fault.schema.flights_book.action_v2"
+      ],
+      "final_state_counts": {
+        "flight_bookings": 0,
+        "hotel_reservations": 0,
+        "idempotency_records": 0
+      },
+      "trace_file": "schema-book-seed-0-r1_guarded-fault.jsonl",
+      "trace_sha256": "85f6a4557566f8d6e204109c30016a82aa7596319db797c838b7d1674fbec984",
+      "trace_event_count": 4
+    },
+    {
+      "episode_id": "schema-book-seed-1-r1_guarded-fault",
+      "task_id": "travel.book_policy_compliant_itinerary",
+      "seed": 1,
+      "runtime": "r1_guarded",
+      "condition": "fault",
+      "drift_mode": "flight_action_schema_v2",
+      "initial_state_hash": "aae6fe924f50648ed93fd8b71cd4a0ed8c1672dc2f326fe49e43502aaf9e79c2",
+      "final_state_hash": "aae6fe924f50648ed93fd8b71cd4a0ed8c1672dc2f326fe49e43502aaf9e79c2",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "tool_attempts": 1,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 0,
+        "failure_code": "schema_version_unsupported",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "policy_compliant_flight_booked": false,
+          "policy_compliant_hotel_booked": false,
+          "inventory_decremented_once": false,
+          "booking_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_flight_bookings=0",
+          "matching_hotel_reservations=0",
+          "flight_inventory_correct=False",
+          "hotel_inventory_correct=False",
+          "request_resolved=False",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [
+        "fault.schema.flights_book.action_v2"
+      ],
+      "final_state_counts": {
+        "flight_bookings": 0,
+        "hotel_reservations": 0,
+        "idempotency_records": 0
+      },
+      "trace_file": "schema-book-seed-1-r1_guarded-fault.jsonl",
+      "trace_sha256": "4f69492a3191294d36dd4db7115492a65b15fc983c87af21f337e07c23034b27",
+      "trace_event_count": 4
+    },
+    {
+      "episode_id": "schema-book-seed-2-r1_guarded-fault",
+      "task_id": "travel.book_policy_compliant_itinerary",
+      "seed": 2,
+      "runtime": "r1_guarded",
+      "condition": "fault",
+      "drift_mode": "flight_action_schema_v2",
+      "initial_state_hash": "ab7ffc5b4e5d6ab6bd99bfd581be9f94197f01cef0fdffa4ac4218b105b7ed3f",
+      "final_state_hash": "ab7ffc5b4e5d6ab6bd99bfd581be9f94197f01cef0fdffa4ac4218b105b7ed3f",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "tool_attempts": 1,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 0,
+        "failure_code": "schema_version_unsupported",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "policy_compliant_flight_booked": false,
+          "policy_compliant_hotel_booked": false,
+          "inventory_decremented_once": false,
+          "booking_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_flight_bookings=0",
+          "matching_hotel_reservations=0",
+          "flight_inventory_correct=False",
+          "hotel_inventory_correct=False",
+          "request_resolved=False",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [
+        "fault.schema.flights_book.action_v2"
+      ],
+      "final_state_counts": {
+        "flight_bookings": 0,
+        "hotel_reservations": 0,
+        "idempotency_records": 0
+      },
+      "trace_file": "schema-book-seed-2-r1_guarded-fault.jsonl",
+      "trace_sha256": "67a2f771e7a7bc1d96146dda29711f71e9978004d98394b91ceaf2369b50ae37",
+      "trace_event_count": 4
+    },
+    {
+      "episode_id": "schema-book-seed-0-r2_schema_adapted-clean",
+      "task_id": "travel.book_policy_compliant_itinerary",
+      "seed": 0,
+      "runtime": "r2_schema_adapted",
+      "condition": "clean",
+      "drift_mode": "none",
+      "initial_state_hash": "e5060f6dfca24c3b82bdcfd2fc172112c73e3a6273bbe7bdf50a72bba147b554",
+      "final_state_hash": "df98a22561bd6b90074f64b09e08de2e36bb2bdbd471b929a58d170f4985bb6f",
+      "execution": {
+        "runtime_name": "r2_schema_adapted",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "policy_compliant_flight_booked": true,
+          "policy_compliant_hotel_booked": true,
+          "inventory_decremented_once": true,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_flight_bookings=1",
+          "matching_hotel_reservations=1",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [],
+      "final_state_counts": {
+        "flight_bookings": 1,
+        "hotel_reservations": 1,
+        "idempotency_records": 3
+      },
+      "trace_file": "schema-book-seed-0-r2_schema_adapted-clean.jsonl",
+      "trace_sha256": "4c262791fea7c50cb910007a7045a34e29ec4d06608e88df0260eedf3fba475b",
+      "trace_event_count": 8
+    },
+    {
+      "episode_id": "schema-book-seed-1-r2_schema_adapted-clean",
+      "task_id": "travel.book_policy_compliant_itinerary",
+      "seed": 1,
+      "runtime": "r2_schema_adapted",
+      "condition": "clean",
+      "drift_mode": "none",
+      "initial_state_hash": "aae6fe924f50648ed93fd8b71cd4a0ed8c1672dc2f326fe49e43502aaf9e79c2",
+      "final_state_hash": "b581b904a7f8536c4eead8e3d0392a515de8515820444a8bc0daa131a81bcbbf",
+      "execution": {
+        "runtime_name": "r2_schema_adapted",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "policy_compliant_flight_booked": true,
+          "policy_compliant_hotel_booked": true,
+          "inventory_decremented_once": true,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_flight_bookings=1",
+          "matching_hotel_reservations=1",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [],
+      "final_state_counts": {
+        "flight_bookings": 1,
+        "hotel_reservations": 1,
+        "idempotency_records": 3
+      },
+      "trace_file": "schema-book-seed-1-r2_schema_adapted-clean.jsonl",
+      "trace_sha256": "46c94f9887dee730536c65927bec63f04c06bba3862a816f559460b1ec317cf9",
+      "trace_event_count": 8
+    },
+    {
+      "episode_id": "schema-book-seed-2-r2_schema_adapted-clean",
+      "task_id": "travel.book_policy_compliant_itinerary",
+      "seed": 2,
+      "runtime": "r2_schema_adapted",
+      "condition": "clean",
+      "drift_mode": "none",
+      "initial_state_hash": "ab7ffc5b4e5d6ab6bd99bfd581be9f94197f01cef0fdffa4ac4218b105b7ed3f",
+      "final_state_hash": "68fe56608e893a429379e137b66e870e9a9ff9ce45fa074ff63e58c01207c7ee",
+      "execution": {
+        "runtime_name": "r2_schema_adapted",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "policy_compliant_flight_booked": true,
+          "policy_compliant_hotel_booked": true,
+          "inventory_decremented_once": true,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_flight_bookings=1",
+          "matching_hotel_reservations=1",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [],
+      "final_state_counts": {
+        "flight_bookings": 1,
+        "hotel_reservations": 1,
+        "idempotency_records": 3
+      },
+      "trace_file": "schema-book-seed-2-r2_schema_adapted-clean.jsonl",
+      "trace_sha256": "4c97c2273e1092652f936da50f89c40215d22ff9f4a901d9b56dcac72fa82f85",
+      "trace_event_count": 8
+    },
+    {
+      "episode_id": "schema-book-seed-0-r2_schema_adapted-fault",
+      "task_id": "travel.book_policy_compliant_itinerary",
+      "seed": 0,
+      "runtime": "r2_schema_adapted",
+      "condition": "fault",
+      "drift_mode": "flight_action_schema_v2",
+      "initial_state_hash": "e5060f6dfca24c3b82bdcfd2fc172112c73e3a6273bbe7bdf50a72bba147b554",
+      "final_state_hash": "df98a22561bd6b90074f64b09e08de2e36bb2bdbd471b929a58d170f4985bb6f",
+      "execution": {
+        "runtime_name": "r2_schema_adapted",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "schema_adaptation_count": 1,
+        "output_normalization_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "policy_compliant_flight_booked": true,
+          "policy_compliant_hotel_booked": true,
+          "inventory_decremented_once": true,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_flight_bookings=1",
+          "matching_hotel_reservations=1",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 1,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [
+        "fault.schema.flights_book.action_v2"
+      ],
+      "final_state_counts": {
+        "flight_bookings": 1,
+        "hotel_reservations": 1,
+        "idempotency_records": 3
+      },
+      "trace_file": "schema-book-seed-0-r2_schema_adapted-fault.jsonl",
+      "trace_sha256": "8d7ba5bd1b606e00453f91239bbff380e0319bddc2faa1cd4ce53916b5891194",
+      "trace_event_count": 9
+    },
+    {
+      "episode_id": "schema-book-seed-1-r2_schema_adapted-fault",
+      "task_id": "travel.book_policy_compliant_itinerary",
+      "seed": 1,
+      "runtime": "r2_schema_adapted",
+      "condition": "fault",
+      "drift_mode": "flight_action_schema_v2",
+      "initial_state_hash": "aae6fe924f50648ed93fd8b71cd4a0ed8c1672dc2f326fe49e43502aaf9e79c2",
+      "final_state_hash": "b581b904a7f8536c4eead8e3d0392a515de8515820444a8bc0daa131a81bcbbf",
+      "execution": {
+        "runtime_name": "r2_schema_adapted",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "schema_adaptation_count": 1,
+        "output_normalization_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "policy_compliant_flight_booked": true,
+          "policy_compliant_hotel_booked": true,
+          "inventory_decremented_once": true,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_flight_bookings=1",
+          "matching_hotel_reservations=1",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 1,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [
+        "fault.schema.flights_book.action_v2"
+      ],
+      "final_state_counts": {
+        "flight_bookings": 1,
+        "hotel_reservations": 1,
+        "idempotency_records": 3
+      },
+      "trace_file": "schema-book-seed-1-r2_schema_adapted-fault.jsonl",
+      "trace_sha256": "967979d25dd08e4dd3d6a43f17fb37940d7a68529bc5aec8f5772c0bd831cb9a",
+      "trace_event_count": 9
+    },
+    {
+      "episode_id": "schema-book-seed-2-r2_schema_adapted-fault",
+      "task_id": "travel.book_policy_compliant_itinerary",
+      "seed": 2,
+      "runtime": "r2_schema_adapted",
+      "condition": "fault",
+      "drift_mode": "flight_action_schema_v2",
+      "initial_state_hash": "ab7ffc5b4e5d6ab6bd99bfd581be9f94197f01cef0fdffa4ac4218b105b7ed3f",
+      "final_state_hash": "68fe56608e893a429379e137b66e870e9a9ff9ce45fa074ff63e58c01207c7ee",
+      "execution": {
+        "runtime_name": "r2_schema_adapted",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "schema_adaptation_count": 1,
+        "output_normalization_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "policy_compliant_flight_booked": true,
+          "policy_compliant_hotel_booked": true,
+          "inventory_decremented_once": true,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_flight_bookings=1",
+          "matching_hotel_reservations=1",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 1,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [
+        "fault.schema.flights_book.action_v2"
+      ],
+      "final_state_counts": {
+        "flight_bookings": 1,
+        "hotel_reservations": 1,
+        "idempotency_records": 3
+      },
+      "trace_file": "schema-book-seed-2-r2_schema_adapted-fault.jsonl",
+      "trace_sha256": "83278c3e243c9b851aac5465099a00bf0d4454d334243d4acd4b1c6543cd898c",
+      "trace_event_count": 9
+    },
+    {
+      "episode_id": "schema-recovery-seed-0-r1_guarded-clean",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 0,
+      "runtime": "r1_guarded",
+      "condition": "clean",
+      "drift_mode": "none",
+      "initial_state_hash": "7abc1550d7727514b5073cd48478ac079482c2fb6280a329a720c082fdcb394b",
+      "final_state_hash": "c917f1f8977d7725b37bd281d390a92b74138280b12dfe2a1df1dda59e553173",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": false,
+          "selected_flight_booked": true,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "fallback_required=False",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=1",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [],
+      "final_state_counts": {
+        "flight_bookings": 1,
+        "hotel_reservations": 1,
+        "idempotency_records": 0
+      },
+      "trace_file": "schema-recovery-seed-0-r1_guarded-clean.jsonl",
+      "trace_sha256": "cdeec6318c5eba08091322de4cec294f1b4f52844de20a8850ed47eec6b0f8f0",
+      "trace_event_count": 8
+    },
+    {
+      "episode_id": "schema-recovery-seed-1-r1_guarded-clean",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 1,
+      "runtime": "r1_guarded",
+      "condition": "clean",
+      "drift_mode": "none",
+      "initial_state_hash": "22ce7135a150e41d888ae77eea5a3e953018e2ff85d511c822020b682573be1b",
+      "final_state_hash": "ff32fbe8feea8fc92ace1164347f85ab2a7564ef51e8b4d8e94f1a2b5eba2aa0",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": false,
+          "selected_flight_booked": true,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "fallback_required=False",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=1",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [],
+      "final_state_counts": {
+        "flight_bookings": 1,
+        "hotel_reservations": 1,
+        "idempotency_records": 0
+      },
+      "trace_file": "schema-recovery-seed-1-r1_guarded-clean.jsonl",
+      "trace_sha256": "3bd9d2c0f902732bc598a2fef22792471268ecfb3db9880c7438ded5fa4f28cf",
+      "trace_event_count": 8
+    },
+    {
+      "episode_id": "schema-recovery-seed-2-r1_guarded-clean",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 2,
+      "runtime": "r1_guarded",
+      "condition": "clean",
+      "drift_mode": "none",
+      "initial_state_hash": "903729fe6b9f17f5ab7b5763a0c1944e9ec95f169f2c0ad755038fb2cd5c90ff",
+      "final_state_hash": "e5cce03a3ab0f25516b4b92516fb16b4c565c26fb41c5bfc371652ae16386df9",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": false,
+          "selected_flight_booked": true,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "fallback_required=False",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=1",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [],
+      "final_state_counts": {
+        "flight_bookings": 1,
+        "hotel_reservations": 1,
+        "idempotency_records": 0
+      },
+      "trace_file": "schema-recovery-seed-2-r1_guarded-clean.jsonl",
+      "trace_sha256": "f2619f7c46d9bace012ae93ccd1e8abe2a793dc80c53ecbb13e11898f172161d",
+      "trace_event_count": 8
+    },
+    {
+      "episode_id": "schema-recovery-seed-0-r1_guarded-fault",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 0,
+      "runtime": "r1_guarded",
+      "condition": "fault",
+      "drift_mode": "hotel_result_schema_v2",
+      "initial_state_hash": "7abc1550d7727514b5073cd48478ac079482c2fb6280a329a720c082fdcb394b",
+      "final_state_hash": "fa5ca8f24be5a057fb63b404dbb989fccf4b64da8f2a6525bc049fd05c8efba6",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "tool_attempts": 1,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 0,
+        "failure_code": "result_contract_violation",
+        "result_contract_violations": 1
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": false,
+          "selected_flight_booked": false,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "fallback_required=False",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=1",
+          "flight_inventory_correct=False",
+          "hotel_inventory_correct=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [
+        "fault.schema.hotels_book.result_v2"
+      ],
+      "final_state_counts": {
+        "flight_bookings": 0,
+        "hotel_reservations": 1,
+        "idempotency_records": 0
+      },
+      "trace_file": "schema-recovery-seed-0-r1_guarded-fault.jsonl",
+      "trace_sha256": "c0c2624799ee6cb9e7f99813fed1fb4c0c9fc9d42788f326aadd4644c828003c",
+      "trace_event_count": 4
+    },
+    {
+      "episode_id": "schema-recovery-seed-1-r1_guarded-fault",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 1,
+      "runtime": "r1_guarded",
+      "condition": "fault",
+      "drift_mode": "hotel_result_schema_v2",
+      "initial_state_hash": "22ce7135a150e41d888ae77eea5a3e953018e2ff85d511c822020b682573be1b",
+      "final_state_hash": "94e986b387c29a1f120b84662fd64ee2489268701413b0bcbc55446637564cce",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "tool_attempts": 1,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 0,
+        "failure_code": "result_contract_violation",
+        "result_contract_violations": 1
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": false,
+          "selected_flight_booked": false,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "fallback_required=False",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=1",
+          "flight_inventory_correct=False",
+          "hotel_inventory_correct=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [
+        "fault.schema.hotels_book.result_v2"
+      ],
+      "final_state_counts": {
+        "flight_bookings": 0,
+        "hotel_reservations": 1,
+        "idempotency_records": 0
+      },
+      "trace_file": "schema-recovery-seed-1-r1_guarded-fault.jsonl",
+      "trace_sha256": "d1d1c329915277166b636cd14c3582c15fb25287d9659ff75b86d1f56ffcaff1",
+      "trace_event_count": 4
+    },
+    {
+      "episode_id": "schema-recovery-seed-2-r1_guarded-fault",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 2,
+      "runtime": "r1_guarded",
+      "condition": "fault",
+      "drift_mode": "hotel_result_schema_v2",
+      "initial_state_hash": "903729fe6b9f17f5ab7b5763a0c1944e9ec95f169f2c0ad755038fb2cd5c90ff",
+      "final_state_hash": "4065b2c8d912d7908fe06ff448118a676e31f025f8b63e4a0c25e2a40e43b658",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "tool_attempts": 1,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 0,
+        "failure_code": "result_contract_violation",
+        "result_contract_violations": 1
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": false,
+          "selected_flight_booked": false,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "fallback_required=False",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=1",
+          "flight_inventory_correct=False",
+          "hotel_inventory_correct=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [
+        "fault.schema.hotels_book.result_v2"
+      ],
+      "final_state_counts": {
+        "flight_bookings": 0,
+        "hotel_reservations": 1,
+        "idempotency_records": 0
+      },
+      "trace_file": "schema-recovery-seed-2-r1_guarded-fault.jsonl",
+      "trace_sha256": "b2f3baa92847c20098106e7bf8d42532432f78fc0d9f6f78d2ff10cbc34a8d53",
+      "trace_event_count": 4
+    },
+    {
+      "episode_id": "schema-recovery-seed-0-r2_schema_adapted-clean",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 0,
+      "runtime": "r2_schema_adapted",
+      "condition": "clean",
+      "drift_mode": "none",
+      "initial_state_hash": "7abc1550d7727514b5073cd48478ac079482c2fb6280a329a720c082fdcb394b",
+      "final_state_hash": "383e6ce7081b76812bcac217058040d66d8e39fc3f603fbeff91db4ca4b3ce77",
+      "execution": {
+        "runtime_name": "r2_schema_adapted",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": false,
+          "selected_flight_booked": true,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "fallback_required=False",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=1",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [],
+      "final_state_counts": {
+        "flight_bookings": 1,
+        "hotel_reservations": 1,
+        "idempotency_records": 3
+      },
+      "trace_file": "schema-recovery-seed-0-r2_schema_adapted-clean.jsonl",
+      "trace_sha256": "c4a5eebf70818a33acf9053c4019f981d360ed3d2011b3435cd424457878bb16",
+      "trace_event_count": 8
+    },
+    {
+      "episode_id": "schema-recovery-seed-1-r2_schema_adapted-clean",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 1,
+      "runtime": "r2_schema_adapted",
+      "condition": "clean",
+      "drift_mode": "none",
+      "initial_state_hash": "22ce7135a150e41d888ae77eea5a3e953018e2ff85d511c822020b682573be1b",
+      "final_state_hash": "2d189a1cfd1534c0298653e349734aca14ab148b2497250f549e3af53ac23650",
+      "execution": {
+        "runtime_name": "r2_schema_adapted",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": false,
+          "selected_flight_booked": true,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "fallback_required=False",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=1",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [],
+      "final_state_counts": {
+        "flight_bookings": 1,
+        "hotel_reservations": 1,
+        "idempotency_records": 3
+      },
+      "trace_file": "schema-recovery-seed-1-r2_schema_adapted-clean.jsonl",
+      "trace_sha256": "d69cdfc53b8ac686c5eb70b3f53e65e6b3ea3471267f80816d14cccfe30a510c",
+      "trace_event_count": 8
+    },
+    {
+      "episode_id": "schema-recovery-seed-2-r2_schema_adapted-clean",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 2,
+      "runtime": "r2_schema_adapted",
+      "condition": "clean",
+      "drift_mode": "none",
+      "initial_state_hash": "903729fe6b9f17f5ab7b5763a0c1944e9ec95f169f2c0ad755038fb2cd5c90ff",
+      "final_state_hash": "44f3eb8744b10e050079522cc79b02018806e1dd2966872f8531a1f740690e25",
+      "execution": {
+        "runtime_name": "r2_schema_adapted",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": false,
+          "selected_flight_booked": true,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "fallback_required=False",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=1",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 0,
+      "observed_fault_ids": [],
+      "final_state_counts": {
+        "flight_bookings": 1,
+        "hotel_reservations": 1,
+        "idempotency_records": 3
+      },
+      "trace_file": "schema-recovery-seed-2-r2_schema_adapted-clean.jsonl",
+      "trace_sha256": "2bec818781d710f146511b5d8ef572865fcdae504b048bf3f111c4b1be218ccc",
+      "trace_event_count": 8
+    },
+    {
+      "episode_id": "schema-recovery-seed-0-r2_schema_adapted-fault",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 0,
+      "runtime": "r2_schema_adapted",
+      "condition": "fault",
+      "drift_mode": "hotel_result_schema_v2",
+      "initial_state_hash": "7abc1550d7727514b5073cd48478ac079482c2fb6280a329a720c082fdcb394b",
+      "final_state_hash": "383e6ce7081b76812bcac217058040d66d8e39fc3f603fbeff91db4ca4b3ce77",
+      "execution": {
+        "runtime_name": "r2_schema_adapted",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 1,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": false,
+          "selected_flight_booked": true,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "fallback_required=False",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=1",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 1,
+      "observed_fault_ids": [
+        "fault.schema.hotels_book.result_v2"
+      ],
+      "final_state_counts": {
+        "flight_bookings": 1,
+        "hotel_reservations": 1,
+        "idempotency_records": 3
+      },
+      "trace_file": "schema-recovery-seed-0-r2_schema_adapted-fault.jsonl",
+      "trace_sha256": "c6bb471c682924ee8da1979b97b580958cd62188401a7c8a358d2ad890cdb037",
+      "trace_event_count": 9
+    },
+    {
+      "episode_id": "schema-recovery-seed-1-r2_schema_adapted-fault",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 1,
+      "runtime": "r2_schema_adapted",
+      "condition": "fault",
+      "drift_mode": "hotel_result_schema_v2",
+      "initial_state_hash": "22ce7135a150e41d888ae77eea5a3e953018e2ff85d511c822020b682573be1b",
+      "final_state_hash": "2d189a1cfd1534c0298653e349734aca14ab148b2497250f549e3af53ac23650",
+      "execution": {
+        "runtime_name": "r2_schema_adapted",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 1,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": false,
+          "selected_flight_booked": true,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "fallback_required=False",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=1",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 1,
+      "observed_fault_ids": [
+        "fault.schema.hotels_book.result_v2"
+      ],
+      "final_state_counts": {
+        "flight_bookings": 1,
+        "hotel_reservations": 1,
+        "idempotency_records": 3
+      },
+      "trace_file": "schema-recovery-seed-1-r2_schema_adapted-fault.jsonl",
+      "trace_sha256": "7aba7554a81f81ac80844782a257081239ae7c850144aa5490ba0e90396720fd",
+      "trace_event_count": 9
+    },
+    {
+      "episode_id": "schema-recovery-seed-2-r2_schema_adapted-fault",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 2,
+      "runtime": "r2_schema_adapted",
+      "condition": "fault",
+      "drift_mode": "hotel_result_schema_v2",
+      "initial_state_hash": "903729fe6b9f17f5ab7b5763a0c1944e9ec95f169f2c0ad755038fb2cd5c90ff",
+      "final_state_hash": "44f3eb8744b10e050079522cc79b02018806e1dd2966872f8531a1f740690e25",
+      "execution": {
+        "runtime_name": "r2_schema_adapted",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 1,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": false,
+          "selected_flight_booked": true,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "fallback_required=False",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=1",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "schema_adaptation_count": 0,
+      "output_normalization_count": 1,
+      "observed_fault_ids": [
+        "fault.schema.hotels_book.result_v2"
+      ],
+      "final_state_counts": {
+        "flight_bookings": 1,
+        "hotel_reservations": 1,
+        "idempotency_records": 3
+      },
+      "trace_file": "schema-recovery-seed-2-r2_schema_adapted-fault.jsonl",
+      "trace_sha256": "f2426c1239f13e6c71287d37549650fecd1ba221ade38ec2352f4403059494ec",
+      "trace_event_count": 9
+    }
+  ],
+  "aggregate": {
+    "episode_count": 24,
+    "task_count": 2,
+    "seed_count": 3,
+    "runtime_count": 2,
+    "condition_count": 2,
+    "by_runtime": {
+      "r1_guarded": {
+        "episode_count": 12,
+        "clean_successes": 6,
+        "clean_total": 6,
+        "fault_successes": 0,
+        "fault_total": 6,
+        "safe_successes": 6,
+        "safe_total": 12,
+        "schema_adaptation_count": 0,
+        "output_normalization_count": 0,
+        "recovery_rate": 0.0,
+        "recovered_fault_pairs": []
+      },
+      "r2_schema_adapted": {
+        "episode_count": 12,
+        "clean_successes": 6,
+        "clean_total": 6,
+        "fault_successes": 6,
+        "fault_total": 6,
+        "safe_successes": 12,
+        "safe_total": 12,
+        "schema_adaptation_count": 3,
+        "output_normalization_count": 3,
+        "recovery_rate": 1.0,
+        "recovered_fault_pairs": [
+          {
+            "task_id": "travel.book_policy_compliant_itinerary",
+            "seed": 0
+          },
+          {
+            "task_id": "travel.book_policy_compliant_itinerary",
+            "seed": 1
+          },
+          {
+            "task_id": "travel.book_policy_compliant_itinerary",
+            "seed": 2
+          },
+          {
+            "task_id": "travel.recover_bundle_after_flight_failure",
+            "seed": 0
+          },
+          {
+            "task_id": "travel.recover_bundle_after_flight_failure",
+            "seed": 1
+          },
+          {
+            "task_id": "travel.recover_bundle_after_flight_failure",
+            "seed": 2
+          }
+        ]
+      }
+    },
+    "by_task": {
+      "travel.book_policy_compliant_itinerary": {
+        "r1_guarded": {
+          "clean": {
+            "successes": 3,
+            "total": 3
+          },
+          "fault": {
+            "successes": 0,
+            "total": 3
+          }
+        },
+        "r2_schema_adapted": {
+          "clean": {
+            "successes": 3,
+            "total": 3
+          },
+          "fault": {
+            "successes": 3,
+            "total": 3
+          }
+        }
+      },
+      "travel.recover_bundle_after_flight_failure": {
+        "r1_guarded": {
+          "clean": {
+            "successes": 3,
+            "total": 3
+          },
+          "fault": {
+            "successes": 0,
+            "total": 3
+          }
+        },
+        "r2_schema_adapted": {
+          "clean": {
+            "successes": 3,
+            "total": 3
+          },
+          "fault": {
+            "successes": 3,
+            "total": 3
+          }
+        }
+      }
+    },
+    "paired_recovery_rate_delta_r2_minus_r1": 1.0
+  },
+  "validity": {
+    "matrix_shape": {
+      "episodes": 24,
+      "trace_files": 24,
+      "passed": true
+    },
+    "paired_initial_states": {
+      "pairs": {
+        "travel.book_policy_compliant_itinerary:r1_guarded:0": [
+          "e5060f6dfca24c3b82bdcfd2fc172112c73e3a6273bbe7bdf50a72bba147b554",
+          "e5060f6dfca24c3b82bdcfd2fc172112c73e3a6273bbe7bdf50a72bba147b554"
+        ],
+        "travel.book_policy_compliant_itinerary:r1_guarded:1": [
+          "aae6fe924f50648ed93fd8b71cd4a0ed8c1672dc2f326fe49e43502aaf9e79c2",
+          "aae6fe924f50648ed93fd8b71cd4a0ed8c1672dc2f326fe49e43502aaf9e79c2"
+        ],
+        "travel.book_policy_compliant_itinerary:r1_guarded:2": [
+          "ab7ffc5b4e5d6ab6bd99bfd581be9f94197f01cef0fdffa4ac4218b105b7ed3f",
+          "ab7ffc5b4e5d6ab6bd99bfd581be9f94197f01cef0fdffa4ac4218b105b7ed3f"
+        ],
+        "travel.book_policy_compliant_itinerary:r2_schema_adapted:0": [
+          "e5060f6dfca24c3b82bdcfd2fc172112c73e3a6273bbe7bdf50a72bba147b554",
+          "e5060f6dfca24c3b82bdcfd2fc172112c73e3a6273bbe7bdf50a72bba147b554"
+        ],
+        "travel.book_policy_compliant_itinerary:r2_schema_adapted:1": [
+          "aae6fe924f50648ed93fd8b71cd4a0ed8c1672dc2f326fe49e43502aaf9e79c2",
+          "aae6fe924f50648ed93fd8b71cd4a0ed8c1672dc2f326fe49e43502aaf9e79c2"
+        ],
+        "travel.book_policy_compliant_itinerary:r2_schema_adapted:2": [
+          "ab7ffc5b4e5d6ab6bd99bfd581be9f94197f01cef0fdffa4ac4218b105b7ed3f",
+          "ab7ffc5b4e5d6ab6bd99bfd581be9f94197f01cef0fdffa4ac4218b105b7ed3f"
+        ],
+        "travel.recover_bundle_after_flight_failure:r1_guarded:0": [
+          "7abc1550d7727514b5073cd48478ac079482c2fb6280a329a720c082fdcb394b",
+          "7abc1550d7727514b5073cd48478ac079482c2fb6280a329a720c082fdcb394b"
+        ],
+        "travel.recover_bundle_after_flight_failure:r1_guarded:1": [
+          "22ce7135a150e41d888ae77eea5a3e953018e2ff85d511c822020b682573be1b",
+          "22ce7135a150e41d888ae77eea5a3e953018e2ff85d511c822020b682573be1b"
+        ],
+        "travel.recover_bundle_after_flight_failure:r1_guarded:2": [
+          "903729fe6b9f17f5ab7b5763a0c1944e9ec95f169f2c0ad755038fb2cd5c90ff",
+          "903729fe6b9f17f5ab7b5763a0c1944e9ec95f169f2c0ad755038fb2cd5c90ff"
+        ],
+        "travel.recover_bundle_after_flight_failure:r2_schema_adapted:0": [
+          "7abc1550d7727514b5073cd48478ac079482c2fb6280a329a720c082fdcb394b",
+          "7abc1550d7727514b5073cd48478ac079482c2fb6280a329a720c082fdcb394b"
+        ],
+        "travel.recover_bundle_after_flight_failure:r2_schema_adapted:1": [
+          "22ce7135a150e41d888ae77eea5a3e953018e2ff85d511c822020b682573be1b",
+          "22ce7135a150e41d888ae77eea5a3e953018e2ff85d511c822020b682573be1b"
+        ],
+        "travel.recover_bundle_after_flight_failure:r2_schema_adapted:2": [
+          "903729fe6b9f17f5ab7b5763a0c1944e9ec95f169f2c0ad755038fb2cd5c90ff",
+          "903729fe6b9f17f5ab7b5763a0c1944e9ec95f169f2c0ad755038fb2cd5c90ff"
+        ]
+      },
+      "passed": true
+    },
+    "clean_control_success": {
+      "successes": 12,
+      "total": 12,
+      "passed": true
+    },
+    "single_registered_difference": {
+      "fault_ids": {
+        "schema-book-seed-0-r1_guarded-fault": [
+          "fault.schema.flights_book.action_v2"
+        ],
+        "schema-book-seed-1-r1_guarded-fault": [
+          "fault.schema.flights_book.action_v2"
+        ],
+        "schema-book-seed-2-r1_guarded-fault": [
+          "fault.schema.flights_book.action_v2"
+        ],
+        "schema-book-seed-0-r2_schema_adapted-fault": [
+          "fault.schema.flights_book.action_v2"
+        ],
+        "schema-book-seed-1-r2_schema_adapted-fault": [
+          "fault.schema.flights_book.action_v2"
+        ],
+        "schema-book-seed-2-r2_schema_adapted-fault": [
+          "fault.schema.flights_book.action_v2"
+        ],
+        "schema-recovery-seed-0-r1_guarded-fault": [
+          "fault.schema.hotels_book.result_v2"
+        ],
+        "schema-recovery-seed-1-r1_guarded-fault": [
+          "fault.schema.hotels_book.result_v2"
+        ],
+        "schema-recovery-seed-2-r1_guarded-fault": [
+          "fault.schema.hotels_book.result_v2"
+        ],
+        "schema-recovery-seed-0-r2_schema_adapted-fault": [
+          "fault.schema.hotels_book.result_v2"
+        ],
+        "schema-recovery-seed-1-r2_schema_adapted-fault": [
+          "fault.schema.hotels_book.result_v2"
+        ],
+        "schema-recovery-seed-2-r2_schema_adapted-fault": [
+          "fault.schema.hotels_book.result_v2"
+        ]
+      },
+      "passed": true
+    },
+    "r1_action_drift_failure": {
+      "failure_codes": [
+        "schema_version_unsupported",
+        "schema_version_unsupported",
+        "schema_version_unsupported"
+      ],
+      "passed": true
+    },
+    "r1_output_drift_failure": {
+      "failure_codes": [
+        "result_contract_violation",
+        "result_contract_violation",
+        "result_contract_violation"
+      ],
+      "passed": true
+    },
+    "r2_action_schema_recovery": {
+      "adaptation_counts": [
+        1,
+        1,
+        1
+      ],
+      "passed": true
+    },
+    "r2_output_schema_recovery": {
+      "normalization_counts": [
+        1,
+        1,
+        1
+      ],
+      "passed": true
+    },
+    "adapter_mutations_rejected": {
+      "cases": {
+        "missing_action_field": true,
+        "extra_action_field": true,
+        "wrong_action_type": true,
+        "unknown_action_version": true,
+        "mismatched_action_descriptor": true,
+        "missing_result_field": true,
+        "wrong_result_type": true,
+        "unknown_result_version": true,
+        "permissive_result_descriptor": true
+      },
+      "passed": true
+    },
+    "public_descriptors_non_oracular": {
+      "descriptor_count": 9,
+      "versions": [
+        "1.0",
+        "2.0"
+      ],
+      "forbidden_markers": [],
+      "passed": true
+    },
+    "reset_and_snapshot_restore": {
+      "reset_iterations": 20,
+      "reset_passed": true,
+      "snapshot_restore_passed": true,
+      "passed": true
+    },
+    "baselines_rejected": {
+      "cases": {
+        "book_do_nothing_rejected": true,
+        "book_claim_only_rejected": true,
+        "recovery_do_nothing_rejected": true,
+        "recovery_claim_only_rejected": true
+      },
+      "passed": true
+    },
+    "historical_source_manifests": {
+      "increments": {
+        "v0.1": {
+          "summary": "artifacts/workspace_paired/summary.json",
+          "expected_sha256": "35f25dbd3f95ad1b75363da80b6a5df6b753ad15683d571bf8816636b7d1f970",
+          "actual_sha256": "35f25dbd3f95ad1b75363da80b6a5df6b753ad15683d571bf8816636b7d1f970",
+          "file_count": 13,
+          "matched": true
+        },
+        "v0.2": {
+          "summary": "artifacts/workspace_r2_postcommit/summary.json",
+          "expected_sha256": "b2e2cbc52ffc930ce067475926cdf31134a8be7f7d37c90269661a2bc870f0f5",
+          "actual_sha256": "b2e2cbc52ffc930ce067475926cdf31134a8be7f7d37c90269661a2bc870f0f5",
+          "file_count": 18,
+          "matched": true
+        },
+        "v0.3": {
+          "summary": "artifacts/workspace_multitask_v03/summary.json",
+          "expected_sha256": "b867e8b9903cf0815b6e5e694e423d2339469fa08ce0b27cac8be25b8b03b2ca",
+          "actual_sha256": "b867e8b9903cf0815b6e5e694e423d2339469fa08ce0b27cac8be25b8b03b2ca",
+          "file_count": 24,
+          "matched": true
+        },
+        "v0.4": {
+          "summary": "artifacts/workspace_validity_v04/summary.json",
+          "expected_sha256": "64cceb78f5706e693f81217c273f49f987bc2b27601e1b9ca4b3f84fb42bcc27",
+          "actual_sha256": "64cceb78f5706e693f81217c273f49f987bc2b27601e1b9ca4b3f84fb42bcc27",
+          "file_count": 28,
+          "matched": true
+        },
+        "v0.5": {
+          "summary": "artifacts/retail_minimal_v05/summary.json",
+          "expected_sha256": "f802bf8e758a83f9749473d32144a8d81f65971b61529962197efbc6d17a33a0",
+          "actual_sha256": "f802bf8e758a83f9749473d32144a8d81f65971b61529962197efbc6d17a33a0",
+          "file_count": 8,
+          "matched": true
+        },
+        "v0.6": {
+          "summary": "artifacts/travel_minimal_v06/summary.json",
+          "expected_sha256": "67a01d88b24fb41a61d550966e4137aca3a892bf35d24c170a600baa0f30c35c",
+          "actual_sha256": "67a01d88b24fb41a61d550966e4137aca3a892bf35d24c170a600baa0f30c35c",
+          "file_count": 8,
+          "matched": true
+        }
+      },
+      "passed": true
+    },
+    "digest_only_traces": {
+      "forbidden_payload_markers": [],
+      "passed": true
+    },
+    "repeat_results_deterministic": {
+      "passed": true
+    },
+    "all_selected_checks_passed": true
+  },
+  "limitations": [
+    "Two controlled schema changes over the existing synthetic Travel tasks.",
+    "Static explicit mappings, not automatic schema matching or model inference.",
+    "Fixed oracle action plans, not an LLM or learned policy.",
+    "No simultaneous drift, unregistered version negotiation, scheduler, or UI.",
+    "No model API, real account, external target, credential, or network access."
+  ]
+}

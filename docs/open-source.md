@@ -10,7 +10,7 @@ ARL 没有 vendoring 上游 benchmark 源码、数据或 trace，也不把上游
 
 ## 发布内容
 
-- 自有 v0.1–v0.3 runtime、环境、evaluator、测试和 digest-only trace，v0.4 validity gates、v0.5 Retail 与 v0.6 Travel 最小域；
+- 自有 v0.1–v0.3 runtime、环境、evaluator、测试和 digest-only trace，v0.4 validity gates、v0.5 Retail、v0.6 Travel 与 v0.7 Schema Adapter；
 - Python 3.11/3.12 GitHub Actions CI；
 - 贡献规则、第三方 provenance 和安全边界。
 
@@ -22,13 +22,13 @@ ARL 没有 vendoring 上游 benchmark 源码、数据或 trace，也不把上游
 
 2026-08-07 的公开前审计结果：
 
-- Python 3.12.2：61 tests passed；
-- Python 3.11.15：61 tests passed；
+- Python 3.12.12：72 tests passed；
+- Python 3.11.15：72 tests passed；
 - Ruff 0.15.17：check 和 format check 均通过；
 - 未发现真实 token、私钥或密码字面量；
 - 未发现残留的本机用户主目录绝对路径；
 - 没有超过 1 MiB 的单文件；
-- v0.1–v0.4 已记录源码 manifest 仍匹配，v0.5/v0.6 各使用独立 manifest。
+- v0.1–v0.6 六份已记录源码 manifest 全部匹配，v0.7 使用覆盖 13 个实际依赖文件的独立 manifest。
 
 CI 中的 `actions/checkout` 与 `actions/setup-python` 使用完整 commit SHA 固定，并只授予 `contents: read` 权限。
 

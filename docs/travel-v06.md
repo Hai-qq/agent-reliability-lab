@@ -58,7 +58,7 @@ R2 的 3 次查询确认对应提交后 timeout，3 条 recovery branch 对应�
 - Travel 仍只有两个固定任务模板、一个提交后 timeout 与一个航班不可用分支；
 - 仍是固定 oracle plan，不是模型 Agent；
 - 补偿只允许取消一条已知可退款酒店预订；
-- 尚无 schema adapter、一般冲突恢复、symbolic user、scheduler 或 viewer；
+- v0.6 本身尚无 schema adapter、一般冲突恢复、symbolic user、scheduler 或 viewer；schema adapter 已在后续 v0.7 实现；
 - 模型/API、真实账户、外部网络与攻击/防御实验均未实现或启用。
 
-下一独立增量应进入 schema drift / adapter 的本地机制实验，再扩展一般冲突恢复；模型实验仍需单独授权和成本预算。
+[v0.7](./schema-adapter-v07.md) 已在不改变 Travel ground truth 的前提下完成 schema drift / adapter 本地机制实验；下一独立增量进入一般冲突恢复。模型实验仍需单独授权和成本预算。
