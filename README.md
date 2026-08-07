@@ -10,7 +10,7 @@ Agent Reliability Lab（ARL）是一个**原创开源的 Agent 可靠性工程�
 
 ARL 关注的不是“Agent 有没有说自己完成了任务”，而是：最终状态是否正确、是否产生越权或重复副作用、遇到模糊提交结果时能否安全恢复，以及相同实验能否稳定重现。
 
-> 当前公开版本为无需模型、无需 API、无需真实账户的机制原型。仓库中的论文调研与五项 benchmark 最小复现是项目的设计依据和验证来源，不是这个仓库的产品身份。
+> 当前版本聚焦 runtime 与 benchmark 机制本身，使用固定策略隔离系统增益；无需模型、API 或真实账户即可完整运行。
 
 ## 核心能力
 
@@ -42,7 +42,7 @@ env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 \
   --traces-dir /tmp/arl-schema-traces
 ```
 
-核心 runtime 仅使用 Python 标准库，需要 Python 3.11 或更高版本。所有实验命令、固定版本与预期输出见 [Reproduction Guide](./docs/reproduction.md)。
+核心 runtime 仅使用 Python 标准库，需要 Python 3.11 或更高版本。所有实验命令、固定版本与预期输出见 [Experiment Guide](./docs/running-experiments.md)。
 
 ## 当前可验证结果
 
@@ -67,17 +67,16 @@ src/arl*                 Runtime、Workspace、Validity、Retail、Travel 与 Sc
 scripts/                 可拒绝覆盖的确定性实验入口
 tests/                   Unit、integration、validity 与 golden gates
 artifacts/               固定 summary、digest-only traces、版本和哈希
-docs/                    架构、增量合同与完整复现命令
-reproduction/            上游 benchmark 的本地最小验证证据
+docs/                    架构、增量合同与完整实验命令
 ```
 
-完整架构、指标合同与阶段路线见 [Project Blueprint](./04_完整项目蓝图.md)。
+完整组件关系、状态合同和数据流见 [Architecture](./docs/architecture.md)。
 
 ## 设计边界
 
 - 只使用本地、合成、隔离环境；不连接真实账户、真实业务系统或模型 API。
 - 不把文本声明当成功；主要结论来自状态差分、过程约束与副作用检查。
-- 不分发上游 benchmark 源码、数据、私有 oracle 或完整任务载荷。
+- 所有公开任务和状态数据均为本项目独立编写的合成内容。
 - 当前仍是固定 oracle plan；schema adapter 只覆盖两条静态注册映射，补偿只覆盖一条预注册的可退款酒店取消。一般冲突恢复、symbolic user、scheduler、trace viewer 与模型实验尚未实现。
 
 ## Roadmap
@@ -87,17 +86,12 @@ reproduction/            上游 benchmark 的本地最小验证证据
 3. 扩充经人工审查的任务模板与跨 seed 重复统计。
 4. 在单独授权和成本预算下接入模型 adapter，保持环境与 evaluator 不变。
 
-## Research provenance
+## 文档导航
 
-ARL 源于对 Agent runtime、stateful benchmark 与 evaluator validity 的本地研究，但当前 runtime、环境、测试与任务均为独立实现；没有 vendoring 上游源码、数据或 benchmark trace。五项最小复现仅用于确认哪些机制值得进入 ARL 的设计：
-
-- [AppWorld](./reproduction/appworld/RESULTS.md)：状态差分与副作用 evaluator；
-- [ToolSandbox](./reproduction/toolsandbox/RESULTS.md)：milestone、minefield 与状态依赖；
-- [ABC × τ-bench](./reproduction/abc/RESULTS.md)：弱基线与 evaluator 漏洞审计；
-- [AgentDojo](./reproduction/agentdojo/RESULTS.md)：utility evaluator 与兼容性门禁；
-- [BrowserGym](./reproduction/browsergym/RESULTS.md)：本地 runtime/harness、恢复与续跑。
-
-更完整的研究证据保存在 [30-paper evidence matrix](./01_30篇论文证据矩阵.csv)、[field review](./02_领域综述.md)、[selected-five plan](./03_精选5篇与复现计划.md) 与 [references.bib](./references.bib)。第三方边界见 [THIRD_PARTY.md](./THIRD_PARTY.md)。
+- [Architecture](./docs/architecture.md)：组件、状态合同、运行时层级与数据流。
+- [Experiment Guide](./docs/running-experiments.md)：测试、实验命令、固定版本和结果校验。
+- [Open-source Policy](./docs/open-source.md)：公开内容、发布门禁与项目边界。
+- [Third-party Provenance](./THIRD_PARTY.md)：设计影响与独立实现声明。
 
 ## 开源与贡献
 

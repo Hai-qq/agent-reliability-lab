@@ -35,7 +35,7 @@ R2 对两个受控提交后 timeout 分别使用：
 | R1 Guarded | 6/6 | 0/6 | 6/12 | 6 | 0 | 0% |
 | R2 Confirmed | 6/6 | 6/6 | 12/12 | 0 | 6 | 100% |
 
-每个任务单独看也是 R1 clean/fault `3/3、0/3`，R2 `3/3、3/3`。配对恢复率差 `R2 - R1 = +1.0`。这些数字只证明固定 oracle 下的 runtime 机制，不代表模型能力或论文级统计结论。
+每个任务单独看也是 R1 clean/fault `3/3、0/3`，R2 `3/3、3/3`。配对恢复率差 `R2 - R1 = +1.0`。这些数字只证明固定 oracle 下的 runtime 机制，不代表模型能力或一般化统计结论。
 
 ## 新增 validity gates
 
@@ -58,7 +58,7 @@ R2 对两个受控提交后 timeout 分别使用：
 - 正式 trace：[traces/](../artifacts/workspace_multitask_v03/traces/)
 - 独立重复：[workspace_multitask_v03_repeat/](../artifacts/workspace_multitask_v03_repeat/)
 - 命令、版本和哈希：[validation.log](../artifacts/workspace_multitask_v03/validation.log)
-- 完整复现命令：[reproduction.md](./reproduction.md)
+- 完整实验命令：[Experiment Guide](./running-experiments.md)
 
 ## 限制与下一步
 

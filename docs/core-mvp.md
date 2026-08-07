@@ -1,6 +1,6 @@
 # ARL Core MVP v0.1
 
-这是五个上游机制完成最小复现后的第一个自有实现增量。它把确定性状态环境、类型化工具结果、状态 evaluator、append-only journal 与 R0/R1 runtime 接成一条可运行的本地链路。
+这是 Agent Reliability Lab 的第一个可运行产品增量。它把确定性状态环境、类型化工具结果、状态 evaluator、append-only journal 与 R0/R1 runtime 接成一条完整的本地链路。
 
 > 本文保留 v0.1 的历史边界；后续增量见 [R2 v0.2](./r2-reliability.md)、[Workspace Multi-Task v0.3](./multitask-v03.md)、[Validity Gates v0.4](./validity-v04.md)、[Retail v0.5](./retail-v05.md)、[Travel v0.6](./travel-v06.md) 与 [Schema Adapter v0.7](./schema-adapter-v07.md)。
 
@@ -66,7 +66,7 @@ Evaluator 只读取 pre/post snapshot 和 trace，不读取 policy 自我声明�
 | R0 Raw | 3/3 | 0/3 | 3/6 | 0 | 0% |
 | R1 Guarded | 3/3 | 3/3 | 6/6 | 3 | 100% |
 
-R1 相对 R0 的配对恢复率差为 `+1.0`。这里只有一个任务模板和确定性 oracle，不能据此报告置信区间、模型提升或论文级结论。
+R1 相对 R0 的配对恢复率差为 `+1.0`。这里只有一个任务模板和确定性 oracle，不能据此推断一般化能力或统计显著性。
 
 ## 已通过的门禁
 
@@ -88,4 +88,4 @@ R1 相对 R0 的配对恢复率差为 `+1.0`。这里只有一个任务模板和
 - v0.1 本身不含 random-valid-tool、dump-state、allowed-change 等门禁；allowed-change 已在 v0.3 实现，random/dump/golden 已在 v0.4 实现；
 - LLM Agent、独立随机重复、统计区间与主实验。
 
-运行说明见 [reproduction.md](./reproduction.md)，机器结果见 [summary.json](../artifacts/workspace_paired/summary.json)。
+运行说明见 [Experiment Guide](./running-experiments.md)，机器结果见 [summary.json](../artifacts/workspace_paired/summary.json)。

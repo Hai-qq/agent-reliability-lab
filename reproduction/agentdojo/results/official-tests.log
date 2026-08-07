@@ -1,4 +1,0 @@
-$ env PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m pytest -q -p no:cacheprovider
-................................                                         [100%]
-32 passed in 5.02s
-

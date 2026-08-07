@@ -44,7 +44,7 @@ full snapshot 只在本地计算 digest，内容不进入 journal 或 artifact�
 - [独立 repeat](../artifacts/workspace_validity_v04_repeat/summary.json)
 - [命令、版本和哈希](../artifacts/workspace_validity_v04/validation.log)
 - [golden spec](../tests/golden/workspace_multitask_v03.json)
-- [完整复现说明](./reproduction.md)
+- [完整实验指南](./running-experiments.md)
 
 正式与 repeat summary 逐字节一致，SHA-256 为 `cf1108e91fb9fbc6c0bec8f473f68b202a6e80393f12b43d573c3c54b61c179a`。v0.4 源码 manifest 覆盖 28 个文件；v0.1–v0.3 的已记录 manifest 仍全部匹配。
 

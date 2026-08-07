@@ -6,4 +6,4 @@
 
 独立第二次运行保存在 `../retail_minimal_v05_repeat/`；其 summary 与本目录逐字节一致，24/24 条同名 trace 也逐字节一致。
 
-设计、结论与边界见 [Retail Minimal v0.5](../../docs/retail-v05.md)，重现命令见 [reproduction](../../docs/reproduction.md)。
+设计、结论与边界见 [Retail Minimal v0.5](../../docs/retail-v05.md)，运行命令见 [Experiment Guide](../../docs/running-experiments.md)。

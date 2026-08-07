@@ -6,4 +6,4 @@
 
 独立第二次运行保存在 `../workspace_r2_postcommit_repeat/`；其 summary 与本目录逐字节一致，12/12 traces 也逐字节一致。
 
-实验设计与边界见 [R2 可靠性增量](../../docs/r2-reliability.md)，重现命令见 [reproduction](../../docs/reproduction.md)。
+实验设计与边界见 [R2 可靠性增量](../../docs/r2-reliability.md)，运行命令见 [Experiment Guide](../../docs/running-experiments.md)。
