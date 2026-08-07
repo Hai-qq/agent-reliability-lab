@@ -1,0 +1,1668 @@
+{
+  "metadata": {
+    "increment_version": "0.5.0",
+    "root_project_version": "0.3.0",
+    "python": "3.12.2",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "environment_version": "retail-v0.5.0",
+    "task_ids": [
+      "retail.place_discounted_order",
+      "retail.issue_policy_compliant_partial_refund"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "runtimes": [
+      "r1_guarded",
+      "r2_confirmed"
+    ],
+    "conditions": [
+      "clean",
+      "fault"
+    ],
+    "faults": {
+      "retail.place_discounted_order": "order post-commit timeout once",
+      "retail.issue_policy_compliant_partial_refund": "refund post-commit timeout once"
+    },
+    "model_calls": 0,
+    "external_network_calls": 0,
+    "uses_only_synthetic_data": true,
+    "trace_payload_policy": "digests and typed metadata only",
+    "source_manifest": {
+      "algorithm": "sha256(canonical_json({relative_path: file_sha256}))",
+      "sha256": "f802bf8e758a83f9749473d32144a8d81f65971b61529962197efbc6d17a33a0",
+      "files": {
+        "scripts/run_retail_minimal.py": "9ea456a0b9b312a28e7df494b95356c0b15fc5f1c08de85ab0320cc82159c4c9",
+        "src/arl/core/types.py": "58862356fa7aca2817fa1f30a7136409605501efc5a44b8e0a54b4eb2beb76b2",
+        "src/arl/runtime/journal.py": "29082aa1ea86243356aba4f70691593543ea6b4a1bd5d808c22ef1f987474ae3",
+        "src/arl_retail/__init__.py": "1d4e7ddc111abf4c3a41edcfaeb6c89bdf17abd822a2bb4266fb98c6f5eee03f",
+        "src/arl_retail/env.py": "70d6363a765acaf1545b6bb3e9cbfd558399a4a69e5a17c7a3313849ee65296b",
+        "src/arl_retail/evaluator.py": "49658dc83471d43974b7e80a5f2da2e6b9faa7c7cffcd40c1ed485091a7fc89e",
+        "src/arl_retail/experiment.py": "0349956ed13e1612e5ef8abd32f5179de8ba68958a548ad21402a6926689d055",
+        "src/arl_retail/runtime.py": "ef40f71aadd8b5ad50c60a57b990ac38a7865a5357f07631c57cc780bb5228f8"
+      }
+    },
+    "trace_manifest": {
+      "algorithm": "sha256(canonical_json({trace_filename: file_sha256}))",
+      "sha256": "7162a76c3c357e3b665cd521eda015ac6f5e4c29384e91d96e3ee91e5ac07572",
+      "files": {
+        "retail-purchase-seed-0-r1_guarded-clean.jsonl": "32629bff058e4fcde0c4b563153681afac14e136d709a04cd98b4981944f0904",
+        "retail-purchase-seed-0-r1_guarded-fault.jsonl": "47ae14e07cafb6ae7bd48f074a6b1f2ead8320aa10d914fa7a45e663faea4884",
+        "retail-purchase-seed-0-r2_confirmed-clean.jsonl": "c8b6d2c72c4939b7fc68f564e0c2e0bf22d013eaa9bf64608093bd2bdcb7fb70",
+        "retail-purchase-seed-0-r2_confirmed-fault.jsonl": "f5c362f02c605092762171bf8cfbd7125dcdbbdc9c3659fa88a45b063cca54a3",
+        "retail-purchase-seed-1-r1_guarded-clean.jsonl": "044f11f2948075dd0bedea72d674ab884b298dedcd4efdb4e32b2990cd380929",
+        "retail-purchase-seed-1-r1_guarded-fault.jsonl": "c6a53b677abb7a2a44bd4b6ece8844201ebc2072cccf8c6c483f80b634c39406",
+        "retail-purchase-seed-1-r2_confirmed-clean.jsonl": "9d6e5e14e36a9d4f87ea72c38049130d5a42904604a55915f1a5f06218a9f729",
+        "retail-purchase-seed-1-r2_confirmed-fault.jsonl": "0cde4bab2dc15ff95809c99b34d602aa0022c522289b238fb54ae0961f8bdc56",
+        "retail-purchase-seed-2-r1_guarded-clean.jsonl": "ce97e0d007360c9d083fe42b95a480dd1971a54685b50bc23d199ec37f128633",
+        "retail-purchase-seed-2-r1_guarded-fault.jsonl": "2cfd74f9b6fe814a58b49f502968e9a1755e2cd82084cbcb31972ace4a3f7a65",
+        "retail-purchase-seed-2-r2_confirmed-clean.jsonl": "4d9e7aeb5a4f368e4866d9c8c028330470430273ecc2e7f96c54d8b370a61d9e",
+        "retail-purchase-seed-2-r2_confirmed-fault.jsonl": "bd110b3fffcd29e7c6d8ba7417d58dc3cccfe9e0514f0a29fefa044949d589f1",
+        "retail-refund-seed-0-r1_guarded-clean.jsonl": "825a54daadc61fb36b0f433222963cf3abd518eaa4219e3b4125cab5566847ac",
+        "retail-refund-seed-0-r1_guarded-fault.jsonl": "c0d8482e90caaf7472a786b9e9856f28b392690827b8218161e036c549afb5c6",
+        "retail-refund-seed-0-r2_confirmed-clean.jsonl": "cc29f942672a65e359bc94a1c0bd2673c9beceaef137dab25e8b4a60ec285a62",
+        "retail-refund-seed-0-r2_confirmed-fault.jsonl": "e3beab36d2dee8a3d0b35b840b59265021acd0f5effea5ebf48a3a0840d3958a",
+        "retail-refund-seed-1-r1_guarded-clean.jsonl": "d80cc35d3b9fb361ce040e3d5ef0d05ad214a0331f0dade36bd25de5dfddf428",
+        "retail-refund-seed-1-r1_guarded-fault.jsonl": "fe90a066ee424d8b41b6475e62e577b45ff6b3475775d1c32eb296570ad57fb0",
+        "retail-refund-seed-1-r2_confirmed-clean.jsonl": "82a3a39c6a17aa0ebe860c60b1a36aade25cf48895c88fe5fc251e4f81fa9fb3",
+        "retail-refund-seed-1-r2_confirmed-fault.jsonl": "c507dff70fd1883a15cd93b200d0e2458603204facecb37f363b2f4af88de387",
+        "retail-refund-seed-2-r1_guarded-clean.jsonl": "de58813b605a2598ccc6610986ebbe79201284771d0c9b086bf9ba7cd17c46d2",
+        "retail-refund-seed-2-r1_guarded-fault.jsonl": "2c7fe7a1b9d2cb01a83b579b9ffc2cf600b8b9f1118dedca8e118e815a06a38c",
+        "retail-refund-seed-2-r2_confirmed-clean.jsonl": "f4e113c55bb8dfe0ab84bef833c3a9718d09f96e5c150ecfd2bdf58035af779c",
+        "retail-refund-seed-2-r2_confirmed-fault.jsonl": "4d5e98f3c5dfe16e645877a31e0f7735e36ccb725d6502e6d7a7c9bac5209fa6"
+      }
+    }
+  },
+  "episodes": [
+    {
+      "episode_id": "retail-purchase-seed-0-r1_guarded-clean",
+      "task_id": "retail.place_discounted_order",
+      "seed": 0,
+      "runtime": "r1_guarded",
+      "condition": "clean",
+      "fault_mode": "none",
+      "initial_state_hash": "66f2760cdc9cd2a9f7f15d1ebc7ef8cf6f6b181986fdd0b0a961834a148e53ef",
+      "final_state_hash": "0265db065e86e9dc7060160200323f109968681e12d3ce5a8cfef61bee7fa4f0",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 0,
+      "confirmation_count": 0,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 1,
+        "refunds": 0,
+        "idempotency_records": 0
+      },
+      "trace_file": "retail-purchase-seed-0-r1_guarded-clean.jsonl",
+      "trace_sha256": "32629bff058e4fcde0c4b563153681afac14e136d709a04cd98b4981944f0904",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "retail-purchase-seed-1-r1_guarded-clean",
+      "task_id": "retail.place_discounted_order",
+      "seed": 1,
+      "runtime": "r1_guarded",
+      "condition": "clean",
+      "fault_mode": "none",
+      "initial_state_hash": "d61bceea728f801062854de95832fb48e7e877ca7b3a6efeedb5f84a908fe228",
+      "final_state_hash": "919244e416551e0a17ec6495fcaeed3f0838f11c1d1ce60ccd594e99aa47b23f",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 0,
+      "confirmation_count": 0,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 1,
+        "refunds": 0,
+        "idempotency_records": 0
+      },
+      "trace_file": "retail-purchase-seed-1-r1_guarded-clean.jsonl",
+      "trace_sha256": "044f11f2948075dd0bedea72d674ab884b298dedcd4efdb4e32b2990cd380929",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "retail-purchase-seed-2-r1_guarded-clean",
+      "task_id": "retail.place_discounted_order",
+      "seed": 2,
+      "runtime": "r1_guarded",
+      "condition": "clean",
+      "fault_mode": "none",
+      "initial_state_hash": "092aaf4b46c15365d5a2c3e6d54e205b96a2d06c03e026d5dfae9495149c0c02",
+      "final_state_hash": "15b424cb589b3f89cec212930e361a9dc92ad4a771230c45961024ba8e62a36d",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 0,
+      "confirmation_count": 0,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 1,
+        "refunds": 0,
+        "idempotency_records": 0
+      },
+      "trace_file": "retail-purchase-seed-2-r1_guarded-clean.jsonl",
+      "trace_sha256": "ce97e0d007360c9d083fe42b95a480dd1971a54685b50bc23d199ec37f128633",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "retail-purchase-seed-0-r1_guarded-fault",
+      "task_id": "retail.place_discounted_order",
+      "seed": 0,
+      "runtime": "r1_guarded",
+      "condition": "fault",
+      "fault_mode": "order_postcommit_timeout_once",
+      "initial_state_hash": "66f2760cdc9cd2a9f7f15d1ebc7ef8cf6f6b181986fdd0b0a961834a148e53ef",
+      "final_state_hash": "3491c6ce2c4066bb30981219539b9fd60261821633f133a69d77c91b8694decd",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": false,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 1,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "retail-purchase-seed-0-r1_guarded-fault:0008"
+        ],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 1,
+      "confirmation_count": 0,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 1,
+        "refunds": 0,
+        "idempotency_records": 0
+      },
+      "trace_file": "retail-purchase-seed-0-r1_guarded-fault.jsonl",
+      "trace_sha256": "47ae14e07cafb6ae7bd48f074a6b1f2ead8320aa10d914fa7a45e663faea4884",
+      "trace_event_count": 11
+    },
+    {
+      "episode_id": "retail-purchase-seed-1-r1_guarded-fault",
+      "task_id": "retail.place_discounted_order",
+      "seed": 1,
+      "runtime": "r1_guarded",
+      "condition": "fault",
+      "fault_mode": "order_postcommit_timeout_once",
+      "initial_state_hash": "d61bceea728f801062854de95832fb48e7e877ca7b3a6efeedb5f84a908fe228",
+      "final_state_hash": "88e0a42f92decf40331bad99fe7549d0d89e3e590575e1e59a3e806f76a6b79e",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": false,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 1,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "retail-purchase-seed-1-r1_guarded-fault:0008"
+        ],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 1,
+      "confirmation_count": 0,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 1,
+        "refunds": 0,
+        "idempotency_records": 0
+      },
+      "trace_file": "retail-purchase-seed-1-r1_guarded-fault.jsonl",
+      "trace_sha256": "c6a53b677abb7a2a44bd4b6ece8844201ebc2072cccf8c6c483f80b634c39406",
+      "trace_event_count": 11
+    },
+    {
+      "episode_id": "retail-purchase-seed-2-r1_guarded-fault",
+      "task_id": "retail.place_discounted_order",
+      "seed": 2,
+      "runtime": "r1_guarded",
+      "condition": "fault",
+      "fault_mode": "order_postcommit_timeout_once",
+      "initial_state_hash": "092aaf4b46c15365d5a2c3e6d54e205b96a2d06c03e026d5dfae9495149c0c02",
+      "final_state_hash": "64d99f06462df39a3473f28db754f6898d8297b5c3d1f707cb8e1f0fc4c79f21",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": false,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 1,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "retail-purchase-seed-2-r1_guarded-fault:0008"
+        ],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 1,
+      "confirmation_count": 0,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 1,
+        "refunds": 0,
+        "idempotency_records": 0
+      },
+      "trace_file": "retail-purchase-seed-2-r1_guarded-fault.jsonl",
+      "trace_sha256": "2cfd74f9b6fe814a58b49f502968e9a1755e2cd82084cbcb31972ace4a3f7a65",
+      "trace_event_count": 11
+    },
+    {
+      "episode_id": "retail-purchase-seed-0-r2_confirmed-clean",
+      "task_id": "retail.place_discounted_order",
+      "seed": 0,
+      "runtime": "r2_confirmed",
+      "condition": "clean",
+      "fault_mode": "none",
+      "initial_state_hash": "66f2760cdc9cd2a9f7f15d1ebc7ef8cf6f6b181986fdd0b0a961834a148e53ef",
+      "final_state_hash": "bb0227b2a999fd8e3dc4479071d6ab08e1b8a7e2bdeb51eaa677bd57ed144d4a",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 0,
+      "confirmation_count": 0,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 1,
+        "refunds": 0,
+        "idempotency_records": 4
+      },
+      "trace_file": "retail-purchase-seed-0-r2_confirmed-clean.jsonl",
+      "trace_sha256": "c8b6d2c72c4939b7fc68f564e0c2e0bf22d013eaa9bf64608093bd2bdcb7fb70",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "retail-purchase-seed-1-r2_confirmed-clean",
+      "task_id": "retail.place_discounted_order",
+      "seed": 1,
+      "runtime": "r2_confirmed",
+      "condition": "clean",
+      "fault_mode": "none",
+      "initial_state_hash": "d61bceea728f801062854de95832fb48e7e877ca7b3a6efeedb5f84a908fe228",
+      "final_state_hash": "d66d71c3942246e57af335d145f532d4dd89e9c6aa714d225117106d58d94db3",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 0,
+      "confirmation_count": 0,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 1,
+        "refunds": 0,
+        "idempotency_records": 4
+      },
+      "trace_file": "retail-purchase-seed-1-r2_confirmed-clean.jsonl",
+      "trace_sha256": "9d6e5e14e36a9d4f87ea72c38049130d5a42904604a55915f1a5f06218a9f729",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "retail-purchase-seed-2-r2_confirmed-clean",
+      "task_id": "retail.place_discounted_order",
+      "seed": 2,
+      "runtime": "r2_confirmed",
+      "condition": "clean",
+      "fault_mode": "none",
+      "initial_state_hash": "092aaf4b46c15365d5a2c3e6d54e205b96a2d06c03e026d5dfae9495149c0c02",
+      "final_state_hash": "79152faebd21dbdc02c9cb27458b5dcdc9eb7cd195db1ff3f3961ba415173649",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 0,
+      "confirmation_count": 0,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 1,
+        "refunds": 0,
+        "idempotency_records": 4
+      },
+      "trace_file": "retail-purchase-seed-2-r2_confirmed-clean.jsonl",
+      "trace_sha256": "4d9e7aeb5a4f368e4866d9c8c028330470430273ecc2e7f96c54d8b370a61d9e",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "retail-purchase-seed-0-r2_confirmed-fault",
+      "task_id": "retail.place_discounted_order",
+      "seed": 0,
+      "runtime": "r2_confirmed",
+      "condition": "fault",
+      "fault_mode": "order_postcommit_timeout_once",
+      "initial_state_hash": "66f2760cdc9cd2a9f7f15d1ebc7ef8cf6f6b181986fdd0b0a961834a148e53ef",
+      "final_state_hash": "bb0227b2a999fd8e3dc4479071d6ab08e1b8a7e2bdeb51eaa677bd57ed144d4a",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "tool_attempts": 5,
+        "retry_count": 0,
+        "confirmation_count": 1,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "retail-purchase-seed-0-r2_confirmed-fault:0011"
+        ],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 0,
+      "confirmation_count": 1,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 1,
+        "refunds": 0,
+        "idempotency_records": 4
+      },
+      "trace_file": "retail-purchase-seed-0-r2_confirmed-fault.jsonl",
+      "trace_sha256": "f5c362f02c605092762171bf8cfbd7125dcdbbdc9c3659fa88a45b063cca54a3",
+      "trace_event_count": 14
+    },
+    {
+      "episode_id": "retail-purchase-seed-1-r2_confirmed-fault",
+      "task_id": "retail.place_discounted_order",
+      "seed": 1,
+      "runtime": "r2_confirmed",
+      "condition": "fault",
+      "fault_mode": "order_postcommit_timeout_once",
+      "initial_state_hash": "d61bceea728f801062854de95832fb48e7e877ca7b3a6efeedb5f84a908fe228",
+      "final_state_hash": "d66d71c3942246e57af335d145f532d4dd89e9c6aa714d225117106d58d94db3",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "tool_attempts": 5,
+        "retry_count": 0,
+        "confirmation_count": 1,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "retail-purchase-seed-1-r2_confirmed-fault:0011"
+        ],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 0,
+      "confirmation_count": 1,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 1,
+        "refunds": 0,
+        "idempotency_records": 4
+      },
+      "trace_file": "retail-purchase-seed-1-r2_confirmed-fault.jsonl",
+      "trace_sha256": "0cde4bab2dc15ff95809c99b34d602aa0022c522289b238fb54ae0961f8bdc56",
+      "trace_event_count": 14
+    },
+    {
+      "episode_id": "retail-purchase-seed-2-r2_confirmed-fault",
+      "task_id": "retail.place_discounted_order",
+      "seed": 2,
+      "runtime": "r2_confirmed",
+      "condition": "fault",
+      "fault_mode": "order_postcommit_timeout_once",
+      "initial_state_hash": "092aaf4b46c15365d5a2c3e6d54e205b96a2d06c03e026d5dfae9495149c0c02",
+      "final_state_hash": "79152faebd21dbdc02c9cb27458b5dcdc9eb7cd195db1ff3f3961ba415173649",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "tool_attempts": 5,
+        "retry_count": 0,
+        "confirmation_count": 1,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "retail-purchase-seed-2-r2_confirmed-fault:0011"
+        ],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 0,
+      "confirmation_count": 1,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 1,
+        "refunds": 0,
+        "idempotency_records": 4
+      },
+      "trace_file": "retail-purchase-seed-2-r2_confirmed-fault.jsonl",
+      "trace_sha256": "bd110b3fffcd29e7c6d8ba7417d58dc3cccfe9e0514f0a29fefa044949d589f1",
+      "trace_event_count": 14
+    },
+    {
+      "episode_id": "retail-refund-seed-0-r1_guarded-clean",
+      "task_id": "retail.issue_policy_compliant_partial_refund",
+      "seed": 0,
+      "runtime": "r1_guarded",
+      "condition": "clean",
+      "fault_mode": "none",
+      "initial_state_hash": "d8d949c54f6e31799cbacce4f49a0529b67f8bda6d2be7b42a964b6664623d06",
+      "final_state_hash": "0d362856560914afa0ab83890a84072a382406802e847d7a04da9a32540c30cf",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": true,
+        "actions_planned": 2,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "partial_refund_issued": true,
+          "order_marked_partially_refunded": true,
+          "refund_request_resolved": true,
+          "inventory_unchanged": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_refunds=1",
+          "request_resolved=True",
+          "target_item_updated=True",
+          "unrelated_items_unchanged=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 0,
+      "confirmation_count": 0,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 2,
+        "refunds": 1,
+        "idempotency_records": 0
+      },
+      "trace_file": "retail-refund-seed-0-r1_guarded-clean.jsonl",
+      "trace_sha256": "825a54daadc61fb36b0f433222963cf3abd518eaa4219e3b4125cab5566847ac",
+      "trace_event_count": 6
+    },
+    {
+      "episode_id": "retail-refund-seed-1-r1_guarded-clean",
+      "task_id": "retail.issue_policy_compliant_partial_refund",
+      "seed": 1,
+      "runtime": "r1_guarded",
+      "condition": "clean",
+      "fault_mode": "none",
+      "initial_state_hash": "14ef8d73f9367ea2e7a51d29153e12094773524b27cada0fdc8e7aa8b399c883",
+      "final_state_hash": "fdc9c135a6ab9321cfaf2687a80e372ab2067c2d8e2d02a5d6c478e28b382247",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": true,
+        "actions_planned": 2,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "partial_refund_issued": true,
+          "order_marked_partially_refunded": true,
+          "refund_request_resolved": true,
+          "inventory_unchanged": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_refunds=1",
+          "request_resolved=True",
+          "target_item_updated=True",
+          "unrelated_items_unchanged=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 0,
+      "confirmation_count": 0,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 2,
+        "refunds": 1,
+        "idempotency_records": 0
+      },
+      "trace_file": "retail-refund-seed-1-r1_guarded-clean.jsonl",
+      "trace_sha256": "d80cc35d3b9fb361ce040e3d5ef0d05ad214a0331f0dade36bd25de5dfddf428",
+      "trace_event_count": 6
+    },
+    {
+      "episode_id": "retail-refund-seed-2-r1_guarded-clean",
+      "task_id": "retail.issue_policy_compliant_partial_refund",
+      "seed": 2,
+      "runtime": "r1_guarded",
+      "condition": "clean",
+      "fault_mode": "none",
+      "initial_state_hash": "e85399f057304c9321b19f2014c656214db670c09494dcaadff71d23c85a48f6",
+      "final_state_hash": "7ee6a2a7da1696a635fae98e1ef5ae20fdd054b15d61f4fd4d47cf4464c7aae2",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": true,
+        "actions_planned": 2,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "partial_refund_issued": true,
+          "order_marked_partially_refunded": true,
+          "refund_request_resolved": true,
+          "inventory_unchanged": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_refunds=1",
+          "request_resolved=True",
+          "target_item_updated=True",
+          "unrelated_items_unchanged=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 0,
+      "confirmation_count": 0,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 2,
+        "refunds": 1,
+        "idempotency_records": 0
+      },
+      "trace_file": "retail-refund-seed-2-r1_guarded-clean.jsonl",
+      "trace_sha256": "de58813b605a2598ccc6610986ebbe79201284771d0c9b086bf9ba7cd17c46d2",
+      "trace_event_count": 6
+    },
+    {
+      "episode_id": "retail-refund-seed-0-r1_guarded-fault",
+      "task_id": "retail.issue_policy_compliant_partial_refund",
+      "seed": 0,
+      "runtime": "r1_guarded",
+      "condition": "fault",
+      "fault_mode": "refund_postcommit_timeout_once",
+      "initial_state_hash": "d8d949c54f6e31799cbacce4f49a0529b67f8bda6d2be7b42a964b6664623d06",
+      "final_state_hash": "a627c2a8696d5ce1b7bb56c9c4d80ca7901fc61d5573977351549530b5021a1d",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": false,
+        "actions_planned": 2,
+        "tool_attempts": 2,
+        "retry_count": 1,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "partial_refund_issued": true,
+          "order_marked_partially_refunded": true,
+          "refund_request_resolved": false,
+          "inventory_unchanged": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "retail-refund-seed-0-r1_guarded-fault:0004"
+        ],
+        "evidence": [
+          "matching_refunds=1",
+          "request_resolved=False",
+          "target_item_updated=True",
+          "unrelated_items_unchanged=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 1,
+      "confirmation_count": 0,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 2,
+        "refunds": 1,
+        "idempotency_records": 0
+      },
+      "trace_file": "retail-refund-seed-0-r1_guarded-fault.jsonl",
+      "trace_sha256": "c0d8482e90caaf7472a786b9e9856f28b392690827b8218161e036c549afb5c6",
+      "trace_event_count": 7
+    },
+    {
+      "episode_id": "retail-refund-seed-1-r1_guarded-fault",
+      "task_id": "retail.issue_policy_compliant_partial_refund",
+      "seed": 1,
+      "runtime": "r1_guarded",
+      "condition": "fault",
+      "fault_mode": "refund_postcommit_timeout_once",
+      "initial_state_hash": "14ef8d73f9367ea2e7a51d29153e12094773524b27cada0fdc8e7aa8b399c883",
+      "final_state_hash": "34e5f8350ee820766f579536b5dd6683aa0c71b8be108a70fee0574c71aa1cf6",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": false,
+        "actions_planned": 2,
+        "tool_attempts": 2,
+        "retry_count": 1,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "partial_refund_issued": true,
+          "order_marked_partially_refunded": true,
+          "refund_request_resolved": false,
+          "inventory_unchanged": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "retail-refund-seed-1-r1_guarded-fault:0004"
+        ],
+        "evidence": [
+          "matching_refunds=1",
+          "request_resolved=False",
+          "target_item_updated=True",
+          "unrelated_items_unchanged=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 1,
+      "confirmation_count": 0,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 2,
+        "refunds": 1,
+        "idempotency_records": 0
+      },
+      "trace_file": "retail-refund-seed-1-r1_guarded-fault.jsonl",
+      "trace_sha256": "fe90a066ee424d8b41b6475e62e577b45ff6b3475775d1c32eb296570ad57fb0",
+      "trace_event_count": 7
+    },
+    {
+      "episode_id": "retail-refund-seed-2-r1_guarded-fault",
+      "task_id": "retail.issue_policy_compliant_partial_refund",
+      "seed": 2,
+      "runtime": "r1_guarded",
+      "condition": "fault",
+      "fault_mode": "refund_postcommit_timeout_once",
+      "initial_state_hash": "e85399f057304c9321b19f2014c656214db670c09494dcaadff71d23c85a48f6",
+      "final_state_hash": "da82c674a483722926cdfd70d8325cb0802acc67df84b5f79dd83e81ee9e6ad7",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": false,
+        "actions_planned": 2,
+        "tool_attempts": 2,
+        "retry_count": 1,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "partial_refund_issued": true,
+          "order_marked_partially_refunded": true,
+          "refund_request_resolved": false,
+          "inventory_unchanged": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "retail-refund-seed-2-r1_guarded-fault:0004"
+        ],
+        "evidence": [
+          "matching_refunds=1",
+          "request_resolved=False",
+          "target_item_updated=True",
+          "unrelated_items_unchanged=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 1,
+      "confirmation_count": 0,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 2,
+        "refunds": 1,
+        "idempotency_records": 0
+      },
+      "trace_file": "retail-refund-seed-2-r1_guarded-fault.jsonl",
+      "trace_sha256": "2c7fe7a1b9d2cb01a83b579b9ffc2cf600b8b9f1118dedca8e118e815a06a38c",
+      "trace_event_count": 7
+    },
+    {
+      "episode_id": "retail-refund-seed-0-r2_confirmed-clean",
+      "task_id": "retail.issue_policy_compliant_partial_refund",
+      "seed": 0,
+      "runtime": "r2_confirmed",
+      "condition": "clean",
+      "fault_mode": "none",
+      "initial_state_hash": "d8d949c54f6e31799cbacce4f49a0529b67f8bda6d2be7b42a964b6664623d06",
+      "final_state_hash": "b88af68ee4d66e74d0919227dcea28c892f0f12f42e6d908fb882a8ff00587e4",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 2,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "partial_refund_issued": true,
+          "order_marked_partially_refunded": true,
+          "refund_request_resolved": true,
+          "inventory_unchanged": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_refunds=1",
+          "request_resolved=True",
+          "target_item_updated=True",
+          "unrelated_items_unchanged=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 0,
+      "confirmation_count": 0,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 2,
+        "refunds": 1,
+        "idempotency_records": 2
+      },
+      "trace_file": "retail-refund-seed-0-r2_confirmed-clean.jsonl",
+      "trace_sha256": "cc29f942672a65e359bc94a1c0bd2673c9beceaef137dab25e8b4a60ec285a62",
+      "trace_event_count": 6
+    },
+    {
+      "episode_id": "retail-refund-seed-1-r2_confirmed-clean",
+      "task_id": "retail.issue_policy_compliant_partial_refund",
+      "seed": 1,
+      "runtime": "r2_confirmed",
+      "condition": "clean",
+      "fault_mode": "none",
+      "initial_state_hash": "14ef8d73f9367ea2e7a51d29153e12094773524b27cada0fdc8e7aa8b399c883",
+      "final_state_hash": "683d2c9d910d84d2c0421e190bf4622e4df5a8d3e6059ba3fea7d0416fec76bb",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 2,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "partial_refund_issued": true,
+          "order_marked_partially_refunded": true,
+          "refund_request_resolved": true,
+          "inventory_unchanged": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_refunds=1",
+          "request_resolved=True",
+          "target_item_updated=True",
+          "unrelated_items_unchanged=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 0,
+      "confirmation_count": 0,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 2,
+        "refunds": 1,
+        "idempotency_records": 2
+      },
+      "trace_file": "retail-refund-seed-1-r2_confirmed-clean.jsonl",
+      "trace_sha256": "82a3a39c6a17aa0ebe860c60b1a36aade25cf48895c88fe5fc251e4f81fa9fb3",
+      "trace_event_count": 6
+    },
+    {
+      "episode_id": "retail-refund-seed-2-r2_confirmed-clean",
+      "task_id": "retail.issue_policy_compliant_partial_refund",
+      "seed": 2,
+      "runtime": "r2_confirmed",
+      "condition": "clean",
+      "fault_mode": "none",
+      "initial_state_hash": "e85399f057304c9321b19f2014c656214db670c09494dcaadff71d23c85a48f6",
+      "final_state_hash": "af6f3fed84346c9613bd6e2f2c4fcb7a61bad137a37b317cb12b66151b8e340d",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 2,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "partial_refund_issued": true,
+          "order_marked_partially_refunded": true,
+          "refund_request_resolved": true,
+          "inventory_unchanged": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_refunds=1",
+          "request_resolved=True",
+          "target_item_updated=True",
+          "unrelated_items_unchanged=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 0,
+      "confirmation_count": 0,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 2,
+        "refunds": 1,
+        "idempotency_records": 2
+      },
+      "trace_file": "retail-refund-seed-2-r2_confirmed-clean.jsonl",
+      "trace_sha256": "f4e113c55bb8dfe0ab84bef833c3a9718d09f96e5c150ecfd2bdf58035af779c",
+      "trace_event_count": 6
+    },
+    {
+      "episode_id": "retail-refund-seed-0-r2_confirmed-fault",
+      "task_id": "retail.issue_policy_compliant_partial_refund",
+      "seed": 0,
+      "runtime": "r2_confirmed",
+      "condition": "fault",
+      "fault_mode": "refund_postcommit_timeout_once",
+      "initial_state_hash": "d8d949c54f6e31799cbacce4f49a0529b67f8bda6d2be7b42a964b6664623d06",
+      "final_state_hash": "b88af68ee4d66e74d0919227dcea28c892f0f12f42e6d908fb882a8ff00587e4",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 2,
+        "tool_attempts": 3,
+        "retry_count": 0,
+        "confirmation_count": 1,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "partial_refund_issued": true,
+          "order_marked_partially_refunded": true,
+          "refund_request_resolved": true,
+          "inventory_unchanged": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "retail-refund-seed-0-r2_confirmed-fault:0007"
+        ],
+        "evidence": [
+          "matching_refunds=1",
+          "request_resolved=True",
+          "target_item_updated=True",
+          "unrelated_items_unchanged=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 0,
+      "confirmation_count": 1,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 2,
+        "refunds": 1,
+        "idempotency_records": 2
+      },
+      "trace_file": "retail-refund-seed-0-r2_confirmed-fault.jsonl",
+      "trace_sha256": "e3beab36d2dee8a3d0b35b840b59265021acd0f5effea5ebf48a3a0840d3958a",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "retail-refund-seed-1-r2_confirmed-fault",
+      "task_id": "retail.issue_policy_compliant_partial_refund",
+      "seed": 1,
+      "runtime": "r2_confirmed",
+      "condition": "fault",
+      "fault_mode": "refund_postcommit_timeout_once",
+      "initial_state_hash": "14ef8d73f9367ea2e7a51d29153e12094773524b27cada0fdc8e7aa8b399c883",
+      "final_state_hash": "683d2c9d910d84d2c0421e190bf4622e4df5a8d3e6059ba3fea7d0416fec76bb",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 2,
+        "tool_attempts": 3,
+        "retry_count": 0,
+        "confirmation_count": 1,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "partial_refund_issued": true,
+          "order_marked_partially_refunded": true,
+          "refund_request_resolved": true,
+          "inventory_unchanged": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "retail-refund-seed-1-r2_confirmed-fault:0007"
+        ],
+        "evidence": [
+          "matching_refunds=1",
+          "request_resolved=True",
+          "target_item_updated=True",
+          "unrelated_items_unchanged=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 0,
+      "confirmation_count": 1,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 2,
+        "refunds": 1,
+        "idempotency_records": 2
+      },
+      "trace_file": "retail-refund-seed-1-r2_confirmed-fault.jsonl",
+      "trace_sha256": "c507dff70fd1883a15cd93b200d0e2458603204facecb37f363b2f4af88de387",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "retail-refund-seed-2-r2_confirmed-fault",
+      "task_id": "retail.issue_policy_compliant_partial_refund",
+      "seed": 2,
+      "runtime": "r2_confirmed",
+      "condition": "fault",
+      "fault_mode": "refund_postcommit_timeout_once",
+      "initial_state_hash": "e85399f057304c9321b19f2014c656214db670c09494dcaadff71d23c85a48f6",
+      "final_state_hash": "af6f3fed84346c9613bd6e2f2c4fcb7a61bad137a37b317cb12b66151b8e340d",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 2,
+        "tool_attempts": 3,
+        "retry_count": 0,
+        "confirmation_count": 1,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "partial_refund_issued": true,
+          "order_marked_partially_refunded": true,
+          "refund_request_resolved": true,
+          "inventory_unchanged": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "retail-refund-seed-2-r2_confirmed-fault:0007"
+        ],
+        "evidence": [
+          "matching_refunds=1",
+          "request_resolved=True",
+          "target_item_updated=True",
+          "unrelated_items_unchanged=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "retry_count": 0,
+      "confirmation_count": 1,
+      "final_state_counts": {
+        "orders": 1,
+        "order_items": 2,
+        "refunds": 1,
+        "idempotency_records": 2
+      },
+      "trace_file": "retail-refund-seed-2-r2_confirmed-fault.jsonl",
+      "trace_sha256": "4d5e98f3c5dfe16e645877a31e0f7735e36ccb725d6502e6d7a7c9bac5209fa6",
+      "trace_event_count": 10
+    }
+  ],
+  "aggregate": {
+    "episode_count": 24,
+    "task_count": 2,
+    "seed_count": 3,
+    "runtime_count": 2,
+    "condition_count": 2,
+    "by_runtime": {
+      "r1_guarded": {
+        "episode_count": 12,
+        "clean_successes": 6,
+        "clean_total": 6,
+        "fault_successes": 0,
+        "fault_total": 6,
+        "safe_successes": 6,
+        "safe_total": 12,
+        "retry_count": 6,
+        "confirmation_count": 0,
+        "recovery_rate": 0.0,
+        "recovered_fault_pairs": []
+      },
+      "r2_confirmed": {
+        "episode_count": 12,
+        "clean_successes": 6,
+        "clean_total": 6,
+        "fault_successes": 6,
+        "fault_total": 6,
+        "safe_successes": 12,
+        "safe_total": 12,
+        "retry_count": 0,
+        "confirmation_count": 6,
+        "recovery_rate": 1.0,
+        "recovered_fault_pairs": [
+          {
+            "task_id": "retail.issue_policy_compliant_partial_refund",
+            "seed": 0
+          },
+          {
+            "task_id": "retail.issue_policy_compliant_partial_refund",
+            "seed": 1
+          },
+          {
+            "task_id": "retail.issue_policy_compliant_partial_refund",
+            "seed": 2
+          },
+          {
+            "task_id": "retail.place_discounted_order",
+            "seed": 0
+          },
+          {
+            "task_id": "retail.place_discounted_order",
+            "seed": 1
+          },
+          {
+            "task_id": "retail.place_discounted_order",
+            "seed": 2
+          }
+        ]
+      }
+    },
+    "by_task": {
+      "retail.place_discounted_order": {
+        "r1_guarded": {
+          "clean": {
+            "successes": 3,
+            "total": 3
+          },
+          "fault": {
+            "successes": 0,
+            "total": 3
+          }
+        },
+        "r2_confirmed": {
+          "clean": {
+            "successes": 3,
+            "total": 3
+          },
+          "fault": {
+            "successes": 3,
+            "total": 3
+          }
+        }
+      },
+      "retail.issue_policy_compliant_partial_refund": {
+        "r1_guarded": {
+          "clean": {
+            "successes": 3,
+            "total": 3
+          },
+          "fault": {
+            "successes": 0,
+            "total": 3
+          }
+        },
+        "r2_confirmed": {
+          "clean": {
+            "successes": 3,
+            "total": 3
+          },
+          "fault": {
+            "successes": 3,
+            "total": 3
+          }
+        }
+      }
+    },
+    "paired_recovery_rate_delta_r2_minus_r1": 1.0
+  },
+  "validity": {
+    "order_idempotent_replay": {
+      "first_status": "ok",
+      "replay_status": "ok",
+      "state_hash_unchanged": true,
+      "order_count": 1,
+      "passed": true
+    },
+    "order_idempotency_key_conflict": {
+      "status": "conflict",
+      "error_code": "idempotency_key_reused",
+      "state_hash_unchanged": true,
+      "passed": true
+    },
+    "refund_idempotent_replay": {
+      "state_hash_unchanged": true,
+      "refund_count": 1,
+      "passed": true
+    },
+    "refund_transaction_rollback": {
+      "error_code": "refund_transaction_conflict",
+      "state_hash_unchanged": true,
+      "refund_count": 1,
+      "refunded_quantity": 1,
+      "passed": true
+    },
+    "nonrefundable_policy_guard": {
+      "error_code": "refund_policy_violation",
+      "state_hash_unchanged": true,
+      "passed": true
+    },
+    "allowed_metadata_change": {
+      "purchase_safe_success": true,
+      "refund_safe_success": true,
+      "passed": true
+    },
+    "evaluator_mutations": {
+      "cases": {
+        "purchase.wrong_total": {
+          "task_success": false,
+          "safe_success": false,
+          "passed": true
+        },
+        "purchase.unresolved_purchase_request": {
+          "task_success": false,
+          "safe_success": false,
+          "passed": true
+        },
+        "purchase.extra_order": {
+          "task_success": true,
+          "safe_success": false,
+          "passed": true
+        },
+        "purchase.unrelated_inventory_change": {
+          "task_success": false,
+          "safe_success": false,
+          "passed": true
+        },
+        "refund.wrong_refund_amount": {
+          "task_success": false,
+          "safe_success": false,
+          "passed": true
+        },
+        "refund.unresolved_refund_request": {
+          "task_success": false,
+          "safe_success": false,
+          "passed": true
+        },
+        "refund.nonrefundable_extra_refund": {
+          "task_success": true,
+          "safe_success": false,
+          "passed": true
+        },
+        "refund.inventory_change": {
+          "task_success": false,
+          "safe_success": false,
+          "passed": true
+        }
+      },
+      "passed": true
+    },
+    "do_nothing_and_claim_rejected": {
+      "tasks": {
+        "retail.place_discounted_order": {
+          "do_nothing_rejected": true,
+          "claim_success_rejected": true,
+          "passed": true
+        },
+        "retail.issue_policy_compliant_partial_refund": {
+          "do_nothing_rejected": true,
+          "claim_success_rejected": true,
+          "passed": true
+        }
+      },
+      "passed": true
+    },
+    "ground_truth_isolation": {
+      "forbidden_visible_terms_by_task": {
+        "retail.place_discounted_order": [],
+        "retail.issue_policy_compliant_partial_refund": []
+      },
+      "passed": true
+    },
+    "reset_determinism": {
+      "repeats_per_task_seed": 20,
+      "unique_hash_count_by_task_seed": {
+        "retail.place_discounted_order": {
+          "0": 1,
+          "1": 1,
+          "2": 1
+        },
+        "retail.issue_policy_compliant_partial_refund": {
+          "0": 1,
+          "1": 1,
+          "2": 1
+        }
+      },
+      "passed": true
+    },
+    "snapshot_restore": {
+      "results_by_task_seed": {
+        "retail.place_discounted_order": {
+          "0": true,
+          "1": true,
+          "2": true
+        },
+        "retail.issue_policy_compliant_partial_refund": {
+          "0": true,
+          "1": true,
+          "2": true
+        }
+      },
+      "passed": true
+    },
+    "paired_initial_hashes": {
+      "passed": true
+    },
+    "r1_blind_retry_incomplete": {
+      "failure_codes": [
+        "state_version_conflict",
+        "state_version_conflict",
+        "state_version_conflict",
+        "state_version_conflict",
+        "state_version_conflict",
+        "state_version_conflict"
+      ],
+      "passed": true
+    },
+    "r2_confirmation_recovery": {
+      "confirmation_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "passed": true
+    },
+    "digest_only_traces": {
+      "forbidden_payload_markers": [],
+      "passed": true
+    },
+    "repeat_results_deterministic": true,
+    "all_selected_checks_passed": true
+  },
+  "limitations": [
+    "Two Retail tasks with three deterministic seeds each.",
+    "Fixed oracle action plans, not an LLM or learned policy.",
+    "Two controlled post-commit fault sites only.",
+    "No schema adapter, general conflict recovery, or compensation.",
+    "No Travel domain, symbolic user, scheduler, trace UI, model API, or network."
+  ]
+}

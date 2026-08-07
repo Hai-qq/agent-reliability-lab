@@ -6,12 +6,12 @@
 - Python `3.12.2`
 - Python SQLite runtime `3.45.1`
 - Ruff `0.15.17`
-- 根 project 保持 `0.3.0` 以保留 v0.3 manifest；Validity Gates v0.4 使用独立包和源码/结果 manifest
+- 根 project 保持 `0.3.0` 以保留 v0.3 manifest；Validity Gates v0.4 与 Retail v0.5 使用独立包和源码/结果 manifest
 - 第三方 Python runtime dependencies：无
 
-代码只使用 Python 标准库。`pyproject.toml` 声明 `requires-python >= 3.11`；三个自有增量的正式实验均固定为 Python 3.12.2。
+代码只使用 Python 标准库。`pyproject.toml` 声明 `requires-python >= 3.11`；自有增量的正式实验均固定为 Python 3.12.2。
 
-另以 Python `3.11.15` / SQLite `3.50.4` 运行当前 38 tests，全部通过；正式实验 JSON 仍只采用固定的 Python 3.12.2 环境。
+另以 Python `3.11.15` / SQLite `3.50.4` 运行当前 49 tests，全部通过；正式实验 JSON 仍只采用固定的 Python 3.12.2 环境。
 
 ## 运行测试
 
@@ -27,7 +27,7 @@ ruff check src scripts tests
 ruff format --check src scripts tests
 ```
 
-当前实测 `Ran 38 tests ... OK`，Ruff check/format check 均通过。历史 v0.1/v0.2/v0.3 的当时测试数保留在各自 `validation.log` 中。
+当前实测 `Ran 49 tests ... OK`，Ruff check/format check 均通过。历史 v0.1/v0.2/v0.3 的当时测试数保留在各自 `validation.log` 中。
 
 ## 运行 v0.1 配对实验
 
@@ -189,6 +189,46 @@ jq '.validity.random_valid_tool, .validity.dump_state, .validity.golden_trace' \
 ```
 
 应看到 random-valid-tool TaskSuccess/SafeSuccess 为 `11/120`、`6/120`，schema errors 为 0；dump-state 12/12 被拒绝；4 条 golden trace 与 3 类 mutation 门禁通过。正式与 repeat summary 逐字节一致，v0.4 source manifest 覆盖 28 个文件。
+
+## 运行 v0.5 Retail 双任务实验
+
+输出路径必须尚不存在；正式运行使用 Python 3.12.2：
+
+```bash
+ARL_RETAIL_RUN_DIR="$ARL_PROJECT/artifacts/retail_minimal_v05_rerun"
+
+env PYTHONPATH="$ARL_PROJECT/src" PYTHONDONTWRITEBYTECODE=1 \
+  "$ARL_PYTHON" scripts/run_retail_minimal.py \
+    --output "$ARL_RETAIL_RUN_DIR/summary.json" \
+    --traces-dir "$ARL_RETAIL_RUN_DIR/traces"
+```
+
+预期输出：
+
+```text
+Wrote 24 episodes, 24 traces, and .../summary.json
+```
+
+正式结果与独立重复位于：
+
+- [正式 summary](../artifacts/retail_minimal_v05/summary.json)
+- [正式 24 条 trace](../artifacts/retail_minimal_v05/traces/)
+- [独立 repeat](../artifacts/retail_minimal_v05_repeat/)
+- [v0.5 validation.log](../artifacts/retail_minimal_v05/validation.log)
+
+正式 summary SHA-256：
+
+```text
+19c823b0570504153403295d511fd2af31383be504288022ed90755d74d5fcdc
+```
+
+查询结果：
+
+```bash
+jq '.aggregate, .validity' artifacts/retail_minimal_v05/summary.json
+```
+
+应看到 24 episodes、2 tasks；R1 clean/fault 为 `6/6`、`0/6`，R2 为 `6/6`、`6/6`，且 `all_selected_checks_passed=true`。正式与 repeat summary 及 24/24 traces 逐字节一致；v0.5 source manifest 覆盖 8 个实际依赖文件，v0.1–v0.4 已记录 manifest 均保持匹配。
 
 ## 安全边界
 

@@ -1,0 +1,44 @@
+name: Bug report
+description: Report a reproducible problem in the local synthetic benchmark or runtime.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include credentials, real account data, or third-party private payloads.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What happened, and what did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal local reproduction
+      description: Include the command, task ID, seed, runtime, condition, and fixed versions.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Include sanitized error output, assertion failures, or artifact digests.
+    validations:
+      required: true
+  - type: input
+    id: commit
+    attributes:
+      label: Commit
+      description: Commit SHA or branch used for the reproduction.
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Safety scope
+      options:
+        - label: This report uses only local, synthetic, isolated data and contains no secrets.
+          required: true

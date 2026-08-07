@@ -1,0 +1,95 @@
+Agent Reliability Lab — Retail Minimal v0.5 validation
+Date: 2026-08-07
+Base commit: 4773126655cbc5a8324dc8873f85f0cbdb5af562 (merged Workspace Validity Gates v0.4)
+Branch: agent/retail-minimal-v05
+
+Environment
+  Formal Python: 3.12.2
+  Formal SQLite runtime: 3.45.1
+  Compatibility Python: 3.11.15
+  Compatibility SQLite runtime: 3.50.4
+  Ruff: 0.15.17
+  Retail increment: 0.5.0
+  Root project version: 0.3.0 (preserved for historical v0.3 manifest)
+  Third-party Python runtime dependencies: 0
+
+Tests
+  Command: PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12.2)" -m unittest discover -s tests -p 'test_*.py' -v
+  Result: Ran 49 tests in 0.957s; OK
+  Compatibility command: same suite with "$(uv python find 3.11)"
+  Compatibility result: Ran 49 tests in 0.683s; OK
+
+Static checks
+  Command: ruff check --no-cache src scripts tests
+  Result: All checks passed
+  Command: ruff format --check --no-cache src scripts tests
+  Result: 56 files already formatted
+  Command: git diff --check
+  Result: passed
+
+Formal experiment
+  Command: PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12.2)" scripts/run_retail_minimal.py --output artifacts/retail_minimal_v05/summary.json --traces-dir artifacts/retail_minimal_v05/traces
+  Result: 24 episodes and 24 traces written
+  Matrix: 2 tasks x 3 seeds x 2 runtimes x clean/fault
+  Model calls: 0
+  External network calls: 0
+
+Paired results
+  R1 clean: 6/6 TaskSuccess
+  R1 fault: 0/6 TaskSuccess
+  R1 recovery rate: 0.0
+  R1 fault behavior: 6 bounded blind retries, then state_version_conflict
+  R2 clean: 6/6 TaskSuccess and SafeSuccess
+  R2 fault: 6/6 TaskSuccess and SafeSuccess
+  R2 recovery rate: 1.0
+  R2 fault behavior: 6 read-after-write confirmations, 0 blind retries
+  Recovery-rate delta R2 - R1: 1.0
+
+Validity gates
+  Reset determinism: 2 tasks x 3 seeds x 20 resets; one unique hash per pair
+  Snapshot restore: 6/6 task/seed cases restored initial hash and state version
+  Paired initial hashes: matched for every task/seed
+  Idempotent replay: order and refund each remained one committed record
+  Idempotency conflict: changed order request with reused key returned idempotency_key_reused
+  Transaction rollback: duplicate refund id rolled back quantity update and preserved state hash
+  Policy guard: nonrefundable item returned refund_policy_violation with unchanged state
+  Evaluator mutations: 8/8 expected TaskSuccess/SafeSuccess outcomes
+  Do-nothing and claim-only: rejected for both tasks
+  Ground-truth isolation: no selected hidden term in either observation
+  Trace privacy: no selected raw customer/product/argument/coupon/reason marker
+  Internal shadow repeat: deterministic
+  All selected checks: passed
+
+External determinism
+  Repeat output: artifacts/retail_minimal_v05_repeat/
+  Formal/repeat summary: byte-identical
+  Formal/repeat traces: 24/24 byte-identical
+  Summary SHA-256: 19c823b0570504153403295d511fd2af31383be504288022ed90755d74d5fcdc
+  Source-manifest SHA-256: f802bf8e758a83f9749473d32144a8d81f65971b61529962197efbc6d17a33a0
+  Source manifest files: 8
+  Trace-manifest SHA-256: 7162a76c3c357e3b665cd521eda015ac6f5e4c29384e91d96e3ee91e5ac07572
+  Trace files/events: 24 / 222
+  Existing-output rerun exit: 1; Refusing to overwrite output
+
+Historical preservation
+  v0.1 recorded source manifest: matched 13/13 files
+  v0.2 recorded source manifest: matched 18/18 files
+  v0.3 recorded source manifest: matched 24/24 files
+  v0.4 recorded source manifest: matched 28/28 files
+
+Final repository and documentation audit
+  JSON: 17 files parsed
+  JSONL: 132 files / 1095 events parsed
+  Markdown: 34 files / 143 relative links / 0 broken
+  Public positioning: README, blueprint, open-source guide, and citation metadata present ARL as the original runtime/benchmark; upstream reproductions are supporting provenance
+  CITATION.cff: YAML parsed
+  Credential patterns and local user paths: absent from publishable files
+  Tracked cache/temp files: 0
+  Files larger than 1 MiB: 0
+
+Limits
+  Two Retail task templates with three deterministic seeds each
+  Fixed oracle plans, not a model agent
+  Two controlled post-commit fault sites only
+  No schema adapter, general conflict recovery, compensation, symbolic user, scheduler, viewer, Travel, model/API, or external network
+  Results are local mechanism evidence, not a model or benchmark leaderboard score

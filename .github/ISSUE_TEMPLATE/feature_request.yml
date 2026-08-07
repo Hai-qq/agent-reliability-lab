@@ -1,0 +1,35 @@
+name: Feature request
+description: Propose a testable reliability, evaluator, or local benchmark improvement.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Reliability problem
+      description: Which failure mode, evaluator gap, or reproducibility problem should this address?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed local design
+      description: Describe the synthetic state, tool contract, evaluator, and expected behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance evidence
+      description: List deterministic tests, paired experiments, artifacts, and limits needed for acceptance.
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope confirmation
+      options:
+        - label: The proposal stays local, synthetic, and isolated.
+          required: true
+        - label: Model/API, attack/defense, or real-system work is explicitly excluded unless separately authorized.
+          required: true
