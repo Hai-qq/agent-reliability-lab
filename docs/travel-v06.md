@@ -49,7 +49,7 @@ R2 的 3 次查询确认对应提交后 timeout，3 条 recovery branch 对应�
 - [正式 24 条 trace](../artifacts/travel_minimal_v06/traces/)
 - [独立 repeat](../artifacts/travel_minimal_v06_repeat/)
 - [命令、版本和哈希](../artifacts/travel_minimal_v06/validation.log)
-- [完整复现说明](./reproduction.md)
+- [完整实验指南](./running-experiments.md)
 
 正式与 repeat summary 逐字节一致，SHA-256 为 `51a5bd6aabca4b243c79325aa8446dd652ecefddfc9dba3d55303fd60e8b3bda`；24/24 条同名 trace 逐字节一致。v0.6 source manifest 覆盖 8 个实际依赖文件，SHA-256 为 `67a01d88b24fb41a61d550966e4137aca3a892bf35d24c170a600baa0f30c35c`。
 

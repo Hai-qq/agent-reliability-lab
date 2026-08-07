@@ -58,7 +58,7 @@ R1 的三个 fault episode 都在首次写已提交后盲重试，随后命中 `
 - 正式 trace：[traces/](../artifacts/workspace_r2_postcommit/traces/)
 - 独立重复：[workspace_r2_postcommit_repeat/](../artifacts/workspace_r2_postcommit_repeat/)
 - 命令、版本与哈希：[validation.log](../artifacts/workspace_r2_postcommit/validation.log)
-- 复现命令：[reproduction.md](./reproduction.md)
+- 实验命令：[Experiment Guide](./running-experiments.md)
 
 ## 限制与下一步
 

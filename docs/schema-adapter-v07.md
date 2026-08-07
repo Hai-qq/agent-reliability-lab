@@ -44,7 +44,7 @@ R2 的 registry 不读取 task ID、seed、fault ID、evaluator 目标或隐藏�
 - [正式 24 条 trace](../artifacts/schema_adapter_v07/traces/)
 - [独立 repeat](../artifacts/schema_adapter_v07_repeat/)
 - [命令、版本和哈希](../artifacts/schema_adapter_v07/validation.log)
-- [完整复现说明](./reproduction.md)
+- [完整实验指南](./running-experiments.md)
 
 正式与 repeat summary 逐字节一致，SHA-256 为 `a0b25f440651bfbe6776e2a4cb21c89630451775ad246fd4ae4735c4791b13d6`；24/24 条同名 trace 逐字节一致。v0.7 source manifest 覆盖 13 个实际依赖文件，SHA-256 为 `75a7ba7fbec5728215e3c0556973a38d05eb378f760bb3b9ef9ad817dae8bf64`。
 

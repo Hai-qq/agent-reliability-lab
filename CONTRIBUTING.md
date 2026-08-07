@@ -17,7 +17,7 @@ ruff check src scripts tests
 ruff format --check src scripts tests
 ```
 
-完整实验命令和固定版本见 [docs/reproduction.md](./docs/reproduction.md)。
+完整实验命令和固定版本见 [Experiment Guide](./docs/running-experiments.md)。
 
 ## 贡献边界
 

@@ -6,4 +6,4 @@
 
 独立第二次运行保存在 `../workspace_multitask_v03_repeat/`；其 summary 与本目录逐字节一致，24/24 traces 也逐字节一致。
 
-设计、结论与边界见 [Workspace Multi-Task v0.3](../../docs/multitask-v03.md)，重现命令见 [reproduction](../../docs/reproduction.md)。
+设计、结论与边界见 [Workspace Multi-Task v0.3](../../docs/multitask-v03.md)，运行命令见 [Experiment Guide](../../docs/running-experiments.md)。

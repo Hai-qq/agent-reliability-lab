@@ -48,7 +48,7 @@ R1 最多盲重试一次，随后因旧 `expected_state_version` 返回 `state_v
 - [正式 24 条 trace](../artifacts/retail_minimal_v05/traces/)
 - [独立 repeat](../artifacts/retail_minimal_v05_repeat/)
 - [命令、版本和哈希](../artifacts/retail_minimal_v05/validation.log)
-- [完整复现说明](./reproduction.md)
+- [完整实验指南](./running-experiments.md)
 
 正式与 repeat summary 逐字节一致，SHA-256 为 `19c823b0570504153403295d511fd2af31383be504288022ed90755d74d5fcdc`；24/24 条同名 trace 逐字节一致。v0.5 source manifest 覆盖 8 个实际依赖文件，v0.1–v0.4 已记录 manifest 均保持匹配。
 
