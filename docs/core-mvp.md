@@ -83,7 +83,7 @@ R1 相对 R0 的配对恢复率差为 `+1.0`。这里只有一个任务模板和
 ## 尚未完成
 
 - v0.1 本身不含 idempotency 与 timeout-after-commit；后续 R2 已覆盖日历创建，但 schema adapter、一般冲突恢复和补偿仍未实现；
-- v0.1 本身只有一个 Workspace 任务；第二个 Workspace 任务已在 v0.3 实现，Retail 两任务已在 v0.5 实现，Travel 仍未实现；
+- v0.1 本身只有一个 Workspace 任务；第二个 Workspace 任务已在 v0.3 实现，Retail 两任务已在 v0.5 实现，Travel 两任务已在 v0.6 实现；
 - symbolic user、scheduler/resume、trace viewer；
 - v0.1 本身不含 random-valid-tool、dump-state、allowed-change 等门禁；allowed-change 已在 v0.3 实现，random/dump/golden 已在 v0.4 实现；
 - LLM Agent、独立随机重复、统计区间与主实验。
