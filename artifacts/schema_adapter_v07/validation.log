@@ -1,0 +1,45 @@
+Agent Reliability Lab schema-adapter v0.7 validation
+Date: 2026-08-07
+
+Formal run
+PYTHONPATH=src python3.12 scripts/run_schema_adapter.py --output artifacts/schema_adapter_v07/summary.json --traces-dir artifacts/schema_adapter_v07/traces
+Wrote 24 episodes, 24 traces, and artifacts/schema_adapter_v07/summary.json
+
+Repeat run
+PYTHONPATH=src python3.12 scripts/run_schema_adapter.py --output artifacts/schema_adapter_v07_repeat/summary.json --traces-dir artifacts/schema_adapter_v07_repeat/traces
+Wrote 24 episodes, 24 traces, and artifacts/schema_adapter_v07_repeat/summary.json
+
+Determinism
+cmp artifacts/schema_adapter_v07/summary.json artifacts/schema_adapter_v07_repeat/summary.json
+PASS: byte-identical
+cmp each of 24 formal traces with its repeat trace
+PASS: 24/24 byte-identical
+
+Python 3.11 validation
+PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3.11 -m unittest discover -s tests -p 'test_*.py' -q
+Ran 72 tests in 0.934s
+OK
+
+Python 3.12 validation
+PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3.12 -m unittest discover -s tests -p 'test_*.py' -q
+Ran 72 tests in 0.821s
+OK
+
+Static checks
+ruff check --no-cache src scripts tests
+All checks passed!
+ruff format --check --no-cache src scripts tests
+75 files already formatted
+
+Overwrite refusal
+Re-running the formal command against the existing output returned exit status 1:
+Refusing to overwrite output: artifacts/schema_adapter_v07/summary.json
+
+Integrity
+summary_sha256=a0b25f440651bfbe6776e2a4cb21c89630451775ad246fd4ae4735c4791b13d6
+source_manifest_sha256=75a7ba7fbec5728215e3c0556973a38d05eb378f760bb3b9ef9ad817dae8bf64
+trace_manifest_sha256=7cf55f84381bc661c2cbb971d572182e2a9617239d59aeac245cb0494a41f550
+all_selected_validity_checks_passed=true
+historical_source_manifests_v01_through_v06_matched=true
+external_network_calls=0
+model_calls=0
