@@ -4,7 +4,7 @@ Agent Reliability Lab 的公开仓库为 <https://github.com/Hai-qq/agent-reliab
 
 ## 发布内容
 
-- 自有 v0.1、v0.2、v0.3 runtime、环境、evaluator、测试和 digest-only trace，以及 v0.4 validity gates；
+- 自有 v0.1–v0.3 runtime、环境、evaluator、测试和 digest-only trace，v0.4 validity gates，以及 v0.5 Retail 最小域；
 - AppWorld、ToolSandbox、ABC、AgentDojo、BrowserGym 的本地最小复现脚本、聚合结果和固定版本说明；
 - 论文证据矩阵、领域综述、项目蓝图和 BibTeX 索引；
 - Python 3.11/3.12 GitHub Actions CI；
@@ -16,13 +16,13 @@ Agent Reliability Lab 的公开仓库为 <https://github.com/Hai-qq/agent-reliab
 
 2026-08-07 的公开前审计结果：
 
-- Python 3.12.2：38 tests passed；
-- Python 3.11.15：38 tests passed；
+- Python 3.12.2：49 tests passed；
+- Python 3.11.15：49 tests passed；
 - Ruff 0.15.17：check 和 format check 均通过；
 - 未发现真实 token、私钥或密码字面量；
 - 未发现残留的本机用户主目录绝对路径；
 - 没有超过 1 MiB 的单文件；
-- v0.1、v0.2、v0.3 已记录源码 manifest 仍匹配，v0.4 使用独立 manifest。
+- v0.1–v0.4 已记录源码 manifest 仍匹配，v0.5 使用独立 manifest。
 
 CI 中的 `actions/checkout` 与 `actions/setup-python` 使用完整 commit SHA 固定，并只授予 `contents: read` 权限。
 

@@ -55,4 +55,4 @@ full snapshot 只在本地计算 digest，内容不进入 journal 或 artifact�
 - golden gate 只固定四条代表性 trace；
 - 没有 scheduler、viewer、symbolic user、模型/API 或网络。
 
-下一增量进入 Retail 最小域：先实现本地 SQLite 状态、两个任务、oracle/evaluator 与 reset/snapshot 门禁，再接 fault/runtime 配对；模型主实验仍不在当前授权范围。
+后续 v0.5 已完成 Retail 本地 SQLite 状态、两个任务、oracle/evaluator、reset/snapshot 与 fault/runtime 配对；当前下一增量进入 Travel。模型主实验仍不在当前授权范围。
