@@ -6,12 +6,12 @@
 - Python `3.12.2`
 - Python SQLite runtime `3.45.1`
 - Ruff `0.15.17`
-- 当前 project `0.3.0`；v0.1、R2 v0.2 与 Multi-Task v0.3 使用独立源码/结果 manifest
+- 根 project 保持 `0.3.0` 以保留 v0.3 manifest；Validity Gates v0.4 使用独立包和源码/结果 manifest
 - 第三方 Python runtime dependencies：无
 
 代码只使用 Python 标准库。`pyproject.toml` 声明 `requires-python >= 3.11`；三个自有增量的正式实验均固定为 Python 3.12.2。
 
-另以 Python `3.11.15` / SQLite `3.50.4` 运行当前 30 tests，全部通过；正式实验 JSON 仍只采用固定的 Python 3.12.2 环境。
+另以 Python `3.11.15` / SQLite `3.50.4` 运行当前 38 tests，全部通过；正式实验 JSON 仍只采用固定的 Python 3.12.2 环境。
 
 ## 运行测试
 
@@ -27,7 +27,7 @@ ruff check src scripts tests
 ruff format --check src scripts tests
 ```
 
-当前实测 `Ran 30 tests ... OK`，Ruff check/format check 均通过。历史 v0.1/v0.2 的当时测试数保留在各自 `validation.log` 中。
+当前实测 `Ran 38 tests ... OK`，Ruff check/format check 均通过。历史 v0.1/v0.2/v0.3 的当时测试数保留在各自 `validation.log` 中。
 
 ## 运行 v0.1 配对实验
 
@@ -150,6 +150,45 @@ jq '.aggregate, .validity' artifacts/workspace_multitask_v03/summary.json
 ```
 
 应看到 24 episodes、2 tasks；R1 clean/fault 为 `6/6`、`0/6`，R2 为 `6/6`、`6/6`，且 `all_selected_checks_passed=true`。正式与 repeat 的 summary 及 24/24 traces 逐字节一致。v0.3 source manifest 覆盖 24 个 runtime/config 文件，并首次把 `pyproject.toml` 纳入 canonical manifest。
+
+## 运行 v0.4 validity gates
+
+输出文件必须尚不存在：
+
+```bash
+ARL_V04_RUN_DIR="$ARL_PROJECT/artifacts/workspace_validity_v04_rerun"
+
+env PYTHONPATH="$ARL_PROJECT/src" PYTHONDONTWRITEBYTECODE=1 \
+  "$ARL_PYTHON" scripts/run_workspace_validity.py \
+    --output "$ARL_V04_RUN_DIR/summary.json"
+```
+
+预期输出：
+
+```text
+Wrote 120 random-valid rollouts, 12 dump-state cases, and .../summary.json
+```
+
+正式结果、独立重复和验证日志位于：
+
+- [正式 summary](../artifacts/workspace_validity_v04/summary.json)
+- [独立 repeat](../artifacts/workspace_validity_v04_repeat/summary.json)
+- [v0.4 validation.log](../artifacts/workspace_validity_v04/validation.log)
+
+正式 summary SHA-256：
+
+```text
+cf1108e91fb9fbc6c0bec8f473f68b202a6e80393f12b43d573c3c54b61c179a
+```
+
+查询结果：
+
+```bash
+jq '.validity.random_valid_tool, .validity.dump_state, .validity.golden_trace' \
+  artifacts/workspace_validity_v04/summary.json
+```
+
+应看到 random-valid-tool TaskSuccess/SafeSuccess 为 `11/120`、`6/120`，schema errors 为 0；dump-state 12/12 被拒绝；4 条 golden trace 与 3 类 mutation 门禁通过。正式与 repeat summary 逐字节一致，v0.4 source manifest 覆盖 28 个文件。
 
 ## 安全边界
 

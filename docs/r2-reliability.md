@@ -68,4 +68,4 @@ R1 的三个 fault episode 都在首次写已提交后盲重试，随后命中 `
 - v0.2 只有一个 Workspace 任务；第二任务已在 v0.3 实现，Retail/Travel、scheduler、trace viewer 与模型实验仍未实现；
 - evaluator 将幂等记录视为 runtime metadata，不视为业务副作用。
 
-后续 v0.3 已完成第二任务、通知/邀请幂等、allowed-change 与 5 个 evaluator mutation；当前下一步见 [v0.3 限制](./multitask-v03.md#限制与下一步)。
+后续 v0.3 已完成第二任务、通知/邀请幂等、allowed-change 与 5 个 evaluator mutation，v0.4 已补 random/dump/golden 门禁；当前下一步见 [v0.4 限制](./validity-v04.md#限制与下一步)。

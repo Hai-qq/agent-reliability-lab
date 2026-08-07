@@ -64,7 +64,7 @@ R2 对两个受控提交后 timeout 分别使用：
 
 - 仍只有 Workspace 一个域、两个任务模板和每任务三个确定性 seed；
 - 只覆盖两个提交后 fault site，未实现 schema drift、一般冲突恢复或 compensation；
-- random-valid-tool、dump-state 与 golden-trace gate 仍未完成；
+- v0.3 本身未包含 random-valid-tool、dump-state 与 golden-trace；这些门禁已在 [v0.4](./validity-v04.md) 完成；
 - 没有 symbolic user、scheduler、trace viewer、Retail/Travel 或模型实验。
 
-下一增量应先补 random-valid-tool、dump-state 与 golden-trace 门禁，再决定是否进入 Retail 最小域；在 validity CI 完整前不运行模型主实验。
+后续 v0.4 已补齐计划中的三组 validity gates；当前下一增量进入 Retail 最小域。模型主实验仍不在当前授权范围。

@@ -36,8 +36,9 @@ env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 \
 11. [ARL Core MVP v0.1](./docs/core-mvp.md)：确定性 Workspace、状态 evaluator、event journal、R0/R1 runtime 和首组 clean/fault 配对实验。
 12. [ARL R2 可靠性增量 v0.2](./docs/r2-reliability.md)：原子幂等记录、timeout-after-commit、查询确认及 R1/R2 配对实验。
 13. [Workspace Multi-Task v0.3](./docs/multitask-v03.md)：第二任务、通知/邀请幂等、allowed change、evaluator mutation 与 24-episode 配对实验。
-14. [THIRD_PARTY.md](./THIRD_PARTY.md)：ARL Core 的概念来源、未复制上游源码/数据的 provenance 说明。
-15. [Open-source release](./docs/open-source.md)：公开仓库范围、发布前门禁、CI 固定方式与后续 PR 流程。
+14. [Workspace Validity Gates v0.4](./docs/validity-v04.md)：random-valid-tool、dump-state、golden-trace 与 mutation 门禁。
+15. [THIRD_PARTY.md](./THIRD_PARTY.md)：ARL Core 的概念来源、未复制上游源码/数据的 provenance 说明。
+16. [Open-source release](./docs/open-source.md)：公开仓库范围、发布前门禁、CI 固定方式与后续 PR 流程。
 
 ## 精选 5 篇
 
@@ -67,18 +68,19 @@ ReAct 仍作为基础 Agent baseline；τ-bench 的用户—策略—工具结�
 - 已完成 R2 可靠性增量：对首次日历写入注入一次提交后 timeout；R1 clean 3/3、fault 0/3，R2 clean/fault 均为 3/3。R2 的 3 个 fault episode 各做 1 次查询确认、0 次盲重试；幂等重放保持 1 条事件，复用同 key 的不同请求返回类型化冲突。正式与 repeat 的 summary、12/12 traces 均逐字节一致。
 - 已完成 Workspace Multi-Task v0.3：新增“会议改期并通知”任务，把幂等扩到邀请、改期通知、更新时间和请求关闭；2 tasks × 3 seeds × clean/fault × R1/R2 共 24 episodes，R1 clean/fault 为 6/6、0/6，R2 为 6/6、6/6；正式与 repeat 的 summary、24/24 traces 均逐字节一致。
 - 已通过 allowed metadata change 与 5 个 evaluator mutation；通知/邀请幂等重放不重复写，批量通知失败完整回滚。
-- **尚未**实现 Retail/Travel、schema adapter、一般冲突恢复、补偿、random-valid-tool/dump-state/golden-trace、用户模拟器、scheduler/trace viewer，也未运行 LLM Agent、AgentLab 完整 Study、AgentDojo attack/defense 或论文排行榜实验。当前结果是离线机制证据，不冒充模型成绩。
+- 已完成 Workspace Validity Gates v0.4：120 个 random-valid-tool rollout 的 TaskSuccess 为 11/120、SafeSuccess 为 6/120；12/12 dump-state case 被拒绝；4/4 golden trace 通过 digest/schema/chain 校验，3 类 trace mutation 均被检出；正式与 repeat summary 逐字节一致。
+- **尚未**实现 Retail/Travel、schema adapter、一般冲突恢复、补偿、用户模拟器、scheduler/trace viewer，也未运行 LLM Agent、AgentLab 完整 Study、AgentDojo attack/defense 或论文排行榜实验。当前结果是离线机制证据，不冒充模型成绩。
 
 ## 质量检查
 
 - CSV：30 行、30 个唯一标题、30 个论文链接；
 - BibTeX：30 个条目，Pandoc/Citeproc 解析通过；
 - 链接：57 个唯一论文/代码/数据 URL 实际请求均返回 HTTP 200；
-- 代码：AgentDojo 固定提交的完整官方测试 32 passed；BrowserGym 安全选取的官方本地测试 15 passed；ARL Core 当前 30 tests passed；五个上游复现和自有 v0.1/v0.2/v0.3 增量均保存版本、断言与机器结果；
+- 代码：AgentDojo 固定提交的完整官方测试 32 passed；BrowserGym 安全选取的官方本地测试 15 passed；ARL 当前 38 tests passed；五个上游复现和自有 v0.1/v0.2/v0.3/v0.4 增量均保存版本、断言与机器结果；
 - 文档：相对链接均能解析，无缺失交付文件。
 
 语法编译仅验证源码可被当前 Python 解析，不替代依赖安装、单元测试或端到端复现。
 
 ## 推荐下一步
 
-下一步按 [04_完整项目蓝图.md](./04_完整项目蓝图.md) 补 random-valid-tool、dump-state 与 golden-trace 门禁；validity CI 闭环后再进入 Retail 最小域。首次面向模型的展示仍应在单独授权和成本预算后进行。
+下一步按 [04_完整项目蓝图.md](./04_完整项目蓝图.md) 进入 Retail 最小域：先实现两个本地状态任务及 oracle/evaluator，再接 clean/fault runtime 配对。首次面向模型的展示仍应在单独授权和成本预算后进行。
