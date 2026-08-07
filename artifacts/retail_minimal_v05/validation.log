@@ -80,7 +80,9 @@ Historical preservation
 Final repository and documentation audit
   JSON: 17 files parsed
   JSONL: 132 files / 1095 events parsed
-  Markdown: 34 files / 144 relative links / 0 broken
+  Markdown: 34 files / 143 relative links / 0 broken
+  Public positioning: README, blueprint, open-source guide, and citation metadata present ARL as the original runtime/benchmark; upstream reproductions are supporting provenance
+  CITATION.cff: YAML parsed
   Credential patterns and local user paths: absent from publishable files
   Tracked cache/temp files: 0
   Files larger than 1 MiB: 0
