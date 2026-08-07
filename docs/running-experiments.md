@@ -3,15 +3,15 @@
 ## 环境
 
 - macOS arm64
-- Python `3.12.12`（v0.7–v0.8 正式 artifact；v0.1–v0.6 历史 artifact 使用 `3.12.2`）
-- Python SQLite runtime `3.50.4`（v0.7–v0.8）
+- Python `3.12.12`（v0.7–v0.9 正式 artifact；v0.1–v0.6 历史 artifact 使用 `3.12.2`）
+- Python SQLite runtime `3.50.4`（v0.7–v0.9）
 - Ruff `0.15.17`
-- 根 project 保持 `0.3.0` 以保留 v0.3 manifest；Validity Gates v0.4、Retail v0.5、Travel v0.6、Schema Adapter v0.7 与 Conflict Recovery v0.8 使用独立包和源码/结果 manifest
+- 根 project 保持 `0.3.0` 以保留 v0.3 manifest；Validity Gates v0.4、Retail v0.5、Travel v0.6、Schema Adapter v0.7、Conflict Recovery v0.8 与 Cross-Domain Resilience v0.9 使用独立包和源码/结果 manifest
 - 第三方 Python runtime dependencies：无
 
 代码只使用 Python 标准库。`pyproject.toml` 声明 `requires-python >= 3.11`；每个正式 artifact 的精确解释器版本保存在自身 `summary.json` 与 `validation.log`。
 
-另以 Python `3.11.15` / SQLite `3.50.4` 运行当前 83 tests，全部通过；v0.7–v0.8 正式实验 JSON 采用固定的 Python 3.12.12 环境。
+另以 Python `3.11.15` / SQLite `3.50.4` 运行当前 100 tests，全部通过；v0.7–v0.9 正式实验 JSON 采用固定的 Python 3.12.12 环境。
 
 ## 运行测试
 
@@ -27,7 +27,7 @@ ruff check src scripts tests
 ruff format --check src scripts tests
 ```
 
-当前实测 `Ran 83 tests ... OK`，Ruff check/format check 均通过。历史增量的当时测试数和解释器版本保留在各自 `validation.log` 中。
+当前实测 `Ran 100 tests ... OK`，Ruff check/format check 均通过。历史增量的当时测试数和解释器版本保留在各自 `validation.log` 中。
 
 ## 运行 v0.1 配对实验
 
@@ -349,6 +349,46 @@ jq '.aggregate, .validity' artifacts/workspace_conflict_v08/summary.json
 ```
 
 应看到 18 episodes、1 task、3 conditions。旧 R2 clean 为 `3/3`、compatible conflict 为 `0/3`；Conflict-aware R2 clean 与 compatible conflict 均为 `3/3`，对 3 个 incompatible conflict 全部返回 `conflict_precondition_changed` 并保持零通知、零请求关闭。四个 guard contract、reset/snapshot、baseline rejection、digest-only trace 与 v0.1–v0.7 历史 source manifest 门禁全部通过。正式与 repeat summary 及 18/18 traces 逐字节一致；v0.8 source manifest 覆盖 20 个实际依赖文件。
+
+## 运行 v0.9 Cross-Domain Resilience 实验
+
+输出路径必须尚不存在；正式运行使用 Python 3.12.12：
+
+```bash
+ARL_RESILIENCE_RUN_DIR="$ARL_PROJECT/artifacts/cross_domain_resilience_v09_rerun"
+
+env PYTHONPATH="$ARL_PROJECT/src" PYTHONDONTWRITEBYTECODE=1 \
+  "$ARL_PYTHON" scripts/run_cross_domain_resilience.py \
+    --output "$ARL_RESILIENCE_RUN_DIR/summary.json" \
+    --traces-dir "$ARL_RESILIENCE_RUN_DIR/traces"
+```
+
+预期输出：
+
+```text
+Wrote 36 episodes, 36 traces, and .../summary.json
+```
+
+正式结果与独立重复位于：
+
+- [正式 summary](../artifacts/cross_domain_resilience_v09/summary.json)
+- [正式 36 条 trace](../artifacts/cross_domain_resilience_v09/traces/)
+- [独立 repeat](../artifacts/cross_domain_resilience_v09_repeat/)
+- [v0.9 validation.log](../artifacts/cross_domain_resilience_v09/validation.log)
+
+正式 summary SHA-256：
+
+```text
+33c0cf3b4902418d8506a9582df9b21b37b0f2fd6d72c135ab38046211bf3676
+```
+
+查询结果：
+
+```bash
+jq '.aggregate, .validity' artifacts/cross_domain_resilience_v09/summary.json
+```
+
+应看到 36 episodes、2 domains、2 runtimes、3 conditions。旧 R2 的 control 为 `6/6`、compatible conflict 为 `0/6`；Contract-guarded R2 的 control 与 compatible conflict 均为 `6/6`，对 6 个 incompatible conflict 全部返回 `conflict_precondition_changed` 并保留外部目标状态。Travel 的 9 次 compensation contract attempt 中 6 次通过 pre/postcondition 并完成，3 次分类失败。guard/contract mutation、reset/snapshot、baseline rejection、digest-only trace、ground-truth isolation 与 v0.1–v0.8 历史 source manifest 门禁全部通过。正式与 repeat summary 及 36/36 traces 逐字节一致；v0.9 source manifest 覆盖 20 个实际依赖文件。
 
 ## 安全边界
 

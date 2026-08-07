@@ -1,6 +1,6 @@
 # Third-party provenance
 
-ARL Core v0.1、R2 v0.2、Multi-Task v0.3、Validity Gates v0.4、Retail v0.5、Travel v0.6、Schema Adapter v0.7 与 Conflict Recovery v0.8 没有 vendoring 第三方源码、数据或 benchmark trace，也没有 Python runtime dependency。当前实现为独立编写的本地合成原型；仓库根目录的 MIT License 只覆盖本项目原创代码与文档，不改变链接或引用的上游材料许可。
+ARL Core v0.1、R2 v0.2、Multi-Task v0.3、Validity Gates v0.4、Retail v0.5、Travel v0.6、Schema Adapter v0.7、Conflict Recovery v0.8 与 Cross-Domain Resilience v0.9 没有 vendoring 第三方源码、数据或 benchmark trace，也没有 Python runtime dependency。当前实现为独立编写的本地合成原型；仓库根目录的 MIT License 只覆盖本项目原创代码与文档，不改变链接或引用的上游材料许可。
 
 以下公开项目影响了 ARL 的设计术语和评测思路，但不作为运行时依赖：
 

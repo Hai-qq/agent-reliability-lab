@@ -56,7 +56,7 @@ R1 最多盲重试一次，随后因旧 `expected_state_version` 返回 `state_v
 
 - Retail 仍只有两个固定任务模板和两个提交后 timeout site；
 - 仍是固定 oracle plan，不是模型 Agent；
-- v0.5 本身尚无 schema adapter、一般冲突恢复、compensation、symbolic user、scheduler 或 viewer；schema adapter 已在后续 v0.7 实现，首条 Workspace guarded conflict rebase 已在 v0.8 实现；
+- v0.5 本身尚无 schema adapter、一般冲突恢复、compensation、symbolic user、scheduler 或 viewer；schema adapter 已在后续 v0.7 实现，Workspace guarded conflict rebase 已在 v0.8 实现，Retail request-resolution guard 已在 v0.9 实现；
 - v0.5 本身不含 Travel；Travel 双任务与首条受控补偿已在后续 v0.6 实现。模型/API 与外部网络仍未实现或启用。
 
-后续 v0.6 已完成 Travel 最小域，[v0.7](./schema-adapter-v07.md) 已完成 schema drift / adapter 的本地机制实验，[v0.8](./conflict-recovery-v08.md) 已完成单点 compatible/incompatible state-conflict 分类与恢复。模型实验仍需单独授权和成本预算。
+后续 v0.6 已完成 Travel 最小域，[v0.7](./schema-adapter-v07.md) 已完成 schema drift / adapter 的本地机制实验，[v0.8](./conflict-recovery-v08.md) 已完成 Workspace state-conflict 分类，[v0.9](./cross-domain-resilience-v09.md) 已把 guarded recovery 扩展到 Retail/Travel。模型实验仍需单独授权和成本预算。

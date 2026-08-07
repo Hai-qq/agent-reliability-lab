@@ -10,7 +10,7 @@ GitHub 首页、项目描述、引用元数据和后续 release/PR 只报告 ARL
 
 ## 发布内容
 
-- 自有 v0.1–v0.3 runtime、环境、evaluator、测试和 digest-only trace，v0.4 validity gates、v0.5 Retail、v0.6 Travel、v0.7 Schema Adapter 与 v0.8 Conflict Recovery；
+- 自有 v0.1–v0.3 runtime、环境、evaluator、测试和 digest-only trace，v0.4 validity gates、v0.5 Retail、v0.6 Travel、v0.7 Schema Adapter、v0.8 Conflict Recovery 与 v0.9 Cross-Domain Resilience；
 - Python 3.11/3.12 GitHub Actions CI；
 - 产品架构、实验指南、贡献规则、第三方 provenance 和安全边界；
 - 小型正式/repeat artifacts，用于核验 README 中的结果数字。
@@ -21,13 +21,13 @@ GitHub 首页、项目描述、引用元数据和后续 release/PR 只报告 ARL
 
 2026-08-07 的公开前审计结果：
 
-- Python 3.12.12：83 tests passed；
-- Python 3.11.15：83 tests passed；
+- Python 3.12.12：100 tests passed；
+- Python 3.11.15：100 tests passed；
 - Ruff 0.15.17：check 和 format check 均通过；
 - 未发现真实 token、私钥或密码字面量；
 - 未发现残留的本机用户主目录绝对路径；
 - 没有超过 1 MiB 的单文件；
-- v0.1–v0.7 七份已记录源码 manifest 全部匹配，v0.8 使用覆盖 20 个实际依赖文件的独立 manifest。
+- v0.1–v0.8 八份已记录源码 manifest 全部匹配，v0.9 使用覆盖 20 个实际依赖文件的独立 manifest；正式与 repeat summary 及 36/36 traces 逐字节一致。
 
 CI 中的 `actions/checkout` 与 `actions/setup-python` 使用完整 commit SHA 固定，并只授予 `contents: read` 权限。
 
