@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "source_increment": "0.3.0",
+  "summary_file": "artifacts/workspace_multitask_v03/summary.json",
+  "summary_sha256": "72201242549f6fd1df065fff0ce994a8738c6162e0cfc6fb1644ed396e6e8c62",
+  "traces": [
+    {
+      "path": "artifacts/workspace_multitask_v03/traces/workspace-schedule-seed-0-r2_confirmed-clean.jsonl",
+      "sha256": "052e98a43fd2d375bacbda9b8d7a3a4cf2930fc12dc1eb2533d60ec6f9a1c68f",
+      "event_count": 6,
+      "episode_id": "workspace-schedule-seed-0-r2_confirmed-clean",
+      "task_id": "workspace.schedule_meeting_and_notify",
+      "seed": 0,
+      "runtime": "r2_confirmed",
+      "condition": "clean",
+      "required_event_types": ["episode_started", "evaluation_completed", "tool_succeeded"],
+      "forbidden_event_types": ["tool_error", "state_confirmation_succeeded"]
+    },
+    {
+      "path": "artifacts/workspace_multitask_v03/traces/workspace-schedule-seed-0-r2_confirmed-fault.jsonl",
+      "sha256": "70f5a83af799884205fbe8922524f7e78475d6a7630f3a89bed79fe1a73828a3",
+      "event_count": 10,
+      "episode_id": "workspace-schedule-seed-0-r2_confirmed-fault",
+      "task_id": "workspace.schedule_meeting_and_notify",
+      "seed": 0,
+      "runtime": "r2_confirmed",
+      "condition": "fault",
+      "required_event_types": ["tool_error", "state_confirmation_succeeded"],
+      "forbidden_event_types": ["retry_scheduled"]
+    },
+    {
+      "path": "artifacts/workspace_multitask_v03/traces/workspace-reschedule-seed-0-r2_confirmed-clean.jsonl",
+      "sha256": "c2a8a8a2e7eb2f26c73fb9d2b591a625c3726778578f5e8e341f2596b1d81c2f",
+      "event_count": 8,
+      "episode_id": "workspace-reschedule-seed-0-r2_confirmed-clean",
+      "task_id": "workspace.reschedule_meeting_and_notify",
+      "seed": 0,
+      "runtime": "r2_confirmed",
+      "condition": "clean",
+      "required_event_types": ["episode_started", "evaluation_completed", "tool_succeeded"],
+      "forbidden_event_types": ["tool_error", "state_confirmation_succeeded"]
+    },
+    {
+      "path": "artifacts/workspace_multitask_v03/traces/workspace-reschedule-seed-0-r2_confirmed-fault.jsonl",
+      "sha256": "125436205bcc5531cedadcd7cba7cef9ac911596ad0f89dd4013a0acc7ff535d",
+      "event_count": 12,
+      "episode_id": "workspace-reschedule-seed-0-r2_confirmed-fault",
+      "task_id": "workspace.reschedule_meeting_and_notify",
+      "seed": 0,
+      "runtime": "r2_confirmed",
+      "condition": "fault",
+      "required_event_types": ["tool_error", "state_confirmation_succeeded"],
+      "forbidden_event_types": ["retry_scheduled"]
+    }
+  ]
+}

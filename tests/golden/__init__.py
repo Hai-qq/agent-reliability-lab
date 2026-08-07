@@ -1,0 +1,1 @@
+"""Golden artifact validity tests."""

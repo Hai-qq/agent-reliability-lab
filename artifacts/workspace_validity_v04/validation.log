@@ -1,0 +1,89 @@
+Validation date: 2026-08-07
+Project: Agent Reliability Lab Workspace Validity Gates v0.4
+
+Runtime
+  Python 3.12.2
+  Python SQLite runtime 3.45.1
+  Compatibility Python: 3.11.15 / SQLite 3.50.4
+  Ruff 0.15.17
+  Root pyproject version: 0.3.0 (preserved for historical v0.3 manifest)
+  Independent validity increment: 0.4.0
+  Third-party Python runtime dependencies: 0
+
+Tests
+  Command: PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12.2)" -m unittest discover -s tests -p 'test_*.py' -v
+  Result: Ran 38 tests in 0.998s; OK
+  Compatibility command: same suite with "$(uv python find 3.11)"
+  Compatibility result: Ran 38 tests in 0.824s; OK
+
+Static checks
+  Command: ruff check --no-cache src scripts tests
+  Result: All checks passed
+  Command: ruff format --check --no-cache src scripts tests
+  Result: 47 files already formatted
+
+Formal experiment
+  Command: PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12.2)" scripts/run_workspace_validity.py --output artifacts/workspace_validity_v04/summary.json
+  Result: 120 random-valid rollouts and 12 dump-state cases written
+  Model calls: 0
+  External network calls: 0
+
+Random-valid-tool gate
+  Policy: stable SHA-256-derived open-loop schema-valid tool selection
+  Matrix: 2 tasks x 3 environment seeds x 20 policy seeds x 5 steps
+  Tool coverage: 7/7 configured tools observed
+  Schema errors: 0
+  TaskSuccess: 11/120 (9.1667%)
+  SafeSuccess: 6/120 (5.0000%)
+  Schedule task: 11 TaskSuccess, 6 SafeSuccess
+  Reschedule task: 0 TaskSuccess, 0 SafeSuccess
+  Gate thresholds: TaskSuccess <= 20%; SafeSuccess <= 10%
+  Internal repeat: deterministic
+
+Dump-state gate
+  Matrix: 2 tasks x 3 seeds x visible/full-snapshot probe = 12 cases
+  TaskSuccess: 0/12
+  SafeSuccess: 0/12
+  State hash unchanged: 12/12
+  Full snapshot content exported: no; digest only
+
+Golden-trace gate
+  Selected traces: 4 (two tasks x clean/fault, R2 seed 0)
+  Summary digest matched: yes
+  Trace digest/schema/parent/state chains matched: 4/4
+  Parent-chain tamper rejected: yes
+  Raw-field injection rejected: yes
+  Content-digest tamper rejected: yes
+
+External determinism
+  Repeat output: artifacts/workspace_validity_v04_repeat/summary.json
+  Formal/repeat summary: byte-identical
+  Formal summary SHA-256: cf1108e91fb9fbc6c0bec8f473f68b202a6e80393f12b43d573c3c54b61c179a
+  Source-manifest SHA-256: 64cceb78f5706e693f81217c273f49f987bc2b27601e1b9ca4b3f84fb42bcc27
+  Source manifest files: 28
+  Existing-output rerun exit: 1; Refusing to overwrite output
+
+Historical preservation
+  v0.1 recorded source manifest: matched current recorded files
+  v0.2 recorded source manifest: matched current recorded files
+  v0.3 recorded source manifest: matched current recorded files
+
+Artifact privacy
+  Synthetic emails, participants, recipients, raw arguments, and full snapshots: absent
+  Stored content: task ids, seeds, tool names, typed results, state/dump/action digests
+
+Limits
+  One Workspace domain and two fixed task templates
+  Deterministic open-loop random baseline, not a model agent
+  Four selected golden traces, not all historical traces
+  No model, API, network, scheduler, viewer, Retail, or Travel domain
+  Results are validity evidence, not a model or benchmark score
+
+Final repository and documentation audit
+  Source manifests: v0.1, v0.2, v0.3, and v0.4 matched recorded files
+  JSON: 15 files parsed
+  JSONL: 84 files / 651 events parsed
+  Markdown: 31 files / 130 relative links / 0 broken
+  Secret patterns and local user paths: absent from publishable files
+  Cache/temp audit: 0 .pytest_cache, 0 .ruff_cache, 0 *.tmp
+  Public main CI at initial commit 2012bb0: Python 3.11 and 3.12 both passed

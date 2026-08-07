@@ -2,7 +2,7 @@
 
 这是五个上游机制完成最小复现后的第一个自有实现增量。它把确定性状态环境、类型化工具结果、状态 evaluator、append-only journal 与 R0/R1 runtime 接成一条可运行的本地链路。
 
-> 本文保留 v0.1 的历史边界；后续增量见 [R2 v0.2](./r2-reliability.md) 与 [Workspace Multi-Task v0.3](./multitask-v03.md)。
+> 本文保留 v0.1 的历史边界；后续增量见 [R2 v0.2](./r2-reliability.md)、[Workspace Multi-Task v0.3](./multitask-v03.md) 与 [Validity Gates v0.4](./validity-v04.md)。
 
 ## 一句话结论
 
@@ -85,7 +85,7 @@ R1 相对 R0 的配对恢复率差为 `+1.0`。这里只有一个任务模板和
 - v0.1 本身不含 idempotency 与 timeout-after-commit；后续 R2 已覆盖日历创建，但 schema adapter、一般冲突恢复和补偿仍未实现；
 - v0.1 本身只有一个 Workspace 任务；第二任务已在 v0.3 实现，Retail/Travel 仍未实现；
 - symbolic user、scheduler/resume、trace viewer；
-- v0.1 本身不含 random-valid-tool、dump-state、allowed-change 等门禁；allowed-change 已在 v0.3 实现，其余仍待完成；
+- v0.1 本身不含 random-valid-tool、dump-state、allowed-change 等门禁；allowed-change 已在 v0.3 实现，random/dump/golden 已在 v0.4 实现；
 - LLM Agent、独立随机重复、统计区间与主实验。
 
 运行说明见 [reproduction.md](./reproduction.md)，机器结果见 [summary.json](../artifacts/workspace_paired/summary.json)。
