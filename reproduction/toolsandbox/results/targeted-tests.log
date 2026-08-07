@@ -1,0 +1,41 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: $ARL_WORKSPACE/work/repos/ToolSandbox
+configfile: pyproject.toml
+plugins: anyio-4.12.1, cov-7.1.0, xdist-3.8.0
+collected 30 items / 1 skipped
+
+tests/common/evaluation_test.py ....                                     [ 13%]
+tests/tools/contact_test.py ....                                         [ 26%]
+tests/tools/messaging_test.py ....                                       [ 40%]
+tests/tools/reminder_test.py ....                                        [ 53%]
+tests/tools/setting_test.py ..........                                   [ 86%]
+tests/tools/utilities_test.py ....                                       [100%]
+
+=============================== warnings summary ===============================
+../../repro/toolsandbox/.venv-py39/lib/python3.9/site-packages/urllib3/__init__.py:35
+  $ARL_WORKSPACE/work/repro/toolsandbox/.venv-py39/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+    warnings.warn(
+
+../../repro/toolsandbox/.venv-py39/lib/python3.9/site-packages/holidays/__init__.py:32
+  $ARL_WORKSPACE/work/repro/toolsandbox/.venv-py39/lib/python3.9/site-packages/holidays/__init__.py:32: FutureIncompatibilityWarning: 
+  
+  This is a future version incompatibility warning from Python Holidays library v0.51
+  to inform you about an upcoming change in our API versioning strategy that may affect your
+  project's dependencies. Starting from version 1.0 onwards, we will be following a loose form of
+  Semantic Versioning (SemVer) to provide clearer communication regarding any potential breaking
+  changes.
+  
+  This means that while we strive to maintain backward compatibility, there might be occasional
+  updates that introduce breaking changes to our API. To ensure the stability of your projects,
+  we highly recommend pinning the version of our API that you rely on. You can pin your current
+  holidays v0.x dependency (e.g., holidays==0.51) or limit it (e.g., holidays<1.0) in order to
+  avoid potentially unwanted upgrade to the version 1.0 when it's released (ETA 2024Q4 - 2025Q1).
+  
+  If you have any questions or concerns regarding this change, please don't hesitate to reach out
+  to us via https://github.com/vacanza/python-holidays/discussions/1800.
+  
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================== 30 passed, 1 skipped, 2 warnings in 28.35s ==================

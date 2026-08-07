@@ -1,0 +1,73 @@
+Validation date: 2026-08-07
+Project: Agent Reliability Lab R2 reliability increment v0.2
+
+Runtime
+  Python 3.12.2
+  Python SQLite runtime 3.45.1
+  Ruff 0.15.17
+  pyproject project version: 0.2.0
+  Third-party Python runtime dependencies: 0
+
+Tests
+  Command: PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3.12 -m unittest discover -s tests -p 'test_*.py' -v
+  Result: Ran 19 tests in 0.076s; OK
+  Compatibility: Python 3.11.15 / SQLite 3.50.4; Ran 19 tests in 0.078s; OK
+
+Static checks
+  Command: ruff check --no-cache src scripts tests
+  Result: All checks passed
+  Command: ruff format --check --no-cache src scripts tests
+  Result: 29 files already formatted
+
+Paired experiment
+  Command: PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3.12 scripts/run_workspace_r2_paired.py --output artifacts/workspace_r2_postcommit/summary.json --traces-dir artifacts/workspace_r2_postcommit/traces
+  Result: 12 episodes, 12 traces, 87 trace events
+  R1 clean: 3/3 TaskSuccess
+  R1 post-commit fault: 0/3 TaskSuccess; 3 total blind retries
+  R2 clean: 3/3 TaskSuccess
+  R2 post-commit fault: 3/3 TaskSuccess; 3 total state confirmations; 0 blind retries
+  R2 minus R1 paired recovery-rate delta: +1.0
+
+Selected R2 validity gates
+  Post-commit fault changes committed state: passed
+  Identical idempotent replay leaves one event and unchanged state hash: passed
+  Same key with different request returns typed conflict: passed
+  Snapshot/restore includes idempotency state: passed
+  20 reset repetitions per seed: one unique initial hash for seeds 0, 1, 2
+  Paired initial hashes: matched
+  R1 blind retry incomplete after ambiguous commit: passed
+  R2 state-confirmation recovery: passed
+  Digest-only trace payload gate: passed
+  Fault/ground-truth observation isolation: passed
+  Internal repeat comparison: deterministic
+
+External determinism check
+  Repeat command used artifacts/workspace_r2_postcommit_repeat/{summary.json,traces/}
+  Summary: byte-identical
+  Traces: 12/12 byte-identical
+  Formal summary SHA-256: fd509bd662ca55e18c78f5ec70335970d52545795992417596ba8dfbc8e34b22
+  Canonical trace-manifest SHA-256: 2c37055c9e032244413f5bd0c16068acee1a9059120938b09a0fef01b3e6f5e9
+  Canonical source-manifest SHA-256: b2e2cbc52ffc930ce067475926cdf31134a8be7f7d37c90269661a2bc870f0f5
+  pyproject.toml SHA-256: f545532fb982b737b6cb7fad77411ad55af2801424995e9fbd47dac1e618ffe8
+  Manifest algorithm is recorded in summary metadata and independently recomputed: matched
+  Existing output rerun exit: 1; Refusing to overwrite output
+
+Historical v0.1 preservation
+  All 13 files recorded by artifacts/workspace_paired/summary.json still match their saved SHA-256
+  Combined historical source manifest remains 35f25dbd3f95ad1b75363da80b6a5df6b753ad15683d571bf8816636b7d1f970
+
+Limits
+  One Workspace task, three deterministic seeds, fixed oracle actions
+  Idempotency covers calendar.create_event only
+  One controlled post-commit fault; no schema adapter, compensation, scheduler, model, or network
+  Results are mechanism evidence, not a benchmark or model score
+
+Final neat-freak audit
+  Python 3.12.2: Ran 19 tests in 0.078s; OK
+  Python 3.11.15: Ran 19 tests in 0.073s; OK
+  Ruff: All checks passed; 29 files already formatted
+  Markdown: 22 files; 86 relative links checked; 0 missing
+  Formal/repeat summaries: byte-identical
+  Formal/repeat traces: 12/12 byte-identical; all parent-event chains valid
+  R2 and historical v0.1 source manifests: matched current recorded files
+  Project rules: AGENTS.md present; no project CLAUDE.md divergence

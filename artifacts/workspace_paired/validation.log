@@ -1,0 +1,47 @@
+Validation date: 2026-08-07
+Project: Agent Reliability Lab Core MVP v0.1
+
+Runtime
+  Python 3.12.2
+  Python SQLite runtime 3.45.1
+  Ruff 0.15.17
+  Third-party Python runtime dependencies: 0
+
+Tests
+  Command: PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3.12 -m unittest discover -s tests -p 'test_*.py' -v
+  Result: Ran 10 tests in 0.049s; OK
+  Compatibility: Python 3.11.15 / SQLite 3.50.4; Ran 10 tests in 0.042s; OK
+
+Static checks
+  Command: ruff check src scripts tests
+  Result: All checks passed
+  Command: ruff format --check src scripts tests
+  Result: 20 files already formatted
+
+Paired experiment
+  Command: PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3.12 scripts/run_workspace_paired.py --output artifacts/workspace_paired/summary.json --traces-dir artifacts/workspace_paired/traces
+  Result: 12 episodes and 12 traces written
+  R0 clean: 3/3 task success
+  R0 fault: 0/3 task success
+  R1 clean: 3/3 task success
+  R1 fault: 3/3 task success
+  R1 retries: 3 total, exactly one per fault episode
+  R1 minus R0 paired recovery-rate delta: +1.0
+
+Selected validity gates
+  20 reset repetitions per seed: one unique initial hash for seeds 0, 1, 2
+  Snapshot restore: passed
+  Transaction rollback: passed
+  Do-nothing rejected: passed
+  Claim-success rejected: passed
+  Extra-event mutation: TaskSuccess true, SafeSuccess false
+  Ground-truth isolation: passed
+  Paired initial hashes: matched
+  Internal repeat comparison: deterministic
+
+External determinism check
+  Second run used a separate temporary output directory
+  Summary: byte-identical
+  Traces: 12/12 byte-identical
+  Summary SHA-256: 8c5fc93c7cb426e7cafd6d232da722394b9e32e00e6737bf3bac9e70f5ac8ba2
+  Combined trace-manifest SHA-256: dd41fb7602fb17f9debe6474ec8b5a6b37960c49938a128412d4c0114c1bccfe

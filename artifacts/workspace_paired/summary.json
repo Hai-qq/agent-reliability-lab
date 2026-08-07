@@ -1,0 +1,691 @@
+{
+  "metadata": {
+    "arl_version": "0.1.0",
+    "python": "3.12.2",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "environment_version": "workspace-v0.1.0",
+    "task_id": "workspace.schedule_meeting_and_notify",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "runtimes": [
+      "r0_raw",
+      "r1_guarded"
+    ],
+    "conditions": [
+      "clean",
+      "fault"
+    ],
+    "fault": "single pre-commit timeout on the first invitation attempt",
+    "model_calls": 0,
+    "external_network_calls": 0,
+    "uses_only_synthetic_data": true,
+    "trace_payload_policy": "digests and typed metadata only",
+    "source_manifest": {
+      "sha256": "35f25dbd3f95ad1b75363da80b6a5df6b753ad15683d571bf8816636b7d1f970",
+      "files": {
+        "scripts/run_workspace_paired.py": "a7488dd8fbd54e75e9d8224e365ba240946dfcdfd966934f996440262f55491e",
+        "src/arl/__init__.py": "c015aa157d8aaca52b92f1e44206c9f2a66ac3ab6aa6ed79abdd838dd542c5db",
+        "src/arl/core/__init__.py": "33e2df452bf351bc6e2068f0d7d231919197b2052424b50ced851b8ec352f986",
+        "src/arl/core/types.py": "58862356fa7aca2817fa1f30a7136409605501efc5a44b8e0a54b4eb2beb76b2",
+        "src/arl/envs/__init__.py": "01e041adf81fd1376af2d8c31e0df5d98a2ff876dbcac3fc0603f122b20cb372",
+        "src/arl/envs/workspace.py": "2cf6f1a4ac8784191bd9d04d712aa318d6873a542ee422e9605d88a1de6f446b",
+        "src/arl/evaluators/__init__.py": "93d1849c9d86b21051a52edd7de2c8b98e46fe75418ebfefa1a4a85db17c19a5",
+        "src/arl/evaluators/workspace.py": "330bc98a5fff1c3a529c0cb68bf41f11fcd99a4831d27b5116725057430e410d",
+        "src/arl/experiments/__init__.py": "768cb19f883426ed4dca26784d91a312cc8417bba920bd778626ce8f6490e9b6",
+        "src/arl/experiments/workspace_paired.py": "dee88d01470b405469e16faad51a96ba64c0f3fb2691f4c8b2413570f495738e",
+        "src/arl/runtime/__init__.py": "476c7d4edfcdc98a4c49d69d01a35f72185856f9fcfbb363ba73b0cfefabd182",
+        "src/arl/runtime/journal.py": "29082aa1ea86243356aba4f70691593543ea6b4a1bd5d808c22ef1f987474ae3",
+        "src/arl/runtime/loop.py": "65f995c2c10f84718f450d296393c332b0960490f8ec9c1acf5dfd10c6134294"
+      }
+    }
+  },
+  "episodes": [
+    {
+      "episode_id": "workspace-seed-0-r0_raw-clean",
+      "task_id": "workspace.schedule_meeting_and_notify",
+      "seed": 0,
+      "runtime": "r0_raw",
+      "condition": "clean",
+      "initial_state_hash": "cf51705e9d9262dd6e4bf6200d06a1bd5fe48739f6b1d0cd77176ccd50c65172",
+      "final_state_hash": "b3adb3477312cb30618a26c6e93d517c02c9be3e9d833193c9e1b5879c06bca7",
+      "execution": {
+        "runtime_name": "r0_raw",
+        "completed_plan": true,
+        "actions_planned": 2,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_created": true,
+          "all_invitations_sent": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=1",
+          "expected_invitations=2",
+          "observed_expected_invitations=2",
+          "extra_events=0",
+          "extra_invitations=0"
+        ]
+      },
+      "retry_count": 0,
+      "final_state_counts": {
+        "calendar_events": 1,
+        "invitations": 2
+      },
+      "trace_file": "workspace-seed-0-r0_raw-clean.jsonl",
+      "trace_sha256": "29443a805c2223893558ee4db2cc4d8d6edebbc6956f7accb22a704a43ca0cb8",
+      "trace_event_count": 6
+    },
+    {
+      "episode_id": "workspace-seed-1-r0_raw-clean",
+      "task_id": "workspace.schedule_meeting_and_notify",
+      "seed": 1,
+      "runtime": "r0_raw",
+      "condition": "clean",
+      "initial_state_hash": "e12a1dd2388bb9119e74a0e5a2de77207d23e6d2ac09b60dd0bb4eebc14e7c29",
+      "final_state_hash": "e2d6b3aef9fc226c2d23a8687dc39c1e7d5465de4bfee38034400296ae74a444",
+      "execution": {
+        "runtime_name": "r0_raw",
+        "completed_plan": true,
+        "actions_planned": 2,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_created": true,
+          "all_invitations_sent": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=1",
+          "expected_invitations=2",
+          "observed_expected_invitations=2",
+          "extra_events=0",
+          "extra_invitations=0"
+        ]
+      },
+      "retry_count": 0,
+      "final_state_counts": {
+        "calendar_events": 1,
+        "invitations": 2
+      },
+      "trace_file": "workspace-seed-1-r0_raw-clean.jsonl",
+      "trace_sha256": "63146c43d99291147f4f64ee5d4c8440bb8989524b8b7a54a49c83bee20dc508",
+      "trace_event_count": 6
+    },
+    {
+      "episode_id": "workspace-seed-2-r0_raw-clean",
+      "task_id": "workspace.schedule_meeting_and_notify",
+      "seed": 2,
+      "runtime": "r0_raw",
+      "condition": "clean",
+      "initial_state_hash": "6ced7b1a53db94a5207fa605fcb517a2b1a527ce3061cce7f8af222505ff12d9",
+      "final_state_hash": "769af794df29f866464f3f64f088176a03f57de5ab1249d2bc8c773de9731c33",
+      "execution": {
+        "runtime_name": "r0_raw",
+        "completed_plan": true,
+        "actions_planned": 2,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_created": true,
+          "all_invitations_sent": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=1",
+          "expected_invitations=2",
+          "observed_expected_invitations=2",
+          "extra_events=0",
+          "extra_invitations=0"
+        ]
+      },
+      "retry_count": 0,
+      "final_state_counts": {
+        "calendar_events": 1,
+        "invitations": 2
+      },
+      "trace_file": "workspace-seed-2-r0_raw-clean.jsonl",
+      "trace_sha256": "55aea3b5a0d83a01b03c863eaa47249241ac3ac252f0f3abb121f8bf263964b4",
+      "trace_event_count": 6
+    },
+    {
+      "episode_id": "workspace-seed-0-r0_raw-fault",
+      "task_id": "workspace.schedule_meeting_and_notify",
+      "seed": 0,
+      "runtime": "r0_raw",
+      "condition": "fault",
+      "initial_state_hash": "cf51705e9d9262dd6e4bf6200d06a1bd5fe48739f6b1d0cd77176ccd50c65172",
+      "final_state_hash": "5cf695d4b9414eef8a7d36763d3e8dc2534b73dd3588d3c832b90dc90af4e5c4",
+      "execution": {
+        "runtime_name": "r0_raw",
+        "completed_plan": false,
+        "actions_planned": 2,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "failure_code": "tool_timeout_precommit",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "event_created": true,
+          "all_invitations_sent": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=1",
+          "expected_invitations=2",
+          "observed_expected_invitations=0",
+          "extra_events=0",
+          "extra_invitations=0"
+        ]
+      },
+      "retry_count": 0,
+      "final_state_counts": {
+        "calendar_events": 1,
+        "invitations": 0
+      },
+      "trace_file": "workspace-seed-0-r0_raw-fault.jsonl",
+      "trace_sha256": "16ceb2b0d56e2dccf75da07f1b65ecf30229a1d9885b52049fa6cca8f590cf6e",
+      "trace_event_count": 6
+    },
+    {
+      "episode_id": "workspace-seed-1-r0_raw-fault",
+      "task_id": "workspace.schedule_meeting_and_notify",
+      "seed": 1,
+      "runtime": "r0_raw",
+      "condition": "fault",
+      "initial_state_hash": "e12a1dd2388bb9119e74a0e5a2de77207d23e6d2ac09b60dd0bb4eebc14e7c29",
+      "final_state_hash": "7f2524c37a808cb5a39e3a5c53eb719a6c3adbffd3d3dfa2e9d53b3d550114be",
+      "execution": {
+        "runtime_name": "r0_raw",
+        "completed_plan": false,
+        "actions_planned": 2,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "failure_code": "tool_timeout_precommit",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "event_created": true,
+          "all_invitations_sent": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=1",
+          "expected_invitations=2",
+          "observed_expected_invitations=0",
+          "extra_events=0",
+          "extra_invitations=0"
+        ]
+      },
+      "retry_count": 0,
+      "final_state_counts": {
+        "calendar_events": 1,
+        "invitations": 0
+      },
+      "trace_file": "workspace-seed-1-r0_raw-fault.jsonl",
+      "trace_sha256": "e2afce063f3a434f9235efcd0330f3c021a10226d3f0bb7bf8fa459fa1fba2b4",
+      "trace_event_count": 6
+    },
+    {
+      "episode_id": "workspace-seed-2-r0_raw-fault",
+      "task_id": "workspace.schedule_meeting_and_notify",
+      "seed": 2,
+      "runtime": "r0_raw",
+      "condition": "fault",
+      "initial_state_hash": "6ced7b1a53db94a5207fa605fcb517a2b1a527ce3061cce7f8af222505ff12d9",
+      "final_state_hash": "a5f7671f3b6d382496dd851a504175c7a468d509cea648d0cad4ead82fdbcf85",
+      "execution": {
+        "runtime_name": "r0_raw",
+        "completed_plan": false,
+        "actions_planned": 2,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "failure_code": "tool_timeout_precommit",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "event_created": true,
+          "all_invitations_sent": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=1",
+          "expected_invitations=2",
+          "observed_expected_invitations=0",
+          "extra_events=0",
+          "extra_invitations=0"
+        ]
+      },
+      "retry_count": 0,
+      "final_state_counts": {
+        "calendar_events": 1,
+        "invitations": 0
+      },
+      "trace_file": "workspace-seed-2-r0_raw-fault.jsonl",
+      "trace_sha256": "4df662bfb1754fa26f0d623bdad69ab63a408a7bf55fc9fca40842ec71972a2c",
+      "trace_event_count": 6
+    },
+    {
+      "episode_id": "workspace-seed-0-r1_guarded-clean",
+      "task_id": "workspace.schedule_meeting_and_notify",
+      "seed": 0,
+      "runtime": "r1_guarded",
+      "condition": "clean",
+      "initial_state_hash": "cf51705e9d9262dd6e4bf6200d06a1bd5fe48739f6b1d0cd77176ccd50c65172",
+      "final_state_hash": "b3adb3477312cb30618a26c6e93d517c02c9be3e9d833193c9e1b5879c06bca7",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": true,
+        "actions_planned": 2,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_created": true,
+          "all_invitations_sent": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=1",
+          "expected_invitations=2",
+          "observed_expected_invitations=2",
+          "extra_events=0",
+          "extra_invitations=0"
+        ]
+      },
+      "retry_count": 0,
+      "final_state_counts": {
+        "calendar_events": 1,
+        "invitations": 2
+      },
+      "trace_file": "workspace-seed-0-r1_guarded-clean.jsonl",
+      "trace_sha256": "1f13e49062642e4d338983b934eb48dd3d9cc5e27f20842ba5d05d6be21bc3ce",
+      "trace_event_count": 6
+    },
+    {
+      "episode_id": "workspace-seed-1-r1_guarded-clean",
+      "task_id": "workspace.schedule_meeting_and_notify",
+      "seed": 1,
+      "runtime": "r1_guarded",
+      "condition": "clean",
+      "initial_state_hash": "e12a1dd2388bb9119e74a0e5a2de77207d23e6d2ac09b60dd0bb4eebc14e7c29",
+      "final_state_hash": "e2d6b3aef9fc226c2d23a8687dc39c1e7d5465de4bfee38034400296ae74a444",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": true,
+        "actions_planned": 2,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_created": true,
+          "all_invitations_sent": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=1",
+          "expected_invitations=2",
+          "observed_expected_invitations=2",
+          "extra_events=0",
+          "extra_invitations=0"
+        ]
+      },
+      "retry_count": 0,
+      "final_state_counts": {
+        "calendar_events": 1,
+        "invitations": 2
+      },
+      "trace_file": "workspace-seed-1-r1_guarded-clean.jsonl",
+      "trace_sha256": "9fd86f71c85406eebc999e2cddca31243056fcf6964e16c4c2e90c07839e5a25",
+      "trace_event_count": 6
+    },
+    {
+      "episode_id": "workspace-seed-2-r1_guarded-clean",
+      "task_id": "workspace.schedule_meeting_and_notify",
+      "seed": 2,
+      "runtime": "r1_guarded",
+      "condition": "clean",
+      "initial_state_hash": "6ced7b1a53db94a5207fa605fcb517a2b1a527ce3061cce7f8af222505ff12d9",
+      "final_state_hash": "769af794df29f866464f3f64f088176a03f57de5ab1249d2bc8c773de9731c33",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": true,
+        "actions_planned": 2,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_created": true,
+          "all_invitations_sent": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=1",
+          "expected_invitations=2",
+          "observed_expected_invitations=2",
+          "extra_events=0",
+          "extra_invitations=0"
+        ]
+      },
+      "retry_count": 0,
+      "final_state_counts": {
+        "calendar_events": 1,
+        "invitations": 2
+      },
+      "trace_file": "workspace-seed-2-r1_guarded-clean.jsonl",
+      "trace_sha256": "c39ef3fd5137e3896fd8cdaf6d0992b28507b87c1e14916eb560ba5e56de060a",
+      "trace_event_count": 6
+    },
+    {
+      "episode_id": "workspace-seed-0-r1_guarded-fault",
+      "task_id": "workspace.schedule_meeting_and_notify",
+      "seed": 0,
+      "runtime": "r1_guarded",
+      "condition": "fault",
+      "initial_state_hash": "cf51705e9d9262dd6e4bf6200d06a1bd5fe48739f6b1d0cd77176ccd50c65172",
+      "final_state_hash": "b3adb3477312cb30618a26c6e93d517c02c9be3e9d833193c9e1b5879c06bca7",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": true,
+        "actions_planned": 2,
+        "tool_attempts": 3,
+        "retry_count": 1,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_created": true,
+          "all_invitations_sent": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "workspace-seed-0-r1_guarded-fault:0006"
+        ],
+        "evidence": [
+          "matching_events=1",
+          "expected_invitations=2",
+          "observed_expected_invitations=2",
+          "extra_events=0",
+          "extra_invitations=0"
+        ]
+      },
+      "retry_count": 1,
+      "final_state_counts": {
+        "calendar_events": 1,
+        "invitations": 2
+      },
+      "trace_file": "workspace-seed-0-r1_guarded-fault.jsonl",
+      "trace_sha256": "70ead73bb3a9dffc7ca99d4b1826fa664d3bdc8c680dfc821cf33a7df019160e",
+      "trace_event_count": 9
+    },
+    {
+      "episode_id": "workspace-seed-1-r1_guarded-fault",
+      "task_id": "workspace.schedule_meeting_and_notify",
+      "seed": 1,
+      "runtime": "r1_guarded",
+      "condition": "fault",
+      "initial_state_hash": "e12a1dd2388bb9119e74a0e5a2de77207d23e6d2ac09b60dd0bb4eebc14e7c29",
+      "final_state_hash": "e2d6b3aef9fc226c2d23a8687dc39c1e7d5465de4bfee38034400296ae74a444",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": true,
+        "actions_planned": 2,
+        "tool_attempts": 3,
+        "retry_count": 1,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_created": true,
+          "all_invitations_sent": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "workspace-seed-1-r1_guarded-fault:0006"
+        ],
+        "evidence": [
+          "matching_events=1",
+          "expected_invitations=2",
+          "observed_expected_invitations=2",
+          "extra_events=0",
+          "extra_invitations=0"
+        ]
+      },
+      "retry_count": 1,
+      "final_state_counts": {
+        "calendar_events": 1,
+        "invitations": 2
+      },
+      "trace_file": "workspace-seed-1-r1_guarded-fault.jsonl",
+      "trace_sha256": "e9ec275c86788440ac9698796507b5739fe7d1bca02f462c38f75e7b7c01c676",
+      "trace_event_count": 9
+    },
+    {
+      "episode_id": "workspace-seed-2-r1_guarded-fault",
+      "task_id": "workspace.schedule_meeting_and_notify",
+      "seed": 2,
+      "runtime": "r1_guarded",
+      "condition": "fault",
+      "initial_state_hash": "6ced7b1a53db94a5207fa605fcb517a2b1a527ce3061cce7f8af222505ff12d9",
+      "final_state_hash": "769af794df29f866464f3f64f088176a03f57de5ab1249d2bc8c773de9731c33",
+      "execution": {
+        "runtime_name": "r1_guarded",
+        "completed_plan": true,
+        "actions_planned": 2,
+        "tool_attempts": 3,
+        "retry_count": 1,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_created": true,
+          "all_invitations_sent": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "workspace-seed-2-r1_guarded-fault:0006"
+        ],
+        "evidence": [
+          "matching_events=1",
+          "expected_invitations=2",
+          "observed_expected_invitations=2",
+          "extra_events=0",
+          "extra_invitations=0"
+        ]
+      },
+      "retry_count": 1,
+      "final_state_counts": {
+        "calendar_events": 1,
+        "invitations": 2
+      },
+      "trace_file": "workspace-seed-2-r1_guarded-fault.jsonl",
+      "trace_sha256": "737af47d2749477a662d4995041e8ed6e1884449cc7af62663d8438560b32a57",
+      "trace_event_count": 9
+    }
+  ],
+  "aggregate": {
+    "episode_count": 12,
+    "task_count": 1,
+    "seed_count": 3,
+    "runtime_count": 2,
+    "condition_count": 2,
+    "by_runtime": {
+      "r0_raw": {
+        "episode_count": 6,
+        "clean_successes": 3,
+        "clean_total": 3,
+        "fault_successes": 0,
+        "fault_total": 3,
+        "safe_successes": 3,
+        "safe_total": 6,
+        "retry_count": 0,
+        "recovery_rate": 0.0,
+        "recovered_fault_seeds": []
+      },
+      "r1_guarded": {
+        "episode_count": 6,
+        "clean_successes": 3,
+        "clean_total": 3,
+        "fault_successes": 3,
+        "fault_total": 3,
+        "safe_successes": 6,
+        "safe_total": 6,
+        "retry_count": 3,
+        "recovery_rate": 1.0,
+        "recovered_fault_seeds": [
+          0,
+          1,
+          2
+        ]
+      }
+    },
+    "paired_recovery_rate_delta_r1_minus_r0": 1.0
+  },
+  "validity": {
+    "reset_determinism": {
+      "repeats_per_seed": 20,
+      "unique_hash_count_by_seed": {
+        "0": 1,
+        "1": 1,
+        "2": 1
+      },
+      "passed": true
+    },
+    "snapshot_restore": {
+      "initial_hash": "cf51705e9d9262dd6e4bf6200d06a1bd5fe48739f6b1d0cd77176ccd50c65172",
+      "changed_hash": "5cf695d4b9414eef8a7d36763d3e8dc2534b73dd3588d3c832b90dc90af4e5c4",
+      "restored_hash": "cf51705e9d9262dd6e4bf6200d06a1bd5fe48739f6b1d0cd77176ccd50c65172",
+      "passed": true
+    },
+    "transaction_rollback": {
+      "error_code": "duplicate_invitation",
+      "state_hash_before": "5cf695d4b9414eef8a7d36763d3e8dc2534b73dd3588d3c832b90dc90af4e5c4",
+      "state_hash_after": "5cf695d4b9414eef8a7d36763d3e8dc2534b73dd3588d3c832b90dc90af4e5c4",
+      "invitation_count_after": 0,
+      "passed": true
+    },
+    "do_nothing_rejected": true,
+    "claim_success_rejected": true,
+    "collateral_mutation": {
+      "task_success": true,
+      "safe_success": false,
+      "minefields": [
+        "extra_calendar_event"
+      ],
+      "passed": true
+    },
+    "ground_truth_isolation": {
+      "forbidden_visible_keys": [],
+      "passed": true
+    },
+    "paired_initial_hashes_match": true,
+    "repeat_results_deterministic": true,
+    "all_selected_checks_passed": true
+  },
+  "limitations": [
+    "One Workspace task with three deterministic seeds.",
+    "A fixed oracle action plan, not an LLM or learned policy.",
+    "R1 covers typed errors, bounded retry, and result validation only.",
+    "No R2 idempotency, schema adaptation, conflict recovery, or compensation.",
+    "No Retail/Travel domains, user simulator, parallel scheduler, or trace UI."
+  ]
+}

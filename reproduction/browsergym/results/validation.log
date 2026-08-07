@@ -1,0 +1,44 @@
+Validation date: 2026-08-07
+
+1. Official local-only tests
+   Result: 15 passed in 37.09s
+
+2. First harness phase
+   Result: intentional stop at 4/9 jobs; 4/4 completed jobs successful
+   Pending: 5 jobs
+
+3. Resume phase
+   Result: 9/9 jobs successful; 3/3 tasks passed all three fixed seeds
+   Preexisting completed records: 4
+   SHA-256 before: 65ab0ad5bebb555c49a7610e52ff8f82e26f258d4168a2b59ec2894194415bb2
+   SHA-256 after:  65ab0ad5bebb555c49a7610e52ff8f82e26f258d4168a2b59ec2894194415bb2
+
+4. Error recovery
+   Probe: expected TimeoutError from a missing local locator with a 100 ms timeout
+   Result: 1/1 recovered in the same BrowserGym environment
+
+5. Offline boundary
+   Initial URL scheme: file for 9/9 jobs
+   Browser context: offline=True; service_workers=block
+   Action-phase HTTP(S) requests: 0
+   Model calls/configured external targets: 0/0
+
+6. Determinism
+   Repeated the complete stop/resume workflow in a separate temporary result directory
+   Result: interrupted summary, final summary, and state journal were byte-identical
+
+7. Static checks
+   ruff check: passed
+   ruff format --check: passed
+   Script SHA-256: 61f6c5fd48587276a83f41eee9e67ba42d2ade8045e54934a24d249f29eff142
+
+8. Source checkout integrity
+   BrowserGym HEAD: 9e779f087de9a65668b6974d11f9ce9816026e96; status clean
+   AgentDojo HEAD: 089ed468cf3ed0322acc66b0211f26d9d90dbf60; status clean
+
+9. Documentation and artifact audit
+   JSON parse: 7/7 files passed
+   Relative links: 14 Markdown files checked; 0 missing
+   Stale BrowserGym status phrases: 0
+   Credential-shaped strings: 0
+   Rebuildable .runtime: removed from delivery after verification

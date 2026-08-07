@@ -1,0 +1,287 @@
+{
+  "metadata": {
+    "python": "3.12.2",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "browsergym_commit": "9e779f087de9a65668b6974d11f9ce9816026e96",
+    "miniwob_commit": "7fd85d71a4b60325c6585396ec4f48377d049838",
+    "versions": {
+      "browsergym-core": "0.14.3",
+      "browsergym-miniwob": "0.14.3",
+      "gymnasium": "1.3.0",
+      "playwright": "1.44.0"
+    },
+    "playwright_browser_revision": "1117",
+    "script_sha256": "61f6c5fd48587276a83f41eee9e67ba42d2ade8045e54934a24d249f29eff142",
+    "tasks": [
+      "click-scroll-list",
+      "click-menu-2",
+      "use-colorwheel-2"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "job_count": 9,
+    "model_calls": 0,
+    "configured_external_targets": 0,
+    "browser_context_offline": true,
+    "service_workers_blocked": true
+  },
+  "status": "interrupted",
+  "progress": {
+    "completed": 4,
+    "pending": 5,
+    "total": 9,
+    "pending_job_ids": [
+      "click-menu-2::seed-1",
+      "click-menu-2::seed-2",
+      "use-colorwheel-2::seed-0",
+      "use-colorwheel-2::seed-1",
+      "use-colorwheel-2::seed-2"
+    ]
+  },
+  "resume": {
+    "used": false,
+    "preexisting_completed_count": 0,
+    "skipped_preexisting_job_ids": [],
+    "preexisting_results_sha256_before": null,
+    "preexisting_results_sha256_after": null,
+    "preserved": null
+  },
+  "episodes": [
+    {
+      "job_id": "click-scroll-list::seed-0",
+      "task": "click-scroll-list",
+      "seed": 0,
+      "initial_observation": {
+        "url_scheme": "file",
+        "url_file": "click-scroll-list.html",
+        "goal_sha256": "8be053c70d2ad4ebe450f8879b58cb562df0d21c391b8a2e2a44a48c0a7bb28b",
+        "observation_key_count": 15,
+        "accessibility_tree_node_count": 798,
+        "screenshot_shape": [
+          321,
+          498,
+          3
+        ]
+      },
+      "chromium_version": "125.0.6422.26",
+      "steps": [
+        {
+          "ordinal": 1,
+          "action_kind": "expected_locator_timeout_probe",
+          "reward": 0.0,
+          "terminated": false,
+          "truncated": false,
+          "has_error": true,
+          "error_type": "TimeoutError"
+        },
+        {
+          "ordinal": 2,
+          "action_kind": "select_options_and_submit",
+          "reward": 1.0,
+          "terminated": true,
+          "truncated": false,
+          "has_error": false,
+          "error_type": null
+        }
+      ],
+      "action_phase_request_count": 0,
+      "action_phase_http_request_count": 0,
+      "recovery_probe_triggered": true,
+      "recovered_after_expected_error": true,
+      "success": true
+    },
+    {
+      "job_id": "click-scroll-list::seed-1",
+      "task": "click-scroll-list",
+      "seed": 1,
+      "initial_observation": {
+        "url_scheme": "file",
+        "url_file": "click-scroll-list.html",
+        "goal_sha256": "62db08f80acfcf0f4f4590a623523875962a950f54e2e3f6d89c55860d5cf9ce",
+        "observation_key_count": 15,
+        "accessibility_tree_node_count": 849,
+        "screenshot_shape": [
+          321,
+          498,
+          3
+        ]
+      },
+      "chromium_version": "125.0.6422.26",
+      "steps": [
+        {
+          "ordinal": 1,
+          "action_kind": "select_options_and_submit",
+          "reward": 1.0,
+          "terminated": true,
+          "truncated": false,
+          "has_error": false,
+          "error_type": null
+        }
+      ],
+      "action_phase_request_count": 0,
+      "action_phase_http_request_count": 0,
+      "recovery_probe_triggered": false,
+      "recovered_after_expected_error": false,
+      "success": true
+    },
+    {
+      "job_id": "click-scroll-list::seed-2",
+      "task": "click-scroll-list",
+      "seed": 2,
+      "initial_observation": {
+        "url_scheme": "file",
+        "url_file": "click-scroll-list.html",
+        "goal_sha256": "c4342b95d8574c2b9e867dc81a7bbea0d156d15316872c4318b437b980510677",
+        "observation_key_count": 15,
+        "accessibility_tree_node_count": 900,
+        "screenshot_shape": [
+          321,
+          498,
+          3
+        ]
+      },
+      "chromium_version": "125.0.6422.26",
+      "steps": [
+        {
+          "ordinal": 1,
+          "action_kind": "select_options_and_submit",
+          "reward": 1.0,
+          "terminated": true,
+          "truncated": false,
+          "has_error": false,
+          "error_type": null
+        }
+      ],
+      "action_phase_request_count": 0,
+      "action_phase_http_request_count": 0,
+      "recovery_probe_triggered": false,
+      "recovered_after_expected_error": false,
+      "success": true
+    },
+    {
+      "job_id": "click-menu-2::seed-0",
+      "task": "click-menu-2",
+      "seed": 0,
+      "initial_observation": {
+        "url_scheme": "file",
+        "url_file": "click-menu-2.html",
+        "goal_sha256": "5b0035a2646df40ef0f2864fa5641489051302c7113d0d9f8f2af26dfba36bc7",
+        "observation_key_count": 15,
+        "accessibility_tree_node_count": 302,
+        "screenshot_shape": [
+          321,
+          498,
+          3
+        ]
+      },
+      "chromium_version": "125.0.6422.26",
+      "steps": [
+        {
+          "ordinal": 1,
+          "action_kind": "open_menu",
+          "reward": 0.0,
+          "terminated": false,
+          "truncated": false,
+          "has_error": false,
+          "error_type": null
+        },
+        {
+          "ordinal": 2,
+          "action_kind": "open_playback_submenu",
+          "reward": 0.0,
+          "terminated": false,
+          "truncated": false,
+          "has_error": false,
+          "error_type": null
+        },
+        {
+          "ordinal": 3,
+          "action_kind": "click_menu_item",
+          "reward": 1.0,
+          "terminated": true,
+          "truncated": false,
+          "has_error": false,
+          "error_type": null
+        }
+      ],
+      "action_phase_request_count": 2,
+      "action_phase_http_request_count": 0,
+      "recovery_probe_triggered": false,
+      "recovered_after_expected_error": false,
+      "success": true
+    }
+  ],
+  "aggregate": {
+    "completed_episodes": 4,
+    "successful_episodes": 4,
+    "success_rate": 1.0,
+    "by_task": {
+      "click-scroll-list": {
+        "completed": 3,
+        "successes": 3
+      },
+      "click-menu-2": {
+        "completed": 1,
+        "successes": 1
+      },
+      "use-colorwheel-2": {
+        "completed": 0,
+        "successes": 0
+      }
+    },
+    "tasks_passing_all_three_seeds": 1,
+    "recovery_probes": 1,
+    "successful_recoveries": 1,
+    "action_phase_http_request_count": 0
+  },
+  "state_history": [
+    {
+      "event": "episode_completed",
+      "job_id": "click-scroll-list::seed-0",
+      "success": true,
+      "completed_count": 1
+    },
+    {
+      "event": "episode_completed",
+      "job_id": "click-scroll-list::seed-1",
+      "success": true,
+      "completed_count": 2
+    },
+    {
+      "event": "episode_completed",
+      "job_id": "click-scroll-list::seed-2",
+      "success": true,
+      "completed_count": 3
+    },
+    {
+      "event": "episode_completed",
+      "job_id": "click-menu-2::seed-0",
+      "success": true,
+      "completed_count": 4
+    },
+    {
+      "event": "intentional_stop",
+      "completed_count": 4,
+      "pending_count": 5
+    }
+  ],
+  "validation": {
+    "partial_invariants_passed": true,
+    "final_assertions_applicable": false,
+    "all_assertions_passed": false,
+    "all_episode_successes": true,
+    "all_initial_urls_use_file_scheme": true,
+    "browser_context_offline": true,
+    "service_workers_blocked": true,
+    "configured_external_targets": 0,
+    "model_calls": 0,
+    "action_phase_http_request_count": 0,
+    "recovery_probe_count": 1,
+    "successful_recovery_count": 1,
+    "resume_preserved_preexisting_results": null,
+    "raw_goals_screenshots_or_dom_exported": false
+  }
+}

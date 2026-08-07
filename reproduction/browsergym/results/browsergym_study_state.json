@@ -1,0 +1,499 @@
+{
+  "schema_version": 1,
+  "config": {
+    "browsergym_commit": "9e779f087de9a65668b6974d11f9ce9816026e96",
+    "miniwob_commit": "7fd85d71a4b60325c6585396ec4f48377d049838",
+    "versions": {
+      "browsergym-core": "0.14.3",
+      "browsergym-miniwob": "0.14.3",
+      "gymnasium": "1.3.0",
+      "playwright": "1.44.0"
+    },
+    "browser_revision": "1117",
+    "jobs": [
+      {
+        "job_id": "click-scroll-list::seed-0",
+        "task": "click-scroll-list",
+        "seed": 0
+      },
+      {
+        "job_id": "click-scroll-list::seed-1",
+        "task": "click-scroll-list",
+        "seed": 1
+      },
+      {
+        "job_id": "click-scroll-list::seed-2",
+        "task": "click-scroll-list",
+        "seed": 2
+      },
+      {
+        "job_id": "click-menu-2::seed-0",
+        "task": "click-menu-2",
+        "seed": 0
+      },
+      {
+        "job_id": "click-menu-2::seed-1",
+        "task": "click-menu-2",
+        "seed": 1
+      },
+      {
+        "job_id": "click-menu-2::seed-2",
+        "task": "click-menu-2",
+        "seed": 2
+      },
+      {
+        "job_id": "use-colorwheel-2::seed-0",
+        "task": "use-colorwheel-2",
+        "seed": 0
+      },
+      {
+        "job_id": "use-colorwheel-2::seed-1",
+        "task": "use-colorwheel-2",
+        "seed": 1
+      },
+      {
+        "job_id": "use-colorwheel-2::seed-2",
+        "task": "use-colorwheel-2",
+        "seed": 2
+      }
+    ],
+    "recovery_job_id": "click-scroll-list::seed-0",
+    "browser_context_offline": true,
+    "service_workers_blocked": true
+  },
+  "completed": {
+    "click-scroll-list::seed-0": {
+      "job_id": "click-scroll-list::seed-0",
+      "task": "click-scroll-list",
+      "seed": 0,
+      "initial_observation": {
+        "url_scheme": "file",
+        "url_file": "click-scroll-list.html",
+        "goal_sha256": "8be053c70d2ad4ebe450f8879b58cb562df0d21c391b8a2e2a44a48c0a7bb28b",
+        "observation_key_count": 15,
+        "accessibility_tree_node_count": 798,
+        "screenshot_shape": [
+          321,
+          498,
+          3
+        ]
+      },
+      "chromium_version": "125.0.6422.26",
+      "steps": [
+        {
+          "ordinal": 1,
+          "action_kind": "expected_locator_timeout_probe",
+          "reward": 0.0,
+          "terminated": false,
+          "truncated": false,
+          "has_error": true,
+          "error_type": "TimeoutError"
+        },
+        {
+          "ordinal": 2,
+          "action_kind": "select_options_and_submit",
+          "reward": 1.0,
+          "terminated": true,
+          "truncated": false,
+          "has_error": false,
+          "error_type": null
+        }
+      ],
+      "action_phase_request_count": 0,
+      "action_phase_http_request_count": 0,
+      "recovery_probe_triggered": true,
+      "recovered_after_expected_error": true,
+      "success": true
+    },
+    "click-scroll-list::seed-1": {
+      "job_id": "click-scroll-list::seed-1",
+      "task": "click-scroll-list",
+      "seed": 1,
+      "initial_observation": {
+        "url_scheme": "file",
+        "url_file": "click-scroll-list.html",
+        "goal_sha256": "62db08f80acfcf0f4f4590a623523875962a950f54e2e3f6d89c55860d5cf9ce",
+        "observation_key_count": 15,
+        "accessibility_tree_node_count": 849,
+        "screenshot_shape": [
+          321,
+          498,
+          3
+        ]
+      },
+      "chromium_version": "125.0.6422.26",
+      "steps": [
+        {
+          "ordinal": 1,
+          "action_kind": "select_options_and_submit",
+          "reward": 1.0,
+          "terminated": true,
+          "truncated": false,
+          "has_error": false,
+          "error_type": null
+        }
+      ],
+      "action_phase_request_count": 0,
+      "action_phase_http_request_count": 0,
+      "recovery_probe_triggered": false,
+      "recovered_after_expected_error": false,
+      "success": true
+    },
+    "click-scroll-list::seed-2": {
+      "job_id": "click-scroll-list::seed-2",
+      "task": "click-scroll-list",
+      "seed": 2,
+      "initial_observation": {
+        "url_scheme": "file",
+        "url_file": "click-scroll-list.html",
+        "goal_sha256": "c4342b95d8574c2b9e867dc81a7bbea0d156d15316872c4318b437b980510677",
+        "observation_key_count": 15,
+        "accessibility_tree_node_count": 900,
+        "screenshot_shape": [
+          321,
+          498,
+          3
+        ]
+      },
+      "chromium_version": "125.0.6422.26",
+      "steps": [
+        {
+          "ordinal": 1,
+          "action_kind": "select_options_and_submit",
+          "reward": 1.0,
+          "terminated": true,
+          "truncated": false,
+          "has_error": false,
+          "error_type": null
+        }
+      ],
+      "action_phase_request_count": 0,
+      "action_phase_http_request_count": 0,
+      "recovery_probe_triggered": false,
+      "recovered_after_expected_error": false,
+      "success": true
+    },
+    "click-menu-2::seed-0": {
+      "job_id": "click-menu-2::seed-0",
+      "task": "click-menu-2",
+      "seed": 0,
+      "initial_observation": {
+        "url_scheme": "file",
+        "url_file": "click-menu-2.html",
+        "goal_sha256": "5b0035a2646df40ef0f2864fa5641489051302c7113d0d9f8f2af26dfba36bc7",
+        "observation_key_count": 15,
+        "accessibility_tree_node_count": 302,
+        "screenshot_shape": [
+          321,
+          498,
+          3
+        ]
+      },
+      "chromium_version": "125.0.6422.26",
+      "steps": [
+        {
+          "ordinal": 1,
+          "action_kind": "open_menu",
+          "reward": 0.0,
+          "terminated": false,
+          "truncated": false,
+          "has_error": false,
+          "error_type": null
+        },
+        {
+          "ordinal": 2,
+          "action_kind": "open_playback_submenu",
+          "reward": 0.0,
+          "terminated": false,
+          "truncated": false,
+          "has_error": false,
+          "error_type": null
+        },
+        {
+          "ordinal": 3,
+          "action_kind": "click_menu_item",
+          "reward": 1.0,
+          "terminated": true,
+          "truncated": false,
+          "has_error": false,
+          "error_type": null
+        }
+      ],
+      "action_phase_request_count": 2,
+      "action_phase_http_request_count": 0,
+      "recovery_probe_triggered": false,
+      "recovered_after_expected_error": false,
+      "success": true
+    },
+    "click-menu-2::seed-1": {
+      "job_id": "click-menu-2::seed-1",
+      "task": "click-menu-2",
+      "seed": 1,
+      "initial_observation": {
+        "url_scheme": "file",
+        "url_file": "click-menu-2.html",
+        "goal_sha256": "fdf1207390cecfd1556e1b2eff33587e468a8ad4b37cb4ada3915f122dfda7a9",
+        "observation_key_count": 15,
+        "accessibility_tree_node_count": 302,
+        "screenshot_shape": [
+          321,
+          498,
+          3
+        ]
+      },
+      "chromium_version": "125.0.6422.26",
+      "steps": [
+        {
+          "ordinal": 1,
+          "action_kind": "open_menu",
+          "reward": 0.0,
+          "terminated": false,
+          "truncated": false,
+          "has_error": false,
+          "error_type": null
+        },
+        {
+          "ordinal": 2,
+          "action_kind": "click_menu_item",
+          "reward": 1.0,
+          "terminated": true,
+          "truncated": false,
+          "has_error": false,
+          "error_type": null
+        }
+      ],
+      "action_phase_request_count": 2,
+      "action_phase_http_request_count": 0,
+      "recovery_probe_triggered": false,
+      "recovered_after_expected_error": false,
+      "success": true
+    },
+    "click-menu-2::seed-2": {
+      "job_id": "click-menu-2::seed-2",
+      "task": "click-menu-2",
+      "seed": 2,
+      "initial_observation": {
+        "url_scheme": "file",
+        "url_file": "click-menu-2.html",
+        "goal_sha256": "5b0035a2646df40ef0f2864fa5641489051302c7113d0d9f8f2af26dfba36bc7",
+        "observation_key_count": 15,
+        "accessibility_tree_node_count": 302,
+        "screenshot_shape": [
+          321,
+          498,
+          3
+        ]
+      },
+      "chromium_version": "125.0.6422.26",
+      "steps": [
+        {
+          "ordinal": 1,
+          "action_kind": "open_menu",
+          "reward": 0.0,
+          "terminated": false,
+          "truncated": false,
+          "has_error": false,
+          "error_type": null
+        },
+        {
+          "ordinal": 2,
+          "action_kind": "open_playback_submenu",
+          "reward": 0.0,
+          "terminated": false,
+          "truncated": false,
+          "has_error": false,
+          "error_type": null
+        },
+        {
+          "ordinal": 3,
+          "action_kind": "click_menu_item",
+          "reward": 1.0,
+          "terminated": true,
+          "truncated": false,
+          "has_error": false,
+          "error_type": null
+        }
+      ],
+      "action_phase_request_count": 2,
+      "action_phase_http_request_count": 0,
+      "recovery_probe_triggered": false,
+      "recovered_after_expected_error": false,
+      "success": true
+    },
+    "use-colorwheel-2::seed-0": {
+      "job_id": "use-colorwheel-2::seed-0",
+      "task": "use-colorwheel-2",
+      "seed": 0,
+      "initial_observation": {
+        "url_scheme": "file",
+        "url_file": "use-colorwheel-2.html",
+        "goal_sha256": "cccd2323a3cdfeb23edcffd9b96aadf933a9e6a2a4c22171112c81eda0a22111",
+        "observation_key_count": 15,
+        "accessibility_tree_node_count": 497,
+        "screenshot_shape": [
+          321,
+          498,
+          3
+        ]
+      },
+      "chromium_version": "125.0.6422.26",
+      "steps": [
+        {
+          "ordinal": 1,
+          "action_kind": "fill_color_and_submit",
+          "reward": 1.0,
+          "terminated": true,
+          "truncated": false,
+          "has_error": false,
+          "error_type": null
+        }
+      ],
+      "action_phase_request_count": 0,
+      "action_phase_http_request_count": 0,
+      "recovery_probe_triggered": false,
+      "recovered_after_expected_error": false,
+      "success": true
+    },
+    "use-colorwheel-2::seed-1": {
+      "job_id": "use-colorwheel-2::seed-1",
+      "task": "use-colorwheel-2",
+      "seed": 1,
+      "initial_observation": {
+        "url_scheme": "file",
+        "url_file": "use-colorwheel-2.html",
+        "goal_sha256": "7b10f5ea7b7b081b48d789b0b27ee27baf0398d3646d7cc521eb1e6ec49bb74b",
+        "observation_key_count": 15,
+        "accessibility_tree_node_count": 497,
+        "screenshot_shape": [
+          321,
+          498,
+          3
+        ]
+      },
+      "chromium_version": "125.0.6422.26",
+      "steps": [
+        {
+          "ordinal": 1,
+          "action_kind": "fill_color_and_submit",
+          "reward": 1.0,
+          "terminated": true,
+          "truncated": false,
+          "has_error": false,
+          "error_type": null
+        }
+      ],
+      "action_phase_request_count": 0,
+      "action_phase_http_request_count": 0,
+      "recovery_probe_triggered": false,
+      "recovered_after_expected_error": false,
+      "success": true
+    },
+    "use-colorwheel-2::seed-2": {
+      "job_id": "use-colorwheel-2::seed-2",
+      "task": "use-colorwheel-2",
+      "seed": 2,
+      "initial_observation": {
+        "url_scheme": "file",
+        "url_file": "use-colorwheel-2.html",
+        "goal_sha256": "225bc4465b13513a908ed65ffa526a534f7aac3b5c9ff610387d15a1d4e78d03",
+        "observation_key_count": 15,
+        "accessibility_tree_node_count": 497,
+        "screenshot_shape": [
+          321,
+          498,
+          3
+        ]
+      },
+      "chromium_version": "125.0.6422.26",
+      "steps": [
+        {
+          "ordinal": 1,
+          "action_kind": "fill_color_and_submit",
+          "reward": 1.0,
+          "terminated": true,
+          "truncated": false,
+          "has_error": false,
+          "error_type": null
+        }
+      ],
+      "action_phase_request_count": 0,
+      "action_phase_http_request_count": 0,
+      "recovery_probe_triggered": false,
+      "recovered_after_expected_error": false,
+      "success": true
+    }
+  },
+  "history": [
+    {
+      "event": "episode_completed",
+      "job_id": "click-scroll-list::seed-0",
+      "success": true,
+      "completed_count": 1
+    },
+    {
+      "event": "episode_completed",
+      "job_id": "click-scroll-list::seed-1",
+      "success": true,
+      "completed_count": 2
+    },
+    {
+      "event": "episode_completed",
+      "job_id": "click-scroll-list::seed-2",
+      "success": true,
+      "completed_count": 3
+    },
+    {
+      "event": "episode_completed",
+      "job_id": "click-menu-2::seed-0",
+      "success": true,
+      "completed_count": 4
+    },
+    {
+      "event": "intentional_stop",
+      "completed_count": 4,
+      "pending_count": 5
+    },
+    {
+      "event": "resume_started",
+      "preexisting_completed_count": 4,
+      "preexisting_results_sha256": "65ab0ad5bebb555c49a7610e52ff8f82e26f258d4168a2b59ec2894194415bb2"
+    },
+    {
+      "event": "episode_completed",
+      "job_id": "click-menu-2::seed-1",
+      "success": true,
+      "completed_count": 5
+    },
+    {
+      "event": "episode_completed",
+      "job_id": "click-menu-2::seed-2",
+      "success": true,
+      "completed_count": 6
+    },
+    {
+      "event": "episode_completed",
+      "job_id": "use-colorwheel-2::seed-0",
+      "success": true,
+      "completed_count": 7
+    },
+    {
+      "event": "episode_completed",
+      "job_id": "use-colorwheel-2::seed-1",
+      "success": true,
+      "completed_count": 8
+    },
+    {
+      "event": "episode_completed",
+      "job_id": "use-colorwheel-2::seed-2",
+      "success": true,
+      "completed_count": 9
+    },
+    {
+      "event": "resume_completed",
+      "preexisting_completed_count": 4,
+      "preexisting_results_sha256_before": "65ab0ad5bebb555c49a7610e52ff8f82e26f258d4168a2b59ec2894194415bb2",
+      "preexisting_results_sha256_after": "65ab0ad5bebb555c49a7610e52ff8f82e26f258d4168a2b59ec2894194415bb2",
+      "preserved": true
+    }
+  ]
+}

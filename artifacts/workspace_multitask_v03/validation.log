@@ -1,0 +1,80 @@
+Validation date: 2026-08-07
+Project: Agent Reliability Lab Workspace Multi-Task v0.3
+
+Runtime
+  Python 3.12.2
+  Python SQLite runtime 3.45.1
+  Ruff 0.15.17
+  pyproject project version: 0.3.0
+  Third-party Python runtime dependencies: 0
+
+Tests
+  Command: PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3.12 -m unittest discover -s tests -p 'test_*.py' -v
+  Result: Ran 30 tests in 0.178s; OK
+  Compatibility: Python 3.11.15 / SQLite 3.50.4; Ran 30 tests in 0.159s; OK
+
+Static checks
+  Command: ruff check --no-cache src scripts tests
+  Result: All checks passed
+  Command: ruff format --check --no-cache src scripts tests
+  Result: 38 files already formatted
+
+Paired experiment
+  Command: PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3.12 scripts/run_workspace_multitask.py --output artifacts/workspace_multitask_v03/summary.json --traces-dir artifacts/workspace_multitask_v03/traces
+  Result: 24 episodes, 24 traces, 198 trace events
+  Matrix: 2 tasks x 3 seeds x clean/fault x R1/R2
+  R1 clean: 6/6 TaskSuccess
+  R1 post-commit fault: 0/6 TaskSuccess; 6 total blind retries
+  R2 clean: 6/6 TaskSuccess
+  R2 post-commit fault: 6/6 TaskSuccess; 6 confirmations; 0 blind retries
+  R2 minus R1 paired recovery-rate delta: +1.0
+
+Selected v0.3 validity gates
+  Notification idempotent replay: passed
+  Notification idempotency-key conflict: passed
+  Invitation idempotent replay: passed
+  Notification transaction rollback: passed
+  Explicit allowed metadata change: passed
+  Evaluator mutations (5/5): passed
+  Reschedule do-nothing rejected: passed
+  Reschedule claim-success rejected: passed
+  Reschedule ground-truth isolation: passed
+  20 resets per task/seed: one unique initial hash for all 6 pairs
+  Paired initial hashes: matched
+  R1 blind retry incomplete for all 6 fault pairs: passed
+  R2 state-confirmation recovery for all 6 fault pairs: passed
+  Digest-only trace payload gate: passed
+  Internal repeat comparison: deterministic
+
+External determinism check
+  Repeat command used artifacts/workspace_multitask_v03_repeat/{summary.json,traces/}
+  Summary: byte-identical
+  Traces: 24/24 byte-identical
+  Formal summary SHA-256: 72201242549f6fd1df065fff0ce994a8738c6162e0cfc6fb1644ed396e6e8c62
+  Canonical trace-manifest SHA-256: b498c7051c6589a73c4a76ed20bd14f584f923258ce9fe542dec97bad2565635
+  Canonical source-manifest SHA-256: b867e8b9903cf0815b6e5e694e423d2339469fa08ce0b27cac8be25b8b03b2ca
+  Source manifest covers 24 runtime/config files, including pyproject.toml
+  Existing output rerun exit: 1; Refusing to overwrite output
+
+Historical preservation
+  v0.1 recorded source manifest: matched current recorded files
+  v0.2 recorded source manifest: matched current recorded files
+
+Limits
+  One domain, two Workspace tasks, three deterministic seeds per task
+  Fixed oracle actions and two controlled post-commit fault sites
+  No schema adapter, compensation, scheduler, model, or network
+  Random-valid-tool, dump-state, and golden-trace gates remain pending
+  Results are mechanism evidence, not a benchmark or model score
+
+Final documentation and evidence audit
+  Fixed Python lookup: uv python find 3.12.2
+  Python 3.12.2 rerun: Ran 30 tests in 0.193s; OK
+  Python 3.11.15 rerun: Ran 30 tests in 0.197s; OK
+  Ruff: All checks passed; 38 files already formatted
+  JSON/JSONL: 24 episodes, 24 traces, 198 events parsed
+  Trace schema: exact; parent-event chains: valid; raw payload markers: absent
+  Repeat: summary byte-identical; traces 24/24 byte-identical
+  Source manifests: v0.1, v0.2, and v0.3 matched recorded files
+  Markdown: 25 files, 105 relative links checked, 0 broken
+  Cache/temp audit: 0 .pytest_cache, 0 .ruff_cache, 0 *.tmp

@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.pytest_cache/
+.ruff_cache/
+.venv/
+*.tmp
+build/
+dist/
+*.egg-info/
+.coverage
+htmlcov/
+artifacts/*_rerun/
+artifacts/.*_validation/
