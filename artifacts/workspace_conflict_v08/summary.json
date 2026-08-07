@@ -1,0 +1,1427 @@
+{
+  "metadata": {
+    "increment_version": "0.8.0",
+    "root_project_version": "0.3.0",
+    "python": "3.12.12",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "environment_version": "workspace-conflict-v0.8.0",
+    "task_ids": [
+      "workspace.reschedule_meeting_and_notify"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "runtimes": [
+      "r2_confirmed",
+      "r2_conflict_aware"
+    ],
+    "conditions": [
+      "clean",
+      "compatible_conflict",
+      "incompatible_conflict"
+    ],
+    "registered_differences": {
+      "compatible_conflict": "atomic unrelated metadata change before event update",
+      "incompatible_conflict": "atomic target event-time change before event update"
+    },
+    "model_calls": 0,
+    "external_network_calls": 0,
+    "uses_only_synthetic_data": true,
+    "trace_payload_policy": "digests and typed metadata only",
+    "source_manifest": {
+      "algorithm": "sha256(canonical_json({relative_path: file_sha256}))",
+      "sha256": "23f30e2d16ca2fbb5b1b9235d3e295a8cb04be669df089b92b8c43315b44fdc5",
+      "files": {
+        "pyproject.toml": "805b2fc9ea83f8c56223b51454f1b2660dd2ece88620d6c725d054fb29baf00a",
+        "scripts/run_conflict_recovery.py": "e201fa985d1825cd322258c595b4e34f3b9922bfe134bb2b101e58eef2129bd0",
+        "src/arl/core/types.py": "58862356fa7aca2817fa1f30a7136409605501efc5a44b8e0a54b4eb2beb76b2",
+        "src/arl/envs/workspace.py": "2cf6f1a4ac8784191bd9d04d712aa318d6873a542ee422e9605d88a1de6f446b",
+        "src/arl/runtime/journal.py": "29082aa1ea86243356aba4f70691593543ea6b4a1bd5d808c22ef1f987474ae3",
+        "src/arl_conflict/__init__.py": "9f0f1cc2331b474e9a6cd0df52c8cfefc216eba19cf2292e2b405765183c5ecb",
+        "src/arl_conflict/env.py": "e74d611b250e700c6da2ceb23fc69b0c5d16ace0aec436e0684a5b0e966010da",
+        "src/arl_conflict/evaluator.py": "a49923831457fa58a1887dc600b9fec1ba51e1339178db5f045e36da819e9cf2",
+        "src/arl_conflict/experiment.py": "45f3c2fcae9e80b9a18b56b10b4ff494e6be49093f11ab1e23172d8876173789",
+        "src/arl_conflict/runtime.py": "92119f312902c475d47204795096b1d374b2bfb0cfefcd8265f582448bcde778",
+        "src/arl_multitask/__init__.py": "4401d06e234e513979fda808e56b2e04b09aa98ac2b29e73b770a543fb782213",
+        "src/arl_multitask/env.py": "a5808dcc6f5b22e02af36dfc0a682196f5d89fddc448331a3dc0e23b9ece3df0",
+        "src/arl_multitask/evaluator.py": "0d2c30cbd8fd69b8091d163466cbf5925f58d9e2e57af1f2d1df442d368a7885",
+        "src/arl_multitask/experiment.py": "0b7056706ed2b8cccf363dd068476adeb8fbffb2f14784c75843c5f6f15ef5a6",
+        "src/arl_multitask/runtime.py": "794034f027ff40a995eb3272bf597da0e192bb84fe1077ec3b28130f80b8533c",
+        "src/arl_r2/__init__.py": "2d95b192d121fa4def4d555aa93af23a620e32cdf5d9711c5bafdac8229a4dd3",
+        "src/arl_r2/env.py": "1a5223c13ee675c734f8d826117df01babe7e1add48783dec95f6f98959eb7b8",
+        "src/arl_r2/evaluator.py": "082adff5f7f4184a98c4378ae6e20a6dfa10e89416e557892bd54974487f76be",
+        "src/arl_r2/experiment.py": "1cfa04b32c7f3ae83017686d530a355b5ef02dfcb27657549b371d7977bfd408",
+        "src/arl_r2/runtime.py": "010908640e55e7354f47553a991e4a0aabe9b13e1caaccf463807ceb00c6cf6d"
+      }
+    },
+    "trace_manifest": {
+      "algorithm": "sha256(canonical_json({trace_filename: file_sha256}))",
+      "sha256": "997e38ec84bb3f34bf13cf3260723adb959b52dae8c1533aa4c6c4025210129f",
+      "files": {
+        "conflict-reschedule-seed-0-r2_confirmed-clean.jsonl": "3b4b92b15136b1e1676700d06b44a133880012be9769c96805f5a3d7793fa371",
+        "conflict-reschedule-seed-0-r2_confirmed-compatible_conflict.jsonl": "4d87b237af534ed81f508bc348d3029290a43f23ec4d473ff9a97121e7000d0f",
+        "conflict-reschedule-seed-0-r2_confirmed-incompatible_conflict.jsonl": "ca7f2668c9cefa5ca7d59a14f2165491fde29d78d8cd16cf5f3af4c8db61662e",
+        "conflict-reschedule-seed-0-r2_conflict_aware-clean.jsonl": "93892165a4530cb2b7aba79c5e154155e92c3c4ec8e472c0dd4cb5f1c5fe6225",
+        "conflict-reschedule-seed-0-r2_conflict_aware-compatible_conflict.jsonl": "e6f3e5117616828807d2d7e3b8f66b51c2a8016929981ebbfd978080469fe323",
+        "conflict-reschedule-seed-0-r2_conflict_aware-incompatible_conflict.jsonl": "e1651cded26577d3f7e629d6ed263480410293545a702282b04ce2cd390c5822",
+        "conflict-reschedule-seed-1-r2_confirmed-clean.jsonl": "e0d4e5b2cc82a34c6fd9bd73deebcbebed090804f1509667e1744c4c52f21a2e",
+        "conflict-reschedule-seed-1-r2_confirmed-compatible_conflict.jsonl": "c55d6a7cda4e3f32d4791be0dc8ae5ed3645aa27f9901f61d90dec83d697a1fe",
+        "conflict-reschedule-seed-1-r2_confirmed-incompatible_conflict.jsonl": "e6f0f6998016e50ac860e1e5067c49d60b03874fd11f51e53b905b3a92ba0858",
+        "conflict-reschedule-seed-1-r2_conflict_aware-clean.jsonl": "8c5389630540aad4b60a909019d07d1dc51d7ef219a54e65212174fcd1ea6d1f",
+        "conflict-reschedule-seed-1-r2_conflict_aware-compatible_conflict.jsonl": "b78605d02b1f91cf69ded8d865afd7c29fc6e2bb9592b06964d8c5fadadd7b5c",
+        "conflict-reschedule-seed-1-r2_conflict_aware-incompatible_conflict.jsonl": "62461a0170a2f5204917fe78993dcd516833671b3cac015116c8890ede586f0f",
+        "conflict-reschedule-seed-2-r2_confirmed-clean.jsonl": "3a6ce360ea04b70ac0ed47196319e6ce8a0beb6957165555d5c29d392ed4e680",
+        "conflict-reschedule-seed-2-r2_confirmed-compatible_conflict.jsonl": "42675e203524854d72520ceb12042d89874c684f9db41c57b4bef34580b48445",
+        "conflict-reschedule-seed-2-r2_confirmed-incompatible_conflict.jsonl": "397ebed5afd81394e42d49d835abd1f24764108d39ff493b5f0b240f8f9806ff",
+        "conflict-reschedule-seed-2-r2_conflict_aware-clean.jsonl": "3f6c7a41d878c1f83d2cf70e76766ee0b4eca00f7e1635393ddeb07db8802308",
+        "conflict-reschedule-seed-2-r2_conflict_aware-compatible_conflict.jsonl": "369af485737ae8b8a8ded3f308cca98e9bc247551ac36ef3d6c47746d53a6757",
+        "conflict-reschedule-seed-2-r2_conflict_aware-incompatible_conflict.jsonl": "9ca92cee6c1cd41b98cb9bc7c3705e492a82aba756e0d43b1e265a09a093b352"
+      }
+    }
+  },
+  "episodes": [
+    {
+      "episode_id": "conflict-reschedule-seed-0-r2_confirmed-clean",
+      "task_id": "workspace.reschedule_meeting_and_notify",
+      "seed": 0,
+      "runtime": "r2_confirmed",
+      "condition": "clean",
+      "conflict_mode": "none",
+      "initial_state_hash": "9457e44dde6dd2e8faf76552d71f5de5bf5d8fa61e769c4c4a40a5bc138aa7de",
+      "final_state_hash": "7d3181f4e9328a32bb3a029296ac49c64a11fca2f72d15a07e04b5527743fd3a",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_time_updated": true,
+          "notifications_sent": true,
+          "request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=1",
+          "expected_notifications=2",
+          "observed_expected_notifications=2",
+          "request_resolved=True",
+          "extra_events=0",
+          "extra_notifications=0",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0"
+        ]
+      },
+      "observed_fault_ids": [],
+      "final_state": {
+        "event_start_at": "2026-09-20T10:00:00Z",
+        "notification_count": 2,
+        "request_status": "resolved",
+        "idempotency_record_count": 3,
+        "metadata_value": ""
+      },
+      "trace_file": "conflict-reschedule-seed-0-r2_confirmed-clean.jsonl",
+      "trace_sha256": "3b4b92b15136b1e1676700d06b44a133880012be9769c96805f5a3d7793fa371",
+      "trace_event_count": 8
+    },
+    {
+      "episode_id": "conflict-reschedule-seed-1-r2_confirmed-clean",
+      "task_id": "workspace.reschedule_meeting_and_notify",
+      "seed": 1,
+      "runtime": "r2_confirmed",
+      "condition": "clean",
+      "conflict_mode": "none",
+      "initial_state_hash": "2ba83493c80b82431ccb8b5f8aa39b5e3d3f9812555e41f1a5bca9bd3b591ded",
+      "final_state_hash": "ced9f52e9be9e2a469b38bfc9c037d89a9f29a13e18d8cf1f9dece1a40baa3f9",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_time_updated": true,
+          "notifications_sent": true,
+          "request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=1",
+          "expected_notifications=2",
+          "observed_expected_notifications=2",
+          "request_resolved=True",
+          "extra_events=0",
+          "extra_notifications=0",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0"
+        ]
+      },
+      "observed_fault_ids": [],
+      "final_state": {
+        "event_start_at": "2026-09-21T11:00:00Z",
+        "notification_count": 2,
+        "request_status": "resolved",
+        "idempotency_record_count": 3,
+        "metadata_value": ""
+      },
+      "trace_file": "conflict-reschedule-seed-1-r2_confirmed-clean.jsonl",
+      "trace_sha256": "e0d4e5b2cc82a34c6fd9bd73deebcbebed090804f1509667e1744c4c52f21a2e",
+      "trace_event_count": 8
+    },
+    {
+      "episode_id": "conflict-reschedule-seed-2-r2_confirmed-clean",
+      "task_id": "workspace.reschedule_meeting_and_notify",
+      "seed": 2,
+      "runtime": "r2_confirmed",
+      "condition": "clean",
+      "conflict_mode": "none",
+      "initial_state_hash": "1f81c77cbed45b01bcca4717c8193605968f0ebd799c72c0d504774677166d8d",
+      "final_state_hash": "f670ed171654f69273b9007f050a07750f890d8df00b2009de3af7fc944892d1",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_time_updated": true,
+          "notifications_sent": true,
+          "request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=1",
+          "expected_notifications=2",
+          "observed_expected_notifications=2",
+          "request_resolved=True",
+          "extra_events=0",
+          "extra_notifications=0",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0"
+        ]
+      },
+      "observed_fault_ids": [],
+      "final_state": {
+        "event_start_at": "2026-09-22T12:00:00Z",
+        "notification_count": 2,
+        "request_status": "resolved",
+        "idempotency_record_count": 3,
+        "metadata_value": ""
+      },
+      "trace_file": "conflict-reschedule-seed-2-r2_confirmed-clean.jsonl",
+      "trace_sha256": "3a6ce360ea04b70ac0ed47196319e6ce8a0beb6957165555d5c29d392ed4e680",
+      "trace_event_count": 8
+    },
+    {
+      "episode_id": "conflict-reschedule-seed-0-r2_confirmed-compatible_conflict",
+      "task_id": "workspace.reschedule_meeting_and_notify",
+      "seed": 0,
+      "runtime": "r2_confirmed",
+      "condition": "compatible_conflict",
+      "conflict_mode": "unrelated_state_change_before_update_once",
+      "initial_state_hash": "9457e44dde6dd2e8faf76552d71f5de5bf5d8fa61e769c4c4a40a5bc138aa7de",
+      "final_state_hash": "c20e75c129a26883150a1a32e03f8bd1c943a9f169bc2a480cfcf1fc65c2ee67",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "tool_attempts": 1,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "event_time_updated": false,
+          "notifications_sent": false,
+          "request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=0",
+          "expected_notifications=2",
+          "observed_expected_notifications=0",
+          "request_resolved=False",
+          "extra_events=0",
+          "extra_notifications=0",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.workspace.concurrent_metadata_change_once"
+      ],
+      "final_state": {
+        "event_start_at": "2026-09-20T08:00:00Z",
+        "notification_count": 0,
+        "request_status": "pending",
+        "idempotency_record_count": 0,
+        "metadata_value": "external-observer:0"
+      },
+      "trace_file": "conflict-reschedule-seed-0-r2_confirmed-compatible_conflict.jsonl",
+      "trace_sha256": "4d87b237af534ed81f508bc348d3029290a43f23ec4d473ff9a97121e7000d0f",
+      "trace_event_count": 4
+    },
+    {
+      "episode_id": "conflict-reschedule-seed-1-r2_confirmed-compatible_conflict",
+      "task_id": "workspace.reschedule_meeting_and_notify",
+      "seed": 1,
+      "runtime": "r2_confirmed",
+      "condition": "compatible_conflict",
+      "conflict_mode": "unrelated_state_change_before_update_once",
+      "initial_state_hash": "2ba83493c80b82431ccb8b5f8aa39b5e3d3f9812555e41f1a5bca9bd3b591ded",
+      "final_state_hash": "e73d9c1fce11ab69808022c7ce7389855c155d77e47d6d36c5aaf389a93bc434",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "tool_attempts": 1,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "event_time_updated": false,
+          "notifications_sent": false,
+          "request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=0",
+          "expected_notifications=2",
+          "observed_expected_notifications=0",
+          "request_resolved=False",
+          "extra_events=0",
+          "extra_notifications=0",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.workspace.concurrent_metadata_change_once"
+      ],
+      "final_state": {
+        "event_start_at": "2026-09-21T09:00:00Z",
+        "notification_count": 0,
+        "request_status": "pending",
+        "idempotency_record_count": 0,
+        "metadata_value": "external-observer:1"
+      },
+      "trace_file": "conflict-reschedule-seed-1-r2_confirmed-compatible_conflict.jsonl",
+      "trace_sha256": "c55d6a7cda4e3f32d4791be0dc8ae5ed3645aa27f9901f61d90dec83d697a1fe",
+      "trace_event_count": 4
+    },
+    {
+      "episode_id": "conflict-reschedule-seed-2-r2_confirmed-compatible_conflict",
+      "task_id": "workspace.reschedule_meeting_and_notify",
+      "seed": 2,
+      "runtime": "r2_confirmed",
+      "condition": "compatible_conflict",
+      "conflict_mode": "unrelated_state_change_before_update_once",
+      "initial_state_hash": "1f81c77cbed45b01bcca4717c8193605968f0ebd799c72c0d504774677166d8d",
+      "final_state_hash": "3c262902c83384fc2db52a4e9c0485f2ab52f387e2499130434d149f511c7e66",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "tool_attempts": 1,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "event_time_updated": false,
+          "notifications_sent": false,
+          "request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=0",
+          "expected_notifications=2",
+          "observed_expected_notifications=0",
+          "request_resolved=False",
+          "extra_events=0",
+          "extra_notifications=0",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.workspace.concurrent_metadata_change_once"
+      ],
+      "final_state": {
+        "event_start_at": "2026-09-22T10:00:00Z",
+        "notification_count": 0,
+        "request_status": "pending",
+        "idempotency_record_count": 0,
+        "metadata_value": "external-observer:2"
+      },
+      "trace_file": "conflict-reschedule-seed-2-r2_confirmed-compatible_conflict.jsonl",
+      "trace_sha256": "42675e203524854d72520ceb12042d89874c684f9db41c57b4bef34580b48445",
+      "trace_event_count": 4
+    },
+    {
+      "episode_id": "conflict-reschedule-seed-0-r2_confirmed-incompatible_conflict",
+      "task_id": "workspace.reschedule_meeting_and_notify",
+      "seed": 0,
+      "runtime": "r2_confirmed",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "target_state_change_before_update_once",
+      "initial_state_hash": "9457e44dde6dd2e8faf76552d71f5de5bf5d8fa61e769c4c4a40a5bc138aa7de",
+      "final_state_hash": "64cd5c5602736df12828e8535b922736b888bdde2ac2f893bab0f2a732f91ec5",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "tool_attempts": 1,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "event_time_updated": false,
+          "notifications_sent": false,
+          "request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=0",
+          "expected_notifications=2",
+          "observed_expected_notifications=0",
+          "request_resolved=False",
+          "extra_events=0",
+          "extra_notifications=0",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.workspace.concurrent_event_time_change_once"
+      ],
+      "final_state": {
+        "event_start_at": "2026-09-20T18:00:00Z",
+        "notification_count": 0,
+        "request_status": "pending",
+        "idempotency_record_count": 0,
+        "metadata_value": ""
+      },
+      "trace_file": "conflict-reschedule-seed-0-r2_confirmed-incompatible_conflict.jsonl",
+      "trace_sha256": "ca7f2668c9cefa5ca7d59a14f2165491fde29d78d8cd16cf5f3af4c8db61662e",
+      "trace_event_count": 4
+    },
+    {
+      "episode_id": "conflict-reschedule-seed-1-r2_confirmed-incompatible_conflict",
+      "task_id": "workspace.reschedule_meeting_and_notify",
+      "seed": 1,
+      "runtime": "r2_confirmed",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "target_state_change_before_update_once",
+      "initial_state_hash": "2ba83493c80b82431ccb8b5f8aa39b5e3d3f9812555e41f1a5bca9bd3b591ded",
+      "final_state_hash": "78cbb03656a6da0bb39ce0fcb1bed71f50d8ae3f7e50e668baa895982af6dbd9",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "tool_attempts": 1,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "event_time_updated": false,
+          "notifications_sent": false,
+          "request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=0",
+          "expected_notifications=2",
+          "observed_expected_notifications=0",
+          "request_resolved=False",
+          "extra_events=0",
+          "extra_notifications=0",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.workspace.concurrent_event_time_change_once"
+      ],
+      "final_state": {
+        "event_start_at": "2026-09-21T18:00:00Z",
+        "notification_count": 0,
+        "request_status": "pending",
+        "idempotency_record_count": 0,
+        "metadata_value": ""
+      },
+      "trace_file": "conflict-reschedule-seed-1-r2_confirmed-incompatible_conflict.jsonl",
+      "trace_sha256": "e6f0f6998016e50ac860e1e5067c49d60b03874fd11f51e53b905b3a92ba0858",
+      "trace_event_count": 4
+    },
+    {
+      "episode_id": "conflict-reschedule-seed-2-r2_confirmed-incompatible_conflict",
+      "task_id": "workspace.reschedule_meeting_and_notify",
+      "seed": 2,
+      "runtime": "r2_confirmed",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "target_state_change_before_update_once",
+      "initial_state_hash": "1f81c77cbed45b01bcca4717c8193605968f0ebd799c72c0d504774677166d8d",
+      "final_state_hash": "8de3ab58aea309d1f1b2ab435c316691798c0ac12ce0eaae847cf950b3bdea73",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "tool_attempts": 1,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "event_time_updated": false,
+          "notifications_sent": false,
+          "request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=0",
+          "expected_notifications=2",
+          "observed_expected_notifications=0",
+          "request_resolved=False",
+          "extra_events=0",
+          "extra_notifications=0",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.workspace.concurrent_event_time_change_once"
+      ],
+      "final_state": {
+        "event_start_at": "2026-09-22T18:00:00Z",
+        "notification_count": 0,
+        "request_status": "pending",
+        "idempotency_record_count": 0,
+        "metadata_value": ""
+      },
+      "trace_file": "conflict-reschedule-seed-2-r2_confirmed-incompatible_conflict.jsonl",
+      "trace_sha256": "397ebed5afd81394e42d49d835abd1f24764108d39ff493b5f0b240f8f9806ff",
+      "trace_event_count": 4
+    },
+    {
+      "episode_id": "conflict-reschedule-seed-0-r2_conflict_aware-clean",
+      "task_id": "workspace.reschedule_meeting_and_notify",
+      "seed": 0,
+      "runtime": "r2_conflict_aware",
+      "condition": "clean",
+      "conflict_mode": "none",
+      "initial_state_hash": "9457e44dde6dd2e8faf76552d71f5de5bf5d8fa61e769c4c4a40a5bc138aa7de",
+      "final_state_hash": "7d3181f4e9328a32bb3a029296ac49c64a11fca2f72d15a07e04b5527743fd3a",
+      "execution": {
+        "runtime_name": "r2_conflict_aware",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_time_updated": true,
+          "notifications_sent": true,
+          "request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=1",
+          "expected_notifications=2",
+          "observed_expected_notifications=2",
+          "request_resolved=True",
+          "extra_events=0",
+          "extra_notifications=0",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0"
+        ]
+      },
+      "observed_fault_ids": [],
+      "final_state": {
+        "event_start_at": "2026-09-20T10:00:00Z",
+        "notification_count": 2,
+        "request_status": "resolved",
+        "idempotency_record_count": 3,
+        "metadata_value": ""
+      },
+      "trace_file": "conflict-reschedule-seed-0-r2_conflict_aware-clean.jsonl",
+      "trace_sha256": "93892165a4530cb2b7aba79c5e154155e92c3c4ec8e472c0dd4cb5f1c5fe6225",
+      "trace_event_count": 8
+    },
+    {
+      "episode_id": "conflict-reschedule-seed-1-r2_conflict_aware-clean",
+      "task_id": "workspace.reschedule_meeting_and_notify",
+      "seed": 1,
+      "runtime": "r2_conflict_aware",
+      "condition": "clean",
+      "conflict_mode": "none",
+      "initial_state_hash": "2ba83493c80b82431ccb8b5f8aa39b5e3d3f9812555e41f1a5bca9bd3b591ded",
+      "final_state_hash": "ced9f52e9be9e2a469b38bfc9c037d89a9f29a13e18d8cf1f9dece1a40baa3f9",
+      "execution": {
+        "runtime_name": "r2_conflict_aware",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_time_updated": true,
+          "notifications_sent": true,
+          "request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=1",
+          "expected_notifications=2",
+          "observed_expected_notifications=2",
+          "request_resolved=True",
+          "extra_events=0",
+          "extra_notifications=0",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0"
+        ]
+      },
+      "observed_fault_ids": [],
+      "final_state": {
+        "event_start_at": "2026-09-21T11:00:00Z",
+        "notification_count": 2,
+        "request_status": "resolved",
+        "idempotency_record_count": 3,
+        "metadata_value": ""
+      },
+      "trace_file": "conflict-reschedule-seed-1-r2_conflict_aware-clean.jsonl",
+      "trace_sha256": "8c5389630540aad4b60a909019d07d1dc51d7ef219a54e65212174fcd1ea6d1f",
+      "trace_event_count": 8
+    },
+    {
+      "episode_id": "conflict-reschedule-seed-2-r2_conflict_aware-clean",
+      "task_id": "workspace.reschedule_meeting_and_notify",
+      "seed": 2,
+      "runtime": "r2_conflict_aware",
+      "condition": "clean",
+      "conflict_mode": "none",
+      "initial_state_hash": "1f81c77cbed45b01bcca4717c8193605968f0ebd799c72c0d504774677166d8d",
+      "final_state_hash": "f670ed171654f69273b9007f050a07750f890d8df00b2009de3af7fc944892d1",
+      "execution": {
+        "runtime_name": "r2_conflict_aware",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 3,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_time_updated": true,
+          "notifications_sent": true,
+          "request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=1",
+          "expected_notifications=2",
+          "observed_expected_notifications=2",
+          "request_resolved=True",
+          "extra_events=0",
+          "extra_notifications=0",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0"
+        ]
+      },
+      "observed_fault_ids": [],
+      "final_state": {
+        "event_start_at": "2026-09-22T12:00:00Z",
+        "notification_count": 2,
+        "request_status": "resolved",
+        "idempotency_record_count": 3,
+        "metadata_value": ""
+      },
+      "trace_file": "conflict-reschedule-seed-2-r2_conflict_aware-clean.jsonl",
+      "trace_sha256": "3f6c7a41d878c1f83d2cf70e76766ee0b4eca00f7e1635393ddeb07db8802308",
+      "trace_event_count": 8
+    },
+    {
+      "episode_id": "conflict-reschedule-seed-0-r2_conflict_aware-compatible_conflict",
+      "task_id": "workspace.reschedule_meeting_and_notify",
+      "seed": 0,
+      "runtime": "r2_conflict_aware",
+      "condition": "compatible_conflict",
+      "conflict_mode": "unrelated_state_change_before_update_once",
+      "initial_state_hash": "9457e44dde6dd2e8faf76552d71f5de5bf5d8fa61e769c4c4a40a5bc138aa7de",
+      "final_state_hash": "3e31a1e7ec9cb0af3bd58f23e65c5d462cd5ed4ffabc82ebf9c8bd6aac71b423",
+      "execution": {
+        "runtime_name": "r2_conflict_aware",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 5,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 1,
+        "conflict_rebase_count": 1,
+        "conflict_abort_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_time_updated": true,
+          "notifications_sent": true,
+          "request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "conflict-reschedule-seed-0-r2_conflict_aware-compatible_conflict:0007"
+        ],
+        "evidence": [
+          "matching_events=1",
+          "expected_notifications=2",
+          "observed_expected_notifications=2",
+          "request_resolved=True",
+          "extra_events=0",
+          "extra_notifications=0",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=1"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.workspace.concurrent_metadata_change_once"
+      ],
+      "final_state": {
+        "event_start_at": "2026-09-20T10:00:00Z",
+        "notification_count": 2,
+        "request_status": "resolved",
+        "idempotency_record_count": 3,
+        "metadata_value": "external-observer:0"
+      },
+      "trace_file": "conflict-reschedule-seed-0-r2_conflict_aware-compatible_conflict.jsonl",
+      "trace_sha256": "e6f3e5117616828807d2d7e3b8f66b51c2a8016929981ebbfd978080469fe323",
+      "trace_event_count": 14
+    },
+    {
+      "episode_id": "conflict-reschedule-seed-1-r2_conflict_aware-compatible_conflict",
+      "task_id": "workspace.reschedule_meeting_and_notify",
+      "seed": 1,
+      "runtime": "r2_conflict_aware",
+      "condition": "compatible_conflict",
+      "conflict_mode": "unrelated_state_change_before_update_once",
+      "initial_state_hash": "2ba83493c80b82431ccb8b5f8aa39b5e3d3f9812555e41f1a5bca9bd3b591ded",
+      "final_state_hash": "cd261590c928bba6a9688f66f792c12900ee33dd39ba85c9414342a2c574fc35",
+      "execution": {
+        "runtime_name": "r2_conflict_aware",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 5,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 1,
+        "conflict_rebase_count": 1,
+        "conflict_abort_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_time_updated": true,
+          "notifications_sent": true,
+          "request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "conflict-reschedule-seed-1-r2_conflict_aware-compatible_conflict:0007"
+        ],
+        "evidence": [
+          "matching_events=1",
+          "expected_notifications=2",
+          "observed_expected_notifications=2",
+          "request_resolved=True",
+          "extra_events=0",
+          "extra_notifications=0",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=1"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.workspace.concurrent_metadata_change_once"
+      ],
+      "final_state": {
+        "event_start_at": "2026-09-21T11:00:00Z",
+        "notification_count": 2,
+        "request_status": "resolved",
+        "idempotency_record_count": 3,
+        "metadata_value": "external-observer:1"
+      },
+      "trace_file": "conflict-reschedule-seed-1-r2_conflict_aware-compatible_conflict.jsonl",
+      "trace_sha256": "b78605d02b1f91cf69ded8d865afd7c29fc6e2bb9592b06964d8c5fadadd7b5c",
+      "trace_event_count": 14
+    },
+    {
+      "episode_id": "conflict-reschedule-seed-2-r2_conflict_aware-compatible_conflict",
+      "task_id": "workspace.reschedule_meeting_and_notify",
+      "seed": 2,
+      "runtime": "r2_conflict_aware",
+      "condition": "compatible_conflict",
+      "conflict_mode": "unrelated_state_change_before_update_once",
+      "initial_state_hash": "1f81c77cbed45b01bcca4717c8193605968f0ebd799c72c0d504774677166d8d",
+      "final_state_hash": "4d2c2d1ac8c13d56c2f85809fd38201ecaf1746a8154664aa9906241903b6804",
+      "execution": {
+        "runtime_name": "r2_conflict_aware",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "tool_attempts": 5,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 1,
+        "conflict_rebase_count": 1,
+        "conflict_abort_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_time_updated": true,
+          "notifications_sent": true,
+          "request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "conflict-reschedule-seed-2-r2_conflict_aware-compatible_conflict:0007"
+        ],
+        "evidence": [
+          "matching_events=1",
+          "expected_notifications=2",
+          "observed_expected_notifications=2",
+          "request_resolved=True",
+          "extra_events=0",
+          "extra_notifications=0",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=1"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.workspace.concurrent_metadata_change_once"
+      ],
+      "final_state": {
+        "event_start_at": "2026-09-22T12:00:00Z",
+        "notification_count": 2,
+        "request_status": "resolved",
+        "idempotency_record_count": 3,
+        "metadata_value": "external-observer:2"
+      },
+      "trace_file": "conflict-reschedule-seed-2-r2_conflict_aware-compatible_conflict.jsonl",
+      "trace_sha256": "369af485737ae8b8a8ded3f308cca98e9bc247551ac36ef3d6c47746d53a6757",
+      "trace_event_count": 14
+    },
+    {
+      "episode_id": "conflict-reschedule-seed-0-r2_conflict_aware-incompatible_conflict",
+      "task_id": "workspace.reschedule_meeting_and_notify",
+      "seed": 0,
+      "runtime": "r2_conflict_aware",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "target_state_change_before_update_once",
+      "initial_state_hash": "9457e44dde6dd2e8faf76552d71f5de5bf5d8fa61e769c4c4a40a5bc138aa7de",
+      "final_state_hash": "64cd5c5602736df12828e8535b922736b888bdde2ac2f893bab0f2a732f91ec5",
+      "execution": {
+        "runtime_name": "r2_conflict_aware",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 1,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "failure_code": "conflict_precondition_changed",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "event_time_updated": false,
+          "notifications_sent": false,
+          "request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=0",
+          "expected_notifications=2",
+          "observed_expected_notifications=0",
+          "request_resolved=False",
+          "extra_events=0",
+          "extra_notifications=0",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.workspace.concurrent_event_time_change_once"
+      ],
+      "final_state": {
+        "event_start_at": "2026-09-20T18:00:00Z",
+        "notification_count": 0,
+        "request_status": "pending",
+        "idempotency_record_count": 0,
+        "metadata_value": ""
+      },
+      "trace_file": "conflict-reschedule-seed-0-r2_conflict_aware-incompatible_conflict.jsonl",
+      "trace_sha256": "e1651cded26577d3f7e629d6ed263480410293545a702282b04ce2cd390c5822",
+      "trace_event_count": 8
+    },
+    {
+      "episode_id": "conflict-reschedule-seed-1-r2_conflict_aware-incompatible_conflict",
+      "task_id": "workspace.reschedule_meeting_and_notify",
+      "seed": 1,
+      "runtime": "r2_conflict_aware",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "target_state_change_before_update_once",
+      "initial_state_hash": "2ba83493c80b82431ccb8b5f8aa39b5e3d3f9812555e41f1a5bca9bd3b591ded",
+      "final_state_hash": "78cbb03656a6da0bb39ce0fcb1bed71f50d8ae3f7e50e668baa895982af6dbd9",
+      "execution": {
+        "runtime_name": "r2_conflict_aware",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 1,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "failure_code": "conflict_precondition_changed",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "event_time_updated": false,
+          "notifications_sent": false,
+          "request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=0",
+          "expected_notifications=2",
+          "observed_expected_notifications=0",
+          "request_resolved=False",
+          "extra_events=0",
+          "extra_notifications=0",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.workspace.concurrent_event_time_change_once"
+      ],
+      "final_state": {
+        "event_start_at": "2026-09-21T18:00:00Z",
+        "notification_count": 0,
+        "request_status": "pending",
+        "idempotency_record_count": 0,
+        "metadata_value": ""
+      },
+      "trace_file": "conflict-reschedule-seed-1-r2_conflict_aware-incompatible_conflict.jsonl",
+      "trace_sha256": "62461a0170a2f5204917fe78993dcd516833671b3cac015116c8890ede586f0f",
+      "trace_event_count": 8
+    },
+    {
+      "episode_id": "conflict-reschedule-seed-2-r2_conflict_aware-incompatible_conflict",
+      "task_id": "workspace.reschedule_meeting_and_notify",
+      "seed": 2,
+      "runtime": "r2_conflict_aware",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "target_state_change_before_update_once",
+      "initial_state_hash": "1f81c77cbed45b01bcca4717c8193605968f0ebd799c72c0d504774677166d8d",
+      "final_state_hash": "8de3ab58aea309d1f1b2ab435c316691798c0ac12ce0eaae847cf950b3bdea73",
+      "execution": {
+        "runtime_name": "r2_conflict_aware",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 1,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "failure_code": "conflict_precondition_changed",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "event_time_updated": false,
+          "notifications_sent": false,
+          "request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=0",
+          "expected_notifications=2",
+          "observed_expected_notifications=0",
+          "request_resolved=False",
+          "extra_events=0",
+          "extra_notifications=0",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.workspace.concurrent_event_time_change_once"
+      ],
+      "final_state": {
+        "event_start_at": "2026-09-22T18:00:00Z",
+        "notification_count": 0,
+        "request_status": "pending",
+        "idempotency_record_count": 0,
+        "metadata_value": ""
+      },
+      "trace_file": "conflict-reschedule-seed-2-r2_conflict_aware-incompatible_conflict.jsonl",
+      "trace_sha256": "9ca92cee6c1cd41b98cb9bc7c3705e492a82aba756e0d43b1e265a09a093b352",
+      "trace_event_count": 8
+    }
+  ],
+  "aggregate": {
+    "episode_count": 18,
+    "task_count": 1,
+    "seed_count": 3,
+    "runtime_count": 2,
+    "condition_count": 3,
+    "by_runtime": {
+      "r2_confirmed": {
+        "episode_count": 9,
+        "by_condition": {
+          "clean": {
+            "task_successes": 3,
+            "safe_successes": 3,
+            "total": 3
+          },
+          "compatible_conflict": {
+            "task_successes": 0,
+            "safe_successes": 0,
+            "total": 3
+          },
+          "incompatible_conflict": {
+            "task_successes": 0,
+            "safe_successes": 0,
+            "total": 3
+          }
+        },
+        "compatible_conflict_recovery_rate": 0.0,
+        "incompatible_conflict_classified_abort_rate": 0.0,
+        "conflict_count": 6,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 6
+      },
+      "r2_conflict_aware": {
+        "episode_count": 9,
+        "by_condition": {
+          "clean": {
+            "task_successes": 3,
+            "safe_successes": 3,
+            "total": 3
+          },
+          "compatible_conflict": {
+            "task_successes": 3,
+            "safe_successes": 3,
+            "total": 3
+          },
+          "incompatible_conflict": {
+            "task_successes": 0,
+            "safe_successes": 0,
+            "total": 3
+          }
+        },
+        "compatible_conflict_recovery_rate": 1.0,
+        "incompatible_conflict_classified_abort_rate": 1.0,
+        "conflict_count": 6,
+        "conflict_probe_count": 6,
+        "conflict_rebase_count": 3,
+        "conflict_abort_count": 3
+      }
+    },
+    "compatible_recovery_rate_delta": 1.0
+  },
+  "validity": {
+    "matrix_shape": {
+      "episodes": 18,
+      "trace_files": 18,
+      "passed": true
+    },
+    "paired_initial_states": {
+      "unique_hashes_by_seed": {
+        "0": [
+          "9457e44dde6dd2e8faf76552d71f5de5bf5d8fa61e769c4c4a40a5bc138aa7de"
+        ],
+        "1": [
+          "2ba83493c80b82431ccb8b5f8aa39b5e3d3f9812555e41f1a5bca9bd3b591ded"
+        ],
+        "2": [
+          "1f81c77cbed45b01bcca4717c8193605968f0ebd799c72c0d504774677166d8d"
+        ]
+      },
+      "passed": true
+    },
+    "clean_control_success": {
+      "successes": 6,
+      "total": 6,
+      "passed": true
+    },
+    "single_registered_difference": {
+      "compatible_fault_ids": {
+        "conflict-reschedule-seed-0-r2_confirmed-compatible_conflict": [
+          "fault.workspace.concurrent_metadata_change_once"
+        ],
+        "conflict-reschedule-seed-1-r2_confirmed-compatible_conflict": [
+          "fault.workspace.concurrent_metadata_change_once"
+        ],
+        "conflict-reschedule-seed-2-r2_confirmed-compatible_conflict": [
+          "fault.workspace.concurrent_metadata_change_once"
+        ],
+        "conflict-reschedule-seed-0-r2_conflict_aware-compatible_conflict": [
+          "fault.workspace.concurrent_metadata_change_once"
+        ],
+        "conflict-reschedule-seed-1-r2_conflict_aware-compatible_conflict": [
+          "fault.workspace.concurrent_metadata_change_once"
+        ],
+        "conflict-reschedule-seed-2-r2_conflict_aware-compatible_conflict": [
+          "fault.workspace.concurrent_metadata_change_once"
+        ]
+      },
+      "incompatible_fault_ids": {
+        "conflict-reschedule-seed-0-r2_confirmed-incompatible_conflict": [
+          "fault.workspace.concurrent_event_time_change_once"
+        ],
+        "conflict-reschedule-seed-1-r2_confirmed-incompatible_conflict": [
+          "fault.workspace.concurrent_event_time_change_once"
+        ],
+        "conflict-reschedule-seed-2-r2_confirmed-incompatible_conflict": [
+          "fault.workspace.concurrent_event_time_change_once"
+        ],
+        "conflict-reschedule-seed-0-r2_conflict_aware-incompatible_conflict": [
+          "fault.workspace.concurrent_event_time_change_once"
+        ],
+        "conflict-reschedule-seed-1-r2_conflict_aware-incompatible_conflict": [
+          "fault.workspace.concurrent_event_time_change_once"
+        ],
+        "conflict-reschedule-seed-2-r2_conflict_aware-incompatible_conflict": [
+          "fault.workspace.concurrent_event_time_change_once"
+        ]
+      },
+      "passed": true
+    },
+    "baseline_stops_on_state_conflict": {
+      "failure_codes": [
+        "state_version_conflict",
+        "state_version_conflict",
+        "state_version_conflict",
+        "state_version_conflict",
+        "state_version_conflict",
+        "state_version_conflict"
+      ],
+      "passed": true
+    },
+    "compatible_conflict_recovered": {
+      "episodes": [
+        "conflict-reschedule-seed-0-r2_conflict_aware-compatible_conflict",
+        "conflict-reschedule-seed-1-r2_conflict_aware-compatible_conflict",
+        "conflict-reschedule-seed-2-r2_conflict_aware-compatible_conflict"
+      ],
+      "passed": true
+    },
+    "incompatible_conflict_fails_closed": {
+      "episodes": [
+        "conflict-reschedule-seed-0-r2_conflict_aware-incompatible_conflict",
+        "conflict-reschedule-seed-1-r2_conflict_aware-incompatible_conflict",
+        "conflict-reschedule-seed-2-r2_conflict_aware-incompatible_conflict"
+      ],
+      "passed": true
+    },
+    "guard_contract_mutations": {
+      "cases": {
+        "exact_value_matches": true,
+        "changed_value_rejected": true,
+        "missing_path_rejected": true,
+        "wrong_shape_rejected": true
+      },
+      "passed": true
+    },
+    "reset_snapshot_and_baselines": {
+      "reset_iterations_per_mode": 20,
+      "reset_passed": true,
+      "snapshot_restore_passed": true,
+      "fault_reinjection_after_restore_passed": true,
+      "do_nothing_rejected": true,
+      "claim_only_rejected": true,
+      "passed": true
+    },
+    "historical_source_manifests": {
+      "increments": {
+        "v0.1": {
+          "summary": "artifacts/workspace_paired/summary.json",
+          "expected_sha256": "35f25dbd3f95ad1b75363da80b6a5df6b753ad15683d571bf8816636b7d1f970",
+          "actual_sha256": "35f25dbd3f95ad1b75363da80b6a5df6b753ad15683d571bf8816636b7d1f970",
+          "file_count": 13,
+          "matched": true
+        },
+        "v0.2": {
+          "summary": "artifacts/workspace_r2_postcommit/summary.json",
+          "expected_sha256": "b2e2cbc52ffc930ce067475926cdf31134a8be7f7d37c90269661a2bc870f0f5",
+          "actual_sha256": "b2e2cbc52ffc930ce067475926cdf31134a8be7f7d37c90269661a2bc870f0f5",
+          "file_count": 18,
+          "matched": true
+        },
+        "v0.3": {
+          "summary": "artifacts/workspace_multitask_v03/summary.json",
+          "expected_sha256": "b867e8b9903cf0815b6e5e694e423d2339469fa08ce0b27cac8be25b8b03b2ca",
+          "actual_sha256": "b867e8b9903cf0815b6e5e694e423d2339469fa08ce0b27cac8be25b8b03b2ca",
+          "file_count": 24,
+          "matched": true
+        },
+        "v0.4": {
+          "summary": "artifacts/workspace_validity_v04/summary.json",
+          "expected_sha256": "64cceb78f5706e693f81217c273f49f987bc2b27601e1b9ca4b3f84fb42bcc27",
+          "actual_sha256": "64cceb78f5706e693f81217c273f49f987bc2b27601e1b9ca4b3f84fb42bcc27",
+          "file_count": 28,
+          "matched": true
+        },
+        "v0.5": {
+          "summary": "artifacts/retail_minimal_v05/summary.json",
+          "expected_sha256": "f802bf8e758a83f9749473d32144a8d81f65971b61529962197efbc6d17a33a0",
+          "actual_sha256": "f802bf8e758a83f9749473d32144a8d81f65971b61529962197efbc6d17a33a0",
+          "file_count": 8,
+          "matched": true
+        },
+        "v0.6": {
+          "summary": "artifacts/travel_minimal_v06/summary.json",
+          "expected_sha256": "67a01d88b24fb41a61d550966e4137aca3a892bf35d24c170a600baa0f30c35c",
+          "actual_sha256": "67a01d88b24fb41a61d550966e4137aca3a892bf35d24c170a600baa0f30c35c",
+          "file_count": 8,
+          "matched": true
+        },
+        "v0.7": {
+          "summary": "artifacts/schema_adapter_v07/summary.json",
+          "expected_sha256": "75a7ba7fbec5728215e3c0556973a38d05eb378f760bb3b9ef9ad817dae8bf64",
+          "actual_sha256": "75a7ba7fbec5728215e3c0556973a38d05eb378f760bb3b9ef9ad817dae8bf64",
+          "file_count": 13,
+          "matched": true
+        }
+      },
+      "passed": true
+    },
+    "ground_truth_isolation": {
+      "forbidden_visible_markers": [],
+      "passed": true
+    },
+    "digest_only_traces": {
+      "forbidden_payload_markers": [],
+      "passed": true
+    },
+    "repeat_results_deterministic": {
+      "passed": true
+    },
+    "all_selected_checks_passed": true
+  },
+  "limitations": [
+    "One existing synthetic Workspace reschedule task with three deterministic seeds.",
+    "One conflict site and one guarded rebase maximum per action.",
+    "Exact public-read preconditions, not automatic semantic merge or model inference.",
+    "Fixed oracle action plan, not an LLM or learned policy.",
+    "No scheduler, symbolic user, trace UI, real account, credential, or network access."
+  ]
+}

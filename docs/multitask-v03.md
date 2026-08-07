@@ -63,8 +63,8 @@ R2 对两个受控提交后 timeout 分别使用：
 ## 限制与下一步
 
 - 仍只有 Workspace 一个域、两个任务模板和每任务三个确定性 seed；
-- v0.3 只覆盖两个提交后 fault site，本身未实现 schema drift、一般冲突恢复或 compensation；schema drift 已在后续 v0.7 实现；
+- v0.3 只覆盖两个提交后 fault site，本身未实现 schema drift、一般冲突恢复或 compensation；schema drift 已在后续 v0.7 实现，首条 guarded conflict rebase 已在 v0.8 实现；
 - v0.3 本身未包含 random-valid-tool、dump-state 与 golden-trace；这些门禁已在 [v0.4](./validity-v04.md) 完成；
 - v0.3 本身没有 symbolic user、scheduler、trace viewer、Retail/Travel 或模型实验；Retail 两任务后续已在 v0.5 实现，Travel 两任务已在 v0.6 实现。
 
-后续 v0.4 已补齐计划中的三组 validity gates，v0.5 已完成 Retail 最小域，v0.6 已完成 Travel 最小域与首条受控补偿，[v0.7](./schema-adapter-v07.md) 已完成输入/输出 schema drift 的静态适配。当前下一增量进入一般冲突恢复；模型主实验仍不在当前授权范围。
+后续 v0.4 已补齐计划中的三组 validity gates，v0.5 已完成 Retail 最小域，v0.6 已完成 Travel 最小域与首条受控补偿，[v0.7](./schema-adapter-v07.md) 已完成输入/输出 schema drift 的静态适配，[v0.8](./conflict-recovery-v08.md) 已完成兼容冲突的 guarded rebase 与不兼容冲突的 fail-closed 分类。模型主实验仍不在当前授权范围。

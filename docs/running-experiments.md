@@ -3,15 +3,15 @@
 ## 环境
 
 - macOS arm64
-- Python `3.12.12`（v0.7 正式 artifact；v0.1–v0.6 历史 artifact 使用 `3.12.2`）
-- Python SQLite runtime `3.50.4`（v0.7）
+- Python `3.12.12`（v0.7–v0.8 正式 artifact；v0.1–v0.6 历史 artifact 使用 `3.12.2`）
+- Python SQLite runtime `3.50.4`（v0.7–v0.8）
 - Ruff `0.15.17`
-- 根 project 保持 `0.3.0` 以保留 v0.3 manifest；Validity Gates v0.4、Retail v0.5、Travel v0.6 与 Schema Adapter v0.7 使用独立包和源码/结果 manifest
+- 根 project 保持 `0.3.0` 以保留 v0.3 manifest；Validity Gates v0.4、Retail v0.5、Travel v0.6、Schema Adapter v0.7 与 Conflict Recovery v0.8 使用独立包和源码/结果 manifest
 - 第三方 Python runtime dependencies：无
 
 代码只使用 Python 标准库。`pyproject.toml` 声明 `requires-python >= 3.11`；每个正式 artifact 的精确解释器版本保存在自身 `summary.json` 与 `validation.log`。
 
-另以 Python `3.11.15` / SQLite `3.50.4` 运行当前 72 tests，全部通过；v0.7 正式实验 JSON 采用固定的 Python 3.12.12 环境。
+另以 Python `3.11.15` / SQLite `3.50.4` 运行当前 83 tests，全部通过；v0.7–v0.8 正式实验 JSON 采用固定的 Python 3.12.12 环境。
 
 ## 运行测试
 
@@ -27,7 +27,7 @@ ruff check src scripts tests
 ruff format --check src scripts tests
 ```
 
-当前实测 `Ran 72 tests ... OK`，Ruff check/format check 均通过。历史增量的当时测试数和解释器版本保留在各自 `validation.log` 中。
+当前实测 `Ran 83 tests ... OK`，Ruff check/format check 均通过。历史增量的当时测试数和解释器版本保留在各自 `validation.log` 中。
 
 ## 运行 v0.1 配对实验
 
@@ -309,6 +309,46 @@ jq '.aggregate, .validity' artifacts/schema_adapter_v07/summary.json
 ```
 
 应看到 24 episodes、2 tasks；R1 clean/fault 为 `6/6`、`0/6`，R2 schema-adapted 为 `6/6`、`6/6`。R2 fault 中有 3 次输入 schema 映射与 3 次成功结果归一化；九个 malformed-contract case、non-oracular descriptor、reset/snapshot、baseline rejection、digest-only trace 与 v0.1–v0.6 历史 source manifest 门禁全部通过。正式与 repeat summary 及 24/24 traces 逐字节一致；v0.7 source manifest 覆盖 13 个实际依赖文件。
+
+## 运行 v0.8 Conflict Recovery 实验
+
+输出路径必须尚不存在；正式运行使用 Python 3.12.12：
+
+```bash
+ARL_CONFLICT_RUN_DIR="$ARL_PROJECT/artifacts/workspace_conflict_v08_rerun"
+
+env PYTHONPATH="$ARL_PROJECT/src" PYTHONDONTWRITEBYTECODE=1 \
+  "$ARL_PYTHON" scripts/run_conflict_recovery.py \
+    --output "$ARL_CONFLICT_RUN_DIR/summary.json" \
+    --traces-dir "$ARL_CONFLICT_RUN_DIR/traces"
+```
+
+预期输出：
+
+```text
+Wrote 18 episodes, 18 traces, and .../summary.json
+```
+
+正式结果与独立重复位于：
+
+- [正式 summary](../artifacts/workspace_conflict_v08/summary.json)
+- [正式 18 条 trace](../artifacts/workspace_conflict_v08/traces/)
+- [独立 repeat](../artifacts/workspace_conflict_v08_repeat/)
+- [v0.8 validation.log](../artifacts/workspace_conflict_v08/validation.log)
+
+正式 summary SHA-256：
+
+```text
+91d72d86f156377416344669c9bd0517a298b1e4f7af5816993eca53e57ad6f7
+```
+
+查询结果：
+
+```bash
+jq '.aggregate, .validity' artifacts/workspace_conflict_v08/summary.json
+```
+
+应看到 18 episodes、1 task、3 conditions。旧 R2 clean 为 `3/3`、compatible conflict 为 `0/3`；Conflict-aware R2 clean 与 compatible conflict 均为 `3/3`，对 3 个 incompatible conflict 全部返回 `conflict_precondition_changed` 并保持零通知、零请求关闭。四个 guard contract、reset/snapshot、baseline rejection、digest-only trace 与 v0.1–v0.7 历史 source manifest 门禁全部通过。正式与 repeat summary 及 18/18 traces 逐字节一致；v0.8 source manifest 覆盖 20 个实际依赖文件。
 
 ## 安全边界
 

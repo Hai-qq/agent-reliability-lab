@@ -17,8 +17,8 @@ ARL 关注的不是“Agent 有没有说自己完成了任务”，而是：最�
 | 模块 | 当前实现 |
 |---|---|
 | Stateful environments | Workspace、Retail、Travel 三个合成业务域、6 个任务、确定性逻辑时间、reset/snapshot/state hash |
-| Reliability runtime | R0/R1/R2 分层 runtime、类型化错误、有界重试、写入幂等、提交后确认、schema adapter 与受控补偿 |
-| Fault injection | 对固定写操作注入 deterministic timeout、不可用分支及输入/输出 schema drift，构造 clean/fault 配对实验 |
+| Reliability runtime | R0/R1/R2 分层 runtime、类型化错误、有界重试、写入幂等、提交后确认、schema adapter、受控补偿与 guarded conflict rebase |
+| Fault injection | 对固定写操作注入 deterministic timeout、不可用分支、输入/输出 schema drift 及兼容/不兼容并发更新 |
 | State evaluator | 基于最终数据库差分验证 TaskSuccess、SafeSuccess、必要状态与禁止副作用 |
 | Validity gates | evaluator mutation、random-valid-tool、dump-state、golden-trace、ground-truth isolation |
 | Reproducible traces | append-only、digest-only JSONL journal；固定 seed、源码 manifest 与重复运行哈希 |
@@ -33,13 +33,13 @@ env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 \
   python -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
-运行最新的 schema drift / adapter 配对实验（目标路径必须尚不存在，runner 会拒绝覆盖已有证据）：
+运行最新的 guarded state-conflict 配对实验（目标路径必须尚不存在，runner 会拒绝覆盖已有证据）：
 
 ```bash
 env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 \
-  python scripts/run_schema_adapter.py \
-  --output /tmp/arl-schema-summary.json \
-  --traces-dir /tmp/arl-schema-traces
+  python scripts/run_conflict_recovery.py \
+  --output /tmp/arl-conflict-summary.json \
+  --traces-dir /tmp/arl-conflict-traces
 ```
 
 核心 runtime 仅使用 Python 标准库，需要 Python 3.11 或更高版本。所有实验命令、固定版本与预期输出见 [Experiment Guide](./docs/running-experiments.md)。
@@ -55,15 +55,16 @@ env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 \
 | [v0.5 Retail](./docs/retail-v05.md) | 下单与政策内部分退款 | R1 fault 0/6；R2 fault 6/6；8/8 evaluator mutations |
 | [v0.6 Travel](./docs/travel-v06.md) | 约束组合预订与航班失败恢复 | R1 fault 0/6；R2 fault 6/6；3 次确认 + 3 次补偿 |
 | [v0.7 Schema Adapter](./docs/schema-adapter-v07.md) | 输入字段迁移与成功结果归一化 | R1 fault 0/6；R2 fault 6/6；3 次输入适配 + 3 次输出归一化 |
+| [v0.8 Conflict Recovery](./docs/conflict-recovery-v08.md) | 并发状态变化后的 guard 检查与有界 rebase | 兼容冲突恢复 3/3；目标冲突识别并安全停止 3/3 |
 
-Schema Adapter v0.7 在既有 Travel 状态世界上只改变公开工具合同：3 个 `flights.book` fault 需要输入字段映射，3 个 `hotels.book` fault 需要成功结果归一化。R1 clean/fault 为 `6/6、0/6`，R2 为 `6/6、6/6`；正式与独立 repeat 的 summary 及 24/24 条 trace 均逐字节一致。当前仓库测试为 72 tests，GitHub Actions 在 Python 3.11/3.12 运行。
+Conflict Recovery v0.8 在既有 Workspace 改期任务上注入两类原子并发变化。旧 R2 对 6 个冲突 episode 全部停止；Conflict-aware R2 对 3 个无关元数据变化读取公开状态、验证前置条件并完成有界 rebase，对 3 个目标时间已被改变的 case 返回 `conflict_precondition_changed`，不发送通知也不关闭请求。正式与 repeat 的 summary 及 18/18 条 trace 均逐字节一致。当前仓库测试为 83 tests，GitHub Actions 在 Python 3.11/3.12 运行。
 
 这些数字只证明固定合成任务上的 runtime/evaluator 机制，不是 LLM 能力或排行榜成绩。
 
 ## 项目结构
 
 ```text
-src/arl*                 Runtime、Workspace、Validity、Retail、Travel 与 Schema Adapter 实现
+src/arl*                 Runtime、Workspace、Validity、Retail、Travel、Schema 与 Conflict 实现
 scripts/                 可拒绝覆盖的确定性实验入口
 tests/                   Unit、integration、validity 与 golden gates
 artifacts/               固定 summary、digest-only traces、版本和哈希
@@ -77,11 +78,11 @@ docs/                    架构、增量合同与完整实验命令
 - 只使用本地、合成、隔离环境；不连接真实账户、真实业务系统或模型 API。
 - 不把文本声明当成功；主要结论来自状态差分、过程约束与副作用检查。
 - 所有公开任务和状态数据均为本项目独立编写的合成内容。
-- 当前仍是固定 oracle plan；schema adapter 只覆盖两条静态注册映射，补偿只覆盖一条预注册的可退款酒店取消。一般冲突恢复、symbolic user、scheduler、trace viewer 与模型实验尚未实现。
+- 当前仍是固定 oracle plan；schema adapter 只覆盖两条静态注册映射，补偿只覆盖一条预注册的可退款酒店取消，conflict recovery 只覆盖一个 Workspace 写入点和精确 guard。自动语义合并、symbolic user、scheduler、trace viewer 与模型实验尚未实现。
 
 ## Roadmap
 
-1. 一般冲突恢复，并把单点酒店取消扩展为可审计的 compensation 合同。
+1. 将 v0.8 的 guarded rebase 扩展到更多写入点，并把单点酒店取消扩展为可审计的 compensation 合同。
 2. Symbolic user、Study scheduler 与只读 trace viewer。
 3. 扩充经人工审查的任务模板与跨 seed 重复统计。
 4. 在单独授权和成本预算下接入模型 adapter，保持环境与 evaluator 不变。
