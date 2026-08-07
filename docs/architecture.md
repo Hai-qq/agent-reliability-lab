@@ -35,9 +35,9 @@ Workspace、Retail 和 Travel 都实现相同的状态合同：
 |---|---|
 | R0 Raw | 顺序执行动作，遇到错误停止 |
 | R1 Guarded | 类型化错误、结果合同校验和一次有界重试 |
-| R2 Reliable | R1 + 幂等键、提交后状态确认、静态 schema adapter 和预注册补偿 |
+| R2 Reliable | R1 + 幂等键、提交后状态确认、静态 schema adapter、预注册补偿和 guarded conflict rebase |
 
-R2 的决策逻辑不读取 evaluator ground truth 或 fault ID。Schema Adapter 只依据公开 tool descriptor 激活已注册映射；未知版本、字段不完整或类型错误都会 fail closed。
+R2 的决策逻辑不读取 evaluator ground truth 或 fault ID。Schema Adapter 只依据公开 tool descriptor 激活已注册映射；未知版本、字段不完整或类型错误都会 fail closed。Conflict-aware runtime 收到 `state_version_conflict` 后只调用计划中声明的公开 read tool；guard 精确匹配才允许一次 rebase，目标字段变化、读结果缺失或第二次冲突都会停止。
 
 ## Evaluation contract
 
@@ -73,6 +73,7 @@ Runner 拒绝覆盖既有输出路径，确保历史证据不会被新运行静�
 | `arl_retail` | Synthetic Retail state and evaluators |
 | `arl_travel` | Synthetic Travel state, confirmation and compensation |
 | `arl_schema` | Public descriptors and strict schema adaptation |
+| `arl_conflict` | Concurrent-state injection, public-read guards and bounded rebasing |
 
 独立增量包保留各版本的 source manifest，使后续功能不会改变旧实验所记录的源码集合。
 
@@ -81,5 +82,6 @@ Runner 拒绝覆盖既有输出路径，确保历史证据不会被新运行静�
 - 固定 oracle action plan，不代表模型能力；
 - schema adapter 只有两条显式注册映射；
 - compensation 只有一条可退款酒店取消路径；
-- 尚无一般冲突恢复、symbolic user、scheduler 或 trace viewer；
+- conflict recovery 只有一个 Workspace 冲突点、精确值 guard 和每动作最多一次 rebase，尚无自动语义合并；
+- 尚无 symbolic user、scheduler 或 trace viewer；
 - 不连接真实账户、业务系统、凭据或网络目标。

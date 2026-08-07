@@ -1,0 +1,52 @@
+Agent Reliability Lab - Conflict Recovery v0.8 validation
+Date: 2026-08-07
+Branch: agent/conflict-recovery-v08
+
+Runtime versions
+- Python 3.12.12 / SQLite 3.50.4 (formal and repeat artifacts)
+- Python 3.11.15 / SQLite 3.50.4 (compatibility test suite)
+- Ruff 0.15.17
+- Runtime dependencies: Python standard library only
+
+Formal command
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12)" scripts/run_conflict_recovery.py --output artifacts/workspace_conflict_v08/summary.json --traces-dir artifacts/workspace_conflict_v08/traces
+Result: Wrote 18 episodes, 18 traces, and artifacts/workspace_conflict_v08/summary.json
+
+Independent repeat command
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12)" scripts/run_conflict_recovery.py --output artifacts/workspace_conflict_v08_repeat/summary.json --traces-dir artifacts/workspace_conflict_v08_repeat/traces
+Result: Wrote 18 episodes, 18 traces, and artifacts/workspace_conflict_v08_repeat/summary.json
+
+Determinism
+- formal/repeat summary cmp: PASS
+- formal/repeat trace diff -qr: PASS (18/18 identical)
+- summary SHA-256: 91d72d86f156377416344669c9bd0517a298b1e4f7af5816993eca53e57ad6f7
+- trace manifest SHA-256: 997e38ec84bb3f34bf13cf3260723adb959b52dae8c1533aa4c6c4025210129f
+- source manifest: 20 files
+- source manifest SHA-256: 23f30e2d16ca2fbb5b1b9235d3e295a8cb04be669df089b92b8c43315b44fdc5
+- v0.1-v0.7 historical source manifests: 7/7 matched
+
+Tests and static checks
+- Python 3.12.12: Ran 83 tests ... OK
+- Python 3.11.15: Ran 83 tests ... OK
+- ruff check src scripts tests: PASS
+- ruff format --check src scripts tests: PASS (84 files already formatted)
+
+Result gates
+- clean controls: baseline 3/3, conflict-aware 3/3
+- compatible conflict: baseline 0/3, conflict-aware 3/3
+- compatible conflict recovery-rate delta: +1.0
+- incompatible conflict: conflict-aware classified fail-closed 3/3
+- conflict-aware totals: 6 probes, 3 rebases, 3 classified aborts
+- guard mutation cases: 4/4 passed
+- reset/snapshot/baseline/digest-only/ground-truth-isolation gates: PASS
+- all_selected_checks_passed: true
+
+Overwrite refusal
+Command repeated against the formal paths.
+Exit: 1
+Output: Refusing to overwrite output: artifacts/workspace_conflict_v08/summary.json
+
+Scope and limits
+- Local synthetic Workspace state only; no model/API/network/account/credential use.
+- One conflict site, exact public-read guards, and at most one rebase per action.
+- Fixed oracle action plan; no automatic semantic merge, scheduler, symbolic user, or UI.
