@@ -6,12 +6,12 @@
 - Python `3.12.2`
 - Python SQLite runtime `3.45.1`
 - Ruff `0.15.17`
-- 根 project 保持 `0.3.0` 以保留 v0.3 manifest；Validity Gates v0.4 与 Retail v0.5 使用独立包和源码/结果 manifest
+- 根 project 保持 `0.3.0` 以保留 v0.3 manifest；Validity Gates v0.4、Retail v0.5 与 Travel v0.6 使用独立包和源码/结果 manifest
 - 第三方 Python runtime dependencies：无
 
 代码只使用 Python 标准库。`pyproject.toml` 声明 `requires-python >= 3.11`；自有增量的正式实验均固定为 Python 3.12.2。
 
-另以 Python `3.11.15` / SQLite `3.50.4` 运行当前 49 tests，全部通过；正式实验 JSON 仍只采用固定的 Python 3.12.2 环境。
+另以 Python `3.11.15` / SQLite `3.50.4` 运行当前 61 tests，全部通过；正式实验 JSON 仍只采用固定的 Python 3.12.2 环境。
 
 ## 运行测试
 
@@ -27,7 +27,7 @@ ruff check src scripts tests
 ruff format --check src scripts tests
 ```
 
-当前实测 `Ran 49 tests ... OK`，Ruff check/format check 均通过。历史 v0.1/v0.2/v0.3 的当时测试数保留在各自 `validation.log` 中。
+当前实测 `Ran 61 tests ... OK`，Ruff check/format check 均通过。历史 v0.1/v0.2/v0.3 的当时测试数保留在各自 `validation.log` 中。
 
 ## 运行 v0.1 配对实验
 
@@ -230,11 +230,51 @@ jq '.aggregate, .validity' artifacts/retail_minimal_v05/summary.json
 
 应看到 24 episodes、2 tasks；R1 clean/fault 为 `6/6`、`0/6`，R2 为 `6/6`、`6/6`，且 `all_selected_checks_passed=true`。正式与 repeat summary 及 24/24 traces 逐字节一致；v0.5 source manifest 覆盖 8 个实际依赖文件，v0.1–v0.4 已记录 manifest 均保持匹配。
 
+## 运行 v0.6 Travel 双任务实验
+
+输出路径必须尚不存在；正式运行使用 Python 3.12.2：
+
+```bash
+ARL_TRAVEL_RUN_DIR="$ARL_PROJECT/artifacts/travel_minimal_v06_rerun"
+
+env PYTHONPATH="$ARL_PROJECT/src" PYTHONDONTWRITEBYTECODE=1 \
+  "$ARL_PYTHON" scripts/run_travel_minimal.py \
+    --output "$ARL_TRAVEL_RUN_DIR/summary.json" \
+    --traces-dir "$ARL_TRAVEL_RUN_DIR/traces"
+```
+
+预期输出：
+
+```text
+Wrote 24 episodes, 24 traces, and .../summary.json
+```
+
+正式结果与独立重复位于：
+
+- [正式 summary](../artifacts/travel_minimal_v06/summary.json)
+- [正式 24 条 trace](../artifacts/travel_minimal_v06/traces/)
+- [独立 repeat](../artifacts/travel_minimal_v06_repeat/)
+- [v0.6 validation.log](../artifacts/travel_minimal_v06/validation.log)
+
+正式 summary SHA-256：
+
+```text
+51a5bd6aabca4b243c79325aa8446dd652ecefddfc9dba3d55303fd60e8b3bda
+```
+
+查询结果：
+
+```bash
+jq '.aggregate, .validity' artifacts/travel_minimal_v06/summary.json
+```
+
+应看到 24 episodes、2 tasks；R1 clean/fault 为 `6/6`、`0/6`，R2 为 `6/6`、`6/6`。R2 fault 中有 3 次提交后查询确认、3 条航班失败 recovery branch 与 3 次酒店取消补偿；`all_selected_checks_passed=true`。正式与 repeat summary 及 24/24 traces 逐字节一致；v0.6 source manifest 覆盖 8 个实际依赖文件。
+
 ## 安全边界
 
 - 不读取真实账户、浏览器会话、网络服务或第三方系统；
 - 不需要 API key、token 或模型凭据；
-- task、联系人、会议和邮箱均为固定合成数据；
+- task、Workspace、Retail 与 Travel 记录均为固定合成数据；
 - trace 只保存 digest 与类型化元数据；
 - fault ID 仅写入 harness/evaluator trace，不出现在 policy observation 或 `StepResult` 中；
 - 本实验不包含 prompt injection、attack/defense 或可迁移对抗材料。

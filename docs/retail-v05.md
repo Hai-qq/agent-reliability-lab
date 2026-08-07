@@ -57,6 +57,6 @@ R1 最多盲重试一次，随后因旧 `expected_state_version` 返回 `state_v
 - Retail 仍只有两个固定任务模板和两个提交后 timeout site；
 - 仍是固定 oracle plan，不是模型 Agent；
 - 尚无 schema adapter、一般冲突恢复、compensation、symbolic user、scheduler 或 viewer；
-- Travel 域、模型/API 与外部网络均未实现或启用。
+- v0.5 本身不含 Travel；Travel 双任务与首条受控补偿已在后续 v0.6 实现。模型/API 与外部网络仍未实现或启用。
 
-按完整蓝图，下一独立增量应进入 Travel 最小域；模型实验仍需单独授权和成本预算。
+后续 v0.6 已完成 Travel 最小域；当前下一独立增量应进入 schema drift / adapter 的本地机制实验。模型实验仍需单独授权和成本预算。

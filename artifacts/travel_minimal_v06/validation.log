@@ -1,0 +1,99 @@
+Agent Reliability Lab — Travel Minimal v0.6 validation
+Date: 2026-08-07
+Base commit: 482b4584da1cddf2a827ba03a99f5bbcc96f083a (merged Retail Minimal v0.5)
+Branch: agent/travel-minimal-v06
+
+Environment
+  Formal Python: 3.12.2
+  Formal SQLite runtime: 3.45.1
+  Compatibility Python: 3.11.15
+  Compatibility SQLite runtime: 3.50.4
+  Ruff: 0.15.17
+  Travel increment: 0.6.0
+  Root project version: 0.3.0 (preserved for historical v0.3 manifest)
+  Third-party Python runtime dependencies: 0
+
+Tests
+  Command: PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12.2)" -m unittest discover -s tests -p 'test_*.py' -q
+  Result: Ran 61 tests in 1.009s; OK
+  Compatibility command: same suite with "$(uv python find 3.11)"
+  Compatibility result: Ran 61 tests in 0.825s; OK
+
+Static checks
+  Command: ruff check --no-cache src scripts tests
+  Result: All checks passed
+  Command: ruff format --check --no-cache src scripts tests
+  Result: 65 files already formatted
+  Command: git diff --check
+  Result: passed
+
+Formal experiment
+  Command: PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12.2)" scripts/run_travel_minimal.py --output artifacts/travel_minimal_v06/summary.json --traces-dir artifacts/travel_minimal_v06/traces
+  Result: 24 episodes and 24 traces written
+  Matrix: 2 tasks x 3 seeds x 2 runtimes x clean/fault
+  Model calls: 0
+  External network calls: 0
+
+Paired results
+  R1 clean: 6/6 TaskSuccess
+  R1 fault: 0/6 TaskSuccess
+  R1 recovery rate: 0.0
+  R1 post-commit behavior: 3 bounded blind retries, then state_version_conflict
+  R1 unavailable-flight behavior: 3 stops with an active orphaned hotel
+  R2 clean: 6/6 TaskSuccess and SafeSuccess
+  R2 fault: 6/6 TaskSuccess and SafeSuccess
+  R2 recovery rate: 1.0
+  R2 post-commit behavior: 3 read-after-write confirmations, 0 blind retries
+  R2 unavailable-flight behavior: 3 bounded recovery branches and 3 hotel cancellations
+  Recovery-rate delta R2 - R1: 1.0
+
+Validity gates
+  Reset determinism: 2 tasks x 3 seeds x 20 resets; one unique hash per pair
+  Snapshot restore: 6/6 task/seed cases restored initial hash and state version
+  Paired initial hashes: matched for every task/seed
+  Idempotent replay: flight booking and hotel cancellation did not duplicate writes
+  Idempotency conflict: changed flight request with reused key returned idempotency_key_reused
+  Transaction rollback: duplicate hotel reservation rolled back the room decrement
+  Confirmation guard: nonrefundable flight without confirmation returned confirmation_required with unchanged state
+  Evaluator mutations: 8/8 expected TaskSuccess/SafeSuccess outcomes
+  Do-nothing and claim-only: rejected for both tasks
+  Orphaned hotel minefield: detected in all 3 R1 unavailable-flight fault episodes
+  Ground-truth isolation: no selected hidden term in either observation
+  Trace privacy: no selected raw traveler/flight/hotel/argument/payment marker
+  Internal shadow repeat: deterministic
+  All selected checks: passed
+
+External determinism
+  Repeat output: artifacts/travel_minimal_v06_repeat/
+  Formal/repeat summary: byte-identical
+  Formal/repeat traces: 24/24 byte-identical
+  Summary SHA-256: 51a5bd6aabca4b243c79325aa8446dd652ecefddfc9dba3d55303fd60e8b3bda
+  Source-manifest SHA-256: 67a01d88b24fb41a61d550966e4137aca3a892bf35d24c170a600baa0f30c35c
+  Source manifest files: 8
+  Trace-manifest SHA-256: 0a2dde5f443011005a32625299965c3bf21164acea1b5f637c33deb8fe3cb4cd
+  Trace files/events: 24 / 222
+  Existing-output rerun exit: 1; Refusing to overwrite output
+
+Historical preservation
+  v0.1 recorded source manifest: matched 13/13 files
+  v0.2 recorded source manifest: matched 18/18 files
+  v0.3 recorded source manifest: matched 24/24 files
+  v0.4 recorded source manifest: matched 28/28 files
+  v0.5 recorded source manifest: matched 8/8 files
+
+Final repository and documentation audit
+  JSON: 19 files parsed
+  JSONL: 180 files / 1539 events parsed
+  Markdown: 37 files / 158 relative links / 0 broken
+  CITATION.cff and issue-template YAML: parsed
+  Credential patterns and local user paths: absent from publishable files
+  Tracked cache/temp files: 0
+  Files larger than 1 MiB: 0
+
+Limits
+  Two Travel task templates with three deterministic seeds each
+  Fixed oracle plans, not a model agent
+  One controlled post-commit timeout and one unavailable-flight branch
+  Compensation is limited to one pre-registered refundable hotel cancellation
+  No schema adapter, general conflict recovery, symbolic user, scheduler, viewer, model/API, real account, external target, or network
+  Results are local mechanism evidence, not a model or benchmark leaderboard score
