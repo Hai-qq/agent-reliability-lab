@@ -63,7 +63,9 @@ source:        ca594a156126f9feb30be1fef4760b08b087abe7faa63c3e5de73c35376df2be
 
 `.github/workflows/pages.yml` publishes only tracked files under `artifacts/` and `docs/`, plus a root redirect to the Explorer. Local ignored trace/workspace trees, source code, tests and research notes are not copied into the Pages artifact. The workflow runs on `main`, on the authorized `agent/reliability-suite-v015` release branch for pre-merge verification, and by manual dispatch.
 
-All four GitHub Actions are pinned to full commit SHAs. The deployment receives only `contents: read`, `pages: write` and OIDC `id-token: write`; concurrent deployments are serialized.
+All four GitHub Actions are pinned to full commit SHAs. The build job receives only `contents: read` and `pages: read`; the deploy job receives only `pages: write` and OIDC `id-token: write`. Concurrent deployments are serialized.
+
+The authorized pre-merge deployment [run 31233748160](https://github.com/Hai-qq/agent-reliability-lab/actions/runs/31233748160) succeeded on 2026-08-08 for commit `0f4e510a6ec1ed4fe07bea4ef8e1923f53b38eb5`. The canonical root, Explorer, evidence catalog, Study summary and contract document each returned HTTP 200. The hosted Explorer and evidence catalog matched the frozen SHA-256 values above byte for byte. The `github-pages` environment allows only `main` and the exact `agent/reliability-suite-v015` release branch.
 
 ## Boundaries
 

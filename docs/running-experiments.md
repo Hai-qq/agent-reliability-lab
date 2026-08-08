@@ -20,6 +20,13 @@ ARL_PROJECT=/absolute/path/to/agent-reliability-lab
 ARL_PYTHON="$(uv python find 3.12)"
 
 cd "$ARL_PROJECT"
+if [ ! -d "$ARL_PROJECT/artifacts/study_runtime_v10/study" ]; then
+  env PYTHONPATH="$ARL_PROJECT/src" PYTHONDONTWRITEBYTECODE=1 \
+    "$ARL_PYTHON" scripts/manage_artifact_bundles.py restore \
+    --bundle-dir artifacts/release_bundle_v15 \
+    --project-root "$ARL_PROJECT"
+fi
+
 env PYTHONPATH="$ARL_PROJECT/src" PYTHONDONTWRITEBYTECODE=1 \
   "$ARL_PYTHON" -m unittest discover -s tests -p 'test_*.py' -v
 
@@ -27,7 +34,7 @@ ruff check src scripts tests
 ruff format --check src scripts tests
 ```
 
-v0.15 冻结时实测 `Ran 173 tests ... OK`，Ruff check/format check 均通过。历史增量的当时测试数和解释器版本保留在各自 `validation.log` 中。
+公开 clone 不包含被 `.gitignore` 排除的完整 v0.10–v0.13 树；上述条件分支会先从四个确定性 bundle 恢复并校验它们。本地完整树已存在时不重复恢复。v0.15 冻结时实测 `Ran 173 tests ... OK`，Ruff check/format check 均通过。历史增量的当时测试数和解释器版本保留在各自 `validation.log` 中。
 
 ## 运行 v0.1 配对实验
 

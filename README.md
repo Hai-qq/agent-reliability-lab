@@ -38,8 +38,15 @@ git clone https://github.com/Hai-qq/agent-reliability-lab.git
 cd agent-reliability-lab
 
 env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 \
+  python scripts/manage_artifact_bundles.py restore \
+  --bundle-dir artifacts/release_bundle_v15 \
+  --project-root .
+
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 \
   python -m unittest discover -s tests -p 'test_*.py' -v
 ```
+
+全新 clone 需要先恢复 v0.10–v0.13 的完整 formal/repeat 证据树；恢复器会校验全部 bundle 和成员哈希，并拒绝覆盖已有目标目录。GitHub Actions 执行相同步骤后再运行测试。
 
 运行最新的 stateful authorization matrix（目标路径必须尚不存在，runner 会拒绝覆盖已有证据）：
 

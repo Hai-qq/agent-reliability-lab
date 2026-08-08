@@ -31,9 +31,9 @@ GitHub 首页、项目描述、引用元数据和后续 release/PR 只报告 ARL
 - v0.10–v0.13 四个冻结输入的 104 个 source 引用、4 对 summary 与 864 对 trace 已由 v0.14 重新核验；v0.14 formal/repeat HTML 与 evidence JSON 逐字节一致；
 - Evidence Explorer 桌面与 390×844 移动端渲染、筛选/详情交互、本地证据链接和 console gate 均通过。
 - v0.15 将 940 个 formal 与 940 个 byte-identical repeat 文件压为 4 个确定性 ZIP；干净目录恢复 1,880 个文件后 tree manifest 全匹配，所有 bundle 均低于 1 MiB；
-- Git status 的待发布文件由约 1,971 个降至 110 个（含 Pages workflow 与根入口）；完整本地 evidence 未删除，只通过 `.gitignore` 排除。
+- Git status 的待发布文件由约 1,971 个降至 112 个（含 CI 恢复步骤、Pages workflow 与根入口）；完整本地 evidence 未删除，只通过 `.gitignore` 排除。
 
-CI 中的 `actions/checkout` 与 `actions/setup-python` 使用完整 commit SHA 固定，并只授予 `contents: read` 权限。Pages workflow 同样固定全部 Action SHA；构建 job 只授予 `contents: read` 与 `pages: read`，部署 job 只授予 `pages: write` 与 GitHub OIDC `id-token: write`。
+CI 中的 `actions/checkout` 与 `actions/setup-python` 使用完整 commit SHA 固定，并只授予 `contents: read` 权限。全新 checkout 会先校验并恢复四个 compact bundles，再运行完整测试。Pages workflow 同样固定全部 Action SHA；构建 job 只授予 `contents: read` 与 `pages: read`，部署 job 只授予 `pages: write` 与 GitHub OIDC `id-token: write`。
 
 ## 发布与开发流程
 
