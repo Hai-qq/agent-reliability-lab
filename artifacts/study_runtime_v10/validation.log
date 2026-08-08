@@ -1,0 +1,78 @@
+Agent Reliability Lab - Study Runtime v0.10 validation
+Date: 2026-08-07
+Branch: agent/study-runtime-v010
+
+Runtime versions
+- Python 3.12.12 / SQLite 3.50.4 (formal and repeat artifacts)
+- Python 3.11.15 / SQLite 3.50.4 (compatibility test suite)
+- Ruff 0.15.17
+- Runtime dependencies: Python standard library only
+
+Formal interruption command
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12)" scripts/run_resilience_study.py --workspace artifacts/study_runtime_v10/study --output artifacts/study_runtime_v10/interrupted.json --stop-after 13
+Result: Study interrupted: 13/36 jobs complete; wrote artifacts/study_runtime_v10/interrupted.json and artifacts/study_runtime_v10/study/study-state.json
+
+Formal resume command
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12)" scripts/run_resilience_study.py --workspace artifacts/study_runtime_v10/study --output artifacts/study_runtime_v10/summary.json --viewer artifacts/study_runtime_v10/viewer.html --resume
+Result: Study complete: 36/36 jobs complete; wrote artifacts/study_runtime_v10/summary.json and artifacts/study_runtime_v10/study/study-state.json
+
+Independent repeat
+- Ran the same two commands against artifacts/study_runtime_v10_repeat.
+- interruption result: 13/36 complete
+- resume result: 36/36 complete, 23 new jobs
+
+Determinism and integrity
+- formal/repeat interrupted.json cmp: PASS
+- formal/repeat summary.json cmp: PASS
+- formal/repeat study-state.json cmp: PASS
+- formal/repeat viewer.html cmp: PASS
+- formal/repeat result diff -qr: PASS (36/36 identical)
+- formal/repeat trace diff -qr: PASS (36/36 identical)
+- interrupted SHA-256: d71b7076f889a6d2ebacfcaee9f9b8bb6df6e6e7f4134c15899e013698e7d50c
+- final summary SHA-256: c660aad0b8370670f7b10fc4352e11e1d969b8ca003d59d1e4bddf670ad279a5
+- final state SHA-256: 5a8ce7ab59a560eccaa1740b51b8b64c043e2b7dc4e296eb27aff44cafae117f
+- viewer SHA-256: 62360ef83df60a702db0fea4326f8a4f8bf0ec04e6f51617f8e4b5d8ec2a9c65
+- result manifest SHA-256: b84f046344a4d637061fcbe81328d5bd0b94362c40faa3c4ac62ead2c9aef3da
+- trace manifest SHA-256: e14bae6f5433642f8536a8d53aa4881fe93b318dadc62c8ea6d6963aef6eb6c2
+- source manifest: 24 files
+- source manifest SHA-256: 6a72d0ce9d5e8bb4e46da67e47b11ff6e85f31651e1550a0a434609827dc2a9f
+- v0.1-v0.9 historical source manifests: 9/9 matched
+
+Resume gates
+- intentionally stopped after 13/36 fixed jobs
+- resumed jobs: 23; skipped completed jobs: 13
+- preexisting result/trace digest before: de8e068ad4f0c4e6702887ba8cdf82d5e00a2999dd9bcb754b85d4d599f16f30
+- preexisting result/trace digest after:  de8e068ad4f0c4e6702887ba8cdf82d5e00a2999dd9bcb754b85d4d599f16f30
+- completed attempt counts: 36/36 equal to 1
+- final state history: 77 events
+- v0.9 reference episode equality: 36/36
+- v0.9 reference trace byte equality: 36/36
+- all_selected_checks_passed: true
+
+Tests and static checks
+- Python 3.12.12: Ran 117 tests ... OK
+- Python 3.11.15: Ran 117 tests ... OK
+- ruff check --no-cache .: PASS
+- ruff format --check --no-cache .: PASS
+
+Viewer QA
+- embedded digest-only data: PASS
+- external script count: 0
+- fetch/XMLHttpRequest/WebSocket markers: 0
+- desktop render: PASS
+- 390 x 844 narrow-screen render: PASS
+- keyword + travel filter: 3 expected rows
+- classified-abort event detail expansion: PASS
+- browser console errors: 0
+
+Overwrite refusal
+Command repeated against the formal interruption output.
+Exit: 1
+Output: Refusing to overwrite output: artifacts/study_runtime_v10/interrupted.json
+
+Scope and limits
+- Local synthetic Retail and Travel state only; no model/API/network/account/credential use.
+- Sequential single-process scheduler; no parallel workers, leases, distributed queue, or generic DAG.
+- Checkpoints occur at job state transitions; no arbitrary instruction-level continuation.
+- One formal intentional interruption at the 13/36 job boundary.
+- Viewer is a static read-only artifact, not a mutable or remote experiment service.

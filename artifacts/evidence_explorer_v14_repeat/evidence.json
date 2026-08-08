@@ -1,0 +1,289 @@
+{
+  "metadata": {
+    "increment_version": "0.14.0",
+    "title": "Agent Reliability Lab Evidence Explorer",
+    "input_versions": [
+      "v0.10",
+      "v0.11",
+      "v0.12",
+      "v0.13"
+    ],
+    "model_calls": 0,
+    "external_network_calls": 0,
+    "uses_only_synthetic_data": true,
+    "payload_policy": "aggregate metrics, hashes, counts, and local evidence links only",
+    "source_manifest": {
+      "algorithm": "sha256(canonical_json({relative_path: file_sha256}))",
+      "sha256": "ca594a156126f9feb30be1fef4760b08b087abe7faa63c3e5de73c35376df2be",
+      "files": {
+        "pyproject.toml": "805b2fc9ea83f8c56223b51454f1b2660dd2ece88620d6c725d054fb29baf00a",
+        "scripts/build_evidence_explorer.py": "3975226ba427e333b66147233bc8cde589abb49b8337bc9d1e05718e5002fbd9",
+        "src/arl/core/types.py": "58862356fa7aca2817fa1f30a7136409605501efc5a44b8e0a54b4eb2beb76b2",
+        "src/arl_evidence/__init__.py": "41026ff6e2d188a1b67c8f05b79f3e3bb47bf74f3bbb68cf78e0db15719f758f",
+        "src/arl_evidence/catalog.py": "4c5899cb28d5fa3f8214f0d98f4e93bfae44c2a8eaabd8018dd90c7494000aa1",
+        "src/arl_evidence/viewer.py": "918bcdd31237a300f46bea1796fe77c30bf46c5240e565f8d9d0f5d208e7f097"
+      }
+    }
+  },
+  "increments": [
+    {
+      "version": "v0.10",
+      "title": "Resumable Study Runtime",
+      "category": "harness",
+      "focus": "Atomic checkpoint and fail-closed resume",
+      "claim": "A stopped 36-job study resumes without rerunning or changing the first 13 results.",
+      "artifact_href": "../study_runtime_v10/summary.json",
+      "docs_href": "../../docs/study-runtime-v10.md",
+      "headline_rate": 1.0,
+      "metrics": [
+        {
+          "label": "Completed jobs",
+          "value": "36 / 36"
+        },
+        {
+          "label": "Preserved before resume",
+          "value": "13 / 13"
+        },
+        {
+          "label": "New after resume",
+          "value": "23"
+        },
+        {
+          "label": "Resume integrity",
+          "value": "PASS"
+        }
+      ],
+      "integrity": {
+        "summary_sha256": "c660aad0b8370670f7b10fc4352e11e1d969b8ca003d59d1e4bddf670ad279a5",
+        "source_manifest": {
+          "file_count": 24,
+          "sha256": "6a72d0ce9d5e8bb4e46da67e47b11ff6e85f31651e1550a0a434609827dc2a9f",
+          "matched": true,
+          "passed": true
+        },
+        "trace_manifest": {
+          "file_count": 36,
+          "sha256": "e14bae6f5433642f8536a8d53aa4881fe93b318dadc62c8ea6d6963aef6eb6c2",
+          "formal_repeat_identical": true,
+          "recorded_manifest_matched": true,
+          "passed": true
+        },
+        "formal_repeat_summary_identical": true,
+        "saved_validity_passed": true,
+        "passed": true
+      },
+      "runtime_boundary": {
+        "model_calls": 0,
+        "external_network_calls": 0,
+        "synthetic_only": true
+      }
+    },
+    {
+      "version": "v0.11",
+      "title": "Parallel Lease Coordinator",
+      "category": "harness",
+      "focus": "Four-worker lease, expiry and commit fencing",
+      "claim": "Crash and expiry retries still produce exactly one final commit for every job.",
+      "artifact_href": "../parallel_study_v11/summary.json",
+      "docs_href": "../../docs/parallel-study-v11.md",
+      "headline_rate": 1.0,
+      "metrics": [
+        {
+          "label": "Final commits",
+          "value": "36 / 36"
+        },
+        {
+          "label": "Lease acquisitions",
+          "value": "42"
+        },
+        {
+          "label": "Expiry / crash",
+          "value": "5 / 1"
+        },
+        {
+          "label": "Max active leases",
+          "value": "4"
+        },
+        {
+          "label": "Completed jobs",
+          "value": "36 / 36"
+        }
+      ],
+      "integrity": {
+        "summary_sha256": "5b199723774540d19f1c3f6916411703e0dc961f7b193fa6960bfb21d4156a6f",
+        "source_manifest": {
+          "file_count": 26,
+          "sha256": "4eaf8bd306a7ddc4fcb7e9b589d063cd13031049c38a25396efdd8d863635375",
+          "matched": true,
+          "passed": true
+        },
+        "trace_manifest": {
+          "file_count": 36,
+          "sha256": "e14bae6f5433642f8536a8d53aa4881fe93b318dadc62c8ea6d6963aef6eb6c2",
+          "formal_repeat_identical": true,
+          "recorded_manifest_matched": true,
+          "passed": true
+        },
+        "formal_repeat_summary_identical": true,
+        "saved_validity_passed": true,
+        "passed": true
+      },
+      "runtime_boundary": {
+        "model_calls": 0,
+        "external_network_calls": 0,
+        "synthetic_only": true
+      }
+    },
+    {
+      "version": "v0.12",
+      "title": "Audited Scenario Pack",
+      "category": "runtime",
+      "focus": "Task templates, exact guards and bounded workflow",
+      "claim": "Template guards recover compatible conflicts and classify changed targets without unsafe rebasing.",
+      "artifact_href": "../scenario_pack_v12/summary.json",
+      "docs_href": "../../docs/scenario-pack-v12.md",
+      "headline_rate": 1.0,
+      "metrics": [
+        {
+          "label": "Episodes",
+          "value": "72"
+        },
+        {
+          "label": "Compatible recovery",
+          "value": "12 / 12"
+        },
+        {
+          "label": "Classified target change",
+          "value": "12 / 12"
+        },
+        {
+          "label": "Workflow success",
+          "value": "6 / 9"
+        },
+        {
+          "label": "Terminal probes",
+          "value": "36 / 36"
+        }
+      ],
+      "integrity": {
+        "summary_sha256": "02cb8306f0cb932a205aec81ad22de7ce6f767e8d0ba1c61c96278e1d814f13a",
+        "source_manifest": {
+          "file_count": 25,
+          "sha256": "97cd66807a665bf67b9ccc2d00d927b1b4ed041b5dfaa01b3eecc2af21dccd87",
+          "matched": true,
+          "passed": true
+        },
+        "trace_manifest": {
+          "file_count": 72,
+          "sha256": "eac40997996f6071cf1cce9a3e082d89e02f46ebdad34fccb2dd31a1a14be4f0",
+          "formal_repeat_identical": true,
+          "recorded_manifest_matched": true,
+          "passed": true
+        },
+        "formal_repeat_summary_identical": true,
+        "saved_validity_passed": true,
+        "passed": true
+      },
+      "runtime_boundary": {
+        "model_calls": 0,
+        "external_network_calls": 0,
+        "synthetic_only": true
+      }
+    },
+    {
+      "version": "v0.13",
+      "title": "Stateful Authorization",
+      "category": "authorization",
+      "focus": "Clarification, revision and token freshness",
+      "claim": "Revision-aware authorization removes unsafe commits and safely stops when the user disengages.",
+      "artifact_href": "../symbolic_user_v13/summary.json",
+      "docs_href": "../../docs/symbolic-user-v13.md",
+      "headline_rate": 0.8,
+      "metrics": [
+        {
+          "label": "Paired sessions",
+          "value": "720"
+        },
+        {
+          "label": "Non-direct SafeSuccess",
+          "value": "192 / 240"
+        },
+        {
+          "label": "Unsafe commits",
+          "value": "0"
+        },
+        {
+          "label": "Safe aborts",
+          "value": "48"
+        },
+        {
+          "label": "Repeated cohorts",
+          "value": "6"
+        }
+      ],
+      "integrity": {
+        "summary_sha256": "b74aa2ae26d6b5565000c06055da6fe8d69f2f060c0fdf3bd87edd08bf7d2d2c",
+        "source_manifest": {
+          "file_count": 29,
+          "sha256": "fd3f5f31031c4adc2bffc43ee365f26f89e88b41044be7eec6dd624e50e076f3",
+          "matched": true,
+          "passed": true
+        },
+        "trace_manifest": {
+          "file_count": 720,
+          "sha256": "f69fea8f829ff047f734b30483c73ae75b4bed59fd361c5dcc720c6b67f1ae7b",
+          "formal_repeat_identical": true,
+          "recorded_manifest_matched": true,
+          "passed": true
+        },
+        "formal_repeat_summary_identical": true,
+        "saved_validity_passed": true,
+        "passed": true
+      },
+      "runtime_boundary": {
+        "model_calls": 0,
+        "external_network_calls": 0,
+        "synthetic_only": true
+      }
+    }
+  ],
+  "validity": {
+    "increment_count": {
+      "expected": 4,
+      "actual": 4,
+      "passed": true
+    },
+    "saved_validity": {
+      "passed": true
+    },
+    "source_manifests": {
+      "passed": true
+    },
+    "formal_repeat_summaries": {
+      "passed": true
+    },
+    "formal_repeat_traces": {
+      "file_count": 864,
+      "passed": true
+    },
+    "local_synthetic_boundary": {
+      "passed": true
+    },
+    "all_selected_checks_passed": true,
+    "read_only_viewer": {
+      "cases": {
+        "embedded_evidence": true,
+        "no_external_or_mutating_markers": true,
+        "local_artifact_links": true,
+        "read_only_label": true
+      },
+      "forbidden_markers": [],
+      "passed": true
+    }
+  },
+  "limitations": [
+    "Read-only aggregate view; open the linked artifact for per-episode evidence.",
+    "Fixed synthetic tasks and deterministic policies, not model or real-user performance.",
+    "No network request, external asset, account, credential, model, API, or real system."
+  ]
+}

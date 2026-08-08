@@ -82,4 +82,4 @@ Conflict-aware R2 共看到 6 个冲突，执行 6 次公开状态 probe：3 次
 - 每个动作最多一次 rebase，没有长事务、锁、并行 scheduler 或多 actor event stream；
 - 仍是固定 oracle plan，不是模型 Agent；
 - 后续 [v0.9](./cross-domain-resilience-v09.md) 已把 guard/rebase 合同扩展到 Retail/Travel 各一个写入点，并为酒店取消增加可审计 compensation contract；动态补偿规划仍未实现；
-- symbolic user、scheduler、trace viewer、模型/API 与真实系统集成仍未实现或启用。
+- 本地顺序 scheduler 与 trace viewer 已在后续 [v0.10](./study-runtime-v10.md) 实现；symbolic user、模型/API 与真实系统集成仍未实现或启用。

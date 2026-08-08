@@ -1,0 +1,1360 @@
+{
+  "metadata": {
+    "increment_version": "0.10.0",
+    "root_project_version": "0.3.0",
+    "python": "3.12.12",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "study_id": "cross-domain-resilience-study-v0.10.0",
+    "study_manifest_sha256": "1a1289f9469e15fffaad3fa6a56acbfce017bda9cd493946b7241938949279b7",
+    "scheduled_experiment_version": "cross-domain-resilience-v0.9.0",
+    "reference_increment": "v0.9",
+    "interrupt_after": 13,
+    "model_calls": 0,
+    "external_network_calls": 0,
+    "uses_only_synthetic_data": true,
+    "trace_payload_policy": "digests and typed metadata only",
+    "source_manifest": {
+      "algorithm": "sha256(canonical_json({relative_path: file_sha256}))",
+      "sha256": "6a72d0ce9d5e8bb4e46da67e47b11ff6e85f31651e1550a0a434609827dc2a9f",
+      "files": {
+        "pyproject.toml": "805b2fc9ea83f8c56223b51454f1b2660dd2ece88620d6c725d054fb29baf00a",
+        "scripts/run_resilience_study.py": "ff9645785068011df91e85a3c9498204b88da47b8eadecbda63004f48f6b1a94",
+        "src/arl/core/types.py": "58862356fa7aca2817fa1f30a7136409605501efc5a44b8e0a54b4eb2beb76b2",
+        "src/arl/runtime/journal.py": "29082aa1ea86243356aba4f70691593543ea6b4a1bd5d808c22ef1f987474ae3",
+        "src/arl_resilience/__init__.py": "5ad22b8d81b9ec54943ff58c947825d2808b46669ee1c571299a344aa8f542af",
+        "src/arl_resilience/contracts.py": "6a9ca26d29838e6e6c4af0f36839b43b85158d7c06700dfc14f8703a3db8da74",
+        "src/arl_resilience/env.py": "d52ebb491af8d0e2fd244a8e9b37853e11adbfcf1d73761f71a4b24526b401d6",
+        "src/arl_resilience/evaluator.py": "7a70fdd8d451b142b879a4de3169702c248ae5f9da0233f8285d4b8b6728a4a9",
+        "src/arl_resilience/experiment.py": "08064859791582c95ae1aece18d951dd12cfcd7785715b4a03f7085feb40af88",
+        "src/arl_resilience/runtime.py": "0226d29bdcd5851459d22cfc1fccc77a80033e277e380131843df13217dfd07d",
+        "src/arl_retail/__init__.py": "1d4e7ddc111abf4c3a41edcfaeb6c89bdf17abd822a2bb4266fb98c6f5eee03f",
+        "src/arl_retail/env.py": "70d6363a765acaf1545b6bb3e9cbfd558399a4a69e5a17c7a3313849ee65296b",
+        "src/arl_retail/evaluator.py": "49658dc83471d43974b7e80a5f2da2e6b9faa7c7cffcd40c1ed485091a7fc89e",
+        "src/arl_retail/experiment.py": "0349956ed13e1612e5ef8abd32f5179de8ba68958a548ad21402a6926689d055",
+        "src/arl_retail/runtime.py": "ef40f71aadd8b5ad50c60a57b990ac38a7865a5357f07631c57cc780bb5228f8",
+        "src/arl_study/__init__.py": "dff07797bc2b7bb3662015a029271688bffdeb9e93b629fa916209509f2809bc",
+        "src/arl_study/experiment.py": "e1461a0c8c53f50ceb5038d70a720d7ad3e14d54c32cb87680dcaace34ef511d",
+        "src/arl_study/scheduler.py": "295060accbb5cb3c0a4db9c363138fe5c09557743f37f47e0a0f8eb2e0676fdb",
+        "src/arl_study/viewer.py": "72931e3ce86da480bc92ad65c98a49f334474bd9210a93e1c89e18ee1aa548e9",
+        "src/arl_travel/__init__.py": "5e19bfc6a89d6e29d9cfa3783116e4f3c1dd84255635b605d7d6ff088e911342",
+        "src/arl_travel/env.py": "9868befbe859248e628c6068cb7c40fc85504204675bfd27f16a1406efe564b9",
+        "src/arl_travel/evaluator.py": "c6925ab9b01a99a6950c1543b066c3ee63b2c483089843162e11cf3ffaf2f48e",
+        "src/arl_travel/experiment.py": "847839632d76d4d7c8a8d0d47f27f1df2b62ec3f102a23a08175f222ef37c330",
+        "src/arl_travel/runtime.py": "c5fff0e7b41444d224ed413302239dc6bc09ea6bd70c75c3c76ad4c44b646450"
+      }
+    },
+    "result_manifest": {
+      "algorithm": "sha256(canonical_json({filename: file_sha256}))",
+      "sha256": "837b2a801cb05a98fe8c63d769e7a56119a4a22b401df1976d7a7c32917368cb",
+      "files": {
+        "resilience-retail-seed-0-r2_confirmed-compatible_conflict.json": "b839a55f9651279726e5728c3e7b019b490a7e3ebefef2ffef71c451436ba12a",
+        "resilience-retail-seed-0-r2_confirmed-control.json": "307b9600241f502f5fc01988dc0ef367f44ee33508cb059daa95dc413637cf07",
+        "resilience-retail-seed-0-r2_confirmed-incompatible_conflict.json": "311804487a42936f5fefd7742ed09cefe3219dc88c52a5c135768f2d8b16d94b",
+        "resilience-retail-seed-0-r2_contract_guarded-compatible_conflict.json": "4e9e3942095eb4c051c41152b4012aebd2bc54fc966263a5fdb9bb32d6ee8f8f",
+        "resilience-retail-seed-0-r2_contract_guarded-control.json": "1520792932f5444a0ab8bef4999b5f09c0ce401f0ec206abdccde41320f37cb0",
+        "resilience-retail-seed-1-r2_confirmed-compatible_conflict.json": "3b8b9b0269f056902fd286e4bcd8f6bf82f850c361c75f777f5576e0751395be",
+        "resilience-retail-seed-1-r2_confirmed-control.json": "f48ffbe3cd0431e060a4200ed4310a48132396c2f5648ef4add3bc2d33395adb",
+        "resilience-retail-seed-1-r2_confirmed-incompatible_conflict.json": "83204db5cd49273065473b166c9181533679dc0a16ed648f1e30efcf05b3a7a7",
+        "resilience-retail-seed-1-r2_contract_guarded-control.json": "3ee99b795b0089aa210d2e6b95cdc34890922371eae7b8b268fdeb88854c2316",
+        "resilience-retail-seed-2-r2_confirmed-compatible_conflict.json": "6e36350db7c22abde640a30444aea9ec18b1de3ee2daa795f9e2b595c79e2ed3",
+        "resilience-retail-seed-2-r2_confirmed-control.json": "dcae3f3baa4ae2dcdfcc8741b549829d1e4a922c71c000ae7b567f1b11057c9c",
+        "resilience-retail-seed-2-r2_confirmed-incompatible_conflict.json": "85679be188aeb294e3b97a988e90230d37c65c627f80afe3757708871dbac9c4",
+        "resilience-retail-seed-2-r2_contract_guarded-control.json": "0f5bccf84b214ec93a09da6110551992310a7d391f13a6f0a13b7ef65d56a7d2"
+      }
+    },
+    "trace_manifest": {
+      "algorithm": "sha256(canonical_json({filename: file_sha256}))",
+      "sha256": "3cef28ddf26e95f6a935181b682707e2bcbc1f3e16f7634ffcf6ab25123f8586",
+      "files": {
+        "resilience-retail-seed-0-r2_confirmed-compatible_conflict.jsonl": "de5fd77b27f85742a62aef7e91d95272973a67cca7efd8b3d23ff8bcdd764e0f",
+        "resilience-retail-seed-0-r2_confirmed-control.jsonl": "794d3d8a9757ab355ae78a1b9175ef5ffe0fa57eb4c6812d245365c489580841",
+        "resilience-retail-seed-0-r2_confirmed-incompatible_conflict.jsonl": "8fd2977b095a1d04d77ab9b3e1d19d6331920b8f759982d4a9262808bf5b925c",
+        "resilience-retail-seed-0-r2_contract_guarded-compatible_conflict.jsonl": "770cb504ee68b6cc1d64b117460463ce324a1c5ce22fdb0b60a5e7b3209c3e4f",
+        "resilience-retail-seed-0-r2_contract_guarded-control.jsonl": "8a72c4fa2de687fbb727a308e403bc2216772e5025041a420af53c44c99fedc5",
+        "resilience-retail-seed-1-r2_confirmed-compatible_conflict.jsonl": "75e678c639d46c756f2428312d1158765f2b4ae466ca5c56c84e2f1f05ee268b",
+        "resilience-retail-seed-1-r2_confirmed-control.jsonl": "6d5ed913cd1b84efc2403eaa4b2e6a8ea9edaba535115bf1601dbff713021394",
+        "resilience-retail-seed-1-r2_confirmed-incompatible_conflict.jsonl": "c67807ced37ef28f5badf83a96de2db9b16a9fddb3a1c5193358da5358a809a2",
+        "resilience-retail-seed-1-r2_contract_guarded-control.jsonl": "8ef41a58ca07f8d710b4a30ed0f2cbc6463189bfb7f4aba4fdb2b3f16cbf3dbd",
+        "resilience-retail-seed-2-r2_confirmed-compatible_conflict.jsonl": "fd313fd0002242c9125bcc571cff5e638902aaefee33eaa0ac307c87a6e66a85",
+        "resilience-retail-seed-2-r2_confirmed-control.jsonl": "be2f6c4f065b0586bd82c0143897ac48ff4240a18c0e4acf0e354ac19d727546",
+        "resilience-retail-seed-2-r2_confirmed-incompatible_conflict.jsonl": "802b3e9ce5516b4283941e4a2c877c11adce2457597a27e1cd9b13a1d3c5401f",
+        "resilience-retail-seed-2-r2_contract_guarded-control.jsonl": "178d4ccdda8055ead67ffa9d64357d0bf2cce8ad36d895b07516576d1a6424b5"
+      }
+    },
+    "state_sha256": "4230870a7c270639b4ea1fe81c105f96ef5043aea9227819a8c7a8e41c254b3d"
+  },
+  "status": "interrupted",
+  "progress": {
+    "completed_count": 13,
+    "pending_count": 23,
+    "total_count": 36,
+    "new_jobs_completed": 13
+  },
+  "resume": {
+    "used": false,
+    "preexisting_completed_count": 0,
+    "preexisting_results_sha256_before": null,
+    "preexisting_results_sha256_after": null,
+    "preexisting_results_preserved": null
+  },
+  "episodes": [
+    {
+      "episode_id": "resilience-retail-seed-0-r2_confirmed-control",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 0,
+      "runtime": "r2_confirmed",
+      "condition": "control",
+      "conflict_mode": "none",
+      "initial_state_hash": "98a16b863d179ec4b7c411606982b10f55a0a356145e634ba3247f0b90b2da23",
+      "final_state_hash": "27b2521490abb65cde44e95f84b047c3825074697bcb7c1aedeb90cdc6adba2f",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0,
+        "recovery_actions_planned": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "resolved",
+        "order_count": 1,
+        "idempotency_record_count": 4
+      },
+      "trace_file": "resilience-retail-seed-0-r2_confirmed-control.jsonl",
+      "trace_sha256": "794d3d8a9757ab355ae78a1b9175ef5ffe0fa57eb4c6812d245365c489580841",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-1-r2_confirmed-control",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 1,
+      "runtime": "r2_confirmed",
+      "condition": "control",
+      "conflict_mode": "none",
+      "initial_state_hash": "f60798b5e6ce78b4d65726733a131024900ac097b3cbce51b61d24b58ada09d0",
+      "final_state_hash": "984afe4582068b24e6cbe2e3575bf9876a6d859130277f4d634b8a418e901983",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0,
+        "recovery_actions_planned": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "resolved",
+        "order_count": 1,
+        "idempotency_record_count": 4
+      },
+      "trace_file": "resilience-retail-seed-1-r2_confirmed-control.jsonl",
+      "trace_sha256": "6d5ed913cd1b84efc2403eaa4b2e6a8ea9edaba535115bf1601dbff713021394",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-2-r2_confirmed-control",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 2,
+      "runtime": "r2_confirmed",
+      "condition": "control",
+      "conflict_mode": "none",
+      "initial_state_hash": "13c1991693cf5209b331ec57ddabeb0f3ec3b6c4c19ec4f3db424d63627a76ad",
+      "final_state_hash": "8c56196dcb0afd3b81187940ebbb987cc350f565345d7f64b3e46727c38a4865",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0,
+        "recovery_actions_planned": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "resolved",
+        "order_count": 1,
+        "idempotency_record_count": 4
+      },
+      "trace_file": "resilience-retail-seed-2-r2_confirmed-control.jsonl",
+      "trace_sha256": "be2f6c4f065b0586bd82c0143897ac48ff4240a18c0e4acf0e354ac19d727546",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-0-r2_confirmed-compatible_conflict",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 0,
+      "runtime": "r2_confirmed",
+      "condition": "compatible_conflict",
+      "conflict_mode": "compatible_conflict",
+      "initial_state_hash": "98a16b863d179ec4b7c411606982b10f55a0a356145e634ba3247f0b90b2da23",
+      "final_state_hash": "bb63e3f37264d19e2d60cbc863c0e3afa03a76e09435f26442a4d8badb7f3c2c",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "recovery_actions_planned": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.retail.concurrent_metadata_change_once"
+      ],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "pending",
+        "order_count": 1,
+        "idempotency_record_count": 3
+      },
+      "trace_file": "resilience-retail-seed-0-r2_confirmed-compatible_conflict.jsonl",
+      "trace_sha256": "de5fd77b27f85742a62aef7e91d95272973a67cca7efd8b3d23ff8bcdd764e0f",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-1-r2_confirmed-compatible_conflict",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 1,
+      "runtime": "r2_confirmed",
+      "condition": "compatible_conflict",
+      "conflict_mode": "compatible_conflict",
+      "initial_state_hash": "f60798b5e6ce78b4d65726733a131024900ac097b3cbce51b61d24b58ada09d0",
+      "final_state_hash": "839d949cb73ca239ad39da64deb8457541fc93d8cf57360431ce6aa167abb0d8",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "recovery_actions_planned": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.retail.concurrent_metadata_change_once"
+      ],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "pending",
+        "order_count": 1,
+        "idempotency_record_count": 3
+      },
+      "trace_file": "resilience-retail-seed-1-r2_confirmed-compatible_conflict.jsonl",
+      "trace_sha256": "75e678c639d46c756f2428312d1158765f2b4ae466ca5c56c84e2f1f05ee268b",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-2-r2_confirmed-compatible_conflict",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 2,
+      "runtime": "r2_confirmed",
+      "condition": "compatible_conflict",
+      "conflict_mode": "compatible_conflict",
+      "initial_state_hash": "13c1991693cf5209b331ec57ddabeb0f3ec3b6c4c19ec4f3db424d63627a76ad",
+      "final_state_hash": "cbb662e7bf3eb69c59f6a59a88e7fcf81a7f2b204672eeba9ffdba2960bf1c6e",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "recovery_actions_planned": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.retail.concurrent_metadata_change_once"
+      ],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "pending",
+        "order_count": 1,
+        "idempotency_record_count": 3
+      },
+      "trace_file": "resilience-retail-seed-2-r2_confirmed-compatible_conflict.jsonl",
+      "trace_sha256": "fd313fd0002242c9125bcc571cff5e638902aaefee33eaa0ac307c87a6e66a85",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-0-r2_confirmed-incompatible_conflict",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 0,
+      "runtime": "r2_confirmed",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "incompatible_conflict",
+      "initial_state_hash": "98a16b863d179ec4b7c411606982b10f55a0a356145e634ba3247f0b90b2da23",
+      "final_state_hash": "04b18d23b3d15e01e57a2c9ede42d7c04f8efc8c3396ad929ae014ee4f1ca6c0",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "recovery_actions_planned": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [
+          "extra_orders:1"
+        ],
+        "milestones": {
+          "optimal_order_placed": false,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": false
+        },
+        "minefields_triggered": [
+          "duplicate_or_unrequested_order"
+        ],
+        "policy_violations": [
+          "non_optimal_or_mispriced_order"
+        ],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=0",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.retail.concurrent_order_status_change_once"
+      ],
+      "final_state": {
+        "order_status": "externally_changed",
+        "request_status": "pending",
+        "order_count": 1,
+        "idempotency_record_count": 3
+      },
+      "trace_file": "resilience-retail-seed-0-r2_confirmed-incompatible_conflict.jsonl",
+      "trace_sha256": "8fd2977b095a1d04d77ab9b3e1d19d6331920b8f759982d4a9262808bf5b925c",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-1-r2_confirmed-incompatible_conflict",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 1,
+      "runtime": "r2_confirmed",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "incompatible_conflict",
+      "initial_state_hash": "f60798b5e6ce78b4d65726733a131024900ac097b3cbce51b61d24b58ada09d0",
+      "final_state_hash": "cc51941e37217c628bc4cf716cb788a1551f82a625f3a7778e70c8d9312235ef",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "recovery_actions_planned": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [
+          "extra_orders:1"
+        ],
+        "milestones": {
+          "optimal_order_placed": false,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": false
+        },
+        "minefields_triggered": [
+          "duplicate_or_unrequested_order"
+        ],
+        "policy_violations": [
+          "non_optimal_or_mispriced_order"
+        ],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=0",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.retail.concurrent_order_status_change_once"
+      ],
+      "final_state": {
+        "order_status": "externally_changed",
+        "request_status": "pending",
+        "order_count": 1,
+        "idempotency_record_count": 3
+      },
+      "trace_file": "resilience-retail-seed-1-r2_confirmed-incompatible_conflict.jsonl",
+      "trace_sha256": "c67807ced37ef28f5badf83a96de2db9b16a9fddb3a1c5193358da5358a809a2",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-2-r2_confirmed-incompatible_conflict",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 2,
+      "runtime": "r2_confirmed",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "incompatible_conflict",
+      "initial_state_hash": "13c1991693cf5209b331ec57ddabeb0f3ec3b6c4c19ec4f3db424d63627a76ad",
+      "final_state_hash": "0bce3d83662ffe7c47c96c50382eccabf16bae1efe19a4639a73f8ac84407311",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "recovery_actions_planned": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [
+          "extra_orders:1"
+        ],
+        "milestones": {
+          "optimal_order_placed": false,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": false
+        },
+        "minefields_triggered": [
+          "duplicate_or_unrequested_order"
+        ],
+        "policy_violations": [
+          "non_optimal_or_mispriced_order"
+        ],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=0",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.retail.concurrent_order_status_change_once"
+      ],
+      "final_state": {
+        "order_status": "externally_changed",
+        "request_status": "pending",
+        "order_count": 1,
+        "idempotency_record_count": 3
+      },
+      "trace_file": "resilience-retail-seed-2-r2_confirmed-incompatible_conflict.jsonl",
+      "trace_sha256": "802b3e9ce5516b4283941e4a2c877c11adce2457597a27e1cd9b13a1d3c5401f",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-0-r2_contract_guarded-control",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 0,
+      "runtime": "r2_contract_guarded",
+      "condition": "control",
+      "conflict_mode": "none",
+      "initial_state_hash": "98a16b863d179ec4b7c411606982b10f55a0a356145e634ba3247f0b90b2da23",
+      "final_state_hash": "27b2521490abb65cde44e95f84b047c3825074697bcb7c1aedeb90cdc6adba2f",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "recovery_actions_planned": 0,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "resolved",
+        "order_count": 1,
+        "idempotency_record_count": 4
+      },
+      "trace_file": "resilience-retail-seed-0-r2_contract_guarded-control.jsonl",
+      "trace_sha256": "8a72c4fa2de687fbb727a308e403bc2216772e5025041a420af53c44c99fedc5",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-1-r2_contract_guarded-control",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 1,
+      "runtime": "r2_contract_guarded",
+      "condition": "control",
+      "conflict_mode": "none",
+      "initial_state_hash": "f60798b5e6ce78b4d65726733a131024900ac097b3cbce51b61d24b58ada09d0",
+      "final_state_hash": "984afe4582068b24e6cbe2e3575bf9876a6d859130277f4d634b8a418e901983",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "recovery_actions_planned": 0,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "resolved",
+        "order_count": 1,
+        "idempotency_record_count": 4
+      },
+      "trace_file": "resilience-retail-seed-1-r2_contract_guarded-control.jsonl",
+      "trace_sha256": "8ef41a58ca07f8d710b4a30ed0f2cbc6463189bfb7f4aba4fdb2b3f16cbf3dbd",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-2-r2_contract_guarded-control",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 2,
+      "runtime": "r2_contract_guarded",
+      "condition": "control",
+      "conflict_mode": "none",
+      "initial_state_hash": "13c1991693cf5209b331ec57ddabeb0f3ec3b6c4c19ec4f3db424d63627a76ad",
+      "final_state_hash": "8c56196dcb0afd3b81187940ebbb987cc350f565345d7f64b3e46727c38a4865",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "recovery_actions_planned": 0,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "resolved",
+        "order_count": 1,
+        "idempotency_record_count": 4
+      },
+      "trace_file": "resilience-retail-seed-2-r2_contract_guarded-control.jsonl",
+      "trace_sha256": "178d4ccdda8055ead67ffa9d64357d0bf2cce8ad36d895b07516576d1a6424b5",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-0-r2_contract_guarded-compatible_conflict",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 0,
+      "runtime": "r2_contract_guarded",
+      "condition": "compatible_conflict",
+      "conflict_mode": "compatible_conflict",
+      "initial_state_hash": "98a16b863d179ec4b7c411606982b10f55a0a356145e634ba3247f0b90b2da23",
+      "final_state_hash": "03988f5ec6da93aeb2a14faeb6b7f580dbbf81b135e91a132f1133c2bceffbb4",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "recovery_actions_planned": 0,
+        "tool_attempts": 6,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 1,
+        "conflict_rebase_count": 1,
+        "conflict_abort_count": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-retail-seed-0-r2_contract_guarded-compatible_conflict:0013"
+        ],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=1",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.retail.concurrent_metadata_change_once"
+      ],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "resolved",
+        "order_count": 1,
+        "idempotency_record_count": 4
+      },
+      "trace_file": "resilience-retail-seed-0-r2_contract_guarded-compatible_conflict.jsonl",
+      "trace_sha256": "770cb504ee68b6cc1d64b117460463ce324a1c5ce22fdb0b60a5e7b3209c3e4f",
+      "trace_event_count": 16
+    }
+  ],
+  "aggregate": {
+    "episode_count": 13,
+    "safe_successes": 7,
+    "compatible_recovery_rate_delta": 0.0
+  },
+  "state_history": [
+    {
+      "sequence": 1,
+      "event_type": "study_created",
+      "completed_count": 0,
+      "pending_count": 36
+    },
+    {
+      "sequence": 2,
+      "event_type": "job_started",
+      "completed_count": 0,
+      "pending_count": 36,
+      "job_id": "resilience-retail-seed-0-r2_confirmed-control",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 3,
+      "event_type": "job_completed",
+      "completed_count": 1,
+      "pending_count": 35,
+      "job_id": "resilience-retail-seed-0-r2_confirmed-control",
+      "attempt_count": 1,
+      "result_sha256": "307b9600241f502f5fc01988dc0ef367f44ee33508cb059daa95dc413637cf07",
+      "trace_sha256": "794d3d8a9757ab355ae78a1b9175ef5ffe0fa57eb4c6812d245365c489580841"
+    },
+    {
+      "sequence": 4,
+      "event_type": "job_started",
+      "completed_count": 1,
+      "pending_count": 35,
+      "job_id": "resilience-retail-seed-1-r2_confirmed-control",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 5,
+      "event_type": "job_completed",
+      "completed_count": 2,
+      "pending_count": 34,
+      "job_id": "resilience-retail-seed-1-r2_confirmed-control",
+      "attempt_count": 1,
+      "result_sha256": "f48ffbe3cd0431e060a4200ed4310a48132396c2f5648ef4add3bc2d33395adb",
+      "trace_sha256": "6d5ed913cd1b84efc2403eaa4b2e6a8ea9edaba535115bf1601dbff713021394"
+    },
+    {
+      "sequence": 6,
+      "event_type": "job_started",
+      "completed_count": 2,
+      "pending_count": 34,
+      "job_id": "resilience-retail-seed-2-r2_confirmed-control",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 7,
+      "event_type": "job_completed",
+      "completed_count": 3,
+      "pending_count": 33,
+      "job_id": "resilience-retail-seed-2-r2_confirmed-control",
+      "attempt_count": 1,
+      "result_sha256": "dcae3f3baa4ae2dcdfcc8741b549829d1e4a922c71c000ae7b567f1b11057c9c",
+      "trace_sha256": "be2f6c4f065b0586bd82c0143897ac48ff4240a18c0e4acf0e354ac19d727546"
+    },
+    {
+      "sequence": 8,
+      "event_type": "job_started",
+      "completed_count": 3,
+      "pending_count": 33,
+      "job_id": "resilience-retail-seed-0-r2_confirmed-compatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 9,
+      "event_type": "job_completed",
+      "completed_count": 4,
+      "pending_count": 32,
+      "job_id": "resilience-retail-seed-0-r2_confirmed-compatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "b839a55f9651279726e5728c3e7b019b490a7e3ebefef2ffef71c451436ba12a",
+      "trace_sha256": "de5fd77b27f85742a62aef7e91d95272973a67cca7efd8b3d23ff8bcdd764e0f"
+    },
+    {
+      "sequence": 10,
+      "event_type": "job_started",
+      "completed_count": 4,
+      "pending_count": 32,
+      "job_id": "resilience-retail-seed-1-r2_confirmed-compatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 11,
+      "event_type": "job_completed",
+      "completed_count": 5,
+      "pending_count": 31,
+      "job_id": "resilience-retail-seed-1-r2_confirmed-compatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "3b8b9b0269f056902fd286e4bcd8f6bf82f850c361c75f777f5576e0751395be",
+      "trace_sha256": "75e678c639d46c756f2428312d1158765f2b4ae466ca5c56c84e2f1f05ee268b"
+    },
+    {
+      "sequence": 12,
+      "event_type": "job_started",
+      "completed_count": 5,
+      "pending_count": 31,
+      "job_id": "resilience-retail-seed-2-r2_confirmed-compatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 13,
+      "event_type": "job_completed",
+      "completed_count": 6,
+      "pending_count": 30,
+      "job_id": "resilience-retail-seed-2-r2_confirmed-compatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "6e36350db7c22abde640a30444aea9ec18b1de3ee2daa795f9e2b595c79e2ed3",
+      "trace_sha256": "fd313fd0002242c9125bcc571cff5e638902aaefee33eaa0ac307c87a6e66a85"
+    },
+    {
+      "sequence": 14,
+      "event_type": "job_started",
+      "completed_count": 6,
+      "pending_count": 30,
+      "job_id": "resilience-retail-seed-0-r2_confirmed-incompatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 15,
+      "event_type": "job_completed",
+      "completed_count": 7,
+      "pending_count": 29,
+      "job_id": "resilience-retail-seed-0-r2_confirmed-incompatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "311804487a42936f5fefd7742ed09cefe3219dc88c52a5c135768f2d8b16d94b",
+      "trace_sha256": "8fd2977b095a1d04d77ab9b3e1d19d6331920b8f759982d4a9262808bf5b925c"
+    },
+    {
+      "sequence": 16,
+      "event_type": "job_started",
+      "completed_count": 7,
+      "pending_count": 29,
+      "job_id": "resilience-retail-seed-1-r2_confirmed-incompatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 17,
+      "event_type": "job_completed",
+      "completed_count": 8,
+      "pending_count": 28,
+      "job_id": "resilience-retail-seed-1-r2_confirmed-incompatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "83204db5cd49273065473b166c9181533679dc0a16ed648f1e30efcf05b3a7a7",
+      "trace_sha256": "c67807ced37ef28f5badf83a96de2db9b16a9fddb3a1c5193358da5358a809a2"
+    },
+    {
+      "sequence": 18,
+      "event_type": "job_started",
+      "completed_count": 8,
+      "pending_count": 28,
+      "job_id": "resilience-retail-seed-2-r2_confirmed-incompatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 19,
+      "event_type": "job_completed",
+      "completed_count": 9,
+      "pending_count": 27,
+      "job_id": "resilience-retail-seed-2-r2_confirmed-incompatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "85679be188aeb294e3b97a988e90230d37c65c627f80afe3757708871dbac9c4",
+      "trace_sha256": "802b3e9ce5516b4283941e4a2c877c11adce2457597a27e1cd9b13a1d3c5401f"
+    },
+    {
+      "sequence": 20,
+      "event_type": "job_started",
+      "completed_count": 9,
+      "pending_count": 27,
+      "job_id": "resilience-retail-seed-0-r2_contract_guarded-control",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 21,
+      "event_type": "job_completed",
+      "completed_count": 10,
+      "pending_count": 26,
+      "job_id": "resilience-retail-seed-0-r2_contract_guarded-control",
+      "attempt_count": 1,
+      "result_sha256": "1520792932f5444a0ab8bef4999b5f09c0ce401f0ec206abdccde41320f37cb0",
+      "trace_sha256": "8a72c4fa2de687fbb727a308e403bc2216772e5025041a420af53c44c99fedc5"
+    },
+    {
+      "sequence": 22,
+      "event_type": "job_started",
+      "completed_count": 10,
+      "pending_count": 26,
+      "job_id": "resilience-retail-seed-1-r2_contract_guarded-control",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 23,
+      "event_type": "job_completed",
+      "completed_count": 11,
+      "pending_count": 25,
+      "job_id": "resilience-retail-seed-1-r2_contract_guarded-control",
+      "attempt_count": 1,
+      "result_sha256": "3ee99b795b0089aa210d2e6b95cdc34890922371eae7b8b268fdeb88854c2316",
+      "trace_sha256": "8ef41a58ca07f8d710b4a30ed0f2cbc6463189bfb7f4aba4fdb2b3f16cbf3dbd"
+    },
+    {
+      "sequence": 24,
+      "event_type": "job_started",
+      "completed_count": 11,
+      "pending_count": 25,
+      "job_id": "resilience-retail-seed-2-r2_contract_guarded-control",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 25,
+      "event_type": "job_completed",
+      "completed_count": 12,
+      "pending_count": 24,
+      "job_id": "resilience-retail-seed-2-r2_contract_guarded-control",
+      "attempt_count": 1,
+      "result_sha256": "0f5bccf84b214ec93a09da6110551992310a7d391f13a6f0a13b7ef65d56a7d2",
+      "trace_sha256": "178d4ccdda8055ead67ffa9d64357d0bf2cce8ad36d895b07516576d1a6424b5"
+    },
+    {
+      "sequence": 26,
+      "event_type": "job_started",
+      "completed_count": 12,
+      "pending_count": 24,
+      "job_id": "resilience-retail-seed-0-r2_contract_guarded-compatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 27,
+      "event_type": "job_completed",
+      "completed_count": 13,
+      "pending_count": 23,
+      "job_id": "resilience-retail-seed-0-r2_contract_guarded-compatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "4e9e3942095eb4c051c41152b4012aebd2bc54fc966263a5fdb9bb32d6ee8f8f",
+      "trace_sha256": "770cb504ee68b6cc1d64b117460463ce324a1c5ce22fdb0b60a5e7b3209c3e4f"
+    },
+    {
+      "sequence": 28,
+      "event_type": "study_intentionally_stopped",
+      "completed_count": 13,
+      "pending_count": 23,
+      "new_jobs_completed": 13
+    }
+  ],
+  "validity": {
+    "manifest_shape": {
+      "jobs": 36,
+      "unique_job_ids": 36,
+      "passed": true
+    },
+    "progress_consistency": {
+      "completed": 13,
+      "pending": 23,
+      "total": 36,
+      "passed": true
+    },
+    "reference_equivalence": {
+      "reference_summary": "artifacts/cross_domain_resilience_v09/summary.json",
+      "episode_matches": {
+        "resilience-retail-seed-0-r2_confirmed-control": true,
+        "resilience-retail-seed-1-r2_confirmed-control": true,
+        "resilience-retail-seed-2-r2_confirmed-control": true,
+        "resilience-retail-seed-0-r2_confirmed-compatible_conflict": true,
+        "resilience-retail-seed-1-r2_confirmed-compatible_conflict": true,
+        "resilience-retail-seed-2-r2_confirmed-compatible_conflict": true,
+        "resilience-retail-seed-0-r2_confirmed-incompatible_conflict": true,
+        "resilience-retail-seed-1-r2_confirmed-incompatible_conflict": true,
+        "resilience-retail-seed-2-r2_confirmed-incompatible_conflict": true,
+        "resilience-retail-seed-0-r2_contract_guarded-control": true,
+        "resilience-retail-seed-1-r2_contract_guarded-control": true,
+        "resilience-retail-seed-2-r2_contract_guarded-control": true,
+        "resilience-retail-seed-0-r2_contract_guarded-compatible_conflict": true
+      },
+      "trace_matches": {
+        "resilience-retail-seed-0-r2_confirmed-control.jsonl": true,
+        "resilience-retail-seed-1-r2_confirmed-control.jsonl": true,
+        "resilience-retail-seed-2-r2_confirmed-control.jsonl": true,
+        "resilience-retail-seed-0-r2_confirmed-compatible_conflict.jsonl": true,
+        "resilience-retail-seed-1-r2_confirmed-compatible_conflict.jsonl": true,
+        "resilience-retail-seed-2-r2_confirmed-compatible_conflict.jsonl": true,
+        "resilience-retail-seed-0-r2_confirmed-incompatible_conflict.jsonl": true,
+        "resilience-retail-seed-1-r2_confirmed-incompatible_conflict.jsonl": true,
+        "resilience-retail-seed-2-r2_confirmed-incompatible_conflict.jsonl": true,
+        "resilience-retail-seed-0-r2_contract_guarded-control.jsonl": true,
+        "resilience-retail-seed-1-r2_contract_guarded-control.jsonl": true,
+        "resilience-retail-seed-2-r2_contract_guarded-control.jsonl": true,
+        "resilience-retail-seed-0-r2_contract_guarded-compatible_conflict.jsonl": true
+      },
+      "passed": true
+    },
+    "single_execution_per_completed_job": {
+      "attempt_counts": {
+        "resilience-retail-seed-0-r2_confirmed-control": 1,
+        "resilience-retail-seed-1-r2_confirmed-control": 1,
+        "resilience-retail-seed-2-r2_confirmed-control": 1,
+        "resilience-retail-seed-0-r2_confirmed-compatible_conflict": 1,
+        "resilience-retail-seed-1-r2_confirmed-compatible_conflict": 1,
+        "resilience-retail-seed-2-r2_confirmed-compatible_conflict": 1,
+        "resilience-retail-seed-0-r2_confirmed-incompatible_conflict": 1,
+        "resilience-retail-seed-1-r2_confirmed-incompatible_conflict": 1,
+        "resilience-retail-seed-2-r2_confirmed-incompatible_conflict": 1,
+        "resilience-retail-seed-0-r2_contract_guarded-control": 1,
+        "resilience-retail-seed-1-r2_contract_guarded-control": 1,
+        "resilience-retail-seed-2-r2_contract_guarded-control": 1,
+        "resilience-retail-seed-0-r2_contract_guarded-compatible_conflict": 1,
+        "resilience-retail-seed-1-r2_contract_guarded-compatible_conflict": 0,
+        "resilience-retail-seed-2-r2_contract_guarded-compatible_conflict": 0,
+        "resilience-retail-seed-0-r2_contract_guarded-incompatible_conflict": 0,
+        "resilience-retail-seed-1-r2_contract_guarded-incompatible_conflict": 0,
+        "resilience-retail-seed-2-r2_contract_guarded-incompatible_conflict": 0,
+        "resilience-travel-seed-0-r2_confirmed-control": 0,
+        "resilience-travel-seed-1-r2_confirmed-control": 0,
+        "resilience-travel-seed-2-r2_confirmed-control": 0,
+        "resilience-travel-seed-0-r2_confirmed-compatible_conflict": 0,
+        "resilience-travel-seed-1-r2_confirmed-compatible_conflict": 0,
+        "resilience-travel-seed-2-r2_confirmed-compatible_conflict": 0,
+        "resilience-travel-seed-0-r2_confirmed-incompatible_conflict": 0,
+        "resilience-travel-seed-1-r2_confirmed-incompatible_conflict": 0,
+        "resilience-travel-seed-2-r2_confirmed-incompatible_conflict": 0,
+        "resilience-travel-seed-0-r2_contract_guarded-control": 0,
+        "resilience-travel-seed-1-r2_contract_guarded-control": 0,
+        "resilience-travel-seed-2-r2_contract_guarded-control": 0,
+        "resilience-travel-seed-0-r2_contract_guarded-compatible_conflict": 0,
+        "resilience-travel-seed-1-r2_contract_guarded-compatible_conflict": 0,
+        "resilience-travel-seed-2-r2_contract_guarded-compatible_conflict": 0,
+        "resilience-travel-seed-0-r2_contract_guarded-incompatible_conflict": 0,
+        "resilience-travel-seed-1-r2_contract_guarded-incompatible_conflict": 0,
+        "resilience-travel-seed-2-r2_contract_guarded-incompatible_conflict": 0
+      },
+      "passed": true
+    },
+    "digest_only_traces": {
+      "forbidden_payload_markers": [],
+      "passed": true
+    },
+    "all_selected_checks_passed": true
+  },
+  "limitations": [
+    "Sequential local scheduling only; no parallel workers, leases, or distributed queue.",
+    "One intentional job-boundary interruption after 13 of 36 fixed synthetic jobs.",
+    "Viewer is a generated read-only HTML artifact, not a mutable experiment API.",
+    "No model, symbolic user, external network, account, credential, or real system."
+  ]
+}

@@ -58,7 +58,7 @@ R2 的 3 次查询确认对应提交后 timeout，3 条 recovery branch 对应�
 - Travel 仍只有两个固定任务模板、一个提交后 timeout 与一个航班不可用分支；
 - 仍是固定 oracle plan，不是模型 Agent；
 - 补偿只允许取消一条已知可退款酒店预订；v0.9 已为该动作增加显式触发、幂等和 pre/postcondition 合同，但未增加补偿类型；
-- v0.6 本身尚无 schema adapter、一般冲突恢复、symbolic user、scheduler 或 viewer；schema adapter 已在后续 v0.7 实现，Workspace guarded conflict rebase 已在 v0.8 实现，Travel compensation conflict guard 已在 v0.9 实现；
+- v0.6 本身尚无 schema adapter、一般冲突恢复、symbolic user、scheduler 或 viewer；schema adapter 已在后续 v0.7 实现，Workspace guarded conflict rebase 已在 v0.8 实现，Travel compensation conflict guard 已在 v0.9 实现，本地顺序 scheduler 与 viewer 已在 [v0.10](./study-runtime-v10.md) 实现；
 - 模型/API、真实账户、外部网络与攻击/防御实验均未实现或启用。
 
-[v0.7](./schema-adapter-v07.md) 已在不改变 Travel ground truth 的前提下完成 schema drift / adapter 本地机制实验；[v0.8](./conflict-recovery-v08.md) 已完成首条 Workspace state-conflict 分类；[v0.9](./cross-domain-resilience-v09.md) 已完成 Travel 补偿 guard 与合同审计。模型实验仍需单独授权和成本预算。
+[v0.7](./schema-adapter-v07.md) 已在不改变 Travel ground truth 的前提下完成 schema drift / adapter 本地机制实验；[v0.8](./conflict-recovery-v08.md) 已完成首条 Workspace state-conflict 分类；[v0.9](./cross-domain-resilience-v09.md) 已完成 Travel 补偿 guard 与合同审计；[v0.10](./study-runtime-v10.md) 已验证中断恢复后 Travel trace 逐字节保持参考等价。模型实验仍需单独授权和成本预算。

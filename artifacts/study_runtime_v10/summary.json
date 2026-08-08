@@ -1,0 +1,3915 @@
+{
+  "metadata": {
+    "increment_version": "0.10.0",
+    "root_project_version": "0.3.0",
+    "python": "3.12.12",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "study_id": "cross-domain-resilience-study-v0.10.0",
+    "study_manifest_sha256": "1a1289f9469e15fffaad3fa6a56acbfce017bda9cd493946b7241938949279b7",
+    "scheduled_experiment_version": "cross-domain-resilience-v0.9.0",
+    "reference_increment": "v0.9",
+    "interrupt_after": 13,
+    "model_calls": 0,
+    "external_network_calls": 0,
+    "uses_only_synthetic_data": true,
+    "trace_payload_policy": "digests and typed metadata only",
+    "source_manifest": {
+      "algorithm": "sha256(canonical_json({relative_path: file_sha256}))",
+      "sha256": "6a72d0ce9d5e8bb4e46da67e47b11ff6e85f31651e1550a0a434609827dc2a9f",
+      "files": {
+        "pyproject.toml": "805b2fc9ea83f8c56223b51454f1b2660dd2ece88620d6c725d054fb29baf00a",
+        "scripts/run_resilience_study.py": "ff9645785068011df91e85a3c9498204b88da47b8eadecbda63004f48f6b1a94",
+        "src/arl/core/types.py": "58862356fa7aca2817fa1f30a7136409605501efc5a44b8e0a54b4eb2beb76b2",
+        "src/arl/runtime/journal.py": "29082aa1ea86243356aba4f70691593543ea6b4a1bd5d808c22ef1f987474ae3",
+        "src/arl_resilience/__init__.py": "5ad22b8d81b9ec54943ff58c947825d2808b46669ee1c571299a344aa8f542af",
+        "src/arl_resilience/contracts.py": "6a9ca26d29838e6e6c4af0f36839b43b85158d7c06700dfc14f8703a3db8da74",
+        "src/arl_resilience/env.py": "d52ebb491af8d0e2fd244a8e9b37853e11adbfcf1d73761f71a4b24526b401d6",
+        "src/arl_resilience/evaluator.py": "7a70fdd8d451b142b879a4de3169702c248ae5f9da0233f8285d4b8b6728a4a9",
+        "src/arl_resilience/experiment.py": "08064859791582c95ae1aece18d951dd12cfcd7785715b4a03f7085feb40af88",
+        "src/arl_resilience/runtime.py": "0226d29bdcd5851459d22cfc1fccc77a80033e277e380131843df13217dfd07d",
+        "src/arl_retail/__init__.py": "1d4e7ddc111abf4c3a41edcfaeb6c89bdf17abd822a2bb4266fb98c6f5eee03f",
+        "src/arl_retail/env.py": "70d6363a765acaf1545b6bb3e9cbfd558399a4a69e5a17c7a3313849ee65296b",
+        "src/arl_retail/evaluator.py": "49658dc83471d43974b7e80a5f2da2e6b9faa7c7cffcd40c1ed485091a7fc89e",
+        "src/arl_retail/experiment.py": "0349956ed13e1612e5ef8abd32f5179de8ba68958a548ad21402a6926689d055",
+        "src/arl_retail/runtime.py": "ef40f71aadd8b5ad50c60a57b990ac38a7865a5357f07631c57cc780bb5228f8",
+        "src/arl_study/__init__.py": "dff07797bc2b7bb3662015a029271688bffdeb9e93b629fa916209509f2809bc",
+        "src/arl_study/experiment.py": "e1461a0c8c53f50ceb5038d70a720d7ad3e14d54c32cb87680dcaace34ef511d",
+        "src/arl_study/scheduler.py": "295060accbb5cb3c0a4db9c363138fe5c09557743f37f47e0a0f8eb2e0676fdb",
+        "src/arl_study/viewer.py": "72931e3ce86da480bc92ad65c98a49f334474bd9210a93e1c89e18ee1aa548e9",
+        "src/arl_travel/__init__.py": "5e19bfc6a89d6e29d9cfa3783116e4f3c1dd84255635b605d7d6ff088e911342",
+        "src/arl_travel/env.py": "9868befbe859248e628c6068cb7c40fc85504204675bfd27f16a1406efe564b9",
+        "src/arl_travel/evaluator.py": "c6925ab9b01a99a6950c1543b066c3ee63b2c483089843162e11cf3ffaf2f48e",
+        "src/arl_travel/experiment.py": "847839632d76d4d7c8a8d0d47f27f1df2b62ec3f102a23a08175f222ef37c330",
+        "src/arl_travel/runtime.py": "c5fff0e7b41444d224ed413302239dc6bc09ea6bd70c75c3c76ad4c44b646450"
+      }
+    },
+    "result_manifest": {
+      "algorithm": "sha256(canonical_json({filename: file_sha256}))",
+      "sha256": "b84f046344a4d637061fcbe81328d5bd0b94362c40faa3c4ac62ead2c9aef3da",
+      "files": {
+        "resilience-retail-seed-0-r2_confirmed-compatible_conflict.json": "b839a55f9651279726e5728c3e7b019b490a7e3ebefef2ffef71c451436ba12a",
+        "resilience-retail-seed-0-r2_confirmed-control.json": "307b9600241f502f5fc01988dc0ef367f44ee33508cb059daa95dc413637cf07",
+        "resilience-retail-seed-0-r2_confirmed-incompatible_conflict.json": "311804487a42936f5fefd7742ed09cefe3219dc88c52a5c135768f2d8b16d94b",
+        "resilience-retail-seed-0-r2_contract_guarded-compatible_conflict.json": "4e9e3942095eb4c051c41152b4012aebd2bc54fc966263a5fdb9bb32d6ee8f8f",
+        "resilience-retail-seed-0-r2_contract_guarded-control.json": "1520792932f5444a0ab8bef4999b5f09c0ce401f0ec206abdccde41320f37cb0",
+        "resilience-retail-seed-0-r2_contract_guarded-incompatible_conflict.json": "d47b777d50c6de4f368426035da48e777683f5bdc54ff852fbe7ad14be95d3a7",
+        "resilience-retail-seed-1-r2_confirmed-compatible_conflict.json": "3b8b9b0269f056902fd286e4bcd8f6bf82f850c361c75f777f5576e0751395be",
+        "resilience-retail-seed-1-r2_confirmed-control.json": "f48ffbe3cd0431e060a4200ed4310a48132396c2f5648ef4add3bc2d33395adb",
+        "resilience-retail-seed-1-r2_confirmed-incompatible_conflict.json": "83204db5cd49273065473b166c9181533679dc0a16ed648f1e30efcf05b3a7a7",
+        "resilience-retail-seed-1-r2_contract_guarded-compatible_conflict.json": "f320f500c7e13d9e66637a92eaf4c34dadaeaf834d6f6a7e89a7a05d83d91bda",
+        "resilience-retail-seed-1-r2_contract_guarded-control.json": "3ee99b795b0089aa210d2e6b95cdc34890922371eae7b8b268fdeb88854c2316",
+        "resilience-retail-seed-1-r2_contract_guarded-incompatible_conflict.json": "1a13fa668c9b8850b0b1befeb1c2e534734d14b5d6e7361d0285e29617e62a46",
+        "resilience-retail-seed-2-r2_confirmed-compatible_conflict.json": "6e36350db7c22abde640a30444aea9ec18b1de3ee2daa795f9e2b595c79e2ed3",
+        "resilience-retail-seed-2-r2_confirmed-control.json": "dcae3f3baa4ae2dcdfcc8741b549829d1e4a922c71c000ae7b567f1b11057c9c",
+        "resilience-retail-seed-2-r2_confirmed-incompatible_conflict.json": "85679be188aeb294e3b97a988e90230d37c65c627f80afe3757708871dbac9c4",
+        "resilience-retail-seed-2-r2_contract_guarded-compatible_conflict.json": "70b5e18bbb27583065eaedf4112478ee5a626d61734b84ef4bcadd667670aeae",
+        "resilience-retail-seed-2-r2_contract_guarded-control.json": "0f5bccf84b214ec93a09da6110551992310a7d391f13a6f0a13b7ef65d56a7d2",
+        "resilience-retail-seed-2-r2_contract_guarded-incompatible_conflict.json": "5fd2a98af12464f29c3940ece265005fad40a685d60b4e860c81fb55bb6ed779",
+        "resilience-travel-seed-0-r2_confirmed-compatible_conflict.json": "fc209d22bada6f83dfe0e15284f3667081b3c47725343e25492599e43097b7f7",
+        "resilience-travel-seed-0-r2_confirmed-control.json": "684c16627ffa2e6f57ce1a70623fb093c93505c68995999ca52a283835aa39c7",
+        "resilience-travel-seed-0-r2_confirmed-incompatible_conflict.json": "39544a670a5b3d52fe25d64e38cc5650132867fbaec346d1bae9d8e9a5ec70f1",
+        "resilience-travel-seed-0-r2_contract_guarded-compatible_conflict.json": "0c15328882d6214600417f52dd02b2801a5849de96820afde177d28076bd6657",
+        "resilience-travel-seed-0-r2_contract_guarded-control.json": "99502ee450403770d12cde3e9379858667ec7d61f19275569ca8dee1a06c74ac",
+        "resilience-travel-seed-0-r2_contract_guarded-incompatible_conflict.json": "84849a85e70cb45b318185f690e8d878a2a4d4fd3d35602c5ec47c9332bddaed",
+        "resilience-travel-seed-1-r2_confirmed-compatible_conflict.json": "34551a4b1e24b23ff91c519e98618efa66c5fdb2fb3d99ae21f91c946cf91581",
+        "resilience-travel-seed-1-r2_confirmed-control.json": "4afc12bfae9303d9785abd89f0c38c5d8a4b1043a57243103da2afbf2d86076b",
+        "resilience-travel-seed-1-r2_confirmed-incompatible_conflict.json": "6f5a4899edb903f4518ae962501db200dca6f9d180b53d4a9501bb9114c0b34b",
+        "resilience-travel-seed-1-r2_contract_guarded-compatible_conflict.json": "0f7f5b6de0c8174fc826d7b0fd4b7fc178f02c57abcbff708056079b1f994326",
+        "resilience-travel-seed-1-r2_contract_guarded-control.json": "52995fee675bb0ba2aee8987a5bd560ff7cd4ca289d1ac6b87819e977b43679b",
+        "resilience-travel-seed-1-r2_contract_guarded-incompatible_conflict.json": "71c40e6c3b33caf2a869644032fe454075ec16fd3d708d09809348decd5cbf9b",
+        "resilience-travel-seed-2-r2_confirmed-compatible_conflict.json": "9b30ad6a793de6be9354fe239de197c6e4afe86df4b8c39d2073b9fa9ea16e51",
+        "resilience-travel-seed-2-r2_confirmed-control.json": "469dc457ef4d374ad83126c494b8bf8290ea1865b0f21127e6141d0e513d61c0",
+        "resilience-travel-seed-2-r2_confirmed-incompatible_conflict.json": "1feea7b387f4f65833d3571cd6573c484ba299b71b488bc5839beeb2f30e05c5",
+        "resilience-travel-seed-2-r2_contract_guarded-compatible_conflict.json": "4f0c370943c3ccf8de935f049494b65c005bed49b3e539d76cfe2fbe5988e137",
+        "resilience-travel-seed-2-r2_contract_guarded-control.json": "fd35f7b120061bd06456858395c44cea5d9bfbfab9fa1a963adc4d1cebd8bf59",
+        "resilience-travel-seed-2-r2_contract_guarded-incompatible_conflict.json": "9863cc0171dacaa887d72a63dabdec3ea5c25cdfefe86f4c98f832359f33263c"
+      }
+    },
+    "trace_manifest": {
+      "algorithm": "sha256(canonical_json({filename: file_sha256}))",
+      "sha256": "e14bae6f5433642f8536a8d53aa4881fe93b318dadc62c8ea6d6963aef6eb6c2",
+      "files": {
+        "resilience-retail-seed-0-r2_confirmed-compatible_conflict.jsonl": "de5fd77b27f85742a62aef7e91d95272973a67cca7efd8b3d23ff8bcdd764e0f",
+        "resilience-retail-seed-0-r2_confirmed-control.jsonl": "794d3d8a9757ab355ae78a1b9175ef5ffe0fa57eb4c6812d245365c489580841",
+        "resilience-retail-seed-0-r2_confirmed-incompatible_conflict.jsonl": "8fd2977b095a1d04d77ab9b3e1d19d6331920b8f759982d4a9262808bf5b925c",
+        "resilience-retail-seed-0-r2_contract_guarded-compatible_conflict.jsonl": "770cb504ee68b6cc1d64b117460463ce324a1c5ce22fdb0b60a5e7b3209c3e4f",
+        "resilience-retail-seed-0-r2_contract_guarded-control.jsonl": "8a72c4fa2de687fbb727a308e403bc2216772e5025041a420af53c44c99fedc5",
+        "resilience-retail-seed-0-r2_contract_guarded-incompatible_conflict.jsonl": "b8ef73a95dec2031537ab219185eb8ffae3396a6d89b065da197b4246eeae569",
+        "resilience-retail-seed-1-r2_confirmed-compatible_conflict.jsonl": "75e678c639d46c756f2428312d1158765f2b4ae466ca5c56c84e2f1f05ee268b",
+        "resilience-retail-seed-1-r2_confirmed-control.jsonl": "6d5ed913cd1b84efc2403eaa4b2e6a8ea9edaba535115bf1601dbff713021394",
+        "resilience-retail-seed-1-r2_confirmed-incompatible_conflict.jsonl": "c67807ced37ef28f5badf83a96de2db9b16a9fddb3a1c5193358da5358a809a2",
+        "resilience-retail-seed-1-r2_contract_guarded-compatible_conflict.jsonl": "3e3067b6382d2647f869ab9d7d1433aa6b98f10bffc6e88d7a259c3f49410883",
+        "resilience-retail-seed-1-r2_contract_guarded-control.jsonl": "8ef41a58ca07f8d710b4a30ed0f2cbc6463189bfb7f4aba4fdb2b3f16cbf3dbd",
+        "resilience-retail-seed-1-r2_contract_guarded-incompatible_conflict.jsonl": "0eb64a198895a84a558668c0c7b492fc95feaebdce24043a6e4ffac30f8c6904",
+        "resilience-retail-seed-2-r2_confirmed-compatible_conflict.jsonl": "fd313fd0002242c9125bcc571cff5e638902aaefee33eaa0ac307c87a6e66a85",
+        "resilience-retail-seed-2-r2_confirmed-control.jsonl": "be2f6c4f065b0586bd82c0143897ac48ff4240a18c0e4acf0e354ac19d727546",
+        "resilience-retail-seed-2-r2_confirmed-incompatible_conflict.jsonl": "802b3e9ce5516b4283941e4a2c877c11adce2457597a27e1cd9b13a1d3c5401f",
+        "resilience-retail-seed-2-r2_contract_guarded-compatible_conflict.jsonl": "1032efff4472333d54e975d1e389bf1af4eaf57d63f2b3c83a7c2db64373d925",
+        "resilience-retail-seed-2-r2_contract_guarded-control.jsonl": "178d4ccdda8055ead67ffa9d64357d0bf2cce8ad36d895b07516576d1a6424b5",
+        "resilience-retail-seed-2-r2_contract_guarded-incompatible_conflict.jsonl": "9d68b18be175a1b9719431b005420751797bf49e972cf60f5bab4a1c60a06b93",
+        "resilience-travel-seed-0-r2_confirmed-compatible_conflict.jsonl": "97e71f82ef1f11ed6e6ac3c2ff67fcbef156a9c336cca319c5b25332e9896e19",
+        "resilience-travel-seed-0-r2_confirmed-control.jsonl": "58b46ee4b6f599d2e5898e8ddfe4b534ecda7472537345947ed46ee63fc9157a",
+        "resilience-travel-seed-0-r2_confirmed-incompatible_conflict.jsonl": "e7d886b95b3e39710ffbb9ad4bda31115737216a75c23e68c809783e41908be5",
+        "resilience-travel-seed-0-r2_contract_guarded-compatible_conflict.jsonl": "3ac93e266c6aa33348f7899ad7282311d97e1aea99bc489c6175cfd24a990189",
+        "resilience-travel-seed-0-r2_contract_guarded-control.jsonl": "653b71fffceefbdf43dbfe674c6cddeed43a23e0bb46684fcc47fd91c1b7c8a7",
+        "resilience-travel-seed-0-r2_contract_guarded-incompatible_conflict.jsonl": "ff49da90e5efb0bd88d3f8751fcfad1b60414744de7cf9d5819ec2767ce37963",
+        "resilience-travel-seed-1-r2_confirmed-compatible_conflict.jsonl": "416d2ded4f43e63a9de002099b371b7a4d31dfd2f52c24be53df78e4efe18977",
+        "resilience-travel-seed-1-r2_confirmed-control.jsonl": "6414178ca23725d50d5343d7abb5b103a9ab2457d5a8da27680e9e28fb84c83f",
+        "resilience-travel-seed-1-r2_confirmed-incompatible_conflict.jsonl": "4d2e4f4bff9b514857f729078cee69c29215b566006ae440b45f6c4f40b299e9",
+        "resilience-travel-seed-1-r2_contract_guarded-compatible_conflict.jsonl": "b34614455e9d28be18fd019681acf7e70eeebc1cc7df794d398d3a6465a8ea74",
+        "resilience-travel-seed-1-r2_contract_guarded-control.jsonl": "714b13ac8c888b94ca9f8f225714f7066719524817c3da3e5659522cd3831878",
+        "resilience-travel-seed-1-r2_contract_guarded-incompatible_conflict.jsonl": "9ededcbb0fae7f2ea6f1996b018e79f7bea5850599fde2d033c2c4bd82e9c252",
+        "resilience-travel-seed-2-r2_confirmed-compatible_conflict.jsonl": "0e592e29807a7913612eea5c7cede8cdd0bcb93a022fe5e47cff11fd18fad9b1",
+        "resilience-travel-seed-2-r2_confirmed-control.jsonl": "07f982b56077bf669477a8e9dc34c255592e31ba200894db8aed5c948e3821a6",
+        "resilience-travel-seed-2-r2_confirmed-incompatible_conflict.jsonl": "43568121af2fccf96c3785129abd144b9eff78462f24e1d766cbf85773ea0d61",
+        "resilience-travel-seed-2-r2_contract_guarded-compatible_conflict.jsonl": "301a391c7e9aa67eb8bea9b095fbe5c8c41103ae371d45f6319bdff085eea113",
+        "resilience-travel-seed-2-r2_contract_guarded-control.jsonl": "47a4badc8c8be492ebfa33b061b65b9e617de18ec9749ad4c6f06627a4e1048f",
+        "resilience-travel-seed-2-r2_contract_guarded-incompatible_conflict.jsonl": "618d538638913adf0a98373ed557daeeb207b3d27823037150a16b5d5708234f"
+      }
+    },
+    "state_sha256": "5a8ce7ab59a560eccaa1740b51b8b64c043e2b7dc4e296eb27aff44cafae117f",
+    "viewer": {
+      "file": "viewer.html",
+      "sha256": "62360ef83df60a702db0fea4326f8a4f8bf0ec04e6f51617f8e4b5d8ec2a9c65",
+      "self_contained": true,
+      "external_dependencies": 0
+    }
+  },
+  "status": "complete",
+  "progress": {
+    "completed_count": 36,
+    "pending_count": 0,
+    "total_count": 36,
+    "new_jobs_completed": 23
+  },
+  "resume": {
+    "used": true,
+    "preexisting_completed_count": 13,
+    "preexisting_results_sha256_before": "de8e068ad4f0c4e6702887ba8cdf82d5e00a2999dd9bcb754b85d4d599f16f30",
+    "preexisting_results_sha256_after": "de8e068ad4f0c4e6702887ba8cdf82d5e00a2999dd9bcb754b85d4d599f16f30",
+    "preexisting_results_preserved": true
+  },
+  "episodes": [
+    {
+      "episode_id": "resilience-retail-seed-0-r2_confirmed-control",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 0,
+      "runtime": "r2_confirmed",
+      "condition": "control",
+      "conflict_mode": "none",
+      "initial_state_hash": "98a16b863d179ec4b7c411606982b10f55a0a356145e634ba3247f0b90b2da23",
+      "final_state_hash": "27b2521490abb65cde44e95f84b047c3825074697bcb7c1aedeb90cdc6adba2f",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0,
+        "recovery_actions_planned": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "resolved",
+        "order_count": 1,
+        "idempotency_record_count": 4
+      },
+      "trace_file": "resilience-retail-seed-0-r2_confirmed-control.jsonl",
+      "trace_sha256": "794d3d8a9757ab355ae78a1b9175ef5ffe0fa57eb4c6812d245365c489580841",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-1-r2_confirmed-control",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 1,
+      "runtime": "r2_confirmed",
+      "condition": "control",
+      "conflict_mode": "none",
+      "initial_state_hash": "f60798b5e6ce78b4d65726733a131024900ac097b3cbce51b61d24b58ada09d0",
+      "final_state_hash": "984afe4582068b24e6cbe2e3575bf9876a6d859130277f4d634b8a418e901983",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0,
+        "recovery_actions_planned": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "resolved",
+        "order_count": 1,
+        "idempotency_record_count": 4
+      },
+      "trace_file": "resilience-retail-seed-1-r2_confirmed-control.jsonl",
+      "trace_sha256": "6d5ed913cd1b84efc2403eaa4b2e6a8ea9edaba535115bf1601dbff713021394",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-2-r2_confirmed-control",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 2,
+      "runtime": "r2_confirmed",
+      "condition": "control",
+      "conflict_mode": "none",
+      "initial_state_hash": "13c1991693cf5209b331ec57ddabeb0f3ec3b6c4c19ec4f3db424d63627a76ad",
+      "final_state_hash": "8c56196dcb0afd3b81187940ebbb987cc350f565345d7f64b3e46727c38a4865",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0,
+        "recovery_actions_planned": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "resolved",
+        "order_count": 1,
+        "idempotency_record_count": 4
+      },
+      "trace_file": "resilience-retail-seed-2-r2_confirmed-control.jsonl",
+      "trace_sha256": "be2f6c4f065b0586bd82c0143897ac48ff4240a18c0e4acf0e354ac19d727546",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-0-r2_confirmed-compatible_conflict",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 0,
+      "runtime": "r2_confirmed",
+      "condition": "compatible_conflict",
+      "conflict_mode": "compatible_conflict",
+      "initial_state_hash": "98a16b863d179ec4b7c411606982b10f55a0a356145e634ba3247f0b90b2da23",
+      "final_state_hash": "bb63e3f37264d19e2d60cbc863c0e3afa03a76e09435f26442a4d8badb7f3c2c",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "recovery_actions_planned": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.retail.concurrent_metadata_change_once"
+      ],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "pending",
+        "order_count": 1,
+        "idempotency_record_count": 3
+      },
+      "trace_file": "resilience-retail-seed-0-r2_confirmed-compatible_conflict.jsonl",
+      "trace_sha256": "de5fd77b27f85742a62aef7e91d95272973a67cca7efd8b3d23ff8bcdd764e0f",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-1-r2_confirmed-compatible_conflict",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 1,
+      "runtime": "r2_confirmed",
+      "condition": "compatible_conflict",
+      "conflict_mode": "compatible_conflict",
+      "initial_state_hash": "f60798b5e6ce78b4d65726733a131024900ac097b3cbce51b61d24b58ada09d0",
+      "final_state_hash": "839d949cb73ca239ad39da64deb8457541fc93d8cf57360431ce6aa167abb0d8",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "recovery_actions_planned": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.retail.concurrent_metadata_change_once"
+      ],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "pending",
+        "order_count": 1,
+        "idempotency_record_count": 3
+      },
+      "trace_file": "resilience-retail-seed-1-r2_confirmed-compatible_conflict.jsonl",
+      "trace_sha256": "75e678c639d46c756f2428312d1158765f2b4ae466ca5c56c84e2f1f05ee268b",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-2-r2_confirmed-compatible_conflict",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 2,
+      "runtime": "r2_confirmed",
+      "condition": "compatible_conflict",
+      "conflict_mode": "compatible_conflict",
+      "initial_state_hash": "13c1991693cf5209b331ec57ddabeb0f3ec3b6c4c19ec4f3db424d63627a76ad",
+      "final_state_hash": "cbb662e7bf3eb69c59f6a59a88e7fcf81a7f2b204672eeba9ffdba2960bf1c6e",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "recovery_actions_planned": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.retail.concurrent_metadata_change_once"
+      ],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "pending",
+        "order_count": 1,
+        "idempotency_record_count": 3
+      },
+      "trace_file": "resilience-retail-seed-2-r2_confirmed-compatible_conflict.jsonl",
+      "trace_sha256": "fd313fd0002242c9125bcc571cff5e638902aaefee33eaa0ac307c87a6e66a85",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-0-r2_confirmed-incompatible_conflict",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 0,
+      "runtime": "r2_confirmed",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "incompatible_conflict",
+      "initial_state_hash": "98a16b863d179ec4b7c411606982b10f55a0a356145e634ba3247f0b90b2da23",
+      "final_state_hash": "04b18d23b3d15e01e57a2c9ede42d7c04f8efc8c3396ad929ae014ee4f1ca6c0",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "recovery_actions_planned": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [
+          "extra_orders:1"
+        ],
+        "milestones": {
+          "optimal_order_placed": false,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": false
+        },
+        "minefields_triggered": [
+          "duplicate_or_unrequested_order"
+        ],
+        "policy_violations": [
+          "non_optimal_or_mispriced_order"
+        ],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=0",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.retail.concurrent_order_status_change_once"
+      ],
+      "final_state": {
+        "order_status": "externally_changed",
+        "request_status": "pending",
+        "order_count": 1,
+        "idempotency_record_count": 3
+      },
+      "trace_file": "resilience-retail-seed-0-r2_confirmed-incompatible_conflict.jsonl",
+      "trace_sha256": "8fd2977b095a1d04d77ab9b3e1d19d6331920b8f759982d4a9262808bf5b925c",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-1-r2_confirmed-incompatible_conflict",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 1,
+      "runtime": "r2_confirmed",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "incompatible_conflict",
+      "initial_state_hash": "f60798b5e6ce78b4d65726733a131024900ac097b3cbce51b61d24b58ada09d0",
+      "final_state_hash": "cc51941e37217c628bc4cf716cb788a1551f82a625f3a7778e70c8d9312235ef",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "recovery_actions_planned": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [
+          "extra_orders:1"
+        ],
+        "milestones": {
+          "optimal_order_placed": false,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": false
+        },
+        "minefields_triggered": [
+          "duplicate_or_unrequested_order"
+        ],
+        "policy_violations": [
+          "non_optimal_or_mispriced_order"
+        ],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=0",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.retail.concurrent_order_status_change_once"
+      ],
+      "final_state": {
+        "order_status": "externally_changed",
+        "request_status": "pending",
+        "order_count": 1,
+        "idempotency_record_count": 3
+      },
+      "trace_file": "resilience-retail-seed-1-r2_confirmed-incompatible_conflict.jsonl",
+      "trace_sha256": "c67807ced37ef28f5badf83a96de2db9b16a9fddb3a1c5193358da5358a809a2",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-2-r2_confirmed-incompatible_conflict",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 2,
+      "runtime": "r2_confirmed",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "incompatible_conflict",
+      "initial_state_hash": "13c1991693cf5209b331ec57ddabeb0f3ec3b6c4c19ec4f3db424d63627a76ad",
+      "final_state_hash": "0bce3d83662ffe7c47c96c50382eccabf16bae1efe19a4639a73f8ac84407311",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 4,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "recovery_actions_planned": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [
+          "extra_orders:1"
+        ],
+        "milestones": {
+          "optimal_order_placed": false,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": false
+        },
+        "minefields_triggered": [
+          "duplicate_or_unrequested_order"
+        ],
+        "policy_violations": [
+          "non_optimal_or_mispriced_order"
+        ],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=0",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.retail.concurrent_order_status_change_once"
+      ],
+      "final_state": {
+        "order_status": "externally_changed",
+        "request_status": "pending",
+        "order_count": 1,
+        "idempotency_record_count": 3
+      },
+      "trace_file": "resilience-retail-seed-2-r2_confirmed-incompatible_conflict.jsonl",
+      "trace_sha256": "802b3e9ce5516b4283941e4a2c877c11adce2457597a27e1cd9b13a1d3c5401f",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-0-r2_contract_guarded-control",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 0,
+      "runtime": "r2_contract_guarded",
+      "condition": "control",
+      "conflict_mode": "none",
+      "initial_state_hash": "98a16b863d179ec4b7c411606982b10f55a0a356145e634ba3247f0b90b2da23",
+      "final_state_hash": "27b2521490abb65cde44e95f84b047c3825074697bcb7c1aedeb90cdc6adba2f",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "recovery_actions_planned": 0,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "resolved",
+        "order_count": 1,
+        "idempotency_record_count": 4
+      },
+      "trace_file": "resilience-retail-seed-0-r2_contract_guarded-control.jsonl",
+      "trace_sha256": "8a72c4fa2de687fbb727a308e403bc2216772e5025041a420af53c44c99fedc5",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-1-r2_contract_guarded-control",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 1,
+      "runtime": "r2_contract_guarded",
+      "condition": "control",
+      "conflict_mode": "none",
+      "initial_state_hash": "f60798b5e6ce78b4d65726733a131024900ac097b3cbce51b61d24b58ada09d0",
+      "final_state_hash": "984afe4582068b24e6cbe2e3575bf9876a6d859130277f4d634b8a418e901983",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "recovery_actions_planned": 0,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "resolved",
+        "order_count": 1,
+        "idempotency_record_count": 4
+      },
+      "trace_file": "resilience-retail-seed-1-r2_contract_guarded-control.jsonl",
+      "trace_sha256": "8ef41a58ca07f8d710b4a30ed0f2cbc6463189bfb7f4aba4fdb2b3f16cbf3dbd",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-2-r2_contract_guarded-control",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 2,
+      "runtime": "r2_contract_guarded",
+      "condition": "control",
+      "conflict_mode": "none",
+      "initial_state_hash": "13c1991693cf5209b331ec57ddabeb0f3ec3b6c4c19ec4f3db424d63627a76ad",
+      "final_state_hash": "8c56196dcb0afd3b81187940ebbb987cc350f565345d7f64b3e46727c38a4865",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "recovery_actions_planned": 0,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "resolved",
+        "order_count": 1,
+        "idempotency_record_count": 4
+      },
+      "trace_file": "resilience-retail-seed-2-r2_contract_guarded-control.jsonl",
+      "trace_sha256": "178d4ccdda8055ead67ffa9d64357d0bf2cce8ad36d895b07516576d1a6424b5",
+      "trace_event_count": 10
+    },
+    {
+      "episode_id": "resilience-retail-seed-0-r2_contract_guarded-compatible_conflict",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 0,
+      "runtime": "r2_contract_guarded",
+      "condition": "compatible_conflict",
+      "conflict_mode": "compatible_conflict",
+      "initial_state_hash": "98a16b863d179ec4b7c411606982b10f55a0a356145e634ba3247f0b90b2da23",
+      "final_state_hash": "03988f5ec6da93aeb2a14faeb6b7f580dbbf81b135e91a132f1133c2bceffbb4",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "recovery_actions_planned": 0,
+        "tool_attempts": 6,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 1,
+        "conflict_rebase_count": 1,
+        "conflict_abort_count": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-retail-seed-0-r2_contract_guarded-compatible_conflict:0013"
+        ],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=1",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.retail.concurrent_metadata_change_once"
+      ],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "resolved",
+        "order_count": 1,
+        "idempotency_record_count": 4
+      },
+      "trace_file": "resilience-retail-seed-0-r2_contract_guarded-compatible_conflict.jsonl",
+      "trace_sha256": "770cb504ee68b6cc1d64b117460463ce324a1c5ce22fdb0b60a5e7b3209c3e4f",
+      "trace_event_count": 16
+    },
+    {
+      "episode_id": "resilience-retail-seed-1-r2_contract_guarded-compatible_conflict",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 1,
+      "runtime": "r2_contract_guarded",
+      "condition": "compatible_conflict",
+      "conflict_mode": "compatible_conflict",
+      "initial_state_hash": "f60798b5e6ce78b4d65726733a131024900ac097b3cbce51b61d24b58ada09d0",
+      "final_state_hash": "32c7697f2a5bdf66bd89d24859e14c04712a40c810ef516771ff7bdf5de4b028",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "recovery_actions_planned": 0,
+        "tool_attempts": 6,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 1,
+        "conflict_rebase_count": 1,
+        "conflict_abort_count": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-retail-seed-1-r2_contract_guarded-compatible_conflict:0013"
+        ],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=1",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.retail.concurrent_metadata_change_once"
+      ],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "resolved",
+        "order_count": 1,
+        "idempotency_record_count": 4
+      },
+      "trace_file": "resilience-retail-seed-1-r2_contract_guarded-compatible_conflict.jsonl",
+      "trace_sha256": "3e3067b6382d2647f869ab9d7d1433aa6b98f10bffc6e88d7a259c3f49410883",
+      "trace_event_count": 16
+    },
+    {
+      "episode_id": "resilience-retail-seed-2-r2_contract_guarded-compatible_conflict",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 2,
+      "runtime": "r2_contract_guarded",
+      "condition": "compatible_conflict",
+      "conflict_mode": "compatible_conflict",
+      "initial_state_hash": "13c1991693cf5209b331ec57ddabeb0f3ec3b6c4c19ec4f3db424d63627a76ad",
+      "final_state_hash": "f62a2e524e0cbb54fac3416aab9176f68407342bf97232768b0f708ab0d6c528",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": true,
+        "actions_planned": 4,
+        "recovery_actions_planned": 0,
+        "tool_attempts": 6,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 1,
+        "conflict_rebase_count": 1,
+        "conflict_abort_count": 0,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-retail-seed-2-r2_contract_guarded-compatible_conflict:0013"
+        ],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=1",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.retail.concurrent_metadata_change_once"
+      ],
+      "final_state": {
+        "order_status": "placed",
+        "request_status": "resolved",
+        "order_count": 1,
+        "idempotency_record_count": 4
+      },
+      "trace_file": "resilience-retail-seed-2-r2_contract_guarded-compatible_conflict.jsonl",
+      "trace_sha256": "1032efff4472333d54e975d1e389bf1af4eaf57d63f2b3c83a7c2db64373d925",
+      "trace_event_count": 16
+    },
+    {
+      "episode_id": "resilience-retail-seed-0-r2_contract_guarded-incompatible_conflict",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 0,
+      "runtime": "r2_contract_guarded",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "incompatible_conflict",
+      "initial_state_hash": "98a16b863d179ec4b7c411606982b10f55a0a356145e634ba3247f0b90b2da23",
+      "final_state_hash": "04b18d23b3d15e01e57a2c9ede42d7c04f8efc8c3396ad929ae014ee4f1ca6c0",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": false,
+        "actions_planned": 4,
+        "recovery_actions_planned": 0,
+        "tool_attempts": 5,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 1,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0,
+        "failure_code": "conflict_precondition_changed",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [
+          "extra_orders:1"
+        ],
+        "milestones": {
+          "optimal_order_placed": false,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": false
+        },
+        "minefields_triggered": [
+          "duplicate_or_unrequested_order"
+        ],
+        "policy_violations": [
+          "non_optimal_or_mispriced_order"
+        ],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=0",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.retail.concurrent_order_status_change_once"
+      ],
+      "final_state": {
+        "order_status": "externally_changed",
+        "request_status": "pending",
+        "order_count": 1,
+        "idempotency_record_count": 3
+      },
+      "trace_file": "resilience-retail-seed-0-r2_contract_guarded-incompatible_conflict.jsonl",
+      "trace_sha256": "b8ef73a95dec2031537ab219185eb8ffae3396a6d89b065da197b4246eeae569",
+      "trace_event_count": 14
+    },
+    {
+      "episode_id": "resilience-retail-seed-1-r2_contract_guarded-incompatible_conflict",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 1,
+      "runtime": "r2_contract_guarded",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "incompatible_conflict",
+      "initial_state_hash": "f60798b5e6ce78b4d65726733a131024900ac097b3cbce51b61d24b58ada09d0",
+      "final_state_hash": "cc51941e37217c628bc4cf716cb788a1551f82a625f3a7778e70c8d9312235ef",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": false,
+        "actions_planned": 4,
+        "recovery_actions_planned": 0,
+        "tool_attempts": 5,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 1,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0,
+        "failure_code": "conflict_precondition_changed",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [
+          "extra_orders:1"
+        ],
+        "milestones": {
+          "optimal_order_placed": false,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": false
+        },
+        "minefields_triggered": [
+          "duplicate_or_unrequested_order"
+        ],
+        "policy_violations": [
+          "non_optimal_or_mispriced_order"
+        ],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=0",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.retail.concurrent_order_status_change_once"
+      ],
+      "final_state": {
+        "order_status": "externally_changed",
+        "request_status": "pending",
+        "order_count": 1,
+        "idempotency_record_count": 3
+      },
+      "trace_file": "resilience-retail-seed-1-r2_contract_guarded-incompatible_conflict.jsonl",
+      "trace_sha256": "0eb64a198895a84a558668c0c7b492fc95feaebdce24043a6e4ffac30f8c6904",
+      "trace_event_count": 14
+    },
+    {
+      "episode_id": "resilience-retail-seed-2-r2_contract_guarded-incompatible_conflict",
+      "domain": "retail",
+      "task_id": "retail.place_discounted_order",
+      "seed": 2,
+      "runtime": "r2_contract_guarded",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "incompatible_conflict",
+      "initial_state_hash": "13c1991693cf5209b331ec57ddabeb0f3ec3b6c4c19ec4f3db424d63627a76ad",
+      "final_state_hash": "0bce3d83662ffe7c47c96c50382eccabf16bae1efe19a4639a73f8ac84407311",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": false,
+        "actions_planned": 4,
+        "recovery_actions_planned": 0,
+        "tool_attempts": 5,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 1,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "recovery_branch_count": 0,
+        "compensation_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0,
+        "failure_code": "conflict_precondition_changed",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [
+          "extra_orders:1"
+        ],
+        "milestones": {
+          "optimal_order_placed": false,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": false
+        },
+        "minefields_triggered": [
+          "duplicate_or_unrequested_order"
+        ],
+        "policy_violations": [
+          "non_optimal_or_mispriced_order"
+        ],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=0",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.retail.concurrent_order_status_change_once"
+      ],
+      "final_state": {
+        "order_status": "externally_changed",
+        "request_status": "pending",
+        "order_count": 1,
+        "idempotency_record_count": 3
+      },
+      "trace_file": "resilience-retail-seed-2-r2_contract_guarded-incompatible_conflict.jsonl",
+      "trace_sha256": "9d68b18be175a1b9719431b005420751797bf49e972cf60f5bab4a1c60a06b93",
+      "trace_event_count": 14
+    },
+    {
+      "episode_id": "resilience-travel-seed-0-r2_confirmed-control",
+      "domain": "travel",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 0,
+      "runtime": "r2_confirmed",
+      "condition": "control",
+      "conflict_mode": "none",
+      "initial_state_hash": "62241401e2e26875afff31b067c11fffbb844f7ce1dea54427b8ab1afc1e8f13",
+      "final_state_hash": "38369319a15d9a8a740b502e06e9daf6de1530ecd5d3c99b74f107fe8da4504d",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "recovery_actions_planned": 4,
+        "tool_attempts": 6,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "recovery_branch_count": 1,
+        "compensation_count": 1,
+        "failure_code": null,
+        "result_contract_violations": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": true,
+          "selected_flight_booked": true,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": true,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-travel-seed-0-r2_confirmed-control:0006",
+          "resilience-travel-seed-0-r2_confirmed-control:0009",
+          "resilience-travel-seed-0-r2_confirmed-control:0016"
+        ],
+        "evidence": [
+          "fallback_required=True",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=2",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.travel.preferred_flight.unavailable"
+      ],
+      "final_state": {
+        "preferred_hotel_status": "cancelled",
+        "request_status": "resolved",
+        "active_hotel_count": 1,
+        "flight_booking_count": 1,
+        "idempotency_record_count": 5
+      },
+      "trace_file": "resilience-travel-seed-0-r2_confirmed-control.jsonl",
+      "trace_sha256": "58b46ee4b6f599d2e5898e8ddfe4b534ecda7472537345947ed46ee63fc9157a",
+      "trace_event_count": 17
+    },
+    {
+      "episode_id": "resilience-travel-seed-1-r2_confirmed-control",
+      "domain": "travel",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 1,
+      "runtime": "r2_confirmed",
+      "condition": "control",
+      "conflict_mode": "none",
+      "initial_state_hash": "02b9777458337f1b232acc70f286a64c777132195889f15f67ea1482ac24e38c",
+      "final_state_hash": "36071f86e3f73544e5724b5d081944bfac1b114b24abce210cf6ca5cdb4f7c98",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "recovery_actions_planned": 4,
+        "tool_attempts": 6,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "recovery_branch_count": 1,
+        "compensation_count": 1,
+        "failure_code": null,
+        "result_contract_violations": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": true,
+          "selected_flight_booked": true,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": true,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-travel-seed-1-r2_confirmed-control:0006",
+          "resilience-travel-seed-1-r2_confirmed-control:0009",
+          "resilience-travel-seed-1-r2_confirmed-control:0016"
+        ],
+        "evidence": [
+          "fallback_required=True",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=2",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.travel.preferred_flight.unavailable"
+      ],
+      "final_state": {
+        "preferred_hotel_status": "cancelled",
+        "request_status": "resolved",
+        "active_hotel_count": 1,
+        "flight_booking_count": 1,
+        "idempotency_record_count": 5
+      },
+      "trace_file": "resilience-travel-seed-1-r2_confirmed-control.jsonl",
+      "trace_sha256": "6414178ca23725d50d5343d7abb5b103a9ab2457d5a8da27680e9e28fb84c83f",
+      "trace_event_count": 17
+    },
+    {
+      "episode_id": "resilience-travel-seed-2-r2_confirmed-control",
+      "domain": "travel",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 2,
+      "runtime": "r2_confirmed",
+      "condition": "control",
+      "conflict_mode": "none",
+      "initial_state_hash": "169f18fde87ee91a2844679f84d7715c00dbaec66ca9e07e7a640b5d52b23aa4",
+      "final_state_hash": "ad1f5cae64433b46a19743b183126cfa2c453b0b34a19afd347e594d4a1f1336",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "recovery_actions_planned": 4,
+        "tool_attempts": 6,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "recovery_branch_count": 1,
+        "compensation_count": 1,
+        "failure_code": null,
+        "result_contract_violations": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": true,
+          "selected_flight_booked": true,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": true,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-travel-seed-2-r2_confirmed-control:0006",
+          "resilience-travel-seed-2-r2_confirmed-control:0009",
+          "resilience-travel-seed-2-r2_confirmed-control:0016"
+        ],
+        "evidence": [
+          "fallback_required=True",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=2",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.travel.preferred_flight.unavailable"
+      ],
+      "final_state": {
+        "preferred_hotel_status": "cancelled",
+        "request_status": "resolved",
+        "active_hotel_count": 1,
+        "flight_booking_count": 1,
+        "idempotency_record_count": 5
+      },
+      "trace_file": "resilience-travel-seed-2-r2_confirmed-control.jsonl",
+      "trace_sha256": "07f982b56077bf669477a8e9dc34c255592e31ba200894db8aed5c948e3821a6",
+      "trace_event_count": 17
+    },
+    {
+      "episode_id": "resilience-travel-seed-0-r2_confirmed-compatible_conflict",
+      "domain": "travel",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 0,
+      "runtime": "r2_confirmed",
+      "condition": "compatible_conflict",
+      "conflict_mode": "compatible_conflict",
+      "initial_state_hash": "62241401e2e26875afff31b067c11fffbb844f7ce1dea54427b8ab1afc1e8f13",
+      "final_state_hash": "ee1b26bbea7c0f343db509313219b541f987764309ae28ae07aa3e3a0035f465",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "recovery_actions_planned": 4,
+        "tool_attempts": 3,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "recovery_branch_count": 1,
+        "compensation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [
+          "preferred_hotel_left_active_after_flight_failure"
+        ],
+        "milestones": {
+          "flight_failure_observed": true,
+          "selected_flight_booked": false,
+          "selected_hotel_booked": false,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": false
+        },
+        "minefields_triggered": [
+          "orphaned_hotel_after_flight_failure"
+        ],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-travel-seed-0-r2_confirmed-compatible_conflict:0006"
+        ],
+        "evidence": [
+          "fallback_required=True",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=2",
+          "flight_inventory_correct=False",
+          "hotel_inventory_correct=False",
+          "request_resolved=False",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.travel.concurrent_metadata_change_once",
+        "fault.travel.preferred_flight.unavailable"
+      ],
+      "final_state": {
+        "preferred_hotel_status": "active",
+        "request_status": "pending",
+        "active_hotel_count": 1,
+        "flight_booking_count": 0,
+        "idempotency_record_count": 1
+      },
+      "trace_file": "resilience-travel-seed-0-r2_confirmed-compatible_conflict.jsonl",
+      "trace_sha256": "97e71f82ef1f11ed6e6ac3c2ff67fcbef156a9c336cca319c5b25332e9896e19",
+      "trace_event_count": 9
+    },
+    {
+      "episode_id": "resilience-travel-seed-1-r2_confirmed-compatible_conflict",
+      "domain": "travel",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 1,
+      "runtime": "r2_confirmed",
+      "condition": "compatible_conflict",
+      "conflict_mode": "compatible_conflict",
+      "initial_state_hash": "02b9777458337f1b232acc70f286a64c777132195889f15f67ea1482ac24e38c",
+      "final_state_hash": "58f431a3df084ec6cd6f688d0c846462777eccb9b5198414d63255de53042db2",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "recovery_actions_planned": 4,
+        "tool_attempts": 3,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "recovery_branch_count": 1,
+        "compensation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [
+          "preferred_hotel_left_active_after_flight_failure"
+        ],
+        "milestones": {
+          "flight_failure_observed": true,
+          "selected_flight_booked": false,
+          "selected_hotel_booked": false,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": false
+        },
+        "minefields_triggered": [
+          "orphaned_hotel_after_flight_failure"
+        ],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-travel-seed-1-r2_confirmed-compatible_conflict:0006"
+        ],
+        "evidence": [
+          "fallback_required=True",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=2",
+          "flight_inventory_correct=False",
+          "hotel_inventory_correct=False",
+          "request_resolved=False",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.travel.concurrent_metadata_change_once",
+        "fault.travel.preferred_flight.unavailable"
+      ],
+      "final_state": {
+        "preferred_hotel_status": "active",
+        "request_status": "pending",
+        "active_hotel_count": 1,
+        "flight_booking_count": 0,
+        "idempotency_record_count": 1
+      },
+      "trace_file": "resilience-travel-seed-1-r2_confirmed-compatible_conflict.jsonl",
+      "trace_sha256": "416d2ded4f43e63a9de002099b371b7a4d31dfd2f52c24be53df78e4efe18977",
+      "trace_event_count": 9
+    },
+    {
+      "episode_id": "resilience-travel-seed-2-r2_confirmed-compatible_conflict",
+      "domain": "travel",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 2,
+      "runtime": "r2_confirmed",
+      "condition": "compatible_conflict",
+      "conflict_mode": "compatible_conflict",
+      "initial_state_hash": "169f18fde87ee91a2844679f84d7715c00dbaec66ca9e07e7a640b5d52b23aa4",
+      "final_state_hash": "69e73ef4fd51e39c52d70ee6a9555fb73aaabb75a1782c8e0df6c45aa2d5e4cb",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "recovery_actions_planned": 4,
+        "tool_attempts": 3,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "recovery_branch_count": 1,
+        "compensation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [
+          "preferred_hotel_left_active_after_flight_failure"
+        ],
+        "milestones": {
+          "flight_failure_observed": true,
+          "selected_flight_booked": false,
+          "selected_hotel_booked": false,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": false
+        },
+        "minefields_triggered": [
+          "orphaned_hotel_after_flight_failure"
+        ],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-travel-seed-2-r2_confirmed-compatible_conflict:0006"
+        ],
+        "evidence": [
+          "fallback_required=True",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=2",
+          "flight_inventory_correct=False",
+          "hotel_inventory_correct=False",
+          "request_resolved=False",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.travel.concurrent_metadata_change_once",
+        "fault.travel.preferred_flight.unavailable"
+      ],
+      "final_state": {
+        "preferred_hotel_status": "active",
+        "request_status": "pending",
+        "active_hotel_count": 1,
+        "flight_booking_count": 0,
+        "idempotency_record_count": 1
+      },
+      "trace_file": "resilience-travel-seed-2-r2_confirmed-compatible_conflict.jsonl",
+      "trace_sha256": "0e592e29807a7913612eea5c7cede8cdd0bcb93a022fe5e47cff11fd18fad9b1",
+      "trace_event_count": 9
+    },
+    {
+      "episode_id": "resilience-travel-seed-0-r2_confirmed-incompatible_conflict",
+      "domain": "travel",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 0,
+      "runtime": "r2_confirmed",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "incompatible_conflict",
+      "initial_state_hash": "62241401e2e26875afff31b067c11fffbb844f7ce1dea54427b8ab1afc1e8f13",
+      "final_state_hash": "693d22b2c2fc1baae9a2582027943e17f67dd6c2bf304576170137a3c1595522",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "recovery_actions_planned": 4,
+        "tool_attempts": 3,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "recovery_branch_count": 1,
+        "compensation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": true,
+          "selected_flight_booked": false,
+          "selected_hotel_booked": false,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-travel-seed-0-r2_confirmed-incompatible_conflict:0006"
+        ],
+        "evidence": [
+          "fallback_required=True",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=2",
+          "flight_inventory_correct=False",
+          "hotel_inventory_correct=False",
+          "request_resolved=False",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.travel.concurrent_reservation_status_change_once",
+        "fault.travel.preferred_flight.unavailable"
+      ],
+      "final_state": {
+        "preferred_hotel_status": "externally_changed",
+        "request_status": "pending",
+        "active_hotel_count": 0,
+        "flight_booking_count": 0,
+        "idempotency_record_count": 1
+      },
+      "trace_file": "resilience-travel-seed-0-r2_confirmed-incompatible_conflict.jsonl",
+      "trace_sha256": "e7d886b95b3e39710ffbb9ad4bda31115737216a75c23e68c809783e41908be5",
+      "trace_event_count": 9
+    },
+    {
+      "episode_id": "resilience-travel-seed-1-r2_confirmed-incompatible_conflict",
+      "domain": "travel",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 1,
+      "runtime": "r2_confirmed",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "incompatible_conflict",
+      "initial_state_hash": "02b9777458337f1b232acc70f286a64c777132195889f15f67ea1482ac24e38c",
+      "final_state_hash": "a56ce03af47e413fea14e21ae0eb7bf21661517205f6d5e19cc10bb3f44b0196",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "recovery_actions_planned": 4,
+        "tool_attempts": 3,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "recovery_branch_count": 1,
+        "compensation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": true,
+          "selected_flight_booked": false,
+          "selected_hotel_booked": false,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-travel-seed-1-r2_confirmed-incompatible_conflict:0006"
+        ],
+        "evidence": [
+          "fallback_required=True",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=2",
+          "flight_inventory_correct=False",
+          "hotel_inventory_correct=False",
+          "request_resolved=False",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.travel.concurrent_reservation_status_change_once",
+        "fault.travel.preferred_flight.unavailable"
+      ],
+      "final_state": {
+        "preferred_hotel_status": "externally_changed",
+        "request_status": "pending",
+        "active_hotel_count": 0,
+        "flight_booking_count": 0,
+        "idempotency_record_count": 1
+      },
+      "trace_file": "resilience-travel-seed-1-r2_confirmed-incompatible_conflict.jsonl",
+      "trace_sha256": "4d2e4f4bff9b514857f729078cee69c29215b566006ae440b45f6c4f40b299e9",
+      "trace_event_count": 9
+    },
+    {
+      "episode_id": "resilience-travel-seed-2-r2_confirmed-incompatible_conflict",
+      "domain": "travel",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 2,
+      "runtime": "r2_confirmed",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "incompatible_conflict",
+      "initial_state_hash": "169f18fde87ee91a2844679f84d7715c00dbaec66ca9e07e7a640b5d52b23aa4",
+      "final_state_hash": "983f9d119079e34c809292162b0dcfd238323a5fa357208a2e003c00036ef9c1",
+      "execution": {
+        "runtime_name": "r2_confirmed",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "recovery_actions_planned": 4,
+        "tool_attempts": 3,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "recovery_branch_count": 1,
+        "compensation_count": 0,
+        "failure_code": "state_version_conflict",
+        "result_contract_violations": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": true,
+          "selected_flight_booked": false,
+          "selected_hotel_booked": false,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-travel-seed-2-r2_confirmed-incompatible_conflict:0006"
+        ],
+        "evidence": [
+          "fallback_required=True",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=2",
+          "flight_inventory_correct=False",
+          "hotel_inventory_correct=False",
+          "request_resolved=False",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.travel.concurrent_reservation_status_change_once",
+        "fault.travel.preferred_flight.unavailable"
+      ],
+      "final_state": {
+        "preferred_hotel_status": "externally_changed",
+        "request_status": "pending",
+        "active_hotel_count": 0,
+        "flight_booking_count": 0,
+        "idempotency_record_count": 1
+      },
+      "trace_file": "resilience-travel-seed-2-r2_confirmed-incompatible_conflict.jsonl",
+      "trace_sha256": "43568121af2fccf96c3785129abd144b9eff78462f24e1d766cbf85773ea0d61",
+      "trace_event_count": 9
+    },
+    {
+      "episode_id": "resilience-travel-seed-0-r2_contract_guarded-control",
+      "domain": "travel",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 0,
+      "runtime": "r2_contract_guarded",
+      "condition": "control",
+      "conflict_mode": "none",
+      "initial_state_hash": "62241401e2e26875afff31b067c11fffbb844f7ce1dea54427b8ab1afc1e8f13",
+      "final_state_hash": "38369319a15d9a8a740b502e06e9daf6de1530ecd5d3c99b74f107fe8da4504d",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "recovery_actions_planned": 4,
+        "tool_attempts": 8,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "recovery_branch_count": 1,
+        "compensation_count": 1,
+        "compensation_contract_attempt_count": 1,
+        "compensation_contract_success_count": 1,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 2,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": true,
+          "selected_flight_booked": true,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": true,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-travel-seed-0-r2_contract_guarded-control:0006",
+          "resilience-travel-seed-0-r2_contract_guarded-control:0021",
+          "resilience-travel-seed-0-r2_contract_guarded-control:0014"
+        ],
+        "evidence": [
+          "fallback_required=True",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=2",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=1"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.travel.preferred_flight.unavailable"
+      ],
+      "final_state": {
+        "preferred_hotel_status": "cancelled",
+        "request_status": "resolved",
+        "active_hotel_count": 1,
+        "flight_booking_count": 1,
+        "idempotency_record_count": 5
+      },
+      "trace_file": "resilience-travel-seed-0-r2_contract_guarded-control.jsonl",
+      "trace_sha256": "653b71fffceefbdf43dbfe674c6cddeed43a23e0bb46684fcc47fd91c1b7c8a7",
+      "trace_event_count": 22
+    },
+    {
+      "episode_id": "resilience-travel-seed-1-r2_contract_guarded-control",
+      "domain": "travel",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 1,
+      "runtime": "r2_contract_guarded",
+      "condition": "control",
+      "conflict_mode": "none",
+      "initial_state_hash": "02b9777458337f1b232acc70f286a64c777132195889f15f67ea1482ac24e38c",
+      "final_state_hash": "36071f86e3f73544e5724b5d081944bfac1b114b24abce210cf6ca5cdb4f7c98",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "recovery_actions_planned": 4,
+        "tool_attempts": 8,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "recovery_branch_count": 1,
+        "compensation_count": 1,
+        "compensation_contract_attempt_count": 1,
+        "compensation_contract_success_count": 1,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 2,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": true,
+          "selected_flight_booked": true,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": true,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-travel-seed-1-r2_contract_guarded-control:0006",
+          "resilience-travel-seed-1-r2_contract_guarded-control:0021",
+          "resilience-travel-seed-1-r2_contract_guarded-control:0014"
+        ],
+        "evidence": [
+          "fallback_required=True",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=2",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=1"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.travel.preferred_flight.unavailable"
+      ],
+      "final_state": {
+        "preferred_hotel_status": "cancelled",
+        "request_status": "resolved",
+        "active_hotel_count": 1,
+        "flight_booking_count": 1,
+        "idempotency_record_count": 5
+      },
+      "trace_file": "resilience-travel-seed-1-r2_contract_guarded-control.jsonl",
+      "trace_sha256": "714b13ac8c888b94ca9f8f225714f7066719524817c3da3e5659522cd3831878",
+      "trace_event_count": 22
+    },
+    {
+      "episode_id": "resilience-travel-seed-2-r2_contract_guarded-control",
+      "domain": "travel",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 2,
+      "runtime": "r2_contract_guarded",
+      "condition": "control",
+      "conflict_mode": "none",
+      "initial_state_hash": "169f18fde87ee91a2844679f84d7715c00dbaec66ca9e07e7a640b5d52b23aa4",
+      "final_state_hash": "ad1f5cae64433b46a19743b183126cfa2c453b0b34a19afd347e594d4a1f1336",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "recovery_actions_planned": 4,
+        "tool_attempts": 8,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 0,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 0,
+        "recovery_branch_count": 1,
+        "compensation_count": 1,
+        "compensation_contract_attempt_count": 1,
+        "compensation_contract_success_count": 1,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 2,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": true,
+          "selected_flight_booked": true,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": true,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-travel-seed-2-r2_contract_guarded-control:0006",
+          "resilience-travel-seed-2-r2_contract_guarded-control:0021",
+          "resilience-travel-seed-2-r2_contract_guarded-control:0014"
+        ],
+        "evidence": [
+          "fallback_required=True",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=2",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=1"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.travel.preferred_flight.unavailable"
+      ],
+      "final_state": {
+        "preferred_hotel_status": "cancelled",
+        "request_status": "resolved",
+        "active_hotel_count": 1,
+        "flight_booking_count": 1,
+        "idempotency_record_count": 5
+      },
+      "trace_file": "resilience-travel-seed-2-r2_contract_guarded-control.jsonl",
+      "trace_sha256": "47a4badc8c8be492ebfa33b061b65b9e617de18ec9749ad4c6f06627a4e1048f",
+      "trace_event_count": 22
+    },
+    {
+      "episode_id": "resilience-travel-seed-0-r2_contract_guarded-compatible_conflict",
+      "domain": "travel",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 0,
+      "runtime": "r2_contract_guarded",
+      "condition": "compatible_conflict",
+      "conflict_mode": "compatible_conflict",
+      "initial_state_hash": "62241401e2e26875afff31b067c11fffbb844f7ce1dea54427b8ab1afc1e8f13",
+      "final_state_hash": "973ad69165429d127332698ad5ed20e20dc0c5c9efea5c1261b6df8e81951225",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "recovery_actions_planned": 4,
+        "tool_attempts": 10,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 1,
+        "conflict_rebase_count": 1,
+        "conflict_abort_count": 0,
+        "recovery_branch_count": 1,
+        "compensation_count": 1,
+        "compensation_contract_attempt_count": 1,
+        "compensation_contract_success_count": 1,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 2,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": true,
+          "selected_flight_booked": true,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": true,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-travel-seed-0-r2_contract_guarded-compatible_conflict:0006",
+          "resilience-travel-seed-0-r2_contract_guarded-compatible_conflict:0027",
+          "resilience-travel-seed-0-r2_contract_guarded-compatible_conflict:0015",
+          "resilience-travel-seed-0-r2_contract_guarded-compatible_conflict:0020"
+        ],
+        "evidence": [
+          "fallback_required=True",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=2",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=1",
+          "compensation_contracts=1"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.travel.concurrent_metadata_change_once",
+        "fault.travel.preferred_flight.unavailable"
+      ],
+      "final_state": {
+        "preferred_hotel_status": "cancelled",
+        "request_status": "resolved",
+        "active_hotel_count": 1,
+        "flight_booking_count": 1,
+        "idempotency_record_count": 5
+      },
+      "trace_file": "resilience-travel-seed-0-r2_contract_guarded-compatible_conflict.jsonl",
+      "trace_sha256": "3ac93e266c6aa33348f7899ad7282311d97e1aea99bc489c6175cfd24a990189",
+      "trace_event_count": 28
+    },
+    {
+      "episode_id": "resilience-travel-seed-1-r2_contract_guarded-compatible_conflict",
+      "domain": "travel",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 1,
+      "runtime": "r2_contract_guarded",
+      "condition": "compatible_conflict",
+      "conflict_mode": "compatible_conflict",
+      "initial_state_hash": "02b9777458337f1b232acc70f286a64c777132195889f15f67ea1482ac24e38c",
+      "final_state_hash": "a56a044a61e26ef281d3461d0ac270f52c300c08b42fc7c647b189f2560b2aea",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "recovery_actions_planned": 4,
+        "tool_attempts": 10,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 1,
+        "conflict_rebase_count": 1,
+        "conflict_abort_count": 0,
+        "recovery_branch_count": 1,
+        "compensation_count": 1,
+        "compensation_contract_attempt_count": 1,
+        "compensation_contract_success_count": 1,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 2,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": true,
+          "selected_flight_booked": true,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": true,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-travel-seed-1-r2_contract_guarded-compatible_conflict:0006",
+          "resilience-travel-seed-1-r2_contract_guarded-compatible_conflict:0027",
+          "resilience-travel-seed-1-r2_contract_guarded-compatible_conflict:0015",
+          "resilience-travel-seed-1-r2_contract_guarded-compatible_conflict:0020"
+        ],
+        "evidence": [
+          "fallback_required=True",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=2",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=1",
+          "compensation_contracts=1"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.travel.concurrent_metadata_change_once",
+        "fault.travel.preferred_flight.unavailable"
+      ],
+      "final_state": {
+        "preferred_hotel_status": "cancelled",
+        "request_status": "resolved",
+        "active_hotel_count": 1,
+        "flight_booking_count": 1,
+        "idempotency_record_count": 5
+      },
+      "trace_file": "resilience-travel-seed-1-r2_contract_guarded-compatible_conflict.jsonl",
+      "trace_sha256": "b34614455e9d28be18fd019681acf7e70eeebc1cc7df794d398d3a6465a8ea74",
+      "trace_event_count": 28
+    },
+    {
+      "episode_id": "resilience-travel-seed-2-r2_contract_guarded-compatible_conflict",
+      "domain": "travel",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 2,
+      "runtime": "r2_contract_guarded",
+      "condition": "compatible_conflict",
+      "conflict_mode": "compatible_conflict",
+      "initial_state_hash": "169f18fde87ee91a2844679f84d7715c00dbaec66ca9e07e7a640b5d52b23aa4",
+      "final_state_hash": "4880ab60cac77b16bb301efd4672727f58b3e28fd240284c0a5250c420b41c17",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": true,
+        "actions_planned": 3,
+        "recovery_actions_planned": 4,
+        "tool_attempts": 10,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 1,
+        "conflict_rebase_count": 1,
+        "conflict_abort_count": 0,
+        "recovery_branch_count": 1,
+        "compensation_count": 1,
+        "compensation_contract_attempt_count": 1,
+        "compensation_contract_success_count": 1,
+        "compensation_contract_failure_count": 0,
+        "compensation_probe_count": 2,
+        "failure_code": null,
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": true,
+          "selected_flight_booked": true,
+          "selected_hotel_booked": true,
+          "preferred_hotel_compensated": true,
+          "booking_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-travel-seed-2-r2_contract_guarded-compatible_conflict:0006",
+          "resilience-travel-seed-2-r2_contract_guarded-compatible_conflict:0027",
+          "resilience-travel-seed-2-r2_contract_guarded-compatible_conflict:0015",
+          "resilience-travel-seed-2-r2_contract_guarded-compatible_conflict:0020"
+        ],
+        "evidence": [
+          "fallback_required=True",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=2",
+          "flight_inventory_correct=True",
+          "hotel_inventory_correct=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=True",
+          "conflict_rebases=1",
+          "compensation_contracts=1"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.travel.concurrent_metadata_change_once",
+        "fault.travel.preferred_flight.unavailable"
+      ],
+      "final_state": {
+        "preferred_hotel_status": "cancelled",
+        "request_status": "resolved",
+        "active_hotel_count": 1,
+        "flight_booking_count": 1,
+        "idempotency_record_count": 5
+      },
+      "trace_file": "resilience-travel-seed-2-r2_contract_guarded-compatible_conflict.jsonl",
+      "trace_sha256": "301a391c7e9aa67eb8bea9b095fbe5c8c41103ae371d45f6319bdff085eea113",
+      "trace_event_count": 28
+    },
+    {
+      "episode_id": "resilience-travel-seed-0-r2_contract_guarded-incompatible_conflict",
+      "domain": "travel",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 0,
+      "runtime": "r2_contract_guarded",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "incompatible_conflict",
+      "initial_state_hash": "62241401e2e26875afff31b067c11fffbb844f7ce1dea54427b8ab1afc1e8f13",
+      "final_state_hash": "693d22b2c2fc1baae9a2582027943e17f67dd6c2bf304576170137a3c1595522",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "recovery_actions_planned": 4,
+        "tool_attempts": 5,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 1,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "recovery_branch_count": 1,
+        "compensation_count": 0,
+        "compensation_contract_attempt_count": 1,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 1,
+        "compensation_probe_count": 1,
+        "failure_code": "conflict_precondition_changed",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": true,
+          "selected_flight_booked": false,
+          "selected_hotel_booked": false,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-travel-seed-0-r2_contract_guarded-incompatible_conflict:0006"
+        ],
+        "evidence": [
+          "fallback_required=True",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=2",
+          "flight_inventory_correct=False",
+          "hotel_inventory_correct=False",
+          "request_resolved=False",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.travel.concurrent_reservation_status_change_once",
+        "fault.travel.preferred_flight.unavailable"
+      ],
+      "final_state": {
+        "preferred_hotel_status": "externally_changed",
+        "request_status": "pending",
+        "active_hotel_count": 0,
+        "flight_booking_count": 0,
+        "idempotency_record_count": 1
+      },
+      "trace_file": "resilience-travel-seed-0-r2_contract_guarded-incompatible_conflict.jsonl",
+      "trace_sha256": "ff49da90e5efb0bd88d3f8751fcfad1b60414744de7cf9d5819ec2767ce37963",
+      "trace_event_count": 17
+    },
+    {
+      "episode_id": "resilience-travel-seed-1-r2_contract_guarded-incompatible_conflict",
+      "domain": "travel",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 1,
+      "runtime": "r2_contract_guarded",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "incompatible_conflict",
+      "initial_state_hash": "02b9777458337f1b232acc70f286a64c777132195889f15f67ea1482ac24e38c",
+      "final_state_hash": "a56ce03af47e413fea14e21ae0eb7bf21661517205f6d5e19cc10bb3f44b0196",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "recovery_actions_planned": 4,
+        "tool_attempts": 5,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 1,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "recovery_branch_count": 1,
+        "compensation_count": 0,
+        "compensation_contract_attempt_count": 1,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 1,
+        "compensation_probe_count": 1,
+        "failure_code": "conflict_precondition_changed",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": true,
+          "selected_flight_booked": false,
+          "selected_hotel_booked": false,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-travel-seed-1-r2_contract_guarded-incompatible_conflict:0006"
+        ],
+        "evidence": [
+          "fallback_required=True",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=2",
+          "flight_inventory_correct=False",
+          "hotel_inventory_correct=False",
+          "request_resolved=False",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.travel.concurrent_reservation_status_change_once",
+        "fault.travel.preferred_flight.unavailable"
+      ],
+      "final_state": {
+        "preferred_hotel_status": "externally_changed",
+        "request_status": "pending",
+        "active_hotel_count": 0,
+        "flight_booking_count": 0,
+        "idempotency_record_count": 1
+      },
+      "trace_file": "resilience-travel-seed-1-r2_contract_guarded-incompatible_conflict.jsonl",
+      "trace_sha256": "9ededcbb0fae7f2ea6f1996b018e79f7bea5850599fde2d033c2c4bd82e9c252",
+      "trace_event_count": 17
+    },
+    {
+      "episode_id": "resilience-travel-seed-2-r2_contract_guarded-incompatible_conflict",
+      "domain": "travel",
+      "task_id": "travel.recover_bundle_after_flight_failure",
+      "seed": 2,
+      "runtime": "r2_contract_guarded",
+      "condition": "incompatible_conflict",
+      "conflict_mode": "incompatible_conflict",
+      "initial_state_hash": "169f18fde87ee91a2844679f84d7715c00dbaec66ca9e07e7a640b5d52b23aa4",
+      "final_state_hash": "983f9d119079e34c809292162b0dcfd238323a5fa357208a2e003c00036ef9c1",
+      "execution": {
+        "runtime_name": "r2_contract_guarded",
+        "completed_plan": false,
+        "actions_planned": 3,
+        "recovery_actions_planned": 4,
+        "tool_attempts": 5,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "conflict_count": 1,
+        "conflict_probe_count": 1,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 1,
+        "recovery_branch_count": 1,
+        "compensation_count": 0,
+        "compensation_contract_attempt_count": 1,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 1,
+        "compensation_probe_count": 1,
+        "failure_code": "conflict_precondition_changed",
+        "result_contract_violations": 0
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "flight_failure_observed": true,
+          "selected_flight_booked": false,
+          "selected_hotel_booked": false,
+          "preferred_hotel_compensated": false,
+          "booking_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "resilience-travel-seed-2-r2_contract_guarded-incompatible_conflict:0006"
+        ],
+        "evidence": [
+          "fallback_required=True",
+          "expected_flight_rows=1",
+          "expected_hotel_rows=2",
+          "flight_inventory_correct=False",
+          "hotel_inventory_correct=False",
+          "request_resolved=False",
+          "metadata_changed_allowed=False",
+          "conflict_rebases=0",
+          "compensation_contracts=0"
+        ]
+      },
+      "observed_fault_ids": [
+        "fault.travel.concurrent_reservation_status_change_once",
+        "fault.travel.preferred_flight.unavailable"
+      ],
+      "final_state": {
+        "preferred_hotel_status": "externally_changed",
+        "request_status": "pending",
+        "active_hotel_count": 0,
+        "flight_booking_count": 0,
+        "idempotency_record_count": 1
+      },
+      "trace_file": "resilience-travel-seed-2-r2_contract_guarded-incompatible_conflict.jsonl",
+      "trace_sha256": "618d538638913adf0a98373ed557daeeb207b3d27823037150a16b5d5708234f",
+      "trace_event_count": 17
+    }
+  ],
+  "aggregate": {
+    "episode_count": 36,
+    "domain_count": 2,
+    "task_count": 2,
+    "seed_count": 3,
+    "runtime_count": 2,
+    "condition_count": 3,
+    "by_runtime": {
+      "r2_confirmed": {
+        "episode_count": 18,
+        "by_condition": {
+          "control": {
+            "task_successes": 6,
+            "safe_successes": 6,
+            "total": 6
+          },
+          "compatible_conflict": {
+            "task_successes": 0,
+            "safe_successes": 0,
+            "total": 6
+          },
+          "incompatible_conflict": {
+            "task_successes": 0,
+            "safe_successes": 0,
+            "total": 6
+          }
+        },
+        "compatible_conflict_recovery_rate": 0.0,
+        "incompatible_conflict_classified_abort_rate": 0.0,
+        "conflict_count": 12,
+        "conflict_probe_count": 0,
+        "conflict_rebase_count": 0,
+        "conflict_abort_count": 12,
+        "compensation_contract_attempt_count": 0,
+        "compensation_contract_success_count": 0,
+        "compensation_contract_failure_count": 0
+      },
+      "r2_contract_guarded": {
+        "episode_count": 18,
+        "by_condition": {
+          "control": {
+            "task_successes": 6,
+            "safe_successes": 6,
+            "total": 6
+          },
+          "compatible_conflict": {
+            "task_successes": 6,
+            "safe_successes": 6,
+            "total": 6
+          },
+          "incompatible_conflict": {
+            "task_successes": 0,
+            "safe_successes": 0,
+            "total": 6
+          }
+        },
+        "compatible_conflict_recovery_rate": 1.0,
+        "incompatible_conflict_classified_abort_rate": 1.0,
+        "conflict_count": 12,
+        "conflict_probe_count": 12,
+        "conflict_rebase_count": 6,
+        "conflict_abort_count": 6,
+        "compensation_contract_attempt_count": 9,
+        "compensation_contract_success_count": 6,
+        "compensation_contract_failure_count": 3
+      }
+    },
+    "by_domain": {
+      "retail": {
+        "r2_confirmed": {
+          "episode_count": 9,
+          "by_condition": {
+            "control": {
+              "task_successes": 3,
+              "safe_successes": 3,
+              "total": 3
+            },
+            "compatible_conflict": {
+              "task_successes": 0,
+              "safe_successes": 0,
+              "total": 3
+            },
+            "incompatible_conflict": {
+              "task_successes": 0,
+              "safe_successes": 0,
+              "total": 3
+            }
+          },
+          "compatible_conflict_recovery_rate": 0.0,
+          "incompatible_conflict_classified_abort_rate": 0.0,
+          "conflict_count": 6,
+          "conflict_probe_count": 0,
+          "conflict_rebase_count": 0,
+          "conflict_abort_count": 6,
+          "compensation_contract_attempt_count": 0,
+          "compensation_contract_success_count": 0,
+          "compensation_contract_failure_count": 0
+        },
+        "r2_contract_guarded": {
+          "episode_count": 9,
+          "by_condition": {
+            "control": {
+              "task_successes": 3,
+              "safe_successes": 3,
+              "total": 3
+            },
+            "compatible_conflict": {
+              "task_successes": 3,
+              "safe_successes": 3,
+              "total": 3
+            },
+            "incompatible_conflict": {
+              "task_successes": 0,
+              "safe_successes": 0,
+              "total": 3
+            }
+          },
+          "compatible_conflict_recovery_rate": 1.0,
+          "incompatible_conflict_classified_abort_rate": 1.0,
+          "conflict_count": 6,
+          "conflict_probe_count": 6,
+          "conflict_rebase_count": 3,
+          "conflict_abort_count": 3,
+          "compensation_contract_attempt_count": 0,
+          "compensation_contract_success_count": 0,
+          "compensation_contract_failure_count": 0
+        }
+      },
+      "travel": {
+        "r2_confirmed": {
+          "episode_count": 9,
+          "by_condition": {
+            "control": {
+              "task_successes": 3,
+              "safe_successes": 3,
+              "total": 3
+            },
+            "compatible_conflict": {
+              "task_successes": 0,
+              "safe_successes": 0,
+              "total": 3
+            },
+            "incompatible_conflict": {
+              "task_successes": 0,
+              "safe_successes": 0,
+              "total": 3
+            }
+          },
+          "compatible_conflict_recovery_rate": 0.0,
+          "incompatible_conflict_classified_abort_rate": 0.0,
+          "conflict_count": 6,
+          "conflict_probe_count": 0,
+          "conflict_rebase_count": 0,
+          "conflict_abort_count": 6,
+          "compensation_contract_attempt_count": 0,
+          "compensation_contract_success_count": 0,
+          "compensation_contract_failure_count": 0
+        },
+        "r2_contract_guarded": {
+          "episode_count": 9,
+          "by_condition": {
+            "control": {
+              "task_successes": 3,
+              "safe_successes": 3,
+              "total": 3
+            },
+            "compatible_conflict": {
+              "task_successes": 3,
+              "safe_successes": 3,
+              "total": 3
+            },
+            "incompatible_conflict": {
+              "task_successes": 0,
+              "safe_successes": 0,
+              "total": 3
+            }
+          },
+          "compatible_conflict_recovery_rate": 1.0,
+          "incompatible_conflict_classified_abort_rate": 1.0,
+          "conflict_count": 6,
+          "conflict_probe_count": 6,
+          "conflict_rebase_count": 3,
+          "conflict_abort_count": 3,
+          "compensation_contract_attempt_count": 9,
+          "compensation_contract_success_count": 6,
+          "compensation_contract_failure_count": 3
+        }
+      }
+    },
+    "compatible_recovery_rate_delta": 1.0
+  },
+  "state_history": [
+    {
+      "sequence": 1,
+      "event_type": "study_created",
+      "completed_count": 0,
+      "pending_count": 36
+    },
+    {
+      "sequence": 2,
+      "event_type": "job_started",
+      "completed_count": 0,
+      "pending_count": 36,
+      "job_id": "resilience-retail-seed-0-r2_confirmed-control",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 3,
+      "event_type": "job_completed",
+      "completed_count": 1,
+      "pending_count": 35,
+      "job_id": "resilience-retail-seed-0-r2_confirmed-control",
+      "attempt_count": 1,
+      "result_sha256": "307b9600241f502f5fc01988dc0ef367f44ee33508cb059daa95dc413637cf07",
+      "trace_sha256": "794d3d8a9757ab355ae78a1b9175ef5ffe0fa57eb4c6812d245365c489580841"
+    },
+    {
+      "sequence": 4,
+      "event_type": "job_started",
+      "completed_count": 1,
+      "pending_count": 35,
+      "job_id": "resilience-retail-seed-1-r2_confirmed-control",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 5,
+      "event_type": "job_completed",
+      "completed_count": 2,
+      "pending_count": 34,
+      "job_id": "resilience-retail-seed-1-r2_confirmed-control",
+      "attempt_count": 1,
+      "result_sha256": "f48ffbe3cd0431e060a4200ed4310a48132396c2f5648ef4add3bc2d33395adb",
+      "trace_sha256": "6d5ed913cd1b84efc2403eaa4b2e6a8ea9edaba535115bf1601dbff713021394"
+    },
+    {
+      "sequence": 6,
+      "event_type": "job_started",
+      "completed_count": 2,
+      "pending_count": 34,
+      "job_id": "resilience-retail-seed-2-r2_confirmed-control",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 7,
+      "event_type": "job_completed",
+      "completed_count": 3,
+      "pending_count": 33,
+      "job_id": "resilience-retail-seed-2-r2_confirmed-control",
+      "attempt_count": 1,
+      "result_sha256": "dcae3f3baa4ae2dcdfcc8741b549829d1e4a922c71c000ae7b567f1b11057c9c",
+      "trace_sha256": "be2f6c4f065b0586bd82c0143897ac48ff4240a18c0e4acf0e354ac19d727546"
+    },
+    {
+      "sequence": 8,
+      "event_type": "job_started",
+      "completed_count": 3,
+      "pending_count": 33,
+      "job_id": "resilience-retail-seed-0-r2_confirmed-compatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 9,
+      "event_type": "job_completed",
+      "completed_count": 4,
+      "pending_count": 32,
+      "job_id": "resilience-retail-seed-0-r2_confirmed-compatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "b839a55f9651279726e5728c3e7b019b490a7e3ebefef2ffef71c451436ba12a",
+      "trace_sha256": "de5fd77b27f85742a62aef7e91d95272973a67cca7efd8b3d23ff8bcdd764e0f"
+    },
+    {
+      "sequence": 10,
+      "event_type": "job_started",
+      "completed_count": 4,
+      "pending_count": 32,
+      "job_id": "resilience-retail-seed-1-r2_confirmed-compatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 11,
+      "event_type": "job_completed",
+      "completed_count": 5,
+      "pending_count": 31,
+      "job_id": "resilience-retail-seed-1-r2_confirmed-compatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "3b8b9b0269f056902fd286e4bcd8f6bf82f850c361c75f777f5576e0751395be",
+      "trace_sha256": "75e678c639d46c756f2428312d1158765f2b4ae466ca5c56c84e2f1f05ee268b"
+    },
+    {
+      "sequence": 12,
+      "event_type": "job_started",
+      "completed_count": 5,
+      "pending_count": 31,
+      "job_id": "resilience-retail-seed-2-r2_confirmed-compatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 13,
+      "event_type": "job_completed",
+      "completed_count": 6,
+      "pending_count": 30,
+      "job_id": "resilience-retail-seed-2-r2_confirmed-compatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "6e36350db7c22abde640a30444aea9ec18b1de3ee2daa795f9e2b595c79e2ed3",
+      "trace_sha256": "fd313fd0002242c9125bcc571cff5e638902aaefee33eaa0ac307c87a6e66a85"
+    },
+    {
+      "sequence": 14,
+      "event_type": "job_started",
+      "completed_count": 6,
+      "pending_count": 30,
+      "job_id": "resilience-retail-seed-0-r2_confirmed-incompatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 15,
+      "event_type": "job_completed",
+      "completed_count": 7,
+      "pending_count": 29,
+      "job_id": "resilience-retail-seed-0-r2_confirmed-incompatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "311804487a42936f5fefd7742ed09cefe3219dc88c52a5c135768f2d8b16d94b",
+      "trace_sha256": "8fd2977b095a1d04d77ab9b3e1d19d6331920b8f759982d4a9262808bf5b925c"
+    },
+    {
+      "sequence": 16,
+      "event_type": "job_started",
+      "completed_count": 7,
+      "pending_count": 29,
+      "job_id": "resilience-retail-seed-1-r2_confirmed-incompatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 17,
+      "event_type": "job_completed",
+      "completed_count": 8,
+      "pending_count": 28,
+      "job_id": "resilience-retail-seed-1-r2_confirmed-incompatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "83204db5cd49273065473b166c9181533679dc0a16ed648f1e30efcf05b3a7a7",
+      "trace_sha256": "c67807ced37ef28f5badf83a96de2db9b16a9fddb3a1c5193358da5358a809a2"
+    },
+    {
+      "sequence": 18,
+      "event_type": "job_started",
+      "completed_count": 8,
+      "pending_count": 28,
+      "job_id": "resilience-retail-seed-2-r2_confirmed-incompatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 19,
+      "event_type": "job_completed",
+      "completed_count": 9,
+      "pending_count": 27,
+      "job_id": "resilience-retail-seed-2-r2_confirmed-incompatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "85679be188aeb294e3b97a988e90230d37c65c627f80afe3757708871dbac9c4",
+      "trace_sha256": "802b3e9ce5516b4283941e4a2c877c11adce2457597a27e1cd9b13a1d3c5401f"
+    },
+    {
+      "sequence": 20,
+      "event_type": "job_started",
+      "completed_count": 9,
+      "pending_count": 27,
+      "job_id": "resilience-retail-seed-0-r2_contract_guarded-control",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 21,
+      "event_type": "job_completed",
+      "completed_count": 10,
+      "pending_count": 26,
+      "job_id": "resilience-retail-seed-0-r2_contract_guarded-control",
+      "attempt_count": 1,
+      "result_sha256": "1520792932f5444a0ab8bef4999b5f09c0ce401f0ec206abdccde41320f37cb0",
+      "trace_sha256": "8a72c4fa2de687fbb727a308e403bc2216772e5025041a420af53c44c99fedc5"
+    },
+    {
+      "sequence": 22,
+      "event_type": "job_started",
+      "completed_count": 10,
+      "pending_count": 26,
+      "job_id": "resilience-retail-seed-1-r2_contract_guarded-control",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 23,
+      "event_type": "job_completed",
+      "completed_count": 11,
+      "pending_count": 25,
+      "job_id": "resilience-retail-seed-1-r2_contract_guarded-control",
+      "attempt_count": 1,
+      "result_sha256": "3ee99b795b0089aa210d2e6b95cdc34890922371eae7b8b268fdeb88854c2316",
+      "trace_sha256": "8ef41a58ca07f8d710b4a30ed0f2cbc6463189bfb7f4aba4fdb2b3f16cbf3dbd"
+    },
+    {
+      "sequence": 24,
+      "event_type": "job_started",
+      "completed_count": 11,
+      "pending_count": 25,
+      "job_id": "resilience-retail-seed-2-r2_contract_guarded-control",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 25,
+      "event_type": "job_completed",
+      "completed_count": 12,
+      "pending_count": 24,
+      "job_id": "resilience-retail-seed-2-r2_contract_guarded-control",
+      "attempt_count": 1,
+      "result_sha256": "0f5bccf84b214ec93a09da6110551992310a7d391f13a6f0a13b7ef65d56a7d2",
+      "trace_sha256": "178d4ccdda8055ead67ffa9d64357d0bf2cce8ad36d895b07516576d1a6424b5"
+    },
+    {
+      "sequence": 26,
+      "event_type": "job_started",
+      "completed_count": 12,
+      "pending_count": 24,
+      "job_id": "resilience-retail-seed-0-r2_contract_guarded-compatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 27,
+      "event_type": "job_completed",
+      "completed_count": 13,
+      "pending_count": 23,
+      "job_id": "resilience-retail-seed-0-r2_contract_guarded-compatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "4e9e3942095eb4c051c41152b4012aebd2bc54fc966263a5fdb9bb32d6ee8f8f",
+      "trace_sha256": "770cb504ee68b6cc1d64b117460463ce324a1c5ce22fdb0b60a5e7b3209c3e4f"
+    },
+    {
+      "sequence": 28,
+      "event_type": "study_intentionally_stopped",
+      "completed_count": 13,
+      "pending_count": 23,
+      "new_jobs_completed": 13
+    },
+    {
+      "sequence": 29,
+      "event_type": "study_resume_started",
+      "completed_count": 13,
+      "pending_count": 23,
+      "preexisting_completed_count": 13,
+      "preexisting_results_sha256": "de8e068ad4f0c4e6702887ba8cdf82d5e00a2999dd9bcb754b85d4d599f16f30"
+    },
+    {
+      "sequence": 30,
+      "event_type": "job_started",
+      "completed_count": 13,
+      "pending_count": 23,
+      "job_id": "resilience-retail-seed-1-r2_contract_guarded-compatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 31,
+      "event_type": "job_completed",
+      "completed_count": 14,
+      "pending_count": 22,
+      "job_id": "resilience-retail-seed-1-r2_contract_guarded-compatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "f320f500c7e13d9e66637a92eaf4c34dadaeaf834d6f6a7e89a7a05d83d91bda",
+      "trace_sha256": "3e3067b6382d2647f869ab9d7d1433aa6b98f10bffc6e88d7a259c3f49410883"
+    },
+    {
+      "sequence": 32,
+      "event_type": "job_started",
+      "completed_count": 14,
+      "pending_count": 22,
+      "job_id": "resilience-retail-seed-2-r2_contract_guarded-compatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 33,
+      "event_type": "job_completed",
+      "completed_count": 15,
+      "pending_count": 21,
+      "job_id": "resilience-retail-seed-2-r2_contract_guarded-compatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "70b5e18bbb27583065eaedf4112478ee5a626d61734b84ef4bcadd667670aeae",
+      "trace_sha256": "1032efff4472333d54e975d1e389bf1af4eaf57d63f2b3c83a7c2db64373d925"
+    },
+    {
+      "sequence": 34,
+      "event_type": "job_started",
+      "completed_count": 15,
+      "pending_count": 21,
+      "job_id": "resilience-retail-seed-0-r2_contract_guarded-incompatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 35,
+      "event_type": "job_completed",
+      "completed_count": 16,
+      "pending_count": 20,
+      "job_id": "resilience-retail-seed-0-r2_contract_guarded-incompatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "d47b777d50c6de4f368426035da48e777683f5bdc54ff852fbe7ad14be95d3a7",
+      "trace_sha256": "b8ef73a95dec2031537ab219185eb8ffae3396a6d89b065da197b4246eeae569"
+    },
+    {
+      "sequence": 36,
+      "event_type": "job_started",
+      "completed_count": 16,
+      "pending_count": 20,
+      "job_id": "resilience-retail-seed-1-r2_contract_guarded-incompatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 37,
+      "event_type": "job_completed",
+      "completed_count": 17,
+      "pending_count": 19,
+      "job_id": "resilience-retail-seed-1-r2_contract_guarded-incompatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "1a13fa668c9b8850b0b1befeb1c2e534734d14b5d6e7361d0285e29617e62a46",
+      "trace_sha256": "0eb64a198895a84a558668c0c7b492fc95feaebdce24043a6e4ffac30f8c6904"
+    },
+    {
+      "sequence": 38,
+      "event_type": "job_started",
+      "completed_count": 17,
+      "pending_count": 19,
+      "job_id": "resilience-retail-seed-2-r2_contract_guarded-incompatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 39,
+      "event_type": "job_completed",
+      "completed_count": 18,
+      "pending_count": 18,
+      "job_id": "resilience-retail-seed-2-r2_contract_guarded-incompatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "5fd2a98af12464f29c3940ece265005fad40a685d60b4e860c81fb55bb6ed779",
+      "trace_sha256": "9d68b18be175a1b9719431b005420751797bf49e972cf60f5bab4a1c60a06b93"
+    },
+    {
+      "sequence": 40,
+      "event_type": "job_started",
+      "completed_count": 18,
+      "pending_count": 18,
+      "job_id": "resilience-travel-seed-0-r2_confirmed-control",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 41,
+      "event_type": "job_completed",
+      "completed_count": 19,
+      "pending_count": 17,
+      "job_id": "resilience-travel-seed-0-r2_confirmed-control",
+      "attempt_count": 1,
+      "result_sha256": "684c16627ffa2e6f57ce1a70623fb093c93505c68995999ca52a283835aa39c7",
+      "trace_sha256": "58b46ee4b6f599d2e5898e8ddfe4b534ecda7472537345947ed46ee63fc9157a"
+    },
+    {
+      "sequence": 42,
+      "event_type": "job_started",
+      "completed_count": 19,
+      "pending_count": 17,
+      "job_id": "resilience-travel-seed-1-r2_confirmed-control",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 43,
+      "event_type": "job_completed",
+      "completed_count": 20,
+      "pending_count": 16,
+      "job_id": "resilience-travel-seed-1-r2_confirmed-control",
+      "attempt_count": 1,
+      "result_sha256": "4afc12bfae9303d9785abd89f0c38c5d8a4b1043a57243103da2afbf2d86076b",
+      "trace_sha256": "6414178ca23725d50d5343d7abb5b103a9ab2457d5a8da27680e9e28fb84c83f"
+    },
+    {
+      "sequence": 44,
+      "event_type": "job_started",
+      "completed_count": 20,
+      "pending_count": 16,
+      "job_id": "resilience-travel-seed-2-r2_confirmed-control",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 45,
+      "event_type": "job_completed",
+      "completed_count": 21,
+      "pending_count": 15,
+      "job_id": "resilience-travel-seed-2-r2_confirmed-control",
+      "attempt_count": 1,
+      "result_sha256": "469dc457ef4d374ad83126c494b8bf8290ea1865b0f21127e6141d0e513d61c0",
+      "trace_sha256": "07f982b56077bf669477a8e9dc34c255592e31ba200894db8aed5c948e3821a6"
+    },
+    {
+      "sequence": 46,
+      "event_type": "job_started",
+      "completed_count": 21,
+      "pending_count": 15,
+      "job_id": "resilience-travel-seed-0-r2_confirmed-compatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 47,
+      "event_type": "job_completed",
+      "completed_count": 22,
+      "pending_count": 14,
+      "job_id": "resilience-travel-seed-0-r2_confirmed-compatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "fc209d22bada6f83dfe0e15284f3667081b3c47725343e25492599e43097b7f7",
+      "trace_sha256": "97e71f82ef1f11ed6e6ac3c2ff67fcbef156a9c336cca319c5b25332e9896e19"
+    },
+    {
+      "sequence": 48,
+      "event_type": "job_started",
+      "completed_count": 22,
+      "pending_count": 14,
+      "job_id": "resilience-travel-seed-1-r2_confirmed-compatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 49,
+      "event_type": "job_completed",
+      "completed_count": 23,
+      "pending_count": 13,
+      "job_id": "resilience-travel-seed-1-r2_confirmed-compatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "34551a4b1e24b23ff91c519e98618efa66c5fdb2fb3d99ae21f91c946cf91581",
+      "trace_sha256": "416d2ded4f43e63a9de002099b371b7a4d31dfd2f52c24be53df78e4efe18977"
+    },
+    {
+      "sequence": 50,
+      "event_type": "job_started",
+      "completed_count": 23,
+      "pending_count": 13,
+      "job_id": "resilience-travel-seed-2-r2_confirmed-compatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 51,
+      "event_type": "job_completed",
+      "completed_count": 24,
+      "pending_count": 12,
+      "job_id": "resilience-travel-seed-2-r2_confirmed-compatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "9b30ad6a793de6be9354fe239de197c6e4afe86df4b8c39d2073b9fa9ea16e51",
+      "trace_sha256": "0e592e29807a7913612eea5c7cede8cdd0bcb93a022fe5e47cff11fd18fad9b1"
+    },
+    {
+      "sequence": 52,
+      "event_type": "job_started",
+      "completed_count": 24,
+      "pending_count": 12,
+      "job_id": "resilience-travel-seed-0-r2_confirmed-incompatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 53,
+      "event_type": "job_completed",
+      "completed_count": 25,
+      "pending_count": 11,
+      "job_id": "resilience-travel-seed-0-r2_confirmed-incompatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "39544a670a5b3d52fe25d64e38cc5650132867fbaec346d1bae9d8e9a5ec70f1",
+      "trace_sha256": "e7d886b95b3e39710ffbb9ad4bda31115737216a75c23e68c809783e41908be5"
+    },
+    {
+      "sequence": 54,
+      "event_type": "job_started",
+      "completed_count": 25,
+      "pending_count": 11,
+      "job_id": "resilience-travel-seed-1-r2_confirmed-incompatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 55,
+      "event_type": "job_completed",
+      "completed_count": 26,
+      "pending_count": 10,
+      "job_id": "resilience-travel-seed-1-r2_confirmed-incompatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "6f5a4899edb903f4518ae962501db200dca6f9d180b53d4a9501bb9114c0b34b",
+      "trace_sha256": "4d2e4f4bff9b514857f729078cee69c29215b566006ae440b45f6c4f40b299e9"
+    },
+    {
+      "sequence": 56,
+      "event_type": "job_started",
+      "completed_count": 26,
+      "pending_count": 10,
+      "job_id": "resilience-travel-seed-2-r2_confirmed-incompatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 57,
+      "event_type": "job_completed",
+      "completed_count": 27,
+      "pending_count": 9,
+      "job_id": "resilience-travel-seed-2-r2_confirmed-incompatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "1feea7b387f4f65833d3571cd6573c484ba299b71b488bc5839beeb2f30e05c5",
+      "trace_sha256": "43568121af2fccf96c3785129abd144b9eff78462f24e1d766cbf85773ea0d61"
+    },
+    {
+      "sequence": 58,
+      "event_type": "job_started",
+      "completed_count": 27,
+      "pending_count": 9,
+      "job_id": "resilience-travel-seed-0-r2_contract_guarded-control",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 59,
+      "event_type": "job_completed",
+      "completed_count": 28,
+      "pending_count": 8,
+      "job_id": "resilience-travel-seed-0-r2_contract_guarded-control",
+      "attempt_count": 1,
+      "result_sha256": "99502ee450403770d12cde3e9379858667ec7d61f19275569ca8dee1a06c74ac",
+      "trace_sha256": "653b71fffceefbdf43dbfe674c6cddeed43a23e0bb46684fcc47fd91c1b7c8a7"
+    },
+    {
+      "sequence": 60,
+      "event_type": "job_started",
+      "completed_count": 28,
+      "pending_count": 8,
+      "job_id": "resilience-travel-seed-1-r2_contract_guarded-control",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 61,
+      "event_type": "job_completed",
+      "completed_count": 29,
+      "pending_count": 7,
+      "job_id": "resilience-travel-seed-1-r2_contract_guarded-control",
+      "attempt_count": 1,
+      "result_sha256": "52995fee675bb0ba2aee8987a5bd560ff7cd4ca289d1ac6b87819e977b43679b",
+      "trace_sha256": "714b13ac8c888b94ca9f8f225714f7066719524817c3da3e5659522cd3831878"
+    },
+    {
+      "sequence": 62,
+      "event_type": "job_started",
+      "completed_count": 29,
+      "pending_count": 7,
+      "job_id": "resilience-travel-seed-2-r2_contract_guarded-control",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 63,
+      "event_type": "job_completed",
+      "completed_count": 30,
+      "pending_count": 6,
+      "job_id": "resilience-travel-seed-2-r2_contract_guarded-control",
+      "attempt_count": 1,
+      "result_sha256": "fd35f7b120061bd06456858395c44cea5d9bfbfab9fa1a963adc4d1cebd8bf59",
+      "trace_sha256": "47a4badc8c8be492ebfa33b061b65b9e617de18ec9749ad4c6f06627a4e1048f"
+    },
+    {
+      "sequence": 64,
+      "event_type": "job_started",
+      "completed_count": 30,
+      "pending_count": 6,
+      "job_id": "resilience-travel-seed-0-r2_contract_guarded-compatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 65,
+      "event_type": "job_completed",
+      "completed_count": 31,
+      "pending_count": 5,
+      "job_id": "resilience-travel-seed-0-r2_contract_guarded-compatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "0c15328882d6214600417f52dd02b2801a5849de96820afde177d28076bd6657",
+      "trace_sha256": "3ac93e266c6aa33348f7899ad7282311d97e1aea99bc489c6175cfd24a990189"
+    },
+    {
+      "sequence": 66,
+      "event_type": "job_started",
+      "completed_count": 31,
+      "pending_count": 5,
+      "job_id": "resilience-travel-seed-1-r2_contract_guarded-compatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 67,
+      "event_type": "job_completed",
+      "completed_count": 32,
+      "pending_count": 4,
+      "job_id": "resilience-travel-seed-1-r2_contract_guarded-compatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "0f7f5b6de0c8174fc826d7b0fd4b7fc178f02c57abcbff708056079b1f994326",
+      "trace_sha256": "b34614455e9d28be18fd019681acf7e70eeebc1cc7df794d398d3a6465a8ea74"
+    },
+    {
+      "sequence": 68,
+      "event_type": "job_started",
+      "completed_count": 32,
+      "pending_count": 4,
+      "job_id": "resilience-travel-seed-2-r2_contract_guarded-compatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 69,
+      "event_type": "job_completed",
+      "completed_count": 33,
+      "pending_count": 3,
+      "job_id": "resilience-travel-seed-2-r2_contract_guarded-compatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "4f0c370943c3ccf8de935f049494b65c005bed49b3e539d76cfe2fbe5988e137",
+      "trace_sha256": "301a391c7e9aa67eb8bea9b095fbe5c8c41103ae371d45f6319bdff085eea113"
+    },
+    {
+      "sequence": 70,
+      "event_type": "job_started",
+      "completed_count": 33,
+      "pending_count": 3,
+      "job_id": "resilience-travel-seed-0-r2_contract_guarded-incompatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 71,
+      "event_type": "job_completed",
+      "completed_count": 34,
+      "pending_count": 2,
+      "job_id": "resilience-travel-seed-0-r2_contract_guarded-incompatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "84849a85e70cb45b318185f690e8d878a2a4d4fd3d35602c5ec47c9332bddaed",
+      "trace_sha256": "ff49da90e5efb0bd88d3f8751fcfad1b60414744de7cf9d5819ec2767ce37963"
+    },
+    {
+      "sequence": 72,
+      "event_type": "job_started",
+      "completed_count": 34,
+      "pending_count": 2,
+      "job_id": "resilience-travel-seed-1-r2_contract_guarded-incompatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 73,
+      "event_type": "job_completed",
+      "completed_count": 35,
+      "pending_count": 1,
+      "job_id": "resilience-travel-seed-1-r2_contract_guarded-incompatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "71c40e6c3b33caf2a869644032fe454075ec16fd3d708d09809348decd5cbf9b",
+      "trace_sha256": "9ededcbb0fae7f2ea6f1996b018e79f7bea5850599fde2d033c2c4bd82e9c252"
+    },
+    {
+      "sequence": 74,
+      "event_type": "job_started",
+      "completed_count": 35,
+      "pending_count": 1,
+      "job_id": "resilience-travel-seed-2-r2_contract_guarded-incompatible_conflict",
+      "attempt_count": 1
+    },
+    {
+      "sequence": 75,
+      "event_type": "job_completed",
+      "completed_count": 36,
+      "pending_count": 0,
+      "job_id": "resilience-travel-seed-2-r2_contract_guarded-incompatible_conflict",
+      "attempt_count": 1,
+      "result_sha256": "9863cc0171dacaa887d72a63dabdec3ea5c25cdfefe86f4c98f832359f33263c",
+      "trace_sha256": "618d538638913adf0a98373ed557daeeb207b3d27823037150a16b5d5708234f"
+    },
+    {
+      "sequence": 76,
+      "event_type": "study_resume_completed",
+      "completed_count": 36,
+      "pending_count": 0,
+      "preexisting_completed_count": 13,
+      "preexisting_results_sha256_before": "de8e068ad4f0c4e6702887ba8cdf82d5e00a2999dd9bcb754b85d4d599f16f30",
+      "preexisting_results_sha256_after": "de8e068ad4f0c4e6702887ba8cdf82d5e00a2999dd9bcb754b85d4d599f16f30",
+      "preserved": true
+    },
+    {
+      "sequence": 77,
+      "event_type": "study_completed",
+      "completed_count": 36,
+      "pending_count": 0
+    }
+  ],
+  "validity": {
+    "manifest_shape": {
+      "jobs": 36,
+      "unique_job_ids": 36,
+      "passed": true
+    },
+    "progress_consistency": {
+      "completed": 36,
+      "pending": 0,
+      "total": 36,
+      "passed": true
+    },
+    "reference_equivalence": {
+      "reference_summary": "artifacts/cross_domain_resilience_v09/summary.json",
+      "episode_matches": {
+        "resilience-retail-seed-0-r2_confirmed-control": true,
+        "resilience-retail-seed-1-r2_confirmed-control": true,
+        "resilience-retail-seed-2-r2_confirmed-control": true,
+        "resilience-retail-seed-0-r2_confirmed-compatible_conflict": true,
+        "resilience-retail-seed-1-r2_confirmed-compatible_conflict": true,
+        "resilience-retail-seed-2-r2_confirmed-compatible_conflict": true,
+        "resilience-retail-seed-0-r2_confirmed-incompatible_conflict": true,
+        "resilience-retail-seed-1-r2_confirmed-incompatible_conflict": true,
+        "resilience-retail-seed-2-r2_confirmed-incompatible_conflict": true,
+        "resilience-retail-seed-0-r2_contract_guarded-control": true,
+        "resilience-retail-seed-1-r2_contract_guarded-control": true,
+        "resilience-retail-seed-2-r2_contract_guarded-control": true,
+        "resilience-retail-seed-0-r2_contract_guarded-compatible_conflict": true,
+        "resilience-retail-seed-1-r2_contract_guarded-compatible_conflict": true,
+        "resilience-retail-seed-2-r2_contract_guarded-compatible_conflict": true,
+        "resilience-retail-seed-0-r2_contract_guarded-incompatible_conflict": true,
+        "resilience-retail-seed-1-r2_contract_guarded-incompatible_conflict": true,
+        "resilience-retail-seed-2-r2_contract_guarded-incompatible_conflict": true,
+        "resilience-travel-seed-0-r2_confirmed-control": true,
+        "resilience-travel-seed-1-r2_confirmed-control": true,
+        "resilience-travel-seed-2-r2_confirmed-control": true,
+        "resilience-travel-seed-0-r2_confirmed-compatible_conflict": true,
+        "resilience-travel-seed-1-r2_confirmed-compatible_conflict": true,
+        "resilience-travel-seed-2-r2_confirmed-compatible_conflict": true,
+        "resilience-travel-seed-0-r2_confirmed-incompatible_conflict": true,
+        "resilience-travel-seed-1-r2_confirmed-incompatible_conflict": true,
+        "resilience-travel-seed-2-r2_confirmed-incompatible_conflict": true,
+        "resilience-travel-seed-0-r2_contract_guarded-control": true,
+        "resilience-travel-seed-1-r2_contract_guarded-control": true,
+        "resilience-travel-seed-2-r2_contract_guarded-control": true,
+        "resilience-travel-seed-0-r2_contract_guarded-compatible_conflict": true,
+        "resilience-travel-seed-1-r2_contract_guarded-compatible_conflict": true,
+        "resilience-travel-seed-2-r2_contract_guarded-compatible_conflict": true,
+        "resilience-travel-seed-0-r2_contract_guarded-incompatible_conflict": true,
+        "resilience-travel-seed-1-r2_contract_guarded-incompatible_conflict": true,
+        "resilience-travel-seed-2-r2_contract_guarded-incompatible_conflict": true
+      },
+      "trace_matches": {
+        "resilience-retail-seed-0-r2_confirmed-control.jsonl": true,
+        "resilience-retail-seed-1-r2_confirmed-control.jsonl": true,
+        "resilience-retail-seed-2-r2_confirmed-control.jsonl": true,
+        "resilience-retail-seed-0-r2_confirmed-compatible_conflict.jsonl": true,
+        "resilience-retail-seed-1-r2_confirmed-compatible_conflict.jsonl": true,
+        "resilience-retail-seed-2-r2_confirmed-compatible_conflict.jsonl": true,
+        "resilience-retail-seed-0-r2_confirmed-incompatible_conflict.jsonl": true,
+        "resilience-retail-seed-1-r2_confirmed-incompatible_conflict.jsonl": true,
+        "resilience-retail-seed-2-r2_confirmed-incompatible_conflict.jsonl": true,
+        "resilience-retail-seed-0-r2_contract_guarded-control.jsonl": true,
+        "resilience-retail-seed-1-r2_contract_guarded-control.jsonl": true,
+        "resilience-retail-seed-2-r2_contract_guarded-control.jsonl": true,
+        "resilience-retail-seed-0-r2_contract_guarded-compatible_conflict.jsonl": true,
+        "resilience-retail-seed-1-r2_contract_guarded-compatible_conflict.jsonl": true,
+        "resilience-retail-seed-2-r2_contract_guarded-compatible_conflict.jsonl": true,
+        "resilience-retail-seed-0-r2_contract_guarded-incompatible_conflict.jsonl": true,
+        "resilience-retail-seed-1-r2_contract_guarded-incompatible_conflict.jsonl": true,
+        "resilience-retail-seed-2-r2_contract_guarded-incompatible_conflict.jsonl": true,
+        "resilience-travel-seed-0-r2_confirmed-control.jsonl": true,
+        "resilience-travel-seed-1-r2_confirmed-control.jsonl": true,
+        "resilience-travel-seed-2-r2_confirmed-control.jsonl": true,
+        "resilience-travel-seed-0-r2_confirmed-compatible_conflict.jsonl": true,
+        "resilience-travel-seed-1-r2_confirmed-compatible_conflict.jsonl": true,
+        "resilience-travel-seed-2-r2_confirmed-compatible_conflict.jsonl": true,
+        "resilience-travel-seed-0-r2_confirmed-incompatible_conflict.jsonl": true,
+        "resilience-travel-seed-1-r2_confirmed-incompatible_conflict.jsonl": true,
+        "resilience-travel-seed-2-r2_confirmed-incompatible_conflict.jsonl": true,
+        "resilience-travel-seed-0-r2_contract_guarded-control.jsonl": true,
+        "resilience-travel-seed-1-r2_contract_guarded-control.jsonl": true,
+        "resilience-travel-seed-2-r2_contract_guarded-control.jsonl": true,
+        "resilience-travel-seed-0-r2_contract_guarded-compatible_conflict.jsonl": true,
+        "resilience-travel-seed-1-r2_contract_guarded-compatible_conflict.jsonl": true,
+        "resilience-travel-seed-2-r2_contract_guarded-compatible_conflict.jsonl": true,
+        "resilience-travel-seed-0-r2_contract_guarded-incompatible_conflict.jsonl": true,
+        "resilience-travel-seed-1-r2_contract_guarded-incompatible_conflict.jsonl": true,
+        "resilience-travel-seed-2-r2_contract_guarded-incompatible_conflict.jsonl": true
+      },
+      "passed": true
+    },
+    "single_execution_per_completed_job": {
+      "attempt_counts": {
+        "resilience-retail-seed-0-r2_confirmed-control": 1,
+        "resilience-retail-seed-1-r2_confirmed-control": 1,
+        "resilience-retail-seed-2-r2_confirmed-control": 1,
+        "resilience-retail-seed-0-r2_confirmed-compatible_conflict": 1,
+        "resilience-retail-seed-1-r2_confirmed-compatible_conflict": 1,
+        "resilience-retail-seed-2-r2_confirmed-compatible_conflict": 1,
+        "resilience-retail-seed-0-r2_confirmed-incompatible_conflict": 1,
+        "resilience-retail-seed-1-r2_confirmed-incompatible_conflict": 1,
+        "resilience-retail-seed-2-r2_confirmed-incompatible_conflict": 1,
+        "resilience-retail-seed-0-r2_contract_guarded-control": 1,
+        "resilience-retail-seed-1-r2_contract_guarded-control": 1,
+        "resilience-retail-seed-2-r2_contract_guarded-control": 1,
+        "resilience-retail-seed-0-r2_contract_guarded-compatible_conflict": 1,
+        "resilience-retail-seed-1-r2_contract_guarded-compatible_conflict": 1,
+        "resilience-retail-seed-2-r2_contract_guarded-compatible_conflict": 1,
+        "resilience-retail-seed-0-r2_contract_guarded-incompatible_conflict": 1,
+        "resilience-retail-seed-1-r2_contract_guarded-incompatible_conflict": 1,
+        "resilience-retail-seed-2-r2_contract_guarded-incompatible_conflict": 1,
+        "resilience-travel-seed-0-r2_confirmed-control": 1,
+        "resilience-travel-seed-1-r2_confirmed-control": 1,
+        "resilience-travel-seed-2-r2_confirmed-control": 1,
+        "resilience-travel-seed-0-r2_confirmed-compatible_conflict": 1,
+        "resilience-travel-seed-1-r2_confirmed-compatible_conflict": 1,
+        "resilience-travel-seed-2-r2_confirmed-compatible_conflict": 1,
+        "resilience-travel-seed-0-r2_confirmed-incompatible_conflict": 1,
+        "resilience-travel-seed-1-r2_confirmed-incompatible_conflict": 1,
+        "resilience-travel-seed-2-r2_confirmed-incompatible_conflict": 1,
+        "resilience-travel-seed-0-r2_contract_guarded-control": 1,
+        "resilience-travel-seed-1-r2_contract_guarded-control": 1,
+        "resilience-travel-seed-2-r2_contract_guarded-control": 1,
+        "resilience-travel-seed-0-r2_contract_guarded-compatible_conflict": 1,
+        "resilience-travel-seed-1-r2_contract_guarded-compatible_conflict": 1,
+        "resilience-travel-seed-2-r2_contract_guarded-compatible_conflict": 1,
+        "resilience-travel-seed-0-r2_contract_guarded-incompatible_conflict": 1,
+        "resilience-travel-seed-1-r2_contract_guarded-incompatible_conflict": 1,
+        "resilience-travel-seed-2-r2_contract_guarded-incompatible_conflict": 1
+      },
+      "passed": true
+    },
+    "digest_only_traces": {
+      "forbidden_payload_markers": [],
+      "passed": true
+    },
+    "complete_matrix": {
+      "episodes": 36,
+      "passed": true
+    },
+    "resume_preserved_preexisting_results": {
+      "preexisting_completed_count": 13,
+      "sha256_before": "de8e068ad4f0c4e6702887ba8cdf82d5e00a2999dd9bcb754b85d4d599f16f30",
+      "sha256_after": "de8e068ad4f0c4e6702887ba8cdf82d5e00a2999dd9bcb754b85d4d599f16f30",
+      "passed": true
+    },
+    "scheduler_state_complete": {
+      "status": "complete",
+      "history_events": 77,
+      "passed": true
+    },
+    "historical_source_manifests": {
+      "increments": {
+        "v0.1": {
+          "summary": "artifacts/workspace_paired/summary.json",
+          "expected_sha256": "35f25dbd3f95ad1b75363da80b6a5df6b753ad15683d571bf8816636b7d1f970",
+          "actual_sha256": "35f25dbd3f95ad1b75363da80b6a5df6b753ad15683d571bf8816636b7d1f970",
+          "file_count": 13,
+          "matched": true
+        },
+        "v0.2": {
+          "summary": "artifacts/workspace_r2_postcommit/summary.json",
+          "expected_sha256": "b2e2cbc52ffc930ce067475926cdf31134a8be7f7d37c90269661a2bc870f0f5",
+          "actual_sha256": "b2e2cbc52ffc930ce067475926cdf31134a8be7f7d37c90269661a2bc870f0f5",
+          "file_count": 18,
+          "matched": true
+        },
+        "v0.3": {
+          "summary": "artifacts/workspace_multitask_v03/summary.json",
+          "expected_sha256": "b867e8b9903cf0815b6e5e694e423d2339469fa08ce0b27cac8be25b8b03b2ca",
+          "actual_sha256": "b867e8b9903cf0815b6e5e694e423d2339469fa08ce0b27cac8be25b8b03b2ca",
+          "file_count": 24,
+          "matched": true
+        },
+        "v0.4": {
+          "summary": "artifacts/workspace_validity_v04/summary.json",
+          "expected_sha256": "64cceb78f5706e693f81217c273f49f987bc2b27601e1b9ca4b3f84fb42bcc27",
+          "actual_sha256": "64cceb78f5706e693f81217c273f49f987bc2b27601e1b9ca4b3f84fb42bcc27",
+          "file_count": 28,
+          "matched": true
+        },
+        "v0.5": {
+          "summary": "artifacts/retail_minimal_v05/summary.json",
+          "expected_sha256": "f802bf8e758a83f9749473d32144a8d81f65971b61529962197efbc6d17a33a0",
+          "actual_sha256": "f802bf8e758a83f9749473d32144a8d81f65971b61529962197efbc6d17a33a0",
+          "file_count": 8,
+          "matched": true
+        },
+        "v0.6": {
+          "summary": "artifacts/travel_minimal_v06/summary.json",
+          "expected_sha256": "67a01d88b24fb41a61d550966e4137aca3a892bf35d24c170a600baa0f30c35c",
+          "actual_sha256": "67a01d88b24fb41a61d550966e4137aca3a892bf35d24c170a600baa0f30c35c",
+          "file_count": 8,
+          "matched": true
+        },
+        "v0.7": {
+          "summary": "artifacts/schema_adapter_v07/summary.json",
+          "expected_sha256": "75a7ba7fbec5728215e3c0556973a38d05eb378f760bb3b9ef9ad817dae8bf64",
+          "actual_sha256": "75a7ba7fbec5728215e3c0556973a38d05eb378f760bb3b9ef9ad817dae8bf64",
+          "file_count": 13,
+          "matched": true
+        },
+        "v0.8": {
+          "summary": "artifacts/workspace_conflict_v08/summary.json",
+          "expected_sha256": "23f30e2d16ca2fbb5b1b9235d3e295a8cb04be669df089b92b8c43315b44fdc5",
+          "actual_sha256": "23f30e2d16ca2fbb5b1b9235d3e295a8cb04be669df089b92b8c43315b44fdc5",
+          "file_count": 20,
+          "matched": true
+        },
+        "v0.9": {
+          "summary": "artifacts/cross_domain_resilience_v09/summary.json",
+          "expected_sha256": "c9dd9c76acb9768023b68ee18b3a3c1ab9782f6931e38be2e2cbd347d51799aa",
+          "actual_sha256": "c9dd9c76acb9768023b68ee18b3a3c1ab9782f6931e38be2e2cbd347d51799aa",
+          "file_count": 20,
+          "matched": true
+        }
+      },
+      "passed": true
+    },
+    "all_selected_checks_passed": true,
+    "read_only_viewer": {
+      "contains_embedded_data": true,
+      "external_script_count": 0,
+      "network_api_markers": [],
+      "passed": true
+    }
+  },
+  "limitations": [
+    "Sequential local scheduling only; no parallel workers, leases, or distributed queue.",
+    "One intentional job-boundary interruption after 13 of 36 fixed synthetic jobs.",
+    "Viewer is a generated read-only HTML artifact, not a mutable experiment API.",
+    "No model, symbolic user, external network, account, credential, or real system."
+  ]
+}

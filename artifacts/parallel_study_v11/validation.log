@@ -1,0 +1,82 @@
+Agent Reliability Lab - Parallel Study v0.11 validation
+Date: 2026-08-07
+Branch: agent/study-runtime-v010
+
+Runtime versions
+- Python 3.12.12 / SQLite 3.50.4 (formal and repeat artifacts)
+- Python 3.11.15 / SQLite 3.50.4 (compatibility test suite)
+- Ruff 0.15.17
+- Runtime dependencies: Python standard library only
+
+Formal interruption command
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12)" scripts/run_parallel_study.py --workspace artifacts/parallel_study_v11/study --output artifacts/parallel_study_v11/interrupted.json --stop-after 12 --leave-leases 4
+Result: Parallel study interrupted: 12/36 complete, 4 leased
+
+Formal resume command
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12)" scripts/run_parallel_study.py --workspace artifacts/parallel_study_v11/study --output artifacts/parallel_study_v11/summary.json --resume
+Result: Parallel study complete: 36/36 complete, 0 leased
+
+Independent repeat
+- Ran the same two commands against artifacts/parallel_study_v11_repeat.
+- interruption result: 12 complete, 20 pending, 4 leased
+- resume result: 36 complete, 24 new final jobs
+
+Determinism and integrity
+- formal/repeat interrupted.json cmp: PASS
+- formal/repeat summary.json cmp: PASS
+- formal/repeat parallel-study-state.json cmp: PASS
+- formal/repeat result diff: PASS (36/36 identical)
+- formal/repeat final trace diff: PASS (36/36 identical)
+- formal/repeat attempt trace diff: PASS (2/2 identical)
+- interrupted SHA-256: de7e0eb2b3255d15aad57630516cd1855c941ac1887977f3db0f0d30c13b3a7f
+- final summary SHA-256: 5b199723774540d19f1c3f6916411703e0dc961f7b193fa6960bfb21d4156a6f
+- final state SHA-256: a87acc7ce8a5d3c17f1bd1100651248302155728ebdbae77c31d4d65a37d7afd
+- result manifest SHA-256: a739c8dcf21abbdb357319c3088afd6cbec57958efab34927df1c66e06819ff4
+- trace manifest SHA-256: e14bae6f5433642f8536a8d53aa4881fe93b318dadc62c8ea6d6963aef6eb6c2
+- attempt manifest SHA-256: 247a8242618b9ac5ba236dc4c258b9710c3240192ab5c8b7b8266d48c02592e7
+- source manifest: 26 files
+- source manifest SHA-256: 4eaf8bd306a7ddc4fcb7e9b589d063cd13031049c38a25396efdd8d863635375
+- v0.1-v0.10 historical source manifests: 10/10 matched
+
+Lease and resume gates
+- intentionally stopped after 12 completed jobs with 4 active leases
+- resumed jobs: 24; skipped completed jobs: 12
+- preexisting result/trace digest before: 329ac0c4186f79c91edf92358bea25ff10195170d199335f964ff3edb3b78adb
+- preexisting result/trace digest after:  329ac0c4186f79c91edf92358bea25ff10195170d199335f964ff3edb3b78adb
+- lease acquisitions: 42
+- lease expirations: 5 (4 resume reclamations + 1 forced expiry)
+- stale commit rejections: 1
+- worker failures: 1
+- heartbeats: 1
+- max active leases: 4
+- accepted final commit counts: 36/36 equal to 1
+- final state history: 92 events
+- v0.9 reference episode equality: 36/36
+- v0.9 reference final trace byte equality: 36/36
+- all_selected_checks_passed: true
+
+Tests and static checks
+- Python 3.12.12: Ran 131 tests ... OK
+- Python 3.11.15: Ran 131 tests ... OK
+- ruff check --no-cache src scripts tests: PASS
+- ruff format --check --no-cache src scripts tests: PASS
+
+Digest-only gate
+- JSONL files checked: 38
+- @synthetic.invalid: 0
+- "arguments": 0
+- "visible_task": 0
+- external-observer: 0
+- synthetic-key: 0
+
+Overwrite refusal
+Command repeated against the formal interruption output.
+Exit: 1
+Output: Refusing to overwrite output: artifacts/parallel_study_v11/interrupted.json
+
+Scope and limits
+- Local synthetic Retail and Travel state only; no model/API/network/account/credential use.
+- Four local threads; no distributed hosts or multi-process coordinator.
+- Logical tick leases; no wall-clock or network failure detector.
+- At-least-once execution attempts with one accepted final artifact commit per job.
+- One formal worker crash, one forced lease expiry, one stale commit rejection and one heartbeat.

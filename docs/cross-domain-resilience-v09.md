@@ -92,4 +92,4 @@ Travel 的 9 个 contract attempt 覆盖 control、compatible 和 incompatible �
 - compensation 只有一类预注册酒店取消合同，没有动态补偿规划；
 - 每个动作最多一次 rebase，没有长事务、锁、并行 scheduler 或多 actor event stream；
 - 仍是固定 oracle plan，不是模型 Agent；
-- symbolic user、Study scheduler、只读 trace viewer、模型/API 与真实系统集成仍未实现或启用。
+- v0.9 本身没有 Study scheduler 或 trace viewer；后续 [v0.10](./study-runtime-v10.md) 已用该 36-episode 矩阵验证确定性 stop/resume 并生成只读 viewer。symbolic user、模型/API 与真实系统集成仍未实现或启用。
