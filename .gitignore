@@ -12,3 +12,15 @@ dist/
 htmlcov/
 artifacts/*_rerun/
 artifacts/.*_validation/
+
+# Keep full local evidence available without flooding the public Git tree.
+# v0.15 deterministic bundles losslessly restore these directories.
+/artifacts/study_runtime_v10/study/
+/artifacts/study_runtime_v10_repeat/study/
+/artifacts/parallel_study_v11/study/
+/artifacts/parallel_study_v11_repeat/study/
+/artifacts/scenario_pack_v12/traces/
+/artifacts/scenario_pack_v12_repeat/traces/
+/artifacts/symbolic_user_v13/traces/
+/artifacts/symbolic_user_v13_repeat/traces/
+/artifacts/release_bundle_v15_repeat/bundles/

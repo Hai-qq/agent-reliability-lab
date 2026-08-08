@@ -6,3 +6,4 @@
 *.log text eol=lf whitespace=-blank-at-eol,-blank-at-eof
 *.csv text eol=lf
 *.bib text eol=lf
+*.zip binary

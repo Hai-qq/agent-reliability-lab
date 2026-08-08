@@ -11,11 +11,18 @@ git clone https://github.com/Hai-qq/agent-reliability-lab.git
 cd agent-reliability-lab
 
 env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 \
+  python scripts/manage_artifact_bundles.py restore \
+  --bundle-dir artifacts/release_bundle_v15 \
+  --project-root .
+
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 \
   python -m unittest discover -s tests -p 'test_*.py' -v
 
 ruff check src scripts tests
 ruff format --check src scripts tests
 ```
+
+恢复命令面向不含本地完整 evidence 树的全新 clone；它会先验证四个公开 bundle，并拒绝覆盖已有 artifact 目标。
 
 完整实验命令和固定版本见 [Experiment Guide](./docs/running-experiments.md)。
 

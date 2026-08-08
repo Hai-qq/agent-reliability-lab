@@ -53,5 +53,5 @@ R2 的 registry 不读取 task ID、seed、fault ID、evaluator 目标或隐藏�
 - 只有两个受控 schema 变更，没有自动字段匹配、未知版本协商或同时漂移；
 - 仍是固定 oracle plan，不是模型 Agent；
 - 沿用两个 Travel 任务，没有扩大域或任务规模；
-- v0.7 本身没有一般冲突恢复；首条 Workspace guarded conflict rebase 已在 [v0.8](./conflict-recovery-v08.md) 实现，一般化 compensation、symbolic user、scheduler 和 trace viewer 仍未实现；
+- v0.7 本身没有一般冲突恢复；首条 Workspace guarded conflict rebase 已在 [v0.8](./conflict-recovery-v08.md) 实现，Retail/Travel guard 与显式 compensation contract 已在 [v0.9](./cross-domain-resilience-v09.md) 实现，本地顺序 scheduler 和 trace viewer 已在 [v0.10](./study-runtime-v10.md) 实现；动态补偿规划与 symbolic user 仍未实现；
 - 模型/API、真实账户、外部网络与攻击/防御实验均未实现或启用。

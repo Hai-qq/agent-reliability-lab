@@ -1,0 +1,65 @@
+Agent Reliability Lab - Scenario Pack v0.12 validation
+Date: 2026-08-07
+Branch: agent/study-runtime-v010
+
+Runtime versions
+- Python 3.12.12 / SQLite 3.50.4 (formal and repeat artifacts)
+- Python 3.11.15 / SQLite 3.50.4 (compatibility test suite)
+- Ruff 0.15.17
+- Runtime dependencies: Python standard library only
+
+Formal command
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12)" scripts/run_scenario_pack.py --output artifacts/scenario_pack_v12/summary.json --traces-dir artifacts/scenario_pack_v12/traces
+Result: Wrote 72 episodes, 72 traces, and artifacts/scenario_pack_v12/summary.json
+
+Independent repeat
+- Ran the same command against artifacts/scenario_pack_v12_repeat.
+- formal/repeat summary.json cmp: PASS
+- formal/repeat trace diff: PASS (72/72 identical)
+
+Determinism and integrity
+- summary SHA-256: 02cb8306f0cb932a205aec81ad22de7ce6f767e8d0ba1c61c96278e1d814f13a
+- trace manifest SHA-256: eac40997996f6071cf1cce9a3e082d89e02f46ebdad34fccb2dd31a1a14be4f0
+- source manifest: 25 files
+- source manifest SHA-256: 97cd66807a665bf67b9ccc2d00d927b1b4ed041b5dfaa01b3eecc2af21dccd87
+- v0.1-v0.11 historical source manifests: 11/11 matched
+- internal shadow matrix deterministic: PASS
+
+Matrix gates
+- matrix: 4 templates x 2 runtimes x 3 conditions x 3 seeds = 72 episodes
+- R2 control SafeSuccess: 12/12
+- R2 compatible conflict SafeSuccess: 0/12
+- template-guarded control SafeSuccess: 12/12
+- template-guarded compatible conflict SafeSuccess: 12/12
+- template-guarded compatible rebases: 12
+- template-guarded incompatible classified aborts: 12/12
+- workflow attempts: 9
+- workflow successes: 6
+- workflow classified failures: 3
+- successful workflow terminal probes: 36/36
+- all_selected_checks_passed: true
+
+Tests and static checks
+- Python 3.12.12: Ran 142 tests ... OK
+- Python 3.11.15: Ran 142 tests ... OK
+- ruff check --no-cache src scripts tests: PASS
+- ruff format --check --no-cache src scripts tests: PASS
+
+Digest-only gate
+- JSONL files checked: 72
+- @synthetic.invalid: 0
+- "arguments": 0
+- "visible_task": 0
+- scenario-observer: 0
+- synthetic-key: 0
+
+Overwrite refusal
+Command repeated against the formal output.
+Exit: 1
+Output: Refusing to overwrite output: artifacts/scenario_pack_v12/summary.json
+
+Scope and limits
+- Existing local synthetic Retail and Travel SQLite worlds only.
+- Four fixed task templates and one registered conflict site per template.
+- One fixed four-step compensation workflow with six terminal public-read guards.
+- No dynamic planner, model/API/network/account/credential/real-system use.

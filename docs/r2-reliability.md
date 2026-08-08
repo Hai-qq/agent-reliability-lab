@@ -64,8 +64,8 @@ R1 的三个 fault episode 都在首次写已提交后盲重试，随后命中 `
 
 - v0.2 的幂等只覆盖 `calendar.create_event`；通知与邀请幂等已在 v0.3 扩展；
 - 只有一种提交后故障、一个任务模板和三个确定性 seed；
-- v0.2 本身尚不含 schema adapter、一般冲突恢复、补偿或用户澄清；schema adapter 已在后续 v0.7 实现，首条 guarded conflict rebase 已在 v0.8 实现；
-- v0.2 只有一个 Workspace 任务；第二个 Workspace 任务已在 v0.3 实现，Retail 两任务已在 v0.5 实现，Travel 两任务已在 v0.6 实现；scheduler、trace viewer 与模型实验仍未实现；
+- v0.2 本身尚不含 schema adapter、一般冲突恢复、补偿或用户澄清；schema adapter 已在后续 v0.7 实现，首条 guarded conflict rebase 已在 v0.8 实现，Retail/Travel guard 与显式 compensation contract 已在 v0.9 实现；
+- v0.2 只有一个 Workspace 任务；第二个 Workspace 任务已在 v0.3 实现，Retail 两任务已在 v0.5 实现，Travel 两任务已在 v0.6 实现；本地顺序 scheduler 与 trace viewer 已在后续 [v0.10](./study-runtime-v10.md) 实现，模型实验仍未实现；
 - evaluator 将幂等记录视为 runtime metadata，不视为业务副作用。
 
-后续 v0.3 已完成第二个 Workspace 任务、通知/邀请幂等、allowed-change 与 5 个 evaluator mutation，v0.4 已补 random/dump/golden 门禁，v0.5 已完成 Retail 最小域，v0.6 已完成 Travel 最小域与首条受控补偿，[v0.7](./schema-adapter-v07.md) 已完成输入/输出 schema drift 的静态适配，[v0.8](./conflict-recovery-v08.md) 已完成首条公开读 guard 与有界 state-version rebase。
+后续 v0.3 已完成第二个 Workspace 任务、通知/邀请幂等、allowed-change 与 5 个 evaluator mutation，v0.4 已补 random/dump/golden 门禁，v0.5 已完成 Retail 最小域，v0.6 已完成 Travel 最小域与首条受控补偿，[v0.7](./schema-adapter-v07.md) 已完成输入/输出 schema drift 的静态适配，[v0.8](./conflict-recovery-v08.md) 已完成首条公开读 guard 与有界 state-version rebase，[v0.9](./cross-domain-resilience-v09.md) 已扩展跨域 guard 并增加可审计 compensation contract，[v0.10](./study-runtime-v10.md) 已增加确定性 stop/resume 与离线 viewer。

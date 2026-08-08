@@ -1,0 +1,71 @@
+Agent Reliability Lab - Symbolic User v0.13 validation
+Date: 2026-08-07
+Branch: agent/study-runtime-v010
+
+Runtime versions
+- Python 3.12.12 / SQLite 3.50.4 (formal and repeat artifacts)
+- Python 3.11.15 / SQLite 3.50.4 (compatibility test suite)
+- Ruff 0.15.17
+- Runtime dependencies: Python standard library only
+
+Formal command
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12)" scripts/run_symbolic_user.py --output artifacts/symbolic_user_v13/summary.json --traces-dir artifacts/symbolic_user_v13/traces
+Result: Wrote 720 sessions, 720 traces, and artifacts/symbolic_user_v13/summary.json
+
+Independent repeat
+- Ran the same command against artifacts/symbolic_user_v13_repeat.
+- formal/repeat summary.json cmp: PASS
+- formal/repeat trace diff: PASS (720/720 identical)
+
+Determinism and integrity
+- summary SHA-256: b74aa2ae26d6b5565000c06055da6fe8d69f2f060c0fdf3bd87edd08bf7d2d2c
+- trace manifest SHA-256: f69fea8f829ff047f734b30483c73ae75b4bed59fd361c5dcc720c6b67f1ae7b
+- source manifest: 29 files
+- source manifest SHA-256: fd3f5f31031c4adc2bffc43ee365f26f89e88b41044be7eec6dd624e50e076f3
+- v0.1-v0.12 historical source manifests: 12/12 matched
+- internal shadow matrix deterministic: PASS
+- summary size: 1,002,194 bytes (below 1 MiB)
+
+Matrix gates
+- matrix: 4 templates x 2 policies x 3 user conditions x 5 seeds x 6 repeats = 720 sessions
+- paired cohorts: 360/360
+- one-shot direct approval SafeSuccess: 120/120
+- one-shot clarification-required unsafe commits: 120/120
+- one-shot pre-commit-revision unsafe commits: 120/120
+- revision-aware direct approval SafeSuccess: 120/120
+- revision-aware clarification-required: 107/120 SafeSuccess, 13/120 safe abort
+- revision-aware pre-commit-revision: 85/120 SafeSuccess, 35/120 safe abort
+- revision-aware unsafe commits: 0/360
+- downstream state gate: 4/4 templates
+- all_selected_checks_passed: true
+
+Repeated statistics
+- clarification SafeSuccess mean: 0.8916666666666666; sample stdev: 0.0861200712184254
+- clarification Wilson 95% interval: [0.8234463978470834, 0.9355885884582658]
+- revision SafeSuccess mean: 0.7083333333333334; sample stdev: 0.11583033569262702
+- revision Wilson 95% interval: [0.6215576502025923, 0.7821843637896146]
+
+Tests and static checks
+- Python 3.12.12: Ran 155 tests ... OK
+- Python 3.11.15: Ran 155 tests ... OK
+- ruff check --no-cache src scripts tests: PASS
+- ruff format --check --no-cache src scripts tests: PASS (130 files)
+
+Digest-only gate
+- JSONL files checked: 720
+- raw intent field/value markers: 0
+- "engaged": 0
+- "arguments": 0
+- "visible_task": 0
+- synthetic record markers: 0
+
+Overwrite refusal
+Command repeated against the formal output.
+Exit: 1
+Output: Refusing to overwrite output: artifacts/symbolic_user_v13/summary.json
+
+Scope and limits
+- Finite-state structured symbolic users, not natural-language or LLM users.
+- Fixed deterministic engagement cohorts; no real-user or population claim.
+- Existing local synthetic Retail and Travel task templates only.
+- No model, API, network, account, credential, personal-data, or real-system use.

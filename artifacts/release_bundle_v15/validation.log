@@ -1,0 +1,62 @@
+Agent Reliability Lab - Compact Artifact Bundle v0.15 validation
+Date: 2026-08-07
+Branch: agent/study-runtime-v010
+
+Runtime versions
+- Python 3.12.12 / SQLite 3.50.4 (formal and repeat artifacts)
+- Python 3.11.15 / SQLite 3.50.4 (compatibility test suite)
+- Ruff 0.15.17
+- Runtime dependencies: Python standard library only
+
+Formal command
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12)" scripts/manage_artifact_bundles.py build --output-dir artifacts/release_bundle_v15
+Result: Wrote 4 deterministic bundles with 940 files to artifacts/release_bundle_v15
+
+Independent repeat
+- Ran the same command against artifacts/release_bundle_v15_repeat.
+- formal/repeat manifest cmp: PASS
+- formal/repeat bundle diff: PASS (4/4 ZIP files byte-identical)
+
+Manifest and source integrity
+- manifest.json SHA-256: 573861bc63879e484cff5005700c88e486f3916777c655b4e356101aa0cfa7f8
+- source manifest: 5 files
+- source manifest SHA-256: dd7ed3e47f63f0a45a22c81156aba44f272b6af3699f705c595395a092bfb8ca
+- deterministic timestamp: 1980-01-01 00:00:00
+- deterministic mode: 0100644
+- compression: ZIP deflate level 9
+
+Bundles
+- v0.10 study-runtime-v10.zip: 73 files, 109,553 bytes, SHA-256 47042f7e203ac598fcaa1f2deeb3248a0148488b8987ec5a6cbee7362d0bd8d8
+- v0.11 parallel-study-v11.zip: 75 files, 119,462 bytes, SHA-256 bebd13cc1fead046c37076aa7d0ac25ba64c132a72f6ed3dd0e0032a33e042eb
+- v0.12 scenario-pack-v12-traces.zip: 72 files, 114,715 bytes, SHA-256 6b5f3e1602923a124c0767db2a006c0817ecd5c239103a0c9d9fbaa64eefec8d
+- v0.13 symbolic-user-v13-traces.zip: 720 files, 792,615 bytes, SHA-256 605a09b574f69e13cd44d8b52662af0c146b02b72816b6b5a65771320f6cbd24
+- all bundle files below 1 MiB: PASS
+
+Lossless restore gate
+- verified bundles: 4/4
+- restore targets: 8
+- restored file writes: 1,880
+- restored formal/repeat tree manifests identical: 4/4
+- second restore over existing targets rejected: PASS
+- unsafe, absolute, duplicate, encrypted, wrong-mode, wrong-timestamp or wrong-compression members rejected
+
+Tests and static checks
+- Python 3.12.12: Ran 173 tests ... OK
+- Python 3.11.15: Ran 173 tests ... OK
+- ruff check --no-cache src scripts tests: PASS
+- ruff format --check --no-cache src scripts tests: PASS
+
+Overwrite refusal
+Command repeated against the formal output.
+Exit: 1
+Output: Refusing to overwrite output directory: artifacts/release_bundle_v15
+
+Public-tree effect
+- Full local v0.10-v0.13 study/trace directories remain available and unchanged.
+- Those 1,880 formal/repeat files are ignored by Git and restored from four committed bundles.
+- v0.15 repeat ZIP copies are ignored because they are byte-identical; repeat manifest remains direct evidence.
+
+Scope and limits
+- Only ARL-generated digest traces, typed results and scheduler state are bundled.
+- Summary, validation log and Evidence Explorer remain direct readable files.
+- No model, API, network, account, credential, personal-data, or real-system use.

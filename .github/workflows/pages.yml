@@ -1,0 +1,68 @@
+name: Deploy Evidence Explorer
+
+on:
+  push:
+    branches:
+      - main
+      - agent/reliability-suite-v015
+    paths:
+      - ".github/workflows/pages.yml"
+      - "artifacts/**"
+      - "docs/**"
+      - "site/**"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build static evidence site
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+      - name: Assemble public site
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+          cp site/index.html _site/index.html
+          touch _site/.nojekyll
+          while IFS= read -r -d '' file; do
+            target="_site/${file}"
+            mkdir -p "$(dirname "${target}")"
+            cp "${file}" "${target}"
+          done < <(git ls-files -z -- artifacts docs)
+          test -f _site/artifacts/evidence_explorer_v14/index.html
+          test -f _site/artifacts/evidence_explorer_v14/evidence.json
+          test -f _site/docs/evidence-explorer-v14.md
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: _site
+
+  deploy:
+    name: Deploy GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0

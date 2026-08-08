@@ -2,7 +2,7 @@
 
 这是 Agent Reliability Lab 的第一个可运行产品增量。它把确定性状态环境、类型化工具结果、状态 evaluator、append-only journal 与 R0/R1 runtime 接成一条完整的本地链路。
 
-> 本文保留 v0.1 的历史边界；后续增量见 [R2 v0.2](./r2-reliability.md)、[Workspace Multi-Task v0.3](./multitask-v03.md)、[Validity Gates v0.4](./validity-v04.md)、[Retail v0.5](./retail-v05.md)、[Travel v0.6](./travel-v06.md)、[Schema Adapter v0.7](./schema-adapter-v07.md) 与 [Conflict Recovery v0.8](./conflict-recovery-v08.md)。
+> 本文保留 v0.1 的历史边界；后续增量见 [R2 v0.2](./r2-reliability.md)、[Workspace Multi-Task v0.3](./multitask-v03.md)、[Validity Gates v0.4](./validity-v04.md)、[Retail v0.5](./retail-v05.md)、[Travel v0.6](./travel-v06.md)、[Schema Adapter v0.7](./schema-adapter-v07.md)、[Conflict Recovery v0.8](./conflict-recovery-v08.md)、[Cross-Domain Resilience v0.9](./cross-domain-resilience-v09.md) 与 [Study Runtime v0.10](./study-runtime-v10.md)。
 
 ## 一句话结论
 
@@ -82,9 +82,9 @@ R1 相对 R0 的配对恢复率差为 `+1.0`。这里只有一个任务模板和
 
 ## 尚未完成
 
-- v0.1 本身不含 idempotency、timeout-after-commit、schema adapter 或 conflict recovery；后续 R2 已覆盖日历创建，schema adapter 已在 v0.7 实现，首条 guarded conflict rebase 已在 v0.8 实现；
+- v0.1 本身不含 idempotency、timeout-after-commit、schema adapter 或 conflict recovery；后续 R2 已覆盖日历创建，schema adapter 已在 v0.7 实现，首条 guarded conflict rebase 已在 v0.8 实现并于 v0.9 扩展到 Retail/Travel；
 - v0.1 本身只有一个 Workspace 任务；第二个 Workspace 任务已在 v0.3 实现，Retail 两任务已在 v0.5 实现，Travel 两任务已在 v0.6 实现；
-- symbolic user、scheduler/resume、trace viewer；
+- v0.1 本身没有 scheduler/resume 或 trace viewer；后续 [v0.10](./study-runtime-v10.md) 已实现本地顺序 Study 与离线 viewer，symbolic user 仍未实现；
 - v0.1 本身不含 random-valid-tool、dump-state、allowed-change 等门禁；allowed-change 已在 v0.3 实现，random/dump/golden 已在 v0.4 实现；
 - LLM Agent、独立随机重复、统计区间与主实验。
 
