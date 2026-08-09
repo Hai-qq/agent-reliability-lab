@@ -1,0 +1,544 @@
+{
+  "metadata": {
+    "run_id": "arl-deepseek-flash-model-pilot-v0.19.0",
+    "package_version": "0.19.0",
+    "python_version": "3.12.12",
+    "platform": "darwin",
+    "project_root_name": "agent-reliability-lab",
+    "result_scope": "public compact aggregate for 144-episode DeepSeek-V4-Flash model pilot",
+    "provider_content_persisted": false,
+    "study_manifest_sha256": "02c5cd1f14b814f1a0ccdafd29947d0c7fb1a3094604ff10e5882a4d6a50851f",
+    "study_state_sha256": "761c576459af06cac46f743068b43634dc624e32e468241e2d572fd7b8b831b9",
+    "source_manifest": {
+      "algorithm": "sha256(canonical_json({relative_path: file_sha256}))",
+      "sha256": "7308794d3ad97ff6468b110eb63e45a37975188b526ead31a70020add05677f8",
+      "files": {
+        "pyproject.toml": "805b2fc9ea83f8c56223b51454f1b2660dd2ece88620d6c725d054fb29baf00a",
+        "scripts/rebuild_model_pilot_summary.py": "38aa0130d91f5e1e3055be05a515757289232a5823ed86c1ef7e6a05eeb0604d",
+        "scripts/run_model_pilot.py": "7634cf9a49b0f8fcaee8e8ab300be6f7ee18465e311ea653910cd6d938ae23b3",
+        "src/arl/core/types.py": "58862356fa7aca2817fa1f30a7136409605501efc5a44b8e0a54b4eb2beb76b2",
+        "src/arl/runtime/journal.py": "29082aa1ea86243356aba4f70691593543ea6b4a1bd5d808c22ef1f987474ae3",
+        "src/arl_mainstudy/__init__.py": "4bcf05a5e05a0f8f011b578f2b333bc095d239ae98d4bfc1b11c1147c7e241d6",
+        "src/arl_mainstudy/adapters.py": "2d41e8437b4a11d442f06aa6aba1248dc62d61ae6b7ff7df2a9cad7c73114a5d",
+        "src/arl_mainstudy/agents.py": "b2f5498cf30be749ddea477f597534a1722a1af9f76143306c12bbb9dd9cccce",
+        "src/arl_mainstudy/catalog.py": "08855af742cbffa9c938d80463c690fdea659584f0d167afa21e8a4a2ca6bb79",
+        "src/arl_mainstudy/contract.py": "7677e804048d6cfd8ff7ce7c39cd703ce0b9e54d0d5d979547ef4c51c8c5c50d",
+        "src/arl_mainstudy/experiment.py": "b608de3b714f6200fac34d106e8ab95bcef42f1cb9b2d00004e8442345578e4c",
+        "src/arl_mainstudy/model.py": "3610476e269d517415d221b9dc01d78b471edba4727929bc811cd420a8898dae",
+        "src/arl_mainstudy/protocol.py": "b8ffb64ddf7eaf6c874ba87fd59a9012d0dbb222020103da2e450d660ccb6da9",
+        "src/arl_mainstudy/runtime.py": "642071fe9baf48d93811c2bc3cf91b748e4c21afb75592342c3a8511410f345e",
+        "src/arl_modelpilot/__init__.py": "145882bf37fdef86604024ee0d9258351d1a7fe74b7c153294dc78ca6b08eba1",
+        "src/arl_modelpilot/deepseek.py": "40b95439d4272d5a9c08de51ba1ea780ec36baa0e6a1307f1b9c6172dc520f4a",
+        "src/arl_modelpilot/experiment.py": "d2ee0c2eeb896d0259533aae867ee1787f571323c2fe27e49ec5a904e3d25ab1",
+        "src/arl_pilot/__init__.py": "21148076dbec58e437e0240dc332e78f42f85f26550983bfbbf0dc01527fe550",
+        "src/arl_pilot/agent.py": "ccbb64cdb3f024cee9137d7f0983cb15d757f933a4a71b6c41c68d9fa8a1660f",
+        "src/arl_pilot/env.py": "322cc4421c977782ce3a297927140d1dc80857e7a8ea1bbcd0cdea4bbdd056fb",
+        "src/arl_pilot/evaluator.py": "0fe402f24fc74e448d76a1493369a997e22b827f8539802d6ec3658e52e0f73b",
+        "src/arl_pilot/experiment.py": "0fc95ad37e0888ecddbdf8be70d08b6904ac8483a5b8af27e54550b6fc5c053f",
+        "src/arl_pilot/runtime.py": "fdd256e186882e6c14198bad7490f5eab1ad2213104a4d716a957b95cca05c49",
+        "src/arl_pilot/specs.py": "918bab9545e719153aaca6a99edd819db295cfe3b4ceb3238660c6e96b38a6f5",
+        "src/arl_study/scheduler.py": "295060accbb5cb3c0a4db9c363138fe5c09557743f37f47e0a0f8eb2e0676fdb"
+      }
+    },
+    "trace_manifest": {
+      "algorithm": "sha256(canonical_json({trace_filename: file_sha256}))",
+      "sha256": "d83cde5d1cbbca4510f598e3dbf84e39fee62f863be67fb6c949a92d09f5982d",
+      "files": {
+        "model-pilot-t0-retail.discounted-order.main-v1-r0_raw-clean.jsonl": "f8e7dec8bf81fdc8a438ddc98fa81ef366cd64f0154c9b749ae55783652bc654",
+        "model-pilot-t0-retail.discounted-order.main-v1-r0_raw-recoverable_fault.jsonl": "d5cd22c60cf84e1a933818cd0397054038b3fdc6c44e0a5164aba688226da991",
+        "model-pilot-t0-retail.discounted-order.main-v1-r1_guarded-clean.jsonl": "16fa7823145be83e0c5cdd2d8ec10dc035f4517b52977108d1600247ae59aa00",
+        "model-pilot-t0-retail.discounted-order.main-v1-r1_guarded-recoverable_fault.jsonl": "ad1811e02e5901b2e964f269e1f0ddb22062d488c2b4a4f1c7ed15bc2afd16d5",
+        "model-pilot-t0-retail.discounted-order.main-v1-r2_reliable-clean.jsonl": "bb17b13a2ad6046e46ef2049571b03387e7e7b2c3734a540b6e5ac77ac0753fa",
+        "model-pilot-t0-retail.discounted-order.main-v1-r2_reliable-recoverable_fault.jsonl": "2d7b9ef1c2788f4a0492ce0889cc61d8d368e1ba274fc63126eafbf2cddfa199",
+        "model-pilot-t0-retail.eligible-exchange.main-v1-r0_raw-clean.jsonl": "79ae0d046cbd26508109187ceff8b1479ea8e0ce2406d2c4be1a3e9498780196",
+        "model-pilot-t0-retail.eligible-exchange.main-v1-r0_raw-recoverable_fault.jsonl": "5045fabb0cd1069cee4a89bd7172c65e1559ee9a01eaabfc3927c9d7139bf7ae",
+        "model-pilot-t0-retail.eligible-exchange.main-v1-r1_guarded-clean.jsonl": "2ee857cd02dda01473d22bbcd980a10262f406579ca38790bad32acd9add6d8e",
+        "model-pilot-t0-retail.eligible-exchange.main-v1-r1_guarded-recoverable_fault.jsonl": "6ba83d8794b007bf36e5f9c8a781f0bb5bb725beee4542367f5fa9a0de58c094",
+        "model-pilot-t0-retail.eligible-exchange.main-v1-r2_reliable-clean.jsonl": "6d7eebc24aaaefae576643664d68c3150c9498a54032db814fc8db0e22d73bab",
+        "model-pilot-t0-retail.eligible-exchange.main-v1-r2_reliable-recoverable_fault.jsonl": "3a43d7db86091440fc8f9e8586ea99802a9743d35cee4e6a9698cd2b5a88ec4b",
+        "model-pilot-t0-retail.shipping-revision.main-v1-r0_raw-clean.jsonl": "dc5ce0fb555e22ed07b4fa3d2d67a151ec15417ff7946a40ada351fe6d7515de",
+        "model-pilot-t0-retail.shipping-revision.main-v1-r0_raw-recoverable_fault.jsonl": "d5bceb6253f02fdbf607f1b97e5eff29a186b231fbb753c4079737b962fdde61",
+        "model-pilot-t0-retail.shipping-revision.main-v1-r1_guarded-clean.jsonl": "744dd947d28ccb11f0c2cc5200b7a20df4ab1138f2250e743f54a6fe4353f5b2",
+        "model-pilot-t0-retail.shipping-revision.main-v1-r1_guarded-recoverable_fault.jsonl": "c6540724385fd36c011d33861addf60f2b9a8e2c6f778ee9432a09f01b7338ca",
+        "model-pilot-t0-retail.shipping-revision.main-v1-r2_reliable-clean.jsonl": "9b737dfa65b43c06cb6183ea0cf701354a1afb0f0c5aa3a9e031a80b1afece28",
+        "model-pilot-t0-retail.shipping-revision.main-v1-r2_reliable-recoverable_fault.jsonl": "adf21e34344b7d78006965e27e78fa2d1540cb25be094aa549d2d2c29f3c21ef",
+        "model-pilot-t0-travel.book-itinerary.main-v1-r0_raw-clean.jsonl": "3e630fe7f8c3fdb16ca30979449c9ef8dc3d3104fdfc2973eb8b455b3da0d2b7",
+        "model-pilot-t0-travel.book-itinerary.main-v1-r0_raw-recoverable_fault.jsonl": "6867f919d13b67e4fa23f6b22c6ec4a22a165a28d5bf8de3d6a41d66765b7f66",
+        "model-pilot-t0-travel.book-itinerary.main-v1-r1_guarded-clean.jsonl": "790887f55f48a3b7dd41c25d594cbda7086823d61193858f5bc4cdf86124a84f",
+        "model-pilot-t0-travel.book-itinerary.main-v1-r1_guarded-recoverable_fault.jsonl": "a891f69e49c68a2827e9f8f359a1af0d74e33ef27087e409d1637476d10fd121",
+        "model-pilot-t0-travel.book-itinerary.main-v1-r2_reliable-clean.jsonl": "244022648cb4974b8d3a8bee9905d8f1a331bd1097145b04bd65c5709dee3799",
+        "model-pilot-t0-travel.book-itinerary.main-v1-r2_reliable-recoverable_fault.jsonl": "750d5299f0973b45f0a0617606fdde39e14405452ae37611aa40ad585718ac22",
+        "model-pilot-t0-travel.bundle-recovery.main-v1-r0_raw-clean.jsonl": "1d244145459d5f8773465a71f334a8b8d565af002a6aa00ed706dd5d1320ca82",
+        "model-pilot-t0-travel.bundle-recovery.main-v1-r0_raw-recoverable_fault.jsonl": "7d081096d98c781478b13ea202679c3fdaa780cc514593e60672fd5ed9f93525",
+        "model-pilot-t0-travel.bundle-recovery.main-v1-r1_guarded-clean.jsonl": "1e93787b78380c2262aa49ae03c3eef5e958285a5a25471d071b65aca97e843e",
+        "model-pilot-t0-travel.bundle-recovery.main-v1-r1_guarded-recoverable_fault.jsonl": "50763464d7a29427c423574ab82de344861fc02575fc2a4d185654bed5698cad",
+        "model-pilot-t0-travel.bundle-recovery.main-v1-r2_reliable-clean.jsonl": "72e80f04a045b2e25a7cd3e1ef675bdd256dd393105ab0ddabb491c6680e1594",
+        "model-pilot-t0-travel.bundle-recovery.main-v1-r2_reliable-recoverable_fault.jsonl": "4a15f270ad333db489d3d59f9e54717945979879dacce80a0c0f5749676e822b",
+        "model-pilot-t0-workspace.clarify-attendees.main-v1-r0_raw-clean.jsonl": "fea788f68abf101869905bd2ba2ee10de47ab13d6043568971036d87360cb877",
+        "model-pilot-t0-workspace.clarify-attendees.main-v1-r0_raw-recoverable_fault.jsonl": "15b8738d58f60ba131337b8d57866c505ca889f22d37ef9a2955bc51c445dfe3",
+        "model-pilot-t0-workspace.clarify-attendees.main-v1-r1_guarded-clean.jsonl": "e3b500cfee40a32b0e6697d8b09384fb2beec5f25e1d4072079401f9a4b6348d",
+        "model-pilot-t0-workspace.clarify-attendees.main-v1-r1_guarded-recoverable_fault.jsonl": "94fb72897f79e055ff792c3bf1f32b55de7c6da3e68631e9a51b9fcfa59d23f7",
+        "model-pilot-t0-workspace.clarify-attendees.main-v1-r2_reliable-clean.jsonl": "3940bec580d0d7cedc9792168d0223abacd170bf7c29c4cf6611a19b695d4d77",
+        "model-pilot-t0-workspace.clarify-attendees.main-v1-r2_reliable-recoverable_fault.jsonl": "d4ceaddf803431276ca00db708a431e93038db4c566ab948f2074e75d48263ef",
+        "model-pilot-t0-workspace.reschedule-meeting.main-v1-r0_raw-clean.jsonl": "30ad7aee0e61c673caedabdd0b339f7cc92028519d5aae02cccac81939d265b4",
+        "model-pilot-t0-workspace.reschedule-meeting.main-v1-r0_raw-recoverable_fault.jsonl": "ca61c51ccc4e60dcdcd87e4f886e1badeb9c91440c6935de3bcb64b64ecfe985",
+        "model-pilot-t0-workspace.reschedule-meeting.main-v1-r1_guarded-clean.jsonl": "f4f92d4140e9ec2729bf21c3e80354c1bf1c85fe14adadaac2458d4e3f92b213",
+        "model-pilot-t0-workspace.reschedule-meeting.main-v1-r1_guarded-recoverable_fault.jsonl": "be03f29b1088a56af71fb5e6eacfb3d54ee6caa6fb3c93065d0616bb64f82857",
+        "model-pilot-t0-workspace.reschedule-meeting.main-v1-r2_reliable-clean.jsonl": "403917747fe2499a13e0c4c8f9e50520b74d1ab71ff9445657896ab83c5e3868",
+        "model-pilot-t0-workspace.reschedule-meeting.main-v1-r2_reliable-recoverable_fault.jsonl": "a535ceea4bead024f2adbbdd5539e0ac015551aac9636224624bebfd0a135a0d",
+        "model-pilot-t0-workspace.schedule-meeting.main-v1-r0_raw-clean.jsonl": "c7fffb0644294fdba1948fa9bf7b6d4293913df14cf6edd5d80d2739dbb7c4de",
+        "model-pilot-t0-workspace.schedule-meeting.main-v1-r0_raw-recoverable_fault.jsonl": "1ff9b0ffd4e0c7f1fd38660e6c80ad227960710e0ea073eb517e8a184a7a486a",
+        "model-pilot-t0-workspace.schedule-meeting.main-v1-r1_guarded-clean.jsonl": "65146e4b84541da640b9eaeb30ff760d3cb6fc9d777bb86041a5ddbef6750919",
+        "model-pilot-t0-workspace.schedule-meeting.main-v1-r1_guarded-recoverable_fault.jsonl": "28362b430c144f1970ae71dc128226de0ff0583a3ea9e0794282b727a41aab32",
+        "model-pilot-t0-workspace.schedule-meeting.main-v1-r2_reliable-clean.jsonl": "7f1d2b631760c21eb6c2db3aa140723a2b6b3e72cfa318b4cb2ced402f6d77e1",
+        "model-pilot-t0-workspace.schedule-meeting.main-v1-r2_reliable-recoverable_fault.jsonl": "1258998b9be235ae192f92fa6e466dc315506688496e6df24ec1dd1c32ea0271",
+        "model-pilot-t1-retail.discounted-order.main-v1-r0_raw-clean.jsonl": "c551f3229f69332d1ff198dd4dfd41745c04c814e408aee4af48456a896d4f56",
+        "model-pilot-t1-retail.discounted-order.main-v1-r0_raw-recoverable_fault.jsonl": "89cdf0a14e174c33259613e1d6ab154a712e3648c80a6f4f7aa3f676c5700949",
+        "model-pilot-t1-retail.discounted-order.main-v1-r1_guarded-clean.jsonl": "7230031a78a172da3e572f89bae716be6e49e9a701c90b450c6d68e3e5b2db51",
+        "model-pilot-t1-retail.discounted-order.main-v1-r1_guarded-recoverable_fault.jsonl": "da5c2a0038c3d5c8492fe2b1a637f9939c182024077dd3e33c691577ab0b9d35",
+        "model-pilot-t1-retail.discounted-order.main-v1-r2_reliable-clean.jsonl": "a2efb9721533d6a34cd8e6a2076ce7ef3d379243fa431a47771b6aa12219091a",
+        "model-pilot-t1-retail.discounted-order.main-v1-r2_reliable-recoverable_fault.jsonl": "f69d5edd63b14da2d25fa070de734f8da4693894fe16813305e482bc379fd500",
+        "model-pilot-t1-retail.eligible-exchange.main-v1-r0_raw-clean.jsonl": "4ce4f66abe0bc7e595a69337cd78d8a693ac2bc9c7f5a781eaa77a75417a83f3",
+        "model-pilot-t1-retail.eligible-exchange.main-v1-r0_raw-recoverable_fault.jsonl": "5f4c4a704a05d1a0e4e2c9f046a97ae21c80565b2c51be54a23d155f2bf2cf38",
+        "model-pilot-t1-retail.eligible-exchange.main-v1-r1_guarded-clean.jsonl": "94f723fc863055fa23d9de50a6a32f29a6d7b898dca1c6ea8603ba044f463f69",
+        "model-pilot-t1-retail.eligible-exchange.main-v1-r1_guarded-recoverable_fault.jsonl": "e37d655a7d6f716e5c7a39c5792edc362035c1a0ee3f95b57a1ddfadd083dea1",
+        "model-pilot-t1-retail.eligible-exchange.main-v1-r2_reliable-clean.jsonl": "72ee89d4368377e84f696e0aa7badc4ebc763c47d430362a9082e504f421dbd6",
+        "model-pilot-t1-retail.eligible-exchange.main-v1-r2_reliable-recoverable_fault.jsonl": "0df6d206d5daadf805edc9a45b5c2356efe6dfb6a876da2c32e86b07769b0f88",
+        "model-pilot-t1-retail.shipping-revision.main-v1-r0_raw-clean.jsonl": "2be639cdf4d617c0228362da539cc8fae08529ff59b0e433b62de7547f51eaee",
+        "model-pilot-t1-retail.shipping-revision.main-v1-r0_raw-recoverable_fault.jsonl": "7b92b53d393c9984f992934168bb615fed53ebad33660d1de2c991b6a15bb734",
+        "model-pilot-t1-retail.shipping-revision.main-v1-r1_guarded-clean.jsonl": "f9eb54a4bcff4fd77cf4ba9fcc290bb8c9fe7b9b593e417d13e2af3ee915de18",
+        "model-pilot-t1-retail.shipping-revision.main-v1-r1_guarded-recoverable_fault.jsonl": "f77c3084d0ae9b107010d6d17cd58896368dced2161c64e227083883704b1bc8",
+        "model-pilot-t1-retail.shipping-revision.main-v1-r2_reliable-clean.jsonl": "91e4142ee0f0b23adfb8733b2fa1391eb57da5cb982d934fe445a27c18bed211",
+        "model-pilot-t1-retail.shipping-revision.main-v1-r2_reliable-recoverable_fault.jsonl": "28538ce6637d554d2850dab2dca1c5f9ebac3abf9474f29b3c1482cc1b95393f",
+        "model-pilot-t1-travel.book-itinerary.main-v1-r0_raw-clean.jsonl": "8b7dd25edd7989ead3cc8a513e2ed51addf6cafe6633c58318644dd873437aca",
+        "model-pilot-t1-travel.book-itinerary.main-v1-r0_raw-recoverable_fault.jsonl": "02efb164dfcbfc6987a607f06afd893710a23fc48388dd254551aeedf32c4e71",
+        "model-pilot-t1-travel.book-itinerary.main-v1-r1_guarded-clean.jsonl": "bbc5cd57e91f660ceb646554df93f840eb31af9ce5265b144e12c9aaae61b424",
+        "model-pilot-t1-travel.book-itinerary.main-v1-r1_guarded-recoverable_fault.jsonl": "b80c54f31b05b11a0443b80e23c10a2d1dc00a0695e935c10c660ce048e5c524",
+        "model-pilot-t1-travel.book-itinerary.main-v1-r2_reliable-clean.jsonl": "f42655508b70a7b121cb1e30b9e54dc9137e8623a0dfc05b2926006128d9c9ca",
+        "model-pilot-t1-travel.book-itinerary.main-v1-r2_reliable-recoverable_fault.jsonl": "39d76d97899e64a9aa323c34e1ddb36db20f0c7a67609d5eb1b751eb4a5d466b",
+        "model-pilot-t1-travel.bundle-recovery.main-v1-r0_raw-clean.jsonl": "eacd1b83bc99fb3b276d7e6247a979a93997c8ccda6e98a3026da051a94a7a30",
+        "model-pilot-t1-travel.bundle-recovery.main-v1-r0_raw-recoverable_fault.jsonl": "265ddfcdc929c1f905076a8103eb58058cfe10b29874ee6cdef4ccc170add17b",
+        "model-pilot-t1-travel.bundle-recovery.main-v1-r1_guarded-clean.jsonl": "3b710f9c05e188d9ee010d3dd83ed3e02c00e47a032396869fe98cd423b52e0b",
+        "model-pilot-t1-travel.bundle-recovery.main-v1-r1_guarded-recoverable_fault.jsonl": "f4af85402b3ef7ef7b0aecee83794a34152925fe50433b1a91b183665b14388e",
+        "model-pilot-t1-travel.bundle-recovery.main-v1-r2_reliable-clean.jsonl": "8da6fa6447ad7df588b4c39b8adc831e9e3dacbb35a528bb2af1378c5b974ee3",
+        "model-pilot-t1-travel.bundle-recovery.main-v1-r2_reliable-recoverable_fault.jsonl": "fe092f373d9920fea8d1230246c8e570674609f616f0ff1622921105ede04c3f",
+        "model-pilot-t1-workspace.clarify-attendees.main-v1-r0_raw-clean.jsonl": "1560170cc12f9e0106510b588906d8f0b67d3b09e877e15e176f98dc4ed37926",
+        "model-pilot-t1-workspace.clarify-attendees.main-v1-r0_raw-recoverable_fault.jsonl": "81414ef653c1b064b41db496631ae2d47bed8fbd5e562bf207a479fb0a0283d1",
+        "model-pilot-t1-workspace.clarify-attendees.main-v1-r1_guarded-clean.jsonl": "ce9e73651fe513293dc59dbedc71e64cdf8ac19ac92c7fef60a409e3f89910f7",
+        "model-pilot-t1-workspace.clarify-attendees.main-v1-r1_guarded-recoverable_fault.jsonl": "a20d99d060aef1ed6f3d79db14f182b1bb2cd008435c0bac9b270f437c9b573a",
+        "model-pilot-t1-workspace.clarify-attendees.main-v1-r2_reliable-clean.jsonl": "117ec2ca3aca825450274a5a3af6806e4b7045ea11a8955341a8835d92750a00",
+        "model-pilot-t1-workspace.clarify-attendees.main-v1-r2_reliable-recoverable_fault.jsonl": "f2f62b52aaa0f9ae9d81e445fdfdf7b1e1428939001ad3bcc934ebbaa9cd42cb",
+        "model-pilot-t1-workspace.reschedule-meeting.main-v1-r0_raw-clean.jsonl": "d3878d0fcc77785d01ec18f88d9e6d692c6ae5cfef33045eed3e588bedcfe662",
+        "model-pilot-t1-workspace.reschedule-meeting.main-v1-r0_raw-recoverable_fault.jsonl": "31a2700e39162971220e2e80ad8ef2dfa797548e5d2abda501c5c8b19d5b6e4f",
+        "model-pilot-t1-workspace.reschedule-meeting.main-v1-r1_guarded-clean.jsonl": "798d11ab77c473fb5445adde98bc6b1e4ca21f4a9c3e68d429058c447f46f1ed",
+        "model-pilot-t1-workspace.reschedule-meeting.main-v1-r1_guarded-recoverable_fault.jsonl": "a0481ed01a40f1c646126dc1300c7650ab43d7f773a0f743c8cb491148681cea",
+        "model-pilot-t1-workspace.reschedule-meeting.main-v1-r2_reliable-clean.jsonl": "d023ee98ae6eedcc6e1713c438106ba9bc3d4d5cc5d66fffe13fad91712736e0",
+        "model-pilot-t1-workspace.reschedule-meeting.main-v1-r2_reliable-recoverable_fault.jsonl": "3fd7adf00fb41210e453f9eda279f7344a5612b1dddafb1ae776cc5c9996a122",
+        "model-pilot-t1-workspace.schedule-meeting.main-v1-r0_raw-clean.jsonl": "2d05b6eb90052df1a51a99a7e37c142fbdc41ca2062cda43ac9fb7ef4576d610",
+        "model-pilot-t1-workspace.schedule-meeting.main-v1-r0_raw-recoverable_fault.jsonl": "5cbd8bdfcc85d954bf683bbad82332fc75c244e99bcb601486bad82a33f965b9",
+        "model-pilot-t1-workspace.schedule-meeting.main-v1-r1_guarded-clean.jsonl": "78a41a1c6ded67587239c87283877353db5215e0f4fd18794057c670f2701374",
+        "model-pilot-t1-workspace.schedule-meeting.main-v1-r1_guarded-recoverable_fault.jsonl": "ae8602f227c7670bf5f2827ab4d163f140f34b73807e00813b3324c841f57024",
+        "model-pilot-t1-workspace.schedule-meeting.main-v1-r2_reliable-clean.jsonl": "b6578b439d46d68946f75f28e03b40fdbf2b04236aab1f2daa9cace42ab42858",
+        "model-pilot-t1-workspace.schedule-meeting.main-v1-r2_reliable-recoverable_fault.jsonl": "297f08c713573d21206a85884b28691010cf1c7c9016ac2caeed7bf641f51ffe",
+        "model-pilot-t2-retail.discounted-order.main-v1-r0_raw-clean.jsonl": "1329b802966c5bbf55ad779a53ba3a76b83cf3b6164bdb28137281cf079ea968",
+        "model-pilot-t2-retail.discounted-order.main-v1-r0_raw-recoverable_fault.jsonl": "4075f3bc88490a5e5146c148968e307a8208d1d1698f97177a44eede93903423",
+        "model-pilot-t2-retail.discounted-order.main-v1-r1_guarded-clean.jsonl": "a544467245c990ab69ed094a78c904cf840b446d519392f525a4a806e38a75b8",
+        "model-pilot-t2-retail.discounted-order.main-v1-r1_guarded-recoverable_fault.jsonl": "0aa2de9128b51ec6bd28a5c43c981591dfe7d0e7e1e36402ef4115ba5ef3d178",
+        "model-pilot-t2-retail.discounted-order.main-v1-r2_reliable-clean.jsonl": "61557eca5da34dbfa9808b199ff4671e77782bb268670b96aca3e4369b683368",
+        "model-pilot-t2-retail.discounted-order.main-v1-r2_reliable-recoverable_fault.jsonl": "945f12f4e395b857218be638b1a5e44209a4e5e329ed36ec0d5b9a96ea103412",
+        "model-pilot-t2-retail.eligible-exchange.main-v1-r0_raw-clean.jsonl": "1ef5d1e275d1c3aeb4a617cffb3b462ad77e71a368b2d439482e621ed9cf9edf",
+        "model-pilot-t2-retail.eligible-exchange.main-v1-r0_raw-recoverable_fault.jsonl": "3a4ef283c39040e6abec139fb379b96b73877764d30e1afc26b3f1d83a1fe7e2",
+        "model-pilot-t2-retail.eligible-exchange.main-v1-r1_guarded-clean.jsonl": "5bccee81e8ce71d93d5c599dd4b79389c011b97f1962e903a5cd561632b5eedd",
+        "model-pilot-t2-retail.eligible-exchange.main-v1-r1_guarded-recoverable_fault.jsonl": "48c05963deef21344738361cccd3e152ed9c96bc668bbaf32c1c6dff15642b8d",
+        "model-pilot-t2-retail.eligible-exchange.main-v1-r2_reliable-clean.jsonl": "90496e543b892f4178e1e072e7fbb0abaaeeb326a8bafe655d71957315b5bc75",
+        "model-pilot-t2-retail.eligible-exchange.main-v1-r2_reliable-recoverable_fault.jsonl": "c1e522764a7f839ea12e30e46b85e58625a32ba00f17f34a3dfee805b7a20735",
+        "model-pilot-t2-retail.shipping-revision.main-v1-r0_raw-clean.jsonl": "33f5203a27c76898644f9cf38a66fb71d2b3bd42c30768153005c648a8968b9f",
+        "model-pilot-t2-retail.shipping-revision.main-v1-r0_raw-recoverable_fault.jsonl": "f6f7bee52875ca7baa160c006a101b5de047f1e27ca070f776c894a6c6fe32b9",
+        "model-pilot-t2-retail.shipping-revision.main-v1-r1_guarded-clean.jsonl": "75891aa6bd72b0408e5e54e2c7e126bfe13303361408e070bff9afd3814b5eb0",
+        "model-pilot-t2-retail.shipping-revision.main-v1-r1_guarded-recoverable_fault.jsonl": "eb75ddb971acafc63b719186eec02aefe0b361d42558151edc1273f70cf3fa47",
+        "model-pilot-t2-retail.shipping-revision.main-v1-r2_reliable-clean.jsonl": "47b1b33469996cafa66494396d2a73d8238b63be50099b4e3e85bfd1d6121059",
+        "model-pilot-t2-retail.shipping-revision.main-v1-r2_reliable-recoverable_fault.jsonl": "d768b8c069ac70e37a7f1dad7816b058d55f32a5b589991492d2a3c71377d0d3",
+        "model-pilot-t2-travel.book-itinerary.main-v1-r0_raw-clean.jsonl": "abda5e05bfb84a4a469d0955e3b3afdbaa3a93542f99f664f80e6fef8e3b71db",
+        "model-pilot-t2-travel.book-itinerary.main-v1-r0_raw-recoverable_fault.jsonl": "3abf82dc32a5bba2aadaaa26d0ffbf6a07693fdbee39e35c47f6c84e870c3b06",
+        "model-pilot-t2-travel.book-itinerary.main-v1-r1_guarded-clean.jsonl": "c7129e7cc87aac8b98097676b3d235bbf5a697ce8662620c86984b4d9800f59f",
+        "model-pilot-t2-travel.book-itinerary.main-v1-r1_guarded-recoverable_fault.jsonl": "aa4188ce5e0578aee6bfdbc8ce2737b4001cbc30438af35751e3365b266555ab",
+        "model-pilot-t2-travel.book-itinerary.main-v1-r2_reliable-clean.jsonl": "7a950582992bf211e83a965882565cfcffd0cfc33470ec2eeb0a93b46407586d",
+        "model-pilot-t2-travel.book-itinerary.main-v1-r2_reliable-recoverable_fault.jsonl": "f29afaa5de5071ac47085cdb150595625a06a0258d8048241f0390cc4f08e16f",
+        "model-pilot-t2-travel.bundle-recovery.main-v1-r0_raw-clean.jsonl": "d8742936ceac8ba9cb9cab2a9945fb2caf0af3c7a5e23ce36941c9f48d9814f5",
+        "model-pilot-t2-travel.bundle-recovery.main-v1-r0_raw-recoverable_fault.jsonl": "7de6580d8b098f11744e5f8f2f2455795b4b8723aa94f118b097799cd283918b",
+        "model-pilot-t2-travel.bundle-recovery.main-v1-r1_guarded-clean.jsonl": "17af03a7291ff50579a9213fc4cff8e48adad81f2d00b39e9b9866da621eacbb",
+        "model-pilot-t2-travel.bundle-recovery.main-v1-r1_guarded-recoverable_fault.jsonl": "0485efe891cf1aa21cab0dc50df47a5f508a781d81772b8939d2d4acc35cc34d",
+        "model-pilot-t2-travel.bundle-recovery.main-v1-r2_reliable-clean.jsonl": "9218bf94f090d8d4e8678cd047c38a28100680dbd9fb8b415e7d63a97e3f0433",
+        "model-pilot-t2-travel.bundle-recovery.main-v1-r2_reliable-recoverable_fault.jsonl": "6cf9dfe259d064c844f135339c9a3633cd095e6c9233543584a29cb60926fb03",
+        "model-pilot-t2-workspace.clarify-attendees.main-v1-r0_raw-clean.jsonl": "7fae10c95a89473f1f6dcf201442146ec2da036a4e568076626bac2df5f4003a",
+        "model-pilot-t2-workspace.clarify-attendees.main-v1-r0_raw-recoverable_fault.jsonl": "10698f0bce11101b511ec0fb4596ba9b66299a3008e27d37a5aaeb0fcb0ede21",
+        "model-pilot-t2-workspace.clarify-attendees.main-v1-r1_guarded-clean.jsonl": "3e48aea12421f97ceac371764ac4fc19afb5f54373924358c963e77fa8fda094",
+        "model-pilot-t2-workspace.clarify-attendees.main-v1-r1_guarded-recoverable_fault.jsonl": "d9b1a4e57ec1e95d8637fdda8ee144a16a3c6bcad44da0d98c322fb4a59881f9",
+        "model-pilot-t2-workspace.clarify-attendees.main-v1-r2_reliable-clean.jsonl": "a6a2980409c958396caec2f48ff6f594948f9752b2b3bfb69fa83b14218c896c",
+        "model-pilot-t2-workspace.clarify-attendees.main-v1-r2_reliable-recoverable_fault.jsonl": "870c42c6b565b1921fada6884352e64d750f0e6113941488d1158f1841425414",
+        "model-pilot-t2-workspace.reschedule-meeting.main-v1-r0_raw-clean.jsonl": "83af16a910835d86fb249f77404b276b35a96fbc8a952e9ef234dafd8a8e53af",
+        "model-pilot-t2-workspace.reschedule-meeting.main-v1-r0_raw-recoverable_fault.jsonl": "490e9046608da8f5f24145951aa766765607edab73104e5d36fa47634319296b",
+        "model-pilot-t2-workspace.reschedule-meeting.main-v1-r1_guarded-clean.jsonl": "25c328db23c79f98a123891a9974d8b7f907fd1a7e42690fedf839517e94e05b",
+        "model-pilot-t2-workspace.reschedule-meeting.main-v1-r1_guarded-recoverable_fault.jsonl": "96180eff2d6a4cdf46541eae5f14103e353822c963d3a0afb347b17829dbd89b",
+        "model-pilot-t2-workspace.reschedule-meeting.main-v1-r2_reliable-clean.jsonl": "fa4be77316f17662219ad68430655c465613280544b97d1e4c85a932f0fa0ed3",
+        "model-pilot-t2-workspace.reschedule-meeting.main-v1-r2_reliable-recoverable_fault.jsonl": "3684dcc726c3560a9f2b19b0e250335fb07af1af056f56d050ddc63be9dcf2bc",
+        "model-pilot-t2-workspace.schedule-meeting.main-v1-r0_raw-clean.jsonl": "e6b7ffa8cb9767ca7f45ea9081f59ede2293fb8a26ce882f3c66fba801147928",
+        "model-pilot-t2-workspace.schedule-meeting.main-v1-r0_raw-recoverable_fault.jsonl": "7a227e6654a6a3d2d96dc9c2f6b3a9483b75bfbb2212aa53a76f282ee5d91546",
+        "model-pilot-t2-workspace.schedule-meeting.main-v1-r1_guarded-clean.jsonl": "3d1c2a84cdf5ca4b5982884f4ad2d7e36370f8d067467f702d6acda80b2d9b3e",
+        "model-pilot-t2-workspace.schedule-meeting.main-v1-r1_guarded-recoverable_fault.jsonl": "28173550d4eaac105f83742f3b6f9d21bb167500be7c1234de7e35df615af271",
+        "model-pilot-t2-workspace.schedule-meeting.main-v1-r2_reliable-clean.jsonl": "72b3b583792a58754b5a081fb63a6178ebd29e0cfe94ee6a43c96257c4a8d21c",
+        "model-pilot-t2-workspace.schedule-meeting.main-v1-r2_reliable-recoverable_fault.jsonl": "e189e4a1cb7403caa2124842c9e7c6de93ba2edcaba1c68dce5aa909792a43b3"
+      }
+    },
+    "pricing": {
+      "cache_hit_input_per_million": 0.0028,
+      "cache_miss_input_per_million": 0.14,
+      "output_per_million": 0.28,
+      "source": "https://api-docs.deepseek.com/quick_start/pricing",
+      "observed_date": "2026-08-08"
+    },
+    "resume_used": false
+  },
+  "main_study_contract": {
+    "contract_version": "arl-main-study-v0.16.0",
+    "primary_hypothesis": "R2 improves recoverable-fault SafePass^3 over R1 while preserving clean SafeSuccess within a five-percentage-point noninferiority margin and without adding severe side effects.",
+    "runtime_names": [
+      "r0_raw",
+      "r1_guarded",
+      "r2_reliable"
+    ],
+    "conditions": [
+      "clean",
+      "recoverable_fault"
+    ],
+    "task_catalog": {
+      "template_count": 24,
+      "domain_template_counts": {
+        "workspace": 8,
+        "retail": 8,
+        "travel": 8
+      },
+      "fault_family_counts": {
+        "postcommit_response_loss": 4,
+        "retryable_invocation_error": 4,
+        "input_schema_drift": 4,
+        "output_schema_drift": 4,
+        "compatible_state_conflict": 4,
+        "bounded_compensation": 4
+      }
+    },
+    "model_slots": [
+      {
+        "slot_id": "strong_api",
+        "role": "strong tool-capable API model",
+        "provider": "deepseek-api",
+        "model_id": "deepseek-v4-flash",
+        "revision": "DeepSeek-V4-Flash/non-thinking",
+        "bound": true
+      },
+      {
+        "slot_id": "local_open",
+        "role": "reproducible local open-weight model",
+        "provider": null,
+        "model_id": null,
+        "revision": null,
+        "bound": false
+      }
+    ],
+    "stages": [
+      {
+        "stage_id": "scripted_smoke",
+        "task_count": 2,
+        "environment_seed_count": 1,
+        "condition_count": 2,
+        "runtime_count": 3,
+        "agent_configuration_count": 1,
+        "sampling_trial_count": 1,
+        "uses_models": false,
+        "confirmatory": false,
+        "episode_count": 12,
+        "formula": "2 × 1 × 2 × 3 × 1 × 1"
+      },
+      {
+        "stage_id": "pilot",
+        "task_count": 8,
+        "environment_seed_count": 1,
+        "condition_count": 2,
+        "runtime_count": 3,
+        "agent_configuration_count": 1,
+        "sampling_trial_count": 3,
+        "uses_models": true,
+        "confirmatory": false,
+        "episode_count": 144,
+        "formula": "8 × 1 × 2 × 3 × 1 × 3"
+      },
+      {
+        "stage_id": "main",
+        "task_count": 24,
+        "environment_seed_count": 1,
+        "condition_count": 2,
+        "runtime_count": 3,
+        "agent_configuration_count": 2,
+        "sampling_trial_count": 3,
+        "uses_models": true,
+        "confirmatory": true,
+        "episode_count": 864,
+        "formula": "24 × 1 × 2 × 3 × 2 × 3"
+      },
+      {
+        "stage_id": "full_three_seed",
+        "task_count": 24,
+        "environment_seed_count": 3,
+        "condition_count": 2,
+        "runtime_count": 3,
+        "agent_configuration_count": 2,
+        "sampling_trial_count": 3,
+        "uses_models": true,
+        "confirmatory": false,
+        "episode_count": 2592,
+        "formula": "24 × 3 × 2 × 3 × 2 × 3"
+      }
+    ],
+    "statistics": {
+      "primary_metric": "fault_safe_pass_at_3_r2_minus_r1",
+      "clean_noninferiority_margin": -0.05,
+      "bootstrap_resamples": 10000,
+      "bootstrap_cluster": "task_template",
+      "timeouts_and_failures_retained": true,
+      "per_model_results_required": true
+    }
+  },
+  "model_pilot": {
+    "formula": "8 tasks × 1 environment seed × 2 conditions × 3 runtimes × 1 model × 3 trials",
+    "episode_count": 144,
+    "environment_seed": 0,
+    "sampling_trials": [
+      0,
+      1,
+      2
+    ],
+    "binding": {
+      "provider": "deepseek-api",
+      "model_id": "deepseek-v4-flash",
+      "revision": "DeepSeek-V4-Flash/non-thinking"
+    },
+    "thinking_mode": "disabled",
+    "sampling": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_output_tokens": 512,
+      "sampling_seed": null
+    },
+    "budget_per_episode": {
+      "max_calls": 8,
+      "max_input_tokens": 20000,
+      "max_output_tokens": 2000,
+      "max_monetary_cost": 0.01
+    }
+  },
+  "aggregate": {
+    "episode_count": 144,
+    "task_count": 8,
+    "sampling_trial_count": 3,
+    "runtime_count": 3,
+    "condition_count": 2,
+    "by_runtime": {
+      "r0_raw": {
+        "by_condition": {
+          "clean": {
+            "episodes": 24,
+            "safe_successes": 24,
+            "safe_success_rate": 1.0,
+            "safe_pass_at_3_tasks": 8,
+            "safe_pass_at_3_rate": 1.0,
+            "provider_or_protocol_failures": 0
+          },
+          "recoverable_fault": {
+            "episodes": 24,
+            "safe_successes": 10,
+            "safe_success_rate": 0.4166666666666667,
+            "safe_pass_at_3_tasks": 3,
+            "safe_pass_at_3_rate": 0.375,
+            "provider_or_protocol_failures": 0
+          }
+        },
+        "clean_capable_tasks_at_3": 8,
+        "recovered_fault_tasks_at_3": 3,
+        "recovery_rate_at_3": 0.375
+      },
+      "r1_guarded": {
+        "by_condition": {
+          "clean": {
+            "episodes": 24,
+            "safe_successes": 24,
+            "safe_success_rate": 1.0,
+            "safe_pass_at_3_tasks": 8,
+            "safe_pass_at_3_rate": 1.0,
+            "provider_or_protocol_failures": 0
+          },
+          "recoverable_fault": {
+            "episodes": 24,
+            "safe_successes": 3,
+            "safe_success_rate": 0.125,
+            "safe_pass_at_3_tasks": 1,
+            "safe_pass_at_3_rate": 0.125,
+            "provider_or_protocol_failures": 0
+          }
+        },
+        "clean_capable_tasks_at_3": 8,
+        "recovered_fault_tasks_at_3": 1,
+        "recovery_rate_at_3": 0.125
+      },
+      "r2_reliable": {
+        "by_condition": {
+          "clean": {
+            "episodes": 24,
+            "safe_successes": 24,
+            "safe_success_rate": 1.0,
+            "safe_pass_at_3_tasks": 8,
+            "safe_pass_at_3_rate": 1.0,
+            "provider_or_protocol_failures": 0
+          },
+          "recoverable_fault": {
+            "episodes": 24,
+            "safe_successes": 24,
+            "safe_success_rate": 1.0,
+            "safe_pass_at_3_tasks": 8,
+            "safe_pass_at_3_rate": 1.0,
+            "provider_or_protocol_failures": 0
+          }
+        },
+        "clean_capable_tasks_at_3": 8,
+        "recovered_fault_tasks_at_3": 8,
+        "recovery_rate_at_3": 1.0
+      }
+    },
+    "model_usage": {
+      "model_calls": 472,
+      "external_network_calls": 472,
+      "input_tokens": 428517,
+      "cache_hit_tokens": 394112,
+      "cache_miss_tokens": 34405,
+      "output_tokens": 37626,
+      "reasoning_tokens": 0,
+      "total_tokens": 466143,
+      "estimated_cost_usd": 0.016455493600000003,
+      "accepted_model_responses": 472,
+      "model_protocol_error_calls": 0,
+      "provider_error_calls": 0,
+      "latency_ms_p50": 968,
+      "latency_ms_p95": 1388
+    },
+    "system_fingerprints": [
+      "fp_a18b46594c_prod0820_fp8_kvcache_20260402"
+    ],
+    "primary_effects": {
+      "fault_recovery_rate_at_3_delta_r2_minus_r1": 0.875,
+      "clean_safe_pass_at_3_delta_r2_minus_r1": 0.0
+    }
+  },
+  "validity": {
+    "checks": {
+      "bound_contract_allows_pilot_only": true,
+      "exact_144_episode_matrix": true,
+      "same_policy_contract_across_pairs_and_trials": true,
+      "clean_fault_reset_hash_match": true,
+      "exact_deepseek_flash_binding": true,
+      "non_thinking_mode_has_zero_reasoning_tokens": true,
+      "provider_returned_bound_model_and_fingerprint": true,
+      "zero_provider_transport_or_parse_errors": true,
+      "zero_local_model_protocol_errors": true,
+      "usage_totals_match_provider_records": true,
+      "per_episode_model_budgets_respected": true,
+      "digest_only_traces": true,
+      "credential_absent_from_persisted_evidence": true
+    },
+    "all_selected_checks_passed": true,
+    "policy_digests": {
+      "retail.discounted-order.main-v1": [
+        "dc49da9e19ef4fb79880b653221a0910119e0712123c250a14546076ee4dab2f"
+      ],
+      "retail.eligible-exchange.main-v1": [
+        "ae99815e1107d90ed03dbb45ff633812dbb321c31de3ee2ef911ba5707ad7dd7"
+      ],
+      "retail.shipping-revision.main-v1": [
+        "3e7c302d2322e534c8f6692636ae552a50cb1396dff91651f6c471d3103048e1"
+      ],
+      "travel.book-itinerary.main-v1": [
+        "c59579e226503d2753c8cb7f60ae863e1f05501a5bfe787918ddc56f428191dc"
+      ],
+      "travel.bundle-recovery.main-v1": [
+        "71437c221bab6e6b1fc59d2a24923bcf4b75b4073f2096d24bfd34435bf1a2f1"
+      ],
+      "workspace.clarify-attendees.main-v1": [
+        "f6e8d67fc5a60e57ff3d14084a5eecd459f3beaed1590907c1bf1018a25aaba0"
+      ],
+      "workspace.reschedule-meeting.main-v1": [
+        "37aec317a22ed9f43901a614d51de5794d4c63be78079206df3417e40f04f64c"
+      ],
+      "workspace.schedule-meeting.main-v1": [
+        "d0623c9a08fac302c49b9261b42e59146e20aee259772a115eff3e9559e7e5f8"
+      ]
+    },
+    "reset_hashes": {
+      "retail.discounted-order.main-v1": [
+        "a73e57201e712ee54b70607a1dcc2924aee4bd4050ffd39f127cf3094ef21edf"
+      ],
+      "retail.eligible-exchange.main-v1": [
+        "5fb208a8eb0f93356be5776f68bf2f3efb0ddc6a2c4a48147e3b82d73a969286"
+      ],
+      "retail.shipping-revision.main-v1": [
+        "9ae683446fc84dd22c04891b07dd6a1bde351d18be226b14b724f2850a3322bd"
+      ],
+      "travel.book-itinerary.main-v1": [
+        "958c862ec993331b985739d62d96e8b753d9079491851593826051a42b202700"
+      ],
+      "travel.bundle-recovery.main-v1": [
+        "294288fdb05af98eb1e1d65dd4fc148247529f73aac68b294b0f1c96f922541a"
+      ],
+      "workspace.clarify-attendees.main-v1": [
+        "841c7a8de7195c02897cb1c2a935ca6c857d63edb6996c3c79ca9c5996b922f7"
+      ],
+      "workspace.reschedule-meeting.main-v1": [
+        "86e051b6a5ac79432e00ba8008dd681355771bbe0e4da09a1ee493d5321f319c"
+      ],
+      "workspace.schedule-meeting.main-v1": [
+        "5335425f9db8387898f85d4bed4bbb0dbf5f4bef228e95a292f22b7aeb8d2a8a"
+      ]
+    },
+    "trace_payloads": {
+      "trace_count": 144,
+      "forbidden_payload_findings": {},
+      "passed": true
+    },
+    "credential_audit": {
+      "checked_file_count": 289,
+      "exact_credential_match_files": [],
+      "passed": true
+    }
+  },
+  "readiness": {
+    "preregistered_checks": {
+      "infrastructure_valid": true,
+      "minimum_75_percent_clean_safe_pass_at_3_per_runtime": true,
+      "r2_clean_noninferiority_margin_minus_0_05": true
+    },
+    "ready_for_confirmatory_main_on_model_quality": true,
+    "note": "This gate does not require a positive R2 treatment effect; that remains an outcome. Main also requires 16 more task fixtures and a second exact model binding."
+  },
+  "limitations": [
+    "DeepSeek's API model ID is service-bound; no immutable serving-weight hash is exposed.",
+    "The API does not expose a sampling seed; the three trials are repeated calls at temperature 0.",
+    "The pilot has eight synthetic task templates and one environment seed.",
+    "Provider responses are digest-only and cannot be replayed from public artifacts.",
+    "The 24-task confirmatory catalog still lacks 16 runnable fixtures and a second model binding."
+  ],
+  "episode_evidence": {
+    "episode_count": 144,
+    "episodes_sha256": "d01c7e8431c51fe167f069721fe19764b8b648694cd8be87572577091e851b00",
+    "full_summary_sha256": "3e3d89cfdce912b400ff987d89616779ecc2563f223c1359cf34dc29e67b07a1",
+    "full_summary_publicly_committed": false,
+    "full_episode_records": "local ignored full-summary.json and study/results",
+    "provider_content_persisted": false
+  }
+}

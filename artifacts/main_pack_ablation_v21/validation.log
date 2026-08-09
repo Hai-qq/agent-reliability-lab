@@ -1,0 +1,35 @@
+Agent Reliability Lab - Main Pack Mechanism Ablation v0.21
+Date: 2026-08-08
+Scope: local synthetic R2 leave-one-mechanism-out validity experiment; zero model/network calls
+Python: 3.12.12
+
+Formal command:
+  env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python scripts/run_main_pack_ablation.py --output artifacts/main_pack_ablation_v21/summary.json --traces-dir artifacts/main_pack_ablation_v21/traces
+
+Independent repeat command:
+  env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python scripts/run_main_pack_ablation.py --output artifacts/main_pack_ablation_v21_repeat/summary.json --traces-dir artifacts/main_pack_ablation_v21_repeat/traces
+
+Observed result:
+  episodes=168; tasks=24; variants=7
+  baseline SafeSuccess=24/24
+  idempotency removed=20/24
+  state confirmation removed=20/24
+  input schema adapter removed=20/24
+  output schema normalizer removed=20/24
+  conflict rebase removed=20/24
+  bounded compensation removed=20/24
+  all six leave-one-out deltas=-0.16666666666666663
+  validity.all_selected_checks_passed=true
+
+Reproducibility:
+  formal/repeat summary byte equality=PASS
+  formal/repeat 168 trace byte equality=PASS
+  summary SHA-256=3f50a01a0362121f5cf321b3ead1b13e2d9cb4730ec0ad1565d47a1faec911cd
+  source manifest SHA-256=3967661245fa7f8dee2813c578194b5ff91cdaf9cf6ba3379b53d77646fc601d
+  trace manifest SHA-256=f8b749bbda1b64c2a0dced1325a6e70ad1d3a1f43724a206543b0e1287c9a238
+  task catalog SHA-256=bec96e5cbbcded9eac96d3d1182f8c092fe539f9d73d0ccffa1a6a1eb6b4fad4
+
+Limits:
+  Deterministic scripted policy only; no LLM capability claim.
+  Mechanisms are removed one at a time; interaction effects are not identified.
+  The post-commit family requires both idempotency and state confirmation, so either removal loses the same four tasks.

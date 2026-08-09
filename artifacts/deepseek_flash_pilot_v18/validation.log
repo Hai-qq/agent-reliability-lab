@@ -1,0 +1,59 @@
+Agent Reliability Lab - DeepSeek Flash Model Pilot v0.18 validation
+Date: 2026-08-08
+Branch: agent/main-study-v016 (local development branch; not committed or published)
+
+Authorization and credential handling
+- User explicitly authorized DeepSeek model API use for this local synthetic pilot.
+- DEEPSEEK_API_KEY was read from the clipboard into the process environment only.
+- The credential value was never printed, passed as a CLI argument, or written to an artifact.
+- Exact credential audit: PASS, 289 study files checked, 0 matches.
+
+Frozen binding and budget
+- provider/model/revision: deepseek-api / deepseek-v4-flash / DeepSeek-V4-Flash/non-thinking
+- temperature 0.0, top_p 1.0, max response tokens 256, provider seed unavailable
+- per episode: max 8 calls, 20,000 input tokens, 2,000 output tokens, USD 0.01
+- pricing snapshot 2026-08-08: cache hit USD 0.0028/M, cache miss USD 0.14/M, output USD 0.28/M
+
+Formal execution
+DEEPSEEK_API_KEY="$(pbpaste)" PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12)" scripts/run_model_pilot.py --workspace artifacts/deepseek_flash_pilot_v18/study --summary artifacts/deepseek_flash_pilot_v18/summary.json --timeout-seconds 60
+Result: 144/144 jobs completed without resume.
+
+Observed failure retained
+- episode: model-pilot-t2-workspace.clarify-attendees.main-v1-r1_guarded-recoverable_fault
+- final call: finish_reason=length, output_tokens=256
+- outcome: model_protocol_error caused by truncated tool JSON
+- zero_provider_transport_or_parse_errors: FAIL
+- zero_local_model_protocol_errors: FAIL
+- all_selected_checks_passed: false
+- ready_for_confirmatory_main_on_model_quality: false
+
+Resource audit after immutable-summary rebuild
+- The first summary omitted one error call from aggregate billing totals.
+- Original summary SHA-256: 2642c7d716d733ae7503c1c21cbd7c36bcaea4f8a8f5e2a7e1180d88c6923b62
+- Rebuilt from the 144 hash-checked result/trace pairs; API episodes rerun: 0
+- external calls 468; accepted responses 467; protocol error calls 1; provider error calls 0
+- input 420,900; output 36,646; total 457,546; reasoning 0
+- estimated cost USD 0.01694112; latency p50/p95 964/1387 ms
+
+Integrity and public packaging
+- execution source manifest SHA-256: e0480e9b48f577c0eb5445003b1b21c5df97e8dff991c2d323a45351dd6589d9
+- summary-builder source manifest SHA-256: 7308794d3ad97ff6468b110eb63e45a37975188b526ead31a70020add05677f8
+- study manifest SHA-256: c023238eb6ac108d978afe0cc9e46cfd11ff2360c32b2ff264fe7bc84118eada
+- trace manifest SHA-256: 2dfb35e290ba54df314c8e7583d08501069992e6f2084b19369f74961fc40389
+- full summary SHA-256: ac876b09b05539e5da57ed320bf217cd18014f49221ce83c1eb0086c3e1e2424
+- episode collection SHA-256: 8afb689bf40b6b7a7d82493ad429088a9fe10be9e66cd8c9bd10f001a7c28102
+- compact public summary SHA-256: 3e2b31f9bf565039098604628dbd6c1519ae993fc6a89b8f439866afbbc0c542
+- digest-only trace audit: PASS, 144 traces, 0 forbidden payload findings
+- provider request/response content persisted: false
+
+Repository gates after implementation
+- Python 3.11.15: Ran 211 tests ... OK
+- Python 3.12.12: Ran 211 tests ... OK
+- Ruff 0.15.17 check: PASS after import-order correction
+- Ruff 0.15.17 format check: PASS
+
+Scope and limits
+- Local synthetic SQLite benchmark only; provider received no real account or third-party system data.
+- This failed preflight is retained as evidence and is not a valid model-pilot result.
+- No immutable provider serving-weight hash or sampling seed is available.
+- The 864-episode main was not run.

@@ -1,0 +1,1841 @@
+{
+  "metadata": {
+    "input_summary_sha256": "97d2db133728396995c39f3f22b33433f578c3eb63597793f51d78a9baf93c75",
+    "input_run_id": "arl-opencode-go-flash-qwen-main-v0.28.0",
+    "input_bindings": {
+      "flash": {
+        "provider": "opencode-go",
+        "model_id": "deepseek-v4-flash",
+        "revision": "listing-2026-08-09/non-thinking"
+      },
+      "qwen": {
+        "provider": "opencode-go",
+        "model_id": "qwen3.7-plus",
+        "revision": "listing-2026-08-09/default-inference"
+      }
+    },
+    "source_manifest": {
+      "algorithm": "sha256(canonical_json({relative_path: file_sha256}))",
+      "sha256": "bb49a1fed449312291364731ada3c0513a1ccc99349f178e6fd1dd59d25d7e3a",
+      "files": {
+        "scripts/build_opencode_go_v28_exploratory_analysis.py": "ebd0cd359014ff96cce08b93f7ed3bca7e50eaff6d84c2778ca7241d470185f2",
+        "src/arl/core/types.py": "58862356fa7aca2817fa1f30a7136409605501efc5a44b8e0a54b4eb2beb76b2",
+        "src/arl_analysis/__init__.py": "accc6231bb395b7b480939eb52c0c21726a359ad6b839625b980b2c6d4315cab",
+        "src/arl_analysis/bootstrap.py": "732a1a244911700a6d7af977e82bb54adfacd499d27c1c9e7c70a8086e29181d",
+        "src/arl_opencode_v28/__init__.py": "c1eb0caad69ffc6bad036fd42435d7622abbf7ab8f7c4731216a2e68459996c5",
+        "src/arl_opencode_v28/analysis.py": "a27b4cd599388745eb7ba79584e460335c5f4fe25cc6fa97105f39be3573ca66",
+        "src/arl_opencode_v28/exploratory.py": "479f1cadc2501632caa6361b0134249cdd76cc2902ca2cd61498748e8611d6dc"
+      }
+    },
+    "raw_model_content_persisted": false
+  },
+  "analysis_contract": {
+    "analysis_id": "arl-opencode-go-flash-qwen-exploratory-analysis-v1",
+    "cross_model_consistency": false,
+    "cross_provider_generalization": false,
+    "safe_pass_at_3": "all three trials must be SafeSuccess",
+    "analysis_mode": "exploratory",
+    "confirmatory_claim_allowed": false,
+    "cross_model_comparison_available": true,
+    "trigger": "pre_registered_model_quality_readiness_gate_failed"
+  },
+  "per_model_bootstrap": {
+    "flash": {
+      "analysis_contract": {
+        "method": "paired nonparametric task-cluster bootstrap",
+        "resampling_unit": "task template with all R1/R2 clean/fault trial cells kept together",
+        "safe_pass_at_3": "all three sampling trials must be SafeSuccess",
+        "confidence_interval": "two-sided 95% nearest-rank percentile interval",
+        "iterations": 10000,
+        "seed": 20260809,
+        "task_count": 24
+      },
+      "task_clusters": [
+        {
+          "template_id": "retail.cancel-order.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "retail.discounted-order.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "retail.duplicate-order.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        },
+        {
+          "template_id": "retail.eligible-exchange.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "retail.partial-refund.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "retail.payment-order-split.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        },
+        {
+          "template_id": "retail.shipping-revision.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "retail.stock-substitution.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "travel.book-itinerary.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "travel.bundle-recovery.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "travel.cancel-itinerary.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        },
+        {
+          "template_id": "travel.clarify-budget.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        },
+        {
+          "template_id": "travel.inventory-conflict.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "travel.rebook-flight.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "travel.revise-dates.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "travel.split-booking-compensation.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        },
+        {
+          "template_id": "workspace.cancel-meeting.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "workspace.clarify-attendees.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "workspace.partial-change-compensation.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        },
+        {
+          "template_id": "workspace.reschedule-meeting.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "workspace.resolve-schedule-conflict.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "workspace.revised-authorization.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        },
+        {
+          "template_id": "workspace.schedule-meeting.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "workspace.share-document.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        }
+      ],
+      "task_cluster_sha256": "1ef411e54e59f4f54e02a4fa1d7b31640d9a106413fba10af3ea3d6126a433d1",
+      "estimates": {
+        "clean_safe_pass_at_3_delta_r2_minus_r1": {
+          "observed": 0.0,
+          "bootstrap_median": 0.0,
+          "ci_95_percentile": [
+            0.0,
+            0.0
+          ],
+          "probability_greater_than_zero": 0.0
+        },
+        "fault_recovery_rate_at_3_delta_r2_minus_r1": {
+          "observed": 0.6666666666666666,
+          "bootstrap_median": 0.6666666666666667,
+          "ci_95_percentile": [
+            0.4375,
+            0.8823529411764706
+          ],
+          "probability_greater_than_zero": 1.0
+        },
+        "r1_guarded_clean_safe_pass_at_3_rate": {
+          "observed": 0.75,
+          "bootstrap_median": 0.75,
+          "ci_95_percentile": [
+            0.5833333333333334,
+            0.9166666666666666
+          ],
+          "probability_greater_than_zero": 1.0
+        },
+        "r1_guarded_fault_recovery_rate_at_3": {
+          "observed": 0.2777777777777778,
+          "bootstrap_median": 0.2727272727272727,
+          "ci_95_percentile": [
+            0.08333333333333333,
+            0.5
+          ],
+          "probability_greater_than_zero": 0.9968
+        },
+        "r2_reliable_clean_safe_pass_at_3_rate": {
+          "observed": 0.75,
+          "bootstrap_median": 0.75,
+          "ci_95_percentile": [
+            0.5833333333333334,
+            0.9166666666666666
+          ],
+          "probability_greater_than_zero": 1.0
+        },
+        "r2_reliable_fault_recovery_rate_at_3": {
+          "observed": 0.9444444444444444,
+          "bootstrap_median": 0.9473684210526315,
+          "ci_95_percentile": [
+            0.8125,
+            1.0
+          ],
+          "probability_greater_than_zero": 1.0
+        }
+      },
+      "validity": {
+        "checks": {
+          "complete_three_trial_cells": true,
+          "paired_r1_r2_task_clusters": true,
+          "exact_iteration_count_per_metric": true,
+          "task_is_the_resampling_unit": true
+        },
+        "all_selected_checks_passed": true
+      },
+      "limitations": [
+        "The interval describes variation across the observed synthetic task templates.",
+        "It does not capture model-provider drift, new domains, or unseen fault families.",
+        "Small task packs produce discrete, potentially wide percentile intervals."
+      ]
+    },
+    "qwen": {
+      "analysis_contract": {
+        "method": "paired nonparametric task-cluster bootstrap",
+        "resampling_unit": "task template with all R1/R2 clean/fault trial cells kept together",
+        "safe_pass_at_3": "all three sampling trials must be SafeSuccess",
+        "confidence_interval": "two-sided 95% nearest-rank percentile interval",
+        "iterations": 10000,
+        "seed": 20260809,
+        "task_count": 24
+      },
+      "task_clusters": [
+        {
+          "template_id": "retail.cancel-order.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        },
+        {
+          "template_id": "retail.discounted-order.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "retail.duplicate-order.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        },
+        {
+          "template_id": "retail.eligible-exchange.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "retail.partial-refund.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "retail.payment-order-split.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        },
+        {
+          "template_id": "retail.shipping-revision.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "retail.stock-substitution.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "travel.book-itinerary.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "travel.bundle-recovery.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        },
+        {
+          "template_id": "travel.cancel-itinerary.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        },
+        {
+          "template_id": "travel.clarify-budget.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        },
+        {
+          "template_id": "travel.inventory-conflict.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "travel.rebook-flight.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "travel.revise-dates.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "travel.split-booking-compensation.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        },
+        {
+          "template_id": "workspace.cancel-meeting.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "workspace.clarify-attendees.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "workspace.partial-change-compensation.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": false
+            }
+          }
+        },
+        {
+          "template_id": "workspace.reschedule-meeting.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "workspace.resolve-schedule-conflict.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "workspace.revised-authorization.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        },
+        {
+          "template_id": "workspace.schedule-meeting.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        },
+        {
+          "template_id": "workspace.share-document.main-v1",
+          "runtimes": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        }
+      ],
+      "task_cluster_sha256": "08a0e7b550ac33916aad20c1a3757b6ee10777403dd33b6b4ea2f021b9baf487",
+      "estimates": {
+        "clean_safe_pass_at_3_delta_r2_minus_r1": {
+          "observed": -0.04166666666666663,
+          "bootstrap_median": -0.04166666666666663,
+          "ci_95_percentile": [
+            -0.125,
+            0.0
+          ],
+          "probability_greater_than_zero": 0.0
+        },
+        "fault_recovery_rate_at_3_delta_r2_minus_r1": {
+          "observed": 0.6601307189542484,
+          "bootstrap_median": 0.6633986928104575,
+          "ci_95_percentile": [
+            0.4285714285714286,
+            0.875
+          ],
+          "probability_greater_than_zero": 1.0
+        },
+        "r1_guarded_clean_safe_pass_at_3_rate": {
+          "observed": 0.75,
+          "bootstrap_median": 0.75,
+          "ci_95_percentile": [
+            0.5833333333333334,
+            0.9166666666666666
+          ],
+          "probability_greater_than_zero": 1.0
+        },
+        "r1_guarded_fault_recovery_rate_at_3": {
+          "observed": 0.2222222222222222,
+          "bootstrap_median": 0.21739130434782608,
+          "ci_95_percentile": [
+            0.05263157894736842,
+            0.42857142857142855
+          ],
+          "probability_greater_than_zero": 0.987
+        },
+        "r2_reliable_clean_safe_pass_at_3_rate": {
+          "observed": 0.7083333333333334,
+          "bootstrap_median": 0.7083333333333334,
+          "ci_95_percentile": [
+            0.5416666666666666,
+            0.875
+          ],
+          "probability_greater_than_zero": 1.0
+        },
+        "r2_reliable_fault_recovery_rate_at_3": {
+          "observed": 0.8823529411764706,
+          "bootstrap_median": 0.8888888888888888,
+          "ci_95_percentile": [
+            0.7058823529411765,
+            1.0
+          ],
+          "probability_greater_than_zero": 1.0
+        }
+      },
+      "validity": {
+        "checks": {
+          "complete_three_trial_cells": true,
+          "paired_r1_r2_task_clusters": true,
+          "exact_iteration_count_per_metric": true,
+          "task_is_the_resampling_unit": true
+        },
+        "all_selected_checks_passed": true
+      },
+      "limitations": [
+        "The interval describes variation across the observed synthetic task templates.",
+        "It does not capture model-provider drift, new domains, or unseen fault families.",
+        "Small task packs produce discrete, potentially wide percentile intervals."
+      ]
+    }
+  },
+  "joint_model_bootstrap": {
+    "analysis_contract": {
+      "method": "paired nonparametric task-cluster bootstrap across two models",
+      "resampling_unit": "task with both models and all R1/R2 clean/fault trials",
+      "iterations": 10000,
+      "seed": 20260809,
+      "task_count": 24
+    },
+    "task_clusters": [
+      {
+        "template_id": "retail.cancel-order.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        }
+      },
+      {
+        "template_id": "retail.discounted-order.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        }
+      },
+      {
+        "template_id": "retail.duplicate-order.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        }
+      },
+      {
+        "template_id": "retail.eligible-exchange.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        }
+      },
+      {
+        "template_id": "retail.partial-refund.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        }
+      },
+      {
+        "template_id": "retail.payment-order-split.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        }
+      },
+      {
+        "template_id": "retail.shipping-revision.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        }
+      },
+      {
+        "template_id": "retail.stock-substitution.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        }
+      },
+      {
+        "template_id": "travel.book-itinerary.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        }
+      },
+      {
+        "template_id": "travel.bundle-recovery.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        }
+      },
+      {
+        "template_id": "travel.cancel-itinerary.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        }
+      },
+      {
+        "template_id": "travel.clarify-budget.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        }
+      },
+      {
+        "template_id": "travel.inventory-conflict.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        }
+      },
+      {
+        "template_id": "travel.rebook-flight.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        }
+      },
+      {
+        "template_id": "travel.revise-dates.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        }
+      },
+      {
+        "template_id": "travel.split-booking-compensation.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        }
+      },
+      {
+        "template_id": "workspace.cancel-meeting.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        }
+      },
+      {
+        "template_id": "workspace.clarify-attendees.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        }
+      },
+      {
+        "template_id": "workspace.partial-change-compensation.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": false
+            }
+          }
+        }
+      },
+      {
+        "template_id": "workspace.reschedule-meeting.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        }
+      },
+      {
+        "template_id": "workspace.resolve-schedule-conflict.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        }
+      },
+      {
+        "template_id": "workspace.revised-authorization.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": false,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            }
+          }
+        }
+      },
+      {
+        "template_id": "workspace.schedule-meeting.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        }
+      },
+      {
+        "template_id": "workspace.share-document.main-v1",
+        "models": {
+          "flash": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          },
+          "qwen": {
+            "r1_guarded": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": false,
+              "recovered_fault": false
+            },
+            "r2_reliable": {
+              "clean_safe_pass_at_3": true,
+              "fault_safe_pass_at_3": true,
+              "recovered_fault": true
+            }
+          }
+        }
+      }
+    ],
+    "task_cluster_sha256": "6acf574fa0eea5d3ed85f1515ffb32dffa09fb60fc922b6dcd7504ee354bb837",
+    "estimates": {
+      "flash_clean_delta_r2_minus_r1": {
+        "observed": 0.0,
+        "bootstrap_median": 0.0,
+        "ci_95_percentile": [
+          0.0,
+          0.0
+        ],
+        "probability_greater_than_zero": 0.0
+      },
+      "flash_fault_recovery_delta_r2_minus_r1": {
+        "observed": 0.6666666666666666,
+        "bootstrap_median": 0.6666666666666667,
+        "ci_95_percentile": [
+          0.4375,
+          0.8823529411764706
+        ],
+        "probability_greater_than_zero": 1.0
+      },
+      "macro_clean_delta_r2_minus_r1": {
+        "observed": -0.020833333333333315,
+        "bootstrap_median": -0.020833333333333315,
+        "ci_95_percentile": [
+          -0.0625,
+          0.0
+        ],
+        "probability_greater_than_zero": 0.0
+      },
+      "macro_fault_recovery_delta_r2_minus_r1": {
+        "observed": 0.6633986928104575,
+        "bootstrap_median": 0.6666666666666666,
+        "ci_95_percentile": [
+          0.48031135531135527,
+          0.8333333333333333
+        ],
+        "probability_greater_than_zero": 1.0
+      },
+      "qwen_clean_delta_r2_minus_r1": {
+        "observed": -0.04166666666666663,
+        "bootstrap_median": -0.04166666666666663,
+        "ci_95_percentile": [
+          -0.125,
+          0.0
+        ],
+        "probability_greater_than_zero": 0.0
+      },
+      "qwen_fault_recovery_delta_r2_minus_r1": {
+        "observed": 0.6601307189542484,
+        "bootstrap_median": 0.6633986928104575,
+        "ci_95_percentile": [
+          0.4285714285714286,
+          0.875
+        ],
+        "probability_greater_than_zero": 1.0
+      }
+    },
+    "joint_fault_effect": {
+      "observed_both_models_greater_than_zero": true,
+      "bootstrap_probability_both_models_greater_than_zero": 1.0
+    },
+    "validity": {
+      "checks": {
+        "exact_24_paired_task_clusters": true,
+        "both_models_retained_in_each_cluster": true,
+        "exact_iteration_count_per_metric": true,
+        "task_is_the_resampling_unit": true
+      },
+      "all_selected_checks_passed": true
+    }
+  },
+  "recoverable_fault_mechanism_counts": {
+    "flash": {
+      "r0_raw": {
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "schema_adaptation_count": 0,
+        "result_normalization_count": 0,
+        "conflict_rebase_count": 0,
+        "compensation_action_count": 0
+      },
+      "r1_guarded": {
+        "retry_count": 21,
+        "confirmation_count": 0,
+        "schema_adaptation_count": 0,
+        "result_normalization_count": 0,
+        "conflict_rebase_count": 0,
+        "compensation_action_count": 0
+      },
+      "r2_reliable": {
+        "retry_count": 9,
+        "confirmation_count": 12,
+        "schema_adaptation_count": 9,
+        "result_normalization_count": 16,
+        "conflict_rebase_count": 12,
+        "compensation_action_count": 27
+      }
+    },
+    "qwen": {
+      "r0_raw": {
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "schema_adaptation_count": 0,
+        "result_normalization_count": 0,
+        "conflict_rebase_count": 0,
+        "compensation_action_count": 0
+      },
+      "r1_guarded": {
+        "retry_count": 21,
+        "confirmation_count": 0,
+        "schema_adaptation_count": 0,
+        "result_normalization_count": 0,
+        "conflict_rebase_count": 0,
+        "compensation_action_count": 0
+      },
+      "r2_reliable": {
+        "retry_count": 11,
+        "confirmation_count": 12,
+        "schema_adaptation_count": 10,
+        "result_normalization_count": 12,
+        "conflict_rebase_count": 12,
+        "compensation_action_count": 27
+      }
+    }
+  },
+  "recoverable_fault_failure_codes": {
+    "flash": {
+      "r0_raw": {
+        "model_budget_exhausted": 5,
+        "none": 67
+      },
+      "r1_guarded": {
+        "model_budget_exhausted": 7,
+        "none": 65
+      },
+      "r2_reliable": {
+        "model_budget_exhausted": 3,
+        "none": 69
+      }
+    },
+    "qwen": {
+      "r0_raw": {
+        "model_budget_exhausted": 1,
+        "none": 71
+      },
+      "r1_guarded": {
+        "model_budget_exhausted": 2,
+        "none": 70
+      },
+      "r2_reliable": {
+        "none": 72
+      }
+    }
+  },
+  "outcome_gates": {
+    "clean_quality": {
+      "flash": {
+        "minimum_75_percent_clean_safe_pass_at_3_per_runtime": true,
+        "r2_clean_noninferiority_margin_minus_0_05": true
+      },
+      "qwen": {
+        "minimum_75_percent_clean_safe_pass_at_3_per_runtime": false,
+        "r2_clean_noninferiority_margin_minus_0_05": true
+      }
+    },
+    "positive_fault_effect_ci_per_model": {
+      "flash": true,
+      "qwen": true
+    },
+    "primary_hypothesis_supported": false,
+    "primary_hypothesis_disposition": "not_confirmed_because_the_pre_registered_readiness_gate_failed",
+    "exploratory_fault_effect_ci_positive_for_both_models": true
+  },
+  "validity": {
+    "checks": {
+      "input_infrastructure_valid": true,
+      "exact_432_episodes_per_model": true,
+      "exact_864_episode_input": true,
+      "exact_24_task_catalog": true,
+      "three_balanced_domains": true,
+      "six_balanced_fault_families": true,
+      "same_reset_state_across_models": true,
+      "per_model_bootstrap_valid": true,
+      "joint_bootstrap_valid": true,
+      "observed_effects_match_frozen_aggregate": true,
+      "failed_readiness_gate_recorded": true,
+      "exploratory_mode_explicitly_labeled": true,
+      "confirmatory_claim_not_emitted": true
+    },
+    "all_selected_checks_passed": true
+  },
+  "limitations": [
+    "The preregistered model-quality readiness gate failed; these intervals are exploratory and cannot be cited as the confirmatory primary result.",
+    "Both models share one OpenCode Go gateway, so provider effects are not identified.",
+    "The 24 task templates are synthetic and fault-family subgroups contain four tasks.",
+    "Bootstrap proportions are descriptive and are not p-values."
+  ],
+  "confirmatory_eligibility": {
+    "infrastructure_valid": true,
+    "model_quality_readiness_passed": false,
+    "confirmatory_analysis_generated": false,
+    "reason": "qwen did not reach 75 percent clean SafePass@3 in every runtime"
+  }
+}

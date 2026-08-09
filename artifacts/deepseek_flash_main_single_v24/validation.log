@@ -1,0 +1,79 @@
+Agent Reliability Lab - DeepSeek Flash 24-Task Single-Slot Study v0.24
+Date: 2026-08-08
+Scope: authorized provider call with project-owned synthetic payload only; one exact model slot
+Python: 3.12.12
+Model binding: deepseek-api/deepseek-v4-flash/DeepSeek-V4-Flash/non-thinking
+Sampling: temperature=0, top_p=1, response cap=512, provider seed unavailable
+Per-episode hard budgets: calls=8, input_tokens=20000, output_tokens=2000, estimated_cost_usd=0.01
+
+Formal command (credential supplied only through process environment):
+  env DEEPSEEK_API_KEY="${DEEPSEEK_API_KEY:?set in current shell}" PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python scripts/run_main_single_slot.py --workspace artifacts/deepseek_flash_main_single_v24/study --summary artifacts/deepseek_flash_main_single_v24/full-summary.json --timeout-seconds 60
+
+Public compact summary command:
+  env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python scripts/compact_model_pilot_summary.py --input artifacts/deepseek_flash_main_single_v24/full-summary.json --output artifacts/deepseek_flash_main_single_v24/summary.json
+
+Analysis command:
+  env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python scripts/build_main_single_slot_analysis.py --input artifacts/deepseek_flash_main_single_v24/full-summary.json --output artifacts/deepseek_flash_main_single_v24/analysis.json --iterations 10000 --seed 20260808
+
+Observed execution:
+  episodes=432/432; tasks=24; sampling_trials=3
+  external/model calls=1684/1684
+  input tokens=1614032; cache-hit=1500800; cache-miss=113232
+  output tokens=156207; reasoning tokens=0; total tokens=1770239
+  estimated cost USD=0.06379268000000014
+  latency p50/p95=1185/1899 ms
+  provider errors=0; local model protocol errors=0
+  system fingerprint=fp_a18b46594c_prod0820_fp8_kvcache_20260402
+  max episode calls/input/output/cost=8/10637/1335/0.0005107368
+  validity checks=14/14 PASS
+
+SafePass@3 and matched recovery:
+  R0 clean=18/24; fault=8/24; recovered=8/18 (0.4444444444444444)
+  R1 clean=18/24; fault=5/24; recovered=5/18 (0.2777777777777778)
+  R2 clean=18/24; fault=17/24; recovered=17/18 (0.9444444444444444)
+  R2-R1 fault recovery delta=0.6666666666666666
+  R2-R1 clean SafePass@3 delta=0.0
+
+Paired task-cluster bootstrap:
+  iterations=10000; seed=20260808; task_count=24
+  R2-R1 fault delta observed=0.6666666666666666
+  95% percentile interval=[0.4444444444444444, 0.8823529411764706]
+  descriptive probability(delta>0)=1.0; this is not a p-value
+  clean delta observed=0.0; 95% percentile interval=[0.0, 0.0]
+
+Evidence hashes:
+  full summary bytes=4222913
+  full summary SHA-256=962a73f1369c09707dc0be7cc516c20bcd548625c47caed0b9d8af3656aa262f
+  public summary bytes=87044
+  public summary SHA-256=9931a76f94445ed6645d332ede4e592433347734d3bc5b3d0c6edf9a942a2e12
+  episode set SHA-256=1ae0f32f2c8667f62d03c285c13fdba733281d444d299e2a74822ac78d61e070
+  study manifest SHA-256=93fd34741c2d78856c2df178948941a4691e5d08905bd75d30c4a33639d04508
+  study state SHA-256=8737c83c82fac4cac7962947fe78f38fb0b04240b2372bdb076b9872a66e8580
+  execution source manifest SHA-256=60bdd5ec898a3d0636abe6cece2f93a5f2e2786e39026afbf507661859da3f70
+  trace manifest SHA-256=f1b3362de1503e8eb75fcece0b6ee652054cfe0161500c9ee27c365ac786ddd7
+  analysis bytes=42177
+  analysis SHA-256=2e4b08e3b0b4f534a1e30e553b9ed2b08ac7d18a9f59d249f40c4a6e2f36b372
+  analysis source manifest SHA-256=e91694df7191b3bae280cf4ab04ad6044684f55b1456d48fadcd251a89eafc7e
+  task rows SHA-256=12deebac1925271b13b3c18fa14026e0cf5f61427ec981f705873ecd3b9ab52a
+  task clusters SHA-256=1ef411e54e59f4f54e02a4fa1d7b31640d9a106413fba10af3ea3d6126a433d1
+
+Credential and data audit:
+  exact credential match files=[]; PASS
+  digest-only trace count=432; forbidden payload findings={}; PASS
+  provider request/response content persisted=false
+
+Repository validation:
+  Python 3.11.15: Ran 232 tests; OK
+  Python 3.12.12: Ran 232 tests; OK
+  Ruff 0.15.17 check: PASS
+  Ruff 0.15.17 format check: 202 files already formatted
+  exact clipboard credential scan: 5919 workspace files; 0 matches; PASS
+  public Git candidate: 684 files; files over 1 MiB=[]; PASS
+  relative Markdown links: 317 checked; missing=[]; PASS
+  git diff --check: PASS
+
+Limits:
+  This is one exact model binding, not the two-model 864-episode main study.
+  Six tasks are not clean-capable at SafePass@3 for any runtime.
+  Provider offers no sampling seed or immutable serving-weight hash.
+  Cost is an audit estimate from the frozen 2026-08-08 price schedule, not a bill.

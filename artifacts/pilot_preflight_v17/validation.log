@@ -1,0 +1,83 @@
+Agent Reliability Lab - Pilot Preflight v0.17 validation
+Date: 2026-08-08
+Branch: agent/main-study-v016
+
+Runtime versions
+- Python 3.12.12 / SQLite 3.50.4 (formal and repeat artifacts)
+- Python 3.11.15 / SQLite 3.50.4 (compatibility test suite)
+- Ruff 0.15.17
+- Runtime dependencies: Python standard library only
+
+Formal command
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12)" scripts/run_pilot_preflight.py --output artifacts/pilot_preflight_v17/summary.json --traces-dir artifacts/pilot_preflight_v17/traces
+Result: Wrote 48 scripted preflight episodes, 48 traces, and artifacts/pilot_preflight_v17/summary.json
+
+Independent repeat
+- Ran the same command against artifacts/pilot_preflight_v17_repeat.
+- formal/repeat summary.json cmp: PASS
+- formal/repeat trace cmp: PASS (48/48 identical)
+
+Determinism and integrity
+- summary SHA-256: 3976f4ab9cbce28a430d7834cd712a0fe434bfd61c73d8a3af6b2cdeb2822fd4
+- trace manifest SHA-256: b15c2c4c6a9ec0a5acb0ff2d78add0956e59ccf2ab24aad3462a2bab7f8adf92
+- source manifest: 21 files
+- source manifest SHA-256: 47c68e987ff5cd1ad5d13ff203e5965d0be503f143d3ed735b30d2eccd5e707a
+- pilot catalog SHA-256: 3019dbeb2d1bf7950cf1b4ee8da1d10655ff9e076bcc6d00c7b0080807733ad9
+
+Task and fault pack
+- 8 unique runnable tasks: Workspace 3, Retail 3, Travel 2
+- all 6 recoverable fault families represented
+- v0.16 source blueprint status: 5 existing_core + 3 planned
+- v0.17 pilot status: all 8 implemented with visible task contract, oracle, fault, evaluator and model tool definitions
+- every clean/fault reset pair has the same initial state hash
+- every faulted episode observes exactly its one registered fault ID
+
+Matrix and outcomes
+- matrix: 8 tasks x 1 environment seed x 2 conditions x 3 runtimes = 48 episodes
+- clean SafeSuccess: R0 8/8, R1 8/8, R2 8/8
+- recoverable-fault SafeSuccess: R0 0/8, R1 1/8, R2 8/8
+- RecoveryRate: R0 0.000, R1 0.125, R2 1.000
+- fault RecoveryRate delta R2-R1: 0.875
+- post-commit confirmations: 3
+- retryable invocation retries: 2 (R1 1 + R2 1)
+- input schema adaptations: 1
+- output schema normalizations: 1
+- compatible conflict rebases: 1
+- bounded compensation actions: 3
+- all_selected_checks_passed: true
+
+Validity gates
+- exact matrix and policy digest parity: PASS
+- do-nothing rejection: 8/8
+- required final-state mutation detection: all mutated fields rejected
+- R0 reliability-mechanism ownership: 0 uses
+- pilot model stage remains fail closed without an exact binding: PASS
+- digest-only trace audit: PASS
+- provider-neutral ModelAgent compatibility: PASS with an in-memory fake structured backend only
+
+Tests and static checks
+- Python 3.12.12: Ran 200 tests ... OK
+- Python 3.11.15: Ran 200 tests ... OK
+- ruff check src scripts tests: PASS
+- ruff format --check src scripts tests: PASS
+
+Digest-only gate
+- JSONL files checked: 48
+- "arguments": 0
+- "visible_task": 0
+- @synthetic.invalid: 0
+- person-alex: 0
+- order-main: 0
+- flight-main: 0
+
+Overwrite refusal
+Command repeated against the formal output.
+Exit: 1
+Output: Refusing to overwrite output: artifacts/pilot_preflight_v17/summary.json
+
+Scope and limits
+- Local synthetic SQLite state only; no real system, account, credential, model download, API or external network use.
+- Formal/repeat artifacts use a deterministic reactive oracle and make 0 model calls.
+- One fixed environment seed and no sampling trials; this is not the 144-episode model pilot.
+- Three formerly planned blueprints now have v0.17 fixtures, but 16 of the 24 main-study templates remain unimplemented.
+- Human task-card review, exact provider/model binding, cost budget, three model trials and bootstrap confidence intervals remain pending.

@@ -1,0 +1,60 @@
+Agent Reliability Lab - DeepSeek Flash Model Pilot v0.19 validation
+Date: 2026-08-08
+Branch: agent/main-study-v016 (local development branch; not committed or published)
+
+Authorization and credential handling
+- User explicitly authorized DeepSeek model API use for this local synthetic pilot.
+- DEEPSEEK_API_KEY was read from the clipboard into the process environment only.
+- The credential value was never printed, passed as a CLI argument, or written to an artifact.
+- Exact credential audit: PASS, 289 study files checked, 0 matches.
+
+Frozen binding and budget
+- provider/model/revision: deepseek-api / deepseek-v4-flash / DeepSeek-V4-Flash/non-thinking
+- temperature 0.0, top_p 1.0, max response tokens 512, provider seed unavailable
+- per episode: max 8 calls, 20,000 input tokens, 2,000 output tokens, USD 0.01
+- pricing snapshot 2026-08-08: cache hit USD 0.0028/M, cache miss USD 0.14/M, output USD 0.28/M
+
+Formal execution
+DEEPSEEK_API_KEY="$(pbpaste)" PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12)" scripts/run_model_pilot.py --workspace artifacts/deepseek_flash_pilot_v19/study --summary artifacts/deepseek_flash_pilot_v19/summary.json --timeout-seconds 60
+Result: 144/144 jobs completed in a fresh workspace; no v0.18 result was reused and resume_used=false.
+
+Matrix and outcomes
+- 8 tasks x 1 environment seed x 2 conditions x 3 runtimes x 1 model x 3 trials = 144 episodes
+- clean SafePass@3: R0 8/8, R1 8/8, R2 8/8
+- recoverable-fault SafePass@3: R0 3/8, R1 1/8, R2 8/8
+- fault recovery delta R2-R1: +0.875
+- clean SafePass@3 delta R2-R1: 0.0
+- all_selected_checks_passed: true
+- ready_for_confirmatory_main_on_model_quality: true
+
+Provider and resource audit
+- external/model calls 472/472; accepted responses 472
+- provider errors 0; local model protocol errors 0
+- input 428,517; cache hit 394,112; cache miss 34,405
+- output 37,626; total 466,143; reasoning 0
+- estimated cost USD 0.0164554936; latency p50/p95 968/1388 ms
+- system fingerprint: fp_a18b46594c_prod0820_fp8_kvcache_20260402
+- digest-only trace audit: PASS, 144 traces, 0 forbidden payload findings
+- provider request/response content persisted: false
+
+Integrity and public packaging
+- source manifest SHA-256: 7308794d3ad97ff6468b110eb63e45a37975188b526ead31a70020add05677f8
+- study manifest SHA-256: 02c5cd1f14b814f1a0ccdafd29947d0c7fb1a3094604ff10e5882a4d6a50851f
+- trace manifest SHA-256: d83cde5d1cbbca4510f598e3dbf84e39fee62f863be67fb6c949a92d09f5982d
+- full summary SHA-256: 3e3d89cfdce912b400ff987d89616779ecc2563f223c1359cf34dc29e67b07a1
+- episode collection SHA-256: d01c7e8431c51fe167f069721fe19764b8b648694cd8be87572577091e851b00
+- compact public summary SHA-256: f265eb542d3250473feaf5d0774db1804627d84dbd418ee7fa61062b72b2af9e
+- compact public summary size: 37,705 bytes
+
+Repository gates after implementation
+- Python 3.11.15: Ran 211 tests ... OK
+- Python 3.12.12: Ran 211 tests ... OK
+- Ruff 0.15.17 check: PASS after import-order correction
+- Ruff 0.15.17 format check: PASS
+
+Scope and limits
+- Local synthetic SQLite benchmark only; provider received no real account or third-party system data.
+- Three repeated calls at temperature 0 are not seeded deterministic samples.
+- One service-bound model and one environment seed do not establish a cross-model main result.
+- Model-quality readiness passed, but 16 task fixtures and the second exact model binding remain missing.
+- The 864-episode confirmatory main was not run.
