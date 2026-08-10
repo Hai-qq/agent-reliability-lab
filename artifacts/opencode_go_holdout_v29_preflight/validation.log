@@ -1,0 +1,45 @@
+Prospective Holdout v0.29 preflight validation
+Date: 2026-08-09
+Disposition: PASSED; READY FOR PROVIDER PROBE
+
+Command
+ARL_PYTHON="$(uv python find 3.12)"
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/run_holdout_v29_preflight.py \
+  --output artifacts/opencode_go_holdout_v29_preflight/full-summary.json \
+  --traces-dir artifacts/opencode_go_holdout_v29_preflight/traces
+
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/compact_model_pilot_summary.py \
+  --input artifacts/opencode_go_holdout_v29_preflight/full-summary.json \
+  --output artifacts/opencode_go_holdout_v29_preflight/summary.json
+
+Result
+- Python: 3.12.12
+- formula: 24 tasks x 3 seeds x 3 runtimes x 2 conditions = 432
+- episodes: 432/432
+- selected validity checks: 16/16 passed
+- clean SafeSuccess: 216/216
+- R0/R1/R2 fault SafeSuccess: 0/72, 12/72, 72/72
+- task-seed reset identities: 72/72 unique across the frozen cells
+- do-nothing and evaluator mutation gates: all weak solutions rejected
+- model calls / external network calls: 0 / 0
+- ready_for_provider_probe: true
+
+Evidence integrity
+- source manifest: 51 files; sha256
+  d2b413603354baf07e1c08932b0cb12070fafe77f609f232016636e095ffbf20
+- trace manifest: 432 files; sha256
+  9372023c550ebca722bc4d17aff0ef37ba666cb7502f06e0e1bfb0f161d9ba28
+- full summary: 1,447,687 bytes; local ignored evidence; sha256
+  df2ca5f4e55cfd790b83a47d51442c91b0f8c4978abbf01fb5ffb663806c1d0d
+- compact summary sha256
+  c9571532b73129a9bf81fe0e42d45a761fb22d58d30e3e91997e2b7468f625ca
+- provider content persisted: false
+
+Rejected-chain disclosure
+- An earlier local-only chain was invalidated because its trace audit treated
+  public task/tool identifiers as forbidden hidden payload.
+- The rejected probe and canary were not reused.
+- The audit was corrected before the 51-file source manifest was frozen, then
+  the preflight, probe, canary, and formal stages were rerun from new paths.

@@ -3,15 +3,15 @@
 ## 环境
 
 - macOS arm64
-- Python `3.12.12`（v0.7–v0.28 正式/候选 artifact；v0.1–v0.6 历史 artifact 使用 `3.12.2`）
-- Python SQLite runtime `3.50.4`（v0.7–v0.28）
+- Python `3.12.12`（v0.7–v0.28 正式 artifact 与 v0.29 scripted preflight；v0.29 provider formal 记录为 `3.12.13`；v0.1–v0.6 历史 artifact 使用 `3.12.2`）
+- Python SQLite runtime `3.50.4`（v0.7–v0.28 与 v0.29 scripted preflight；v0.29 provider formal 只冻结解释器版本，没有单列 SQLite 版本）
 - Ruff `0.15.17`
-- 根 project 保持 `0.3.0` 以保留 v0.3 manifest；v0.4–v0.28 使用独立包和源码/结果 manifest
+- 根 project 保持 `0.3.0` 以保留 v0.3 manifest；v0.4–v0.29 使用独立包和源码/结果 manifest
 - 第三方 Python runtime dependencies：无
 
 代码只使用 Python 标准库。`pyproject.toml` 声明 `requires-python >= 3.11`；每个正式 artifact 的精确解释器版本保存在自身 `summary.json` 与 `validation.log`。
 
-当前开发分支以 Python `3.11.15` 和 `3.12.12` 各运行 259 tests，全部通过；Ruff 0.15.17 check/format check 通过。v0.16–v0.24、v0.27 与 v0.28 正式实验 JSON以及 v0.25/v0.28 canary 使用固定的 Python 3.12.12 环境。v0.15 发布冻结时的 173-test、v0.16 初次验收时的 187-test 与 v0.17 验收时的 200-test 结果仍保存在各自 validation log 中。
+当前开发分支以 Python `3.11.15` 和 `3.12.12` 各运行 267 tests，全部通过；Ruff 0.15.17 check/format check 通过。v0.16–v0.24、v0.27、v0.28 正式实验 JSON、v0.29 scripted preflight 以及 v0.25/v0.28 canary 使用 Python 3.12.12；v0.29 provider formal 自身记录为 Python 3.12.13。v0.15 发布冻结时的 173-test、v0.16 初次验收时的 187-test 与 v0.17 验收时的 200-test 结果仍保存在各自 validation log 中。
 
 ## 运行测试
 
@@ -34,7 +34,7 @@ ruff check src scripts tests
 ruff format --check src scripts tests
 ```
 
-公开 clone 不包含被 `.gitignore` 排除的完整 v0.10–v0.13 树；上述条件分支会先从四个确定性 bundle 恢复并校验它们。本地完整树已存在时不重复恢复。当前开发分支在 Python 3.11/3.12 均实测 `Ran 259 tests ... OK`，Ruff check/format check 均通过。历史增量的当时测试数和解释器版本保留在各自 `validation.log` 中。
+公开 clone 不包含被 `.gitignore` 排除的完整 v0.10–v0.13 树；上述条件分支会先从四个确定性 bundle 恢复并校验它们。本地完整树已存在时不重复恢复。当前开发分支在 Python 3.11/3.12 均实测 `Ran 267 tests ... OK`，Ruff check/format check 均通过。历史增量的当时测试数和解释器版本保留在各自 `validation.log` 中。
 
 ## 运行 v0.1 配对实验
 
@@ -951,10 +951,113 @@ env PYTHONPATH="$ARL_PROJECT/src" PYTHONDONTWRITEBYTECODE=1 \
 
 实测 protocol probe、12-job canary 和 864-job formal 均完成；18 项 infrastructure validity 全过，0 unrecovered provider/protocol errors，唯一一次 Flash HTTP 503 经预注册 retry 恢复。Flash/Qwen clean `SafePass@3` 的 R0/R1/R2 分别为 18/18/18 与 17/18/17；R2−R1 matched fault-recovery 增量分别为 `+0.667` 与 `+0.660`，探索性 95% task-bootstrap CI 为 `[0.438, 0.882]` 与 `[0.429, 0.875]`。完整处置、hash 与限制见 [v0.28 结果](./opencode-go-main-v28.md) 和 [validation log](../artifacts/opencode_go_flash_qwen_v28/validation.log)。不能在观察结果后静默换模型或把探索性区间写成确认性结论。
 
+## v0.29 三种子 independent holdout
+
+v0.29 不选择性重跑 v0.28 失败任务。它冻结 24 个新 task ID/request 和三个
+data seed，并继续使用相同 tool schema、runtime、evaluator、模型 binding 与预算。
+完整证据链按以下顺序运行：
+
+```bash
+ARL_PYTHON="$(uv python find 3.12)"
+
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 \
+  "$ARL_PYTHON" scripts/run_holdout_v29_preflight.py \
+  --output artifacts/opencode_go_holdout_v29_preflight/full-summary.json \
+  --traces-dir artifacts/opencode_go_holdout_v29_preflight/traces
+
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 \
+  "$ARL_PYTHON" scripts/compact_model_pilot_summary.py \
+  --input artifacts/opencode_go_holdout_v29_preflight/full-summary.json \
+  --output artifacts/opencode_go_holdout_v29_preflight/summary.json
+```
+
+最终零模型 gate 实测 432/432 episodes 与 16/16 checks 通过；source manifest 为
+`d2b413603354baf07e1c08932b0cb12070fafe77f609f232016636e095ffbf20`。
+Provider 阶段继续使用相同 source hash：
+
+```bash
+env OPENCODE_GO_API_KEY="${OPENCODE_GO_API_KEY:?set in current process}" \
+  PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 \
+  "$ARL_PYTHON" scripts/probe_opencode_go_v29.py \
+  --preflight-summary artifacts/opencode_go_holdout_v29_preflight/full-summary.json \
+  --output artifacts/opencode_go_holdout_v29_probe/probe.json \
+  --timeout-seconds 120
+
+env OPENCODE_GO_API_KEY="${OPENCODE_GO_API_KEY:?set in current process}" \
+  PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 \
+  "$ARL_PYTHON" scripts/run_opencode_go_v29.py --stage canary \
+  --preflight-summary artifacts/opencode_go_holdout_v29_preflight/full-summary.json \
+  --protocol-probe artifacts/opencode_go_holdout_v29_probe/probe.json \
+  --workspace artifacts/opencode_go_holdout_v29_canary/study \
+  --summary artifacts/opencode_go_holdout_v29_canary/full-summary.json \
+  --timeout-seconds 120
+
+env OPENCODE_GO_API_KEY="${OPENCODE_GO_API_KEY:?set in current process}" \
+  PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 \
+  "$ARL_PYTHON" scripts/run_opencode_go_v29.py --stage formal \
+  --preflight-summary artifacts/opencode_go_holdout_v29_preflight/full-summary.json \
+  --protocol-probe artifacts/opencode_go_holdout_v29_probe/probe.json \
+  --canary-summary artifacts/opencode_go_holdout_v29_canary/full-summary.json \
+  --workspace artifacts/opencode_go_holdout_v29/study \
+  --summary artifacts/opencode_go_holdout_v29/full-summary.json \
+  --timeout-seconds 120
+```
+
+Formal 算式是 `24 × 3 × 2 × 3 × 3 × 2 = 2,592`。中断后只允许对相同
+workspace、参数和 manifest 使用 `--resume`：
+
+```bash
+env OPENCODE_GO_API_KEY="${OPENCODE_GO_API_KEY:?set in current process}" \
+  PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 \
+  "$ARL_PYTHON" scripts/run_opencode_go_v29.py --stage formal --resume \
+  --preflight-summary artifacts/opencode_go_holdout_v29_preflight/full-summary.json \
+  --protocol-probe artifacts/opencode_go_holdout_v29_probe/probe.json \
+  --canary-summary artifacts/opencode_go_holdout_v29_canary/full-summary.json \
+  --workspace artifacts/opencode_go_holdout_v29/study \
+  --summary artifacts/opencode_go_holdout_v29/full-summary.json \
+  --timeout-seconds 120
+```
+
+实测结果：
+
+- probe：4 次逻辑调用、4 次网络尝试、0 retry，passed=true；
+- canary：36/36，infrastructure validity=true，formal readiness=true；
+- formal：2,592/2,592，经 2,322 个既有结果后的 checkpoint resume 完成；
+- 10,402 logical calls、10,422 network attempts、18 retries；
+- 11,622,114 total tokens，usage-value estimate USD 4.1171332752；
+- 两个 Qwen episode 在 bounded retry 后仍为 HTTP 503；四个 Qwen episode
+  超过冻结的 USD 0.01 usage-value cap；
+- infrastructure validity=false，Qwen 三 seed clean readiness=false；
+- Flash/Qwen R2−R1 matched fault-recovery point estimate 为 `+0.6897`/
+  `+0.6847`，只作描述性诊断。
+
+确认性与探索性 builder 都先检查 infrastructure validity：
+
+```bash
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/build_opencode_go_v29_analysis.py \
+  --input artifacts/opencode_go_holdout_v29/full-summary.json \
+  --output artifacts/opencode_go_holdout_v29/analysis.json \
+  --iterations 10000 --seed 20260810
+
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/build_opencode_go_v29_exploratory_analysis.py \
+  --input artifacts/opencode_go_holdout_v29/full-summary.json \
+  --output artifacts/opencode_go_holdout_v29/exploratory-analysis.json \
+  --iterations 10000 --seed 20260810
+```
+
+两条命令均按设计非零退出并报告
+`RuntimeError: v0.29 analysis requires infrastructure-valid input`，没有生成分析文件。
+完整处置、逐 seed readiness、失败 episode、恢复审计和哈希见
+[v0.29 holdout](./opencode-go-holdout-v29.md) 与
+[validation log](../artifacts/opencode_go_holdout_v29/validation.log)。后续不得通过
+选择性重跑、删除错误记录、调整预算或降低门槛把这次运行改写为有效。
+
 ## 安全边界
 
 - 所有 benchmark world 都不读取真实账户、浏览器会话、真实网络目标或第三方业务系统；
-- v0.1–v0.17、v0.20/v0.21 scripted 路径不需要 API key；v0.18、v0.19、v0.24/v0.25 使用单独授权的 `DEEPSEEK_API_KEY`，v0.27/v0.28 使用单独授权的 `OPENCODE_GO_API_KEY`，并只发送本项目合成 payload；
+- v0.1–v0.17、v0.20/v0.21 与 v0.29 preflight scripted 路径不需要 API key；v0.18、v0.19、v0.24/v0.25 使用单独授权的 `DEEPSEEK_API_KEY`，v0.27–v0.29 provider runner 使用单独授权的 `OPENCODE_GO_API_KEY`，并只发送本项目合成 payload；
 - task、Workspace、Retail 与 Travel 记录均为固定合成数据；
 - trace 与公开模型证据只保存 digest 与类型化元数据，不保存 provider request/response 正文；
 - fault ID 仅写入 harness/evaluator trace，不出现在 policy observation 或 `StepResult` 中；

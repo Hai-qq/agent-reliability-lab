@@ -55,3 +55,8 @@ artifacts/.*_validation/
 /artifacts/opencode_go_flash_qwen_v28/study/
 /artifacts/opencode_go_flash_qwen_v28/full-summary.json
 /artifacts/opencode_go_flash_qwen_v28_canary*/
+/artifacts/opencode_go_holdout_v29_preflight/traces/
+/artifacts/opencode_go_holdout_v29_preflight/full-summary.json
+/artifacts/opencode_go_holdout_v29/study/
+/artifacts/opencode_go_holdout_v29/full-summary.json
+/artifacts/opencode_go_holdout_v29_canary*/

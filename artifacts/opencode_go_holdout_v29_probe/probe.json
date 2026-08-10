@@ -1,0 +1,281 @@
+{
+  "metadata": {
+    "probe_version": "arl-opencode-go-two-model-protocol-probe-v0.29.0",
+    "provider_content_persisted": false,
+    "task_contract_sha256": "ec028c9d228ebdf26b9ef7c27557fd4732601479a26eb8b7b5eb7c8c8798afa7",
+    "source_manifest": {
+      "algorithm": "sha256(canonical_json({relative_path: file_sha256}))",
+      "sha256": "d2b413603354baf07e1c08932b0cb12070fafe77f609f232016636e095ffbf20",
+      "files": {
+        "pyproject.toml": "805b2fc9ea83f8c56223b51454f1b2660dd2ece88620d6c725d054fb29baf00a",
+        "scripts/build_opencode_go_v29_analysis.py": "fe2b50c2e91f574efa18b7e55eb857b0969bd0d8e4b9c1db4165b08e675864aa",
+        "scripts/build_opencode_go_v29_exploratory_analysis.py": "f77bd282caa0b8dba7ac7f152d7d4977ddc3b63bbba1384aa85e20c71d952e56",
+        "scripts/probe_opencode_go_v29.py": "fcf6524aa74860d04980e95f8ab78b935f64e57026f21222bb406d6608a643b2",
+        "scripts/run_holdout_v29_preflight.py": "b5be4660cbbfe3117089b39118cd2c8683029a5df838bd58e671576485a07a0c",
+        "scripts/run_opencode_go_v29.py": "7fe63beee5287c62ba1c71c600902bc8f5973a2179cb7f4ed847c0e02e4f0fa9",
+        "src/arl/core/types.py": "58862356fa7aca2817fa1f30a7136409605501efc5a44b8e0a54b4eb2beb76b2",
+        "src/arl/runtime/journal.py": "29082aa1ea86243356aba4f70691593543ea6b4a1bd5d808c22ef1f987474ae3",
+        "src/arl_holdout_v29/__init__.py": "79e1d2d79ac49907dff87807b9cd6123a556b6fe57fd4be132eabeb651c1d804",
+        "src/arl_holdout_v29/analysis.py": "af2a2cab72ce0bdfa3a9431aa25c9a25af39da822c1078239e77e9c8146e3d6f",
+        "src/arl_holdout_v29/contract.py": "5184054ceedccd4ea6197438b25122b7f189609c4d3375075f27e83692633d2a",
+        "src/arl_holdout_v29/experiment.py": "6844595b2bc2608c4772dd055a6c7948c8b86fa99f796cc6e7b783a5594bbc8a",
+        "src/arl_holdout_v29/integrity.py": "cd24cb62b40c6a3bc04444a6d8e9c3a2f1601f4f2353c5273653afdd87b7ae46",
+        "src/arl_holdout_v29/preflight.py": "25166a3c0252f54853c339bef2f3c50f25626c49fb96e80a17d826e104373adc",
+        "src/arl_holdout_v29/prerequisites.py": "771b9cb0901f0a503b3a1ed8b4dff47471cf93d3beadc0422847604fd5d11575",
+        "src/arl_holdout_v29/probe.py": "3c1ffa9be3237c9578c14e249dbfac8deea244ef29f7eb782666236283e83b7b",
+        "src/arl_holdout_v29/specs.py": "a4ed07ab0876b64bf9eedddc07b689c1af890551ef4d1c2c2dba780185fcfc74",
+        "src/arl_mainmodel/__init__.py": "c51a8cde76c34e8164b5dec06cdf141addc7a9c228084596e9f7e01aa1898a34",
+        "src/arl_mainmodel/experiment.py": "774d98261b03f3bc2c8b3739be795e432be3ddeaa82ebaad670dc266bf1037d6",
+        "src/arl_mainpack/__init__.py": "047c1dedda18e3ecff071f4182648d793db738bf81638517c85a86dcd4671ab3",
+        "src/arl_mainpack/ablation.py": "c7e9b6e2e8fddea603b1808943b41963af08b6e9cfe5c7d6d2b98d8c13155a39",
+        "src/arl_mainpack/experiment.py": "bdb5bb85fb5505403a44383c6a1613a9c64b3a8c4308790f304e0dd07af89817",
+        "src/arl_mainpack/specs.py": "64d0d7b0f702bad4adec6ed538df0957e5ef4e4d498bf8e41ccb933e6b61edb2",
+        "src/arl_mainstudy/__init__.py": "4bcf05a5e05a0f8f011b578f2b333bc095d239ae98d4bfc1b11c1147c7e241d6",
+        "src/arl_mainstudy/adapters.py": "2d41e8437b4a11d442f06aa6aba1248dc62d61ae6b7ff7df2a9cad7c73114a5d",
+        "src/arl_mainstudy/agents.py": "b2f5498cf30be749ddea477f597534a1722a1af9f76143306c12bbb9dd9cccce",
+        "src/arl_mainstudy/catalog.py": "08855af742cbffa9c938d80463c690fdea659584f0d167afa21e8a4a2ca6bb79",
+        "src/arl_mainstudy/contract.py": "7677e804048d6cfd8ff7ce7c39cd703ce0b9e54d0d5d979547ef4c51c8c5c50d",
+        "src/arl_mainstudy/experiment.py": "b608de3b714f6200fac34d106e8ab95bcef42f1cb9b2d00004e8442345578e4c",
+        "src/arl_mainstudy/model.py": "3610476e269d517415d221b9dc01d78b471edba4727929bc811cd420a8898dae",
+        "src/arl_mainstudy/protocol.py": "b8ffb64ddf7eaf6c874ba87fd59a9012d0dbb222020103da2e450d660ccb6da9",
+        "src/arl_mainstudy/runtime.py": "642071fe9baf48d93811c2bc3cf91b748e4c21afb75592342c3a8511410f345e",
+        "src/arl_modelpilot/__init__.py": "145882bf37fdef86604024ee0d9258351d1a7fe74b7c153294dc78ca6b08eba1",
+        "src/arl_modelpilot/deepseek.py": "40b95439d4272d5a9c08de51ba1ea780ec36baa0e6a1307f1b9c6172dc520f4a",
+        "src/arl_modelpilot/experiment.py": "51fd6ac8b4ba01fb8777a0e8d9d40b16b507af19f8817e3a6ea9d794587e7df4",
+        "src/arl_opencode_v28/__init__.py": "c1eb0caad69ffc6bad036fd42435d7622abbf7ab8f7c4731216a2e68459996c5",
+        "src/arl_opencode_v28/analysis.py": "a27b4cd599388745eb7ba79584e460335c5f4fe25cc6fa97105f39be3573ca66",
+        "src/arl_opencode_v28/backend.py": "7571bd92ac4479b1ae733ce570713f716e6276c31c3fb29af768ede42753a55c",
+        "src/arl_opencode_v28/contract.py": "2c9c930efa6c353c39e385384d6be540b29b10a94755ad1c76af8cc670a14ab5",
+        "src/arl_opencode_v28/experiment.py": "24ea1da58a5f289e469ff8ff3e99f025b39b7cea20b068216bd9c1af5e1deee2",
+        "src/arl_opencode_v28/exploratory.py": "479f1cadc2501632caa6361b0134249cdd76cc2902ca2cd61498748e8611d6dc",
+        "src/arl_opencode_v28/prerequisites.py": "c4ffde7e03056ce7ff2a0b3baa8d4a8ca4955c92fbcf46fe988891c7015d7ff2",
+        "src/arl_opencode_v28/probe.py": "433c2e4096b1b101b67af7fe243ecee98eaac9f797ffc5a61ab54ad2739ef518",
+        "src/arl_pilot/__init__.py": "21148076dbec58e437e0240dc332e78f42f85f26550983bfbbf0dc01527fe550",
+        "src/arl_pilot/agent.py": "04f4998c3e62a912889d04c2d1d0a6092d4f8298e9cd0722c1e7f994eda9b2e3",
+        "src/arl_pilot/env.py": "e6f34c3c0129efc0ada66c528d0cd7aa1fe121528b984a519ccaf831aaf2b8f3",
+        "src/arl_pilot/evaluator.py": "0fe402f24fc74e448d76a1493369a997e22b827f8539802d6ec3658e52e0f73b",
+        "src/arl_pilot/experiment.py": "8f636a4977beeee7ee7f3db2b7f48887cec054f4470bbb4b0b7a2868eac0c0fc",
+        "src/arl_pilot/runtime.py": "fdd256e186882e6c14198bad7490f5eab1ad2213104a4d716a957b95cca05c49",
+        "src/arl_pilot/specs.py": "b581b140c71446f877b4f0b270d9e0bebb756d2c38998fc23e153a21fc26bbbe",
+        "src/arl_study/scheduler.py": "295060accbb5cb3c0a4db9c363138fe5c09557743f37f47e0a0f8eb2e0676fdb"
+      }
+    }
+  },
+  "catalog_attestation": {
+    "endpoint": "https://opencode.ai/zen/go/v1/models",
+    "response_sha256": "ee7196bab2d411d6cc4cf2515f51fdaa66a78f9211a3e4d35127a69eb0545339",
+    "response_bytes": 2037,
+    "selected_models": {
+      "deepseek-v4-flash": {
+        "id": "deepseek-v4-flash",
+        "object": "model",
+        "owned_by": "opencode",
+        "created": 1786284848
+      },
+      "qwen3.7-plus": {
+        "id": "qwen3.7-plus",
+        "object": "model",
+        "owned_by": "opencode",
+        "created": 1786284848
+      }
+    },
+    "selected_models_identity_sha256": "0dc4c49da220afc051326b553967c35331c4ef62b45dde3f4459fa9187c98f75",
+    "created_field_treated_as_transient": true,
+    "checks": {
+      "http_200": true,
+      "both_selected_models_present": true,
+      "owned_by_opencode": true
+    },
+    "passed": true
+  },
+  "by_model": {
+    "flash": {
+      "binding": {
+        "provider": "opencode-go",
+        "model_id": "deepseek-v4-flash",
+        "revision": "listing-2026-08-09/non-thinking"
+      },
+      "decisions": {
+        "first_kind": "tool",
+        "first_tool_name": "probe.echo",
+        "first_arguments_sha256": "dd4fa14230d076c538555083f1ef4c72eca7db2c4c5d07fac428278f4724cb9b",
+        "first_arguments_match": true,
+        "second_kind": "finish"
+      },
+      "provider_calls": [
+        {
+          "call_index": 0,
+          "status": "ok",
+          "error_code": null,
+          "request_sha256": "f55a564052b8ca8cf7b6916cb534a7495faef89a708672c915932f18e40316b8",
+          "response_sha256": "4e0c48dfbd4681a361b16457516d2b6b5630e8440a19f67918cb698d80650843",
+          "response_id_sha256": "fef74f69ad309f61646fd1231ca7a5c9e8a01e5b58b987de51de4bdabf5ca2c4",
+          "requested_model": "deepseek-v4-flash",
+          "response_model": "deepseek-v4-flash",
+          "system_fingerprint": null,
+          "thinking_mode": "disabled",
+          "finish_reason": "tool_calls",
+          "input_tokens": 467,
+          "cache_hit_tokens": 384,
+          "cache_miss_tokens": 83,
+          "output_tokens": 53,
+          "reasoning_tokens": 0,
+          "total_tokens": 520,
+          "estimated_cost_usd": 2.7535200000000004e-05,
+          "latency_ms": 7948
+        },
+        {
+          "call_index": 1,
+          "status": "ok",
+          "error_code": null,
+          "request_sha256": "4428fc64fc3aa01c1b4f440c612d7618b6df43d8e3167869d20d403685268b78",
+          "response_sha256": "9a208d780c8cc051668cd3da985813566beda5efd71afb40b51fec83989d0382",
+          "response_id_sha256": "2a23da3bddf4e44ee02349f2cf830678109aebdc7cd2ea62d9aad8ddd3eb464e",
+          "requested_model": "deepseek-v4-flash",
+          "response_model": "deepseek-v4-flash",
+          "system_fingerprint": null,
+          "thinking_mode": "disabled",
+          "finish_reason": "stop",
+          "input_tokens": 579,
+          "cache_hit_tokens": 512,
+          "cache_miss_tokens": 67,
+          "output_tokens": 9,
+          "reasoning_tokens": 0,
+          "total_tokens": 588,
+          "estimated_cost_usd": 1.33336e-05,
+          "latency_ms": 8009
+        }
+      ],
+      "transport_audit": [
+        {
+          "logical_call_index": 0,
+          "attempt_count": 1,
+          "retry_error_codes": [],
+          "final_status": "ok",
+          "final_error_code": null
+        },
+        {
+          "logical_call_index": 1,
+          "attempt_count": 1,
+          "retry_error_codes": [],
+          "final_status": "ok",
+          "final_error_code": null
+        }
+      ],
+      "failure_code": null,
+      "failure_detail_sha256": null,
+      "checks": {
+        "authenticated_catalog_attestation": true,
+        "exact_binding": true,
+        "provider_returned_requested_model": true,
+        "first_turn_exact_tool_call": true,
+        "second_turn_finished_after_feedback": true,
+        "zero_typed_failures": true,
+        "two_logical_calls": true
+      },
+      "passed": true
+    },
+    "qwen": {
+      "binding": {
+        "provider": "opencode-go",
+        "model_id": "qwen3.7-plus",
+        "revision": "listing-2026-08-09/default-inference"
+      },
+      "decisions": {
+        "first_kind": "tool",
+        "first_tool_name": "probe.echo",
+        "first_arguments_sha256": "72c7190a5b249050271f96ccdf36b5792b9f68012981df04122f1a87fe672820",
+        "first_arguments_match": true,
+        "second_kind": "finish"
+      },
+      "provider_calls": [
+        {
+          "call_index": 0,
+          "status": "ok",
+          "error_code": null,
+          "request_sha256": "cbd795b035eb2360103fc0c3300f18f7a29b83d4f6ace617b5aae6578d569072",
+          "response_sha256": "360a9aa1c5b0946dcd5f19334b6ff911dc68d4e463540e9b0a3e25ff08797f77",
+          "response_id_sha256": "7d228d9752d6e131dc03466b2687cbdfacf1a62ecf9319db2a45bb791b1f7bac",
+          "requested_model": "qwen3.7-plus",
+          "response_model": "qwen3.7-plus",
+          "system_fingerprint": null,
+          "thinking_mode": "not_applicable",
+          "finish_reason": "tool_calls",
+          "input_tokens": 465,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 465,
+          "output_tokens": 174,
+          "reasoning_tokens": 132,
+          "total_tokens": 639,
+          "estimated_cost_usd": 0.0004644,
+          "latency_ms": 4887
+        },
+        {
+          "call_index": 1,
+          "status": "ok",
+          "error_code": null,
+          "request_sha256": "9eb2149f8100511a9324ba85a6d33cda140c46145e3ee151cb073eaacfa65d0e",
+          "response_sha256": "ee19901e86f2a363fcb2ae1e956bb6008debb866fff9e88cabf0a5308abf37b9",
+          "response_id_sha256": "5b54149847998cc6603841d50f0cdd357ad4609f44183b3076c8d417ea6a1803",
+          "requested_model": "qwen3.7-plus",
+          "response_model": "qwen3.7-plus",
+          "system_fingerprint": null,
+          "thinking_mode": "not_applicable",
+          "finish_reason": "stop",
+          "input_tokens": 592,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 592,
+          "output_tokens": 99,
+          "reasoning_tokens": 86,
+          "total_tokens": 691,
+          "estimated_cost_usd": 0.00039520000000000007,
+          "latency_ms": 3126
+        }
+      ],
+      "transport_audit": [
+        {
+          "logical_call_index": 0,
+          "attempt_count": 1,
+          "retry_error_codes": [],
+          "final_status": "ok",
+          "final_error_code": null
+        },
+        {
+          "logical_call_index": 1,
+          "attempt_count": 1,
+          "retry_error_codes": [],
+          "final_status": "ok",
+          "final_error_code": null
+        }
+      ],
+      "failure_code": null,
+      "failure_detail_sha256": null,
+      "checks": {
+        "authenticated_catalog_attestation": true,
+        "exact_binding": true,
+        "provider_returned_requested_model": true,
+        "first_turn_exact_tool_call": true,
+        "second_turn_finished_after_feedback": true,
+        "zero_typed_failures": true,
+        "two_logical_calls": true
+      },
+      "passed": true
+    }
+  },
+  "logical_call_count": 4,
+  "passed": true,
+  "preflight_attestation": {
+    "checks": {
+      "preflight_run_id": true,
+      "package_version": true,
+      "exact_432_zero_model_episodes": true,
+      "validity_passed": true,
+      "ready_for_provider_probe": true,
+      "catalog_matches_current": true,
+      "sources_match_current": true,
+      "provider_content_not_persisted": true
+    },
+    "passed": true,
+    "artifact_sha256": "df2ca5f4e55cfd790b83a47d51442c91b0f8c4978abbf01fb5ffb663806c1d0d"
+  }
+}

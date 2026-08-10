@@ -12,7 +12,7 @@ ARL 关注的不是“Agent 有没有说自己完成了任务”，而是：最�
 
 > 核心 runtime、scripted benchmark 与 validity gates 无需模型、API 或真实账户即可完整运行；可选的模型 pilot 只把本项目合成任务发送给经单独授权的 provider，并保持 credential 与原始模型内容不落盘。
 
-**产品证据入口：** [在线 Evidence Explorer（v0.10–v0.13）](https://hai-qq.github.io/agent-reliability-lab/) · [Flash + Qwen 864-episode summary（v0.28）](./artifacts/opencode_go_flash_qwen_v28/summary.json) · [明确标注的探索性 bootstrap](./artifacts/opencode_go_flash_qwen_v28/exploratory-analysis.json) · [v0.28 validation](./artifacts/opencode_go_flash_qwen_v28/validation.log)。每项结果均回链到冻结 JSON、源码/trace manifest 和实验合同；v0.28 未通过预注册 readiness，不提供确认性 `analysis.json`。
+**产品证据入口：** [在线 Evidence Explorer（v0.10–v0.13）](https://hai-qq.github.io/agent-reliability-lab/) · [Flash + Qwen 864-episode summary（v0.28）](./artifacts/opencode_go_flash_qwen_v28/summary.json) · [明确标注的探索性 bootstrap](./artifacts/opencode_go_flash_qwen_v28/exploratory-analysis.json) · [v0.29 三种子 holdout summary](./artifacts/opencode_go_holdout_v29/summary.json)。每项结果均回链到冻结 JSON、源码/trace manifest 和实验合同；v0.28 未通过 readiness，v0.29 完成全部 2,592 episodes 但基础设施有效性与 Qwen readiness 均失败，所以二者都没有新的确认性主结论。
 
 ## 核心能力
 
@@ -37,6 +37,7 @@ ARL 关注的不是“Agent 有没有说自己完成了任务”，而是：最�
 | Mechanism ablation | R2 baseline + 6 个 leave-one-out 变体、168 episodes、相同 policy digest 与逐机制目标任务检验 |
 | Single-slot model study | DeepSeek-V4-Flash × 完整 24-task pack、432 episodes、硬预算、可恢复 checkpoint 与配对 task-cluster bootstrap |
 | OpenCode two-model harness | 同一 OpenCode Go gateway 下的 Flash/Qwen 精确绑定、12-job canary、864-episode 完整矩阵、有界 transport retry、digest-only audit 与联合 task bootstrap |
+| Prospective holdout | 24 个新 task ID/request、3 个冻结数据 seed、逐 seed readiness、432-episode 零模型门禁与已完成但 fail-closed 无效的 2,592-episode 矩阵 |
 
 ## 快速开始
 
@@ -143,10 +144,11 @@ env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 \
 | [v0.24 Single-Slot Study](./docs/main-single-slot-v24.md) | DeepSeek-V4-Flash、完整 24-task pack、3 trials、非思考模式 | 432/432；R1/R2 matched fault recovery 为 5/18 与 17/18；差值 `+0.667`，bootstrap 95% CI `[0.444, 0.882]`；0 provider/protocol errors |
 | [v0.27 OpenCode Two-Model Run](./docs/opencode-go-main-v27.md) | Flash + MiMo、完整 864-episode 矩阵与 fail-closed analysis gate | 864/864 完成，但 1 次 HTTP 503、1 次协议错误且 MiMo clean qualification 未通过；整体无效，只保留探索性失败证据 |
 | [v0.28 Flash + Qwen Main](./docs/opencode-go-main-v28.md) | 两个精确 model ID、24 tasks、R0/R1/R2、clean/fault、3 trials | 864/864；18/18 infrastructure checks 通过，0 unrecovered errors；Flash/Qwen 的 R2−R1 fault-recovery 增量为 `+0.667`/`+0.660`，但 Qwen clean readiness 未过，因此只发布探索性 CI，不声明确认性主结论 |
+| [v0.29 Prospective Holdout](./docs/opencode-go-holdout-v29.md) | 24 个新 task ID/request、3 seeds、逐 seed readiness 与 2,592-episode 合同 | probe 与 36-job canary 通过；formal 2,592/2,592 完成，但 2 次未恢复 503、4 个成本超限和 Qwen readiness 失败使 analysis 全部 fail closed |
 
 Compact Artifact Bundle v0.15 将 v0.10–v0.13 的 940 个 formal 文件及其 940 个相同 repeat 文件压成 4 个确定性 ZIP。`manifest.json` 保留每个成员 SHA-256、tree hash、bundle hash 和两个恢复目标；验证从干净目录无损恢复全部 1,880 个文件，四组 formal/repeat tree 仍完全一致。这四个新增量在公开 Git 树中只展示 summary、验证日志、Evidence Explorer 和 4 个 bundle；v0.15 冻结门禁为 173 tests，Python 3.11/3.12 均通过。
 
-这些数字只证明固定合成任务上的 runtime/evaluator 机制与指定模型绑定的结果，不是通用 LLM 能力或排行榜成绩。24-task fixture、机制消融、v0.24 单模型矩阵和 v0.28 双模型矩阵均已完成。v0.28 的基础设施证据有效，且探索性配对区间显示两个模型的 R2 fault recovery 均高于 R1；但 Qwen 在 R0/R2 clean 上仅为 17/24，低于预注册的每档 18/24 readiness，所以确认性分析按设计拒绝输出。当前分支 Python 3.11.15 与 3.12.12 各 259 tests 通过，Ruff 0.15.17 check/format check 通过。
+这些数字只证明固定合成任务上的 runtime/evaluator 机制与指定模型绑定的结果，不是通用 LLM 能力或排行榜成绩。24-task fixture、机制消融、v0.24 单模型矩阵和 v0.28 双模型矩阵均已完成。v0.28 的基础设施证据有效，且探索性配对区间显示两个模型的 R2 fault recovery 均高于 R1；但 Qwen readiness 未过，所以确认性分析按设计拒绝输出。v0.29 以新任务和三种子完成独立复核，Flash 的三 seed clean readiness 均通过，描述性 R2−R1 fault-recovery point estimate 为 `+0.690`；Qwen 对应 point estimate 为 `+0.685`，但三 seed readiness 失败。更重要的是，两次未恢复 HTTP 503 和四个单 episode 成本超限使整个 v0.29 infrastructure validity 为 false，因此 confirmatory 与 exploratory builder 均拒绝输出，上述 point estimate 不能作为推断结论。当前分支的完整测试与 Ruff 状态以本分支最新 validation log 为准。
 
 ## 项目结构
 
@@ -174,9 +176,9 @@ docs/                    架构、增量合同与完整实验命令
 
 ## Roadmap
 
-1. 在不改写 v0.28 结果的前提下，为 v0.29 冻结一组未用于本次判断的新任务/环境 seed，再评估 Qwen clean readiness 与 runtime 效应。
-2. 增加独立 provider gateway 的预注册复核；当前 Flash/Qwen 共享 OpenCode Go，只能支持 gateway 内的模型比较。
-3. 将 v0.24、v0.27 和 v0.28 的 public-safe aggregate 纳入下一版 Evidence Explorer，同时保持确认性与探索性结果分栏展示。
+1. 在任何新模型调用前冻结新的独立 replication：保留 v0.29 的失败处置，先用 canary 校准可行但不宽松的成本上限，并加入 provider availability gate；不得选择性重跑 v0.29 失败 cell。
+2. 增加独立 provider gateway 的前瞻性复核；当前 Flash/Qwen 共享 OpenCode Go，只能支持 gateway 内的模型比较。
+3. 将 v0.24、v0.27、v0.28 和 v0.29 的 public-safe aggregate 纳入下一版 Evidence Explorer，明确分栏显示有效、仅探索、基础设施无效与未完成状态。
 
 ## 文档导航
 
@@ -191,6 +193,7 @@ docs/                    架构、增量合同与完整实验命令
 - [DeepSeek Flash Dual-Mode Amendment（历史）](./docs/dual-mode-main-v26.md)：未完成的同一模型双推理配置修订及其解释边界。
 - [OpenCode Go Two-Model v0.27](./docs/opencode-go-main-v27.md)：完整但无效的 864-episode 运行、失败门禁与证据处置。
 - [OpenCode Go Flash + Qwen v0.28](./docs/opencode-go-main-v28.md)：全新双模型合同、预算、transport retry、canary 与正式矩阵命令。
+- [Prospective Holdout v0.29](./docs/opencode-go-holdout-v29.md)：新任务、三种子、完整 2,592-job 运行、失败门禁、恢复审计与证据处置。
 - [Open-source Policy](./docs/open-source.md)：公开内容、发布门禁与项目边界。
 - [Third-party Provenance](./THIRD_PARTY.md)：设计影响与独立实现声明。
 
