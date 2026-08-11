@@ -1,0 +1,60 @@
+ARL v0.30 zero-model preflight validation
+Date: 2026-08-10
+Disposition: PASSED; READY FOR PROVIDER PROBE
+
+Command
+ARL_PYTHON="$(uv python find 3.12)"
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/run_replication_v30_preflight.py \
+  --output artifacts/opencode_go_replication_v30_preflight/full-summary.json \
+  --traces-dir artifacts/opencode_go_replication_v30_preflight/traces
+
+Result
+- formula: 24 tasks x 3 seeds x 2 conditions x 3 runtimes = 432
+- completed: 432/432
+- model calls: 0
+- external network calls: 0
+- validity checks: 16/16
+- ready_for_provider_probe: true
+- new seeds: 30113, 30229, 30347
+- task IDs, requests, contexts, record identities, operation IDs, and state
+  namespaces are disjoint from the v0.28/v0.29 observed catalogs
+- all 72 R2 faulted task-seed cells recovered under the scripted oracle
+- do-nothing and evaluator mutation gates passed for all 72 task-seed cells
+
+Integrity
+- source manifest: 62 files; sha256
+  9874e9e459efb14192e3deea77b001c46ebd89f823f46c70009689173d758af2
+- task catalog sha256:
+  c30b7ce32ecb7045521fb25c4198158316e57dcfe682be009c39e4fc03cce1d4
+- trace manifest: 432 files; sha256
+  0a0e04ae20f4a9bea099bae379672e555bf384c99434daab4f294b3700108445
+- local full summary: 1,490,746 bytes; sha256
+  ec6e6edc9a1a7e6c81e451e772139dcbcb6e55e30ba004cac3e5c4e5a048119c
+- public compact summary: 179,431 bytes; sha256
+  8a1e3ed697cd48247ea5b5dbe94db7a68e279416f3961a1eec7553ddb1e72f40
+- independent temporary rebuild: byte-identical full summary
+- provider content persisted: false
+
+Offline regression
+- Python 3.11: 281/281 tests passed
+- Python 3.12: 281/281 tests passed
+- Ruff 0.15.17 check: passed
+- Ruff 0.15.17 format check: 283 files already formatted
+
+Documentation and publication-boundary audit
+- README, architecture, experiment guide, open-source policy, security policy,
+  third-party provenance, and local research handoff agree with code/artifacts
+- 145 local Markdown links checked; 0 missing
+- local literature matrix, research notes, and reproduction/ have 0 tracked files
+- no credential literal or local user-home path found in the v0.30 candidate set
+- the only v0.30 file above 1 MiB is the ignored local full summary
+- git diff whitespace check passed
+
+Limitations
+- This validates the local synthetic task fixture, runtime, evaluator, and
+  evidence plumbing only.
+- No model readiness, provider availability, or R2-vs-R1 model effect has yet
+  been measured.
+- Any source/script change invalidates this preflight through the frozen source
+  manifest and requires a new versioned artifact rather than overwrite.

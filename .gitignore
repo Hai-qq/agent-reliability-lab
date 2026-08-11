@@ -60,3 +60,8 @@ artifacts/.*_validation/
 /artifacts/opencode_go_holdout_v29/study/
 /artifacts/opencode_go_holdout_v29/full-summary.json
 /artifacts/opencode_go_holdout_v29_canary*/
+/artifacts/opencode_go_replication_v30_preflight/traces/
+/artifacts/opencode_go_replication_v30_preflight/full-summary.json
+/artifacts/opencode_go_replication_v30/study/
+/artifacts/opencode_go_replication_v30/full-summary.json
+/artifacts/opencode_go_replication_v30_canary*/

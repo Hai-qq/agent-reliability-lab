@@ -1,6 +1,6 @@
 # Agent Reliability Lab Architecture
 
-Agent Reliability Lab 将 Agent 可靠性拆成五个可独立验证的部分：确定性产品世界、状态化授权、分层 runtime、状态级 evaluator 和可重复实验 harness。benchmark 世界始终是本地合成数据；核心 scripted 路径不依赖外部服务。v0.16 冻结 provider-neutral Agent policy 边界和主实验合同，v0.17–v0.19 完成 8-task preflight/model pilot，v0.20–v0.21 补齐 24-task pack 并完成机制消融，v0.24 用经单独授权的 DeepSeek-V4-Flash backend 运行完整 432-episode non-thinking study 与 task-cluster 分析。v0.27 将相同 task/runtime/evaluator 合同扩展到 OpenCode Go 双模型矩阵；该 864-episode 运行因 provider/协议错误和模型资格门禁失败而保持无效。v0.28 在独立包中冻结全新的 Flash + Qwen 矩阵与 bounded transport retry，不复用已观察的 v0.27 episode。v0.29 再叠加 24 个新 task ID/request 和三个数据 seed，以独立 holdout 而不是原 cell 重试来复核 v0.28 结论。
+Agent Reliability Lab 将 Agent 可靠性拆成五个可独立验证的部分：确定性产品世界、状态化授权、分层 runtime、状态级 evaluator 和可重复实验 harness。benchmark 世界始终是本地合成数据；核心 scripted 路径不依赖外部服务。v0.16 冻结 provider-neutral Agent policy 边界和主实验合同，v0.17–v0.19 完成 8-task preflight/model pilot，v0.20–v0.21 补齐 24-task pack 并完成机制消融，v0.24 用经单独授权的 DeepSeek-V4-Flash backend 运行完整 432-episode non-thinking study 与 task-cluster 分析。v0.27 将相同 task/runtime/evaluator 合同扩展到 OpenCode Go 双模型矩阵；该 864-episode 运行因 provider/协议错误和模型资格门禁失败而保持无效。v0.28 在独立包中冻结全新的 Flash + Qwen 矩阵与 bounded transport retry，不复用已观察的 v0.27 episode。v0.29 再叠加 24 个新 task ID/request 和三个数据 seed，以独立 holdout 而不是原 cell 重试来复核 v0.28 结论。v0.30 冻结并完成 ARL 自有的再次独立 task/seed、Flash/Pro 与预调度预算实验；它不是第三方论文排行榜复现，且因 4 个本地模型协议错误按设计保持无效。
 
 ```mermaid
 flowchart LR
@@ -69,6 +69,8 @@ v0.27 的 `arl_openstudy` 将 provider adapter 切换到 OpenCode Go，冻结 `d
 v0.28 的 `arl_opencode_v28` 在观察 Qwen benchmark outcome 前冻结 `deepseek-v4-flash` 与 `qwen3.7-plus`。每个 logical model call 最多允许两次 bounded retry，并单独记录 logical calls、physical network attempts 和 recovered retries；只有 HTTP 429/500/502/503/504、transport error、invalid/timed-out response 可重试。任何未恢复的 provider/protocol error 仍使整个 study 无效。相同 gateway 只能支持 cross-model consistency，不能支持 cross-provider generalization。
 
 v0.29 的 `arl_holdout_v29` 不修改 v0.28 的 43-file frozen source surface。新层把原有六类机制 archetype 映射到 24 个新 task ID/request，并为每个模板生成三个不同的 context、record identity 与 state namespace。432-episode reactive-oracle preflight 先验证 72 个 task-seed cell 的 reset、fault isolation、do-nothing、evaluator mutation 与机制计数；通过后才允许双模型 protocol probe、36-job canary 和 2,592-job formal。Readiness 逐 model × seed × runtime 计算，bootstrap 则以 task template 为 cluster 并把三个 seed 留在 cluster 内，避免把同一语义模板的 seed 变体当成 72 个独立任务。正式矩阵已完成 2,592/2,592，但两次未恢复 HTTP 503 与四个单 episode 成本超限使 infrastructure validity=false；两种 analysis builder 都先检查这一门禁并拒绝输出，因此完整运行不等于获得可推断结果。
+
+v0.30 的 `arl_replication_v30` 以新包冻结 24 个再次独立的 task ID/request、三个新 seed 和 62-file source surface，并在目录审计中显式拒绝与 v0.28/v0.29 重叠。双模型槽位绑定 OpenCode Go 的 `deepseek-v4-flash` 与此前未在 ARL 调用的 `deepseek-v4-pro`；两者共享 gateway 和模型家族，所以只允许家族内一致性比较。Backend 在每次网络调度前按序列化请求字节数加 2,048 input-token framing reserve、1,024 output-token response reserve 和 cache-miss 单价预留 episode 预算；预留失败会在网络调用前类型化停止，provider usage 超过预留则使 study 无效。432/432 scripted preflight、12-call probe 与 36/36 canary 通过后，formal 完成 2,592/2,592；5 次 transport retry 全恢复、0 个未恢复 provider error，所有预调度预算预留均受约束。但 Pro 在同一 synthetic cancellation task 的 4 个 clean episode 重复产生未知工具参数，触发 `zero_local_model_protocol_errors=false`。Flash seed `30229` 的 R2 clean 也只有 17/24，低于每档 18/24 readiness。两个 analysis builder 因基础设施无效 fail closed；公开 summary 中 Flash/Pro 的 `+0.716`/`+0.554` 只能作为描述性 R2−R1 fault-recovery point estimate。
 
 v0.12 的 `CompensationWorkflowContract` 把这一合同扩成 2–8 个有界步骤：每个写入必须有独立幂等键，首个补偿步骤必须有 pre/postcondition，workflow 必须声明 terminal public-read guards。当前固定 Travel fallback 使用 4 个步骤（取消首选酒店、预订备选航班、预订备选酒店、解决请求）和 6 个终态断言；任何 step/terminal guard 不满足都会分类失败，不能把部分执行当成功。
 
@@ -155,6 +157,7 @@ Coordinator 在每次状态转换后使用 `fsync` 和原子替换写入 state�
 | `arl_openstudy` | OpenCode Go 双模型 binding、864-job manifest、provider catalog attestation、compact aggregate 与 fail-closed analysis |
 | `arl_opencode_v28` | Flash/Qwen 修订合同、bounded transport retry、12-job canary、864-job matrix、fail-closed confirmatory gate 与显式 exploratory bootstrap |
 | `arl_holdout_v29` | 24 个新 holdout task、三 seed 数据变体、432-job 零模型 gate、36-job canary、2,592-job manifest、逐 seed readiness 与 task-cluster analysis |
+| `arl_replication_v30` | 再次独立的 24-task/3-seed 目录、Flash/Pro binding、预调度预算预留、重复 probe、36-job canary、2,592-job manifest 与 fail-closed analysis |
 
 独立增量包保留各版本的 source manifest，使后续功能不会改变旧实验所记录的源码集合。
 
@@ -170,7 +173,7 @@ Coordinator 在每次状态转换后使用 `fsync` 和原子替换写入 state�
 - Evidence Explorer 的 headline gate 属于各自增量，不能当作跨版本排行榜；
 - public bundles 只压缩已冻结的本项目证据；restore 拒绝既有目标，不能合并部分目录；
 - 历史 v0.25 实现同一 provider model ID 的两个推理配置 binding；它们不是两个独立模型。v0.27/v0.28 使用两个 model ID，但 catalog listing 同样不是不可变权重 hash；
-- v0.20 的原始 main pack 仍只有 1 个环境 seed；v0.29 另行冻结三个 holdout 数据 seed，但复用相同六类机制 archetype 和 tool schema，不能把它解释成 72 个独立语义任务；
+- v0.20 的原始 main pack 仍只有 1 个环境 seed；v0.29 与 v0.30 分别冻结三个数据 seed，但都复用相同六类机制 archetype 和 tool schema，不能把任一版本解释成 72 个独立语义任务；
 - v0.24 已对全部 24 个任务运行 3 个重复 API trial，但 provider 不支持 sampling seed，模型输出不具备逐字节确定性；
 - 模型 provider 是唯一可选外部调用面，只接收本项目合成任务；不连接真实账户、业务系统或网络目标，凭据不落盘；
-- v0.24 的 432-episode non-thinking 结果不能代表跨模型结论；v0.27 双模型结果因基础设施门禁失败保持 exploratory-only；v0.28 的 864-episode 基础设施证据有效，但 Qwen clean readiness 未过，因此确认性 analysis 仍被拒绝，只提供明确标注的探索性区间；v0.29 的 2,592 episodes 已全部完成，但 infrastructure validity 与 Qwen readiness 均失败，所以确认性和探索性 analysis 都不存在，summary 中的 point estimate 只能作描述性诊断。
+- v0.24 的 432-episode non-thinking 结果不能代表跨模型结论；v0.27 双模型结果因基础设施门禁失败保持 exploratory-only；v0.28 的 864-episode 基础设施证据有效，但 Qwen clean readiness 未过，因此确认性 analysis 仍被拒绝，只提供明确标注的探索性区间；v0.29 的 2,592 episodes 已全部完成，但 infrastructure validity 与 Qwen readiness 均失败，所以确认性和探索性 analysis 都不存在；v0.30 同样完成 2,592 episodes，但 4 个本地模型协议错误和 Flash 单 seed readiness 失败使两种 analysis 都不存在。v0.29/v0.30 summary 中的 point estimate 均只能作描述性诊断，不能报告推断性效应或泛化结论。

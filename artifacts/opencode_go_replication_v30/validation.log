@@ -1,0 +1,187 @@
+ARL Independent Reliability Study v0.30 validation
+Date: 2026-08-11
+Disposition: COMPLETED; INFRASTRUCTURE INVALID; ANALYSIS BLOCKED
+
+Frozen design
+- formula: 24 tasks x 3 environment seeds x 2 models x 3 runtimes x
+  2 conditions x 3 trials = 2,592
+- seeds: 30113, 30229, 30347
+- flash: opencode-go/deepseek-v4-flash/listing-2026-08-10/non-thinking
+- pro: opencode-go/deepseek-v4-pro/listing-2026-08-10/non-thinking
+- per-episode hard budget: 8 logical calls, 20,000 input tokens,
+  8,192 output tokens, 1,024 accounted output tokens/response,
+  USD 0.015 usage value
+- pre-dispatch reservation: serialized request bytes + 2,048 input-token
+  framing reserve + 1,024 output tokens + cache-miss usage value
+- transport policy: initial attempt plus at most 4 retries after 0.5/1/2/4 s;
+  retryable 429/500/502/503/504, transport, invalid/timed-out response
+- clean readiness: at least 18/24 SafePass@3 for every model x seed x runtime;
+  R2-vs-R1 clean noninferiority margin no worse than -0.05 per seed
+- confirmatory bootstrap: 10,000 task-template cluster iterations,
+  frozen seed 20260810
+
+Prerequisites
+- budget calibration sha256:
+  3a3bd436500d90858a7e325179ec3665286402b83edb7a8b180a2e249d41dbf8
+- zero-model preflight: 432/432; 16/16 checks; 0 model/network calls
+- preflight full-summary sha256:
+  ec6e6edc9a1a7e6c81e451e772139dcbcb6e55e30ba004cac3e5c4e5a048119c
+- preflight compact summary sha256:
+  8a1e3ed697cd48247ea5b5dbe94db7a68e279416f3961a1eec7553ddb1e72f40
+- authenticated two-model probe: passed; 12 logical calls/attempts;
+  0 retries; both returned exact requested model IDs
+- probe sha256:
+  169b51ad52b8071c86e73c9cecea0bc596a8d35f9818e55dc0e7265f79bf0c1a
+- canary: 36/36; infrastructure valid; ready_for_2592_episode_replication=true
+- canary: 104 logical calls/attempts; 0 retries; 102,116 tokens;
+  USD 0.0127917734 usage value
+- canary full-summary sha256:
+  80b550ec5b008c627537bbabd621ec930fde08ee8d0decdbb4c26314893e1de0
+
+Formal command
+ARL_PYTHON="$(uv python find 3.12)"
+env OPENCODE_GO_API_KEY="<process-only secret>" PYTHONPATH=src \
+  PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/run_opencode_go_v30.py --stage formal \
+  --preflight-summary artifacts/opencode_go_replication_v30_preflight/full-summary.json \
+  --protocol-probe artifacts/opencode_go_replication_v30_probe/probe.json \
+  --canary-summary artifacts/opencode_go_replication_v30_canary/full-summary.json \
+  --workspace artifacts/opencode_go_replication_v30/study \
+  --summary artifacts/opencode_go_replication_v30/full-summary.json \
+  --timeout-seconds 120
+
+Formal result
+- exit: 0
+- Python: 3.12.12
+- episodes: 2,592/2,592; resume_used: false
+- logical model calls: 10,047
+- external network attempts: 10,052
+- transport retries: 5, all recovered
+- input/output/reasoning/total tokens:
+  10,065,145 / 1,014,426 / 0 / 11,079,571
+- cache hit/miss tokens: 9,194,752 / 870,393
+- usage-value estimate: USD 0.8473333474
+  (not incremental subscription charge)
+- latency p50/p95: 2,905 / 13,146 ms
+- accepted model responses: 10,047
+- unrecovered provider/transport/parse errors: 0
+- infrastructure validity: false
+
+Failed validity check
+- zero_local_model_protocol_errors
+
+Retained local model protocol errors
+- Pro seed 30113 trial 1 retail.cancel-duplicate-renewal, R0 clean:
+  model_protocol_error / unknown_tool_or_arguments
+- Pro seed 30113 trial 2 retail.cancel-duplicate-renewal, R0 clean:
+  model_protocol_error / unknown_tool_or_arguments
+- Pro seed 30113 trial 0 retail.cancel-duplicate-renewal, R1 clean:
+  model_protocol_error / unknown_tool_or_arguments
+- Pro seed 30229 trial 1 retail.cancel-duplicate-renewal, R1 clean:
+  model_protocol_error / unknown_tool_or_arguments
+- all provider calls for these episodes returned the exact Pro model and status
+  ok; the failures arose from repeated invalid tool arguments inside the local
+  model/runtime protocol
+- failure records are retained; no selected cell was deleted or rerun
+
+Other typed task outcomes
+- model_budget_exhausted: 119 episodes
+- model_budget_reservation_exhausted: 18 episodes
+- these are retained episode outcomes under the frozen policy, not the failed
+  infrastructure check; all pre-dispatch reservations were respected
+
+Clean readiness by seed (R0 / R1 / R2 SafePass@3)
+- Flash 30113: 19/24, 19/24, 20/24; passed
+- Flash 30229: 18/24, 18/24, 17/24; failed minimum gate
+- Flash 30347: 19/24, 19/24, 20/24; passed
+- Pro 30113: 18/24, 19/24, 20/24; passed
+- Pro 30229: 19/24, 19/24, 19/24; passed
+- Pro 30347: 20/24, 20/24, 20/24; passed
+- both models passed the per-seed R2 clean noninferiority check
+- ready_for_replication_analysis: false
+
+Descriptive point estimates only
+- Flash R1 clean/fault SafePass@3: 56/72 / 11/72
+- Flash R2 clean/fault SafePass@3: 57/72 / 53/72
+- Flash matched fault-recovery R2-R1 delta: +0.7158521303
+- Flash clean R2-R1 delta: +0.0138888889
+- Pro R1 clean/fault SafePass@3: 58/72 / 20/72
+- Pro R2 clean/fault SafePass@3: 59/72 / 53/72
+- Pro matched fault-recovery R2-R1 delta: +0.5537697253
+- Pro clean R2-R1 delta: +0.0138888889
+- these are retained diagnostics, not confidence intervals or inferential claims
+
+Analysis gates
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/build_opencode_go_v30_analysis.py \
+  --input artifacts/opencode_go_replication_v30/full-summary.json \
+  --output artifacts/opencode_go_replication_v30/analysis.json \
+  --iterations 10000 --seed 20260810
+
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/build_opencode_go_v30_exploratory_analysis.py \
+  --input artifacts/opencode_go_replication_v30/full-summary.json \
+  --output artifacts/opencode_go_replication_v30/exploratory-analysis.json \
+  --iterations 10000 --seed 20260810
+
+- both expected exits: non-zero
+- both errors: RuntimeError: v0.30 analysis requires infrastructure-valid input
+- analysis.json: absent
+- exploratory-analysis.json: absent
+
+Public compact command
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/compact_model_pilot_summary.py \
+  --input artifacts/opencode_go_replication_v30/full-summary.json \
+  --output artifacts/opencode_go_replication_v30/summary.json
+
+Evidence integrity
+- full summary: local ignored evidence; sha256
+  84caae7458ab1d71e83f8f9945c2c736f2523e1dc515790ac4516f6b7ba1cfcd
+- compact summary: sha256
+  5f1b9a690dcc44814cef1e16af99939cb4577a2e96ec7cbf9d43c73337965a9f
+- episode-set sha256:
+  0c4dff6c01a8757e76ceb7e30a9647f62085a1a254a8382dedb16c5425b9b648
+- source manifest: 62 files; sha256
+  9874e9e459efb14192e3deea77b001c46ebd89f823f46c70009689173d758af2
+- trace manifest: 2,592 files; sha256
+  56965d45c055ec79b7922cfb6875e7b18f0536c135b284720e7905575b681710
+- study manifest sha256:
+  eeadb7d5d1aaf3e46c8bd989cfa07ab6fa300086e7984cfc7d38981bae70ada6
+- study state sha256:
+  0ab63d31683ec643d433d794fb36050fdd8d20e77ef9fb42bf0571774b25e35f
+- provider content persisted: false
+- credential audit: 5,185 files checked; exact credential match in 0 files
+
+Offline validation
+- pre-provider Python 3.11.15: 281/281 tests passed
+- pre-provider Python 3.12.12: 281/281 tests passed
+- pre-provider Ruff 0.15.17 check: passed
+- pre-provider Ruff 0.15.17 format check: 283 files already formatted
+- post-result Python 3.11.15: 281/281 tests passed in 7.391 s
+- post-result Python 3.12.12: 281/281 tests passed in 6.743 s
+- each post-result suite rebuilt 4 deterministic bundles / 940 files
+- post-result Ruff 0.15.17 check: passed
+- post-result Ruff 0.15.17 format check: 283 files already formatted
+- current 62-file source manifest remains byte-exact to the formal run
+- compact summary deterministic rebuild: byte-identical
+- public JSON parse: 58 files passed
+- relative Markdown link audit: 362 checked; 0 missing
+- public candidate files over 1 MiB: 0
+- public candidate absolute home-path files: 0
+- public non-test credential-like literal files: 0
+- synthetic credential-pattern test fixtures: retained and reviewed separately
+- local full summary, 2,592 results/traces, study state, and canary: ignored
+- public compact summary, probe, READMEs, and validation logs: not ignored
+- local research/reproduction planning files tracked by Git: 0
+
+Limitations
+- Completion is not validity: v0.30 cannot support inferential claims.
+- Four model protocol failures remain in the immutable evidence; no selective
+  rerun, threshold change, protocol repair, or post hoc censoring was applied.
+- Flash missed one seed-specific clean-readiness gate.
+- Both models share OpenCode Go and the DeepSeek V4 family, so provider effects,
+  cross-provider generalization, and cross-family generalization are not
+  identified.
+- Catalog listings are not immutable serving-weight hashes, and the provider
+  exposes no executable unified sampling seed.

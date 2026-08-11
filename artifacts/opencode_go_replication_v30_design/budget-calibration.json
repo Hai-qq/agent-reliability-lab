@@ -1,0 +1,79 @@
+{
+  "calibration": {
+    "calibration_version": "arl-v030-budget-calibration-v1",
+    "effective_date": "2026-08-10",
+    "source_study": "arl-opencode-go-holdout-main-v0.29.0",
+    "source_full_summary_sha256": "ae59041b7314ea765da00cc40008d98751d856deece478378eeef99e0c5e2800",
+    "source_outcomes_observed": true,
+    "v029_observed_episode_maxima": {
+      "flash": {
+        "input_tokens": 13793,
+        "output_tokens": 2342,
+        "logical_calls": 8,
+        "external_attempts": 9,
+        "usage_value_usd": 0.000758184
+      },
+      "qwen": {
+        "input_tokens": 9927,
+        "output_tokens": 6072,
+        "logical_calls": 8,
+        "external_attempts": 10,
+        "usage_value_usd": 0.011926
+      }
+    },
+    "v029_qwen_usage_value_quantiles_usd": {
+      "p95": 0.0057756,
+      "p99": 0.0084676,
+      "p999": 0.0111072,
+      "max": 0.011926
+    },
+    "frozen_v030_limits": {
+      "max_logical_calls": 8,
+      "max_input_tokens": 20000,
+      "max_output_tokens": 8192,
+      "max_usage_value_usd": 0.015,
+      "max_accounted_output_tokens_per_response": 1024,
+      "serialized_request_input_token_overhead": 2048
+    },
+    "calibration_rationale": "USD 0.015 is above the v0.29 maximum by 25.8 percent while remaining binding; every network call must reserve a conservative serialized-request input bound and the maximum next response before dispatch",
+    "posthoc_v029_reclassification_forbidden": true,
+    "sha256": "574e6f4916a245baced1561a33537ab6fe5ac70d98d9086c7bbef2cf072705cf"
+  },
+  "recomputed_v029": {
+    "flash": {
+      "episode_count": 1296,
+      "maxima": {
+        "input_tokens": 13793,
+        "output_tokens": 2342,
+        "logical_calls": 8,
+        "external_attempts": 9,
+        "usage_value_usd": 0.000758184
+      }
+    },
+    "qwen": {
+      "episode_count": 1296,
+      "maxima": {
+        "input_tokens": 9927,
+        "output_tokens": 6072,
+        "logical_calls": 8,
+        "external_attempts": 10,
+        "usage_value_usd": 0.011926
+      },
+      "usage_value_quantiles_usd": {
+        "p95": 0.0057756,
+        "p99": 0.0084676,
+        "p999": 0.0111072,
+        "max": 0.011926
+      }
+    }
+  },
+  "checks": {
+    "exact_frozen_source_hash": true,
+    "exact_2592_episode_source": true,
+    "exact_1296_episodes_per_model": true,
+    "maxima_match_frozen_record": true,
+    "qwen_quantiles_match_frozen_record": true,
+    "v029_not_reclassified": true
+  },
+  "passed": true
+}

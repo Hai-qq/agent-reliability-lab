@@ -3,15 +3,15 @@
 ## 环境
 
 - macOS arm64
-- Python `3.12.12`（v0.7–v0.28 正式 artifact 与 v0.29 scripted preflight；v0.29 provider formal 记录为 `3.12.13`；v0.1–v0.6 历史 artifact 使用 `3.12.2`）
-- Python SQLite runtime `3.50.4`（v0.7–v0.28 与 v0.29 scripted preflight；v0.29 provider formal 只冻结解释器版本，没有单列 SQLite 版本）
+- Python `3.12.12`（v0.7–v0.28 正式 artifact、v0.29/v0.30 scripted preflight 与 v0.30 provider formal；v0.29 provider formal 记录为 `3.12.13`；v0.1–v0.6 历史 artifact 使用 `3.12.2`）
+- Python SQLite runtime `3.50.4`（v0.7–v0.28 与 v0.29 scripted preflight；v0.29 provider formal 和 v0.30 preflight 没有单列 SQLite 版本）
 - Ruff `0.15.17`
-- 根 project 保持 `0.3.0` 以保留 v0.3 manifest；v0.4–v0.29 使用独立包和源码/结果 manifest
+- 根 project 保持 `0.3.0` 以保留 v0.3 manifest；v0.4–v0.30 使用独立包和源码/结果 manifest
 - 第三方 Python runtime dependencies：无
 
 代码只使用 Python 标准库。`pyproject.toml` 声明 `requires-python >= 3.11`；每个正式 artifact 的精确解释器版本保存在自身 `summary.json` 与 `validation.log`。
 
-当前开发分支以 Python `3.11.15` 和 `3.12.12` 各运行 267 tests，全部通过；Ruff 0.15.17 check/format check 通过。v0.16–v0.24、v0.27、v0.28 正式实验 JSON、v0.29 scripted preflight 以及 v0.25/v0.28 canary 使用 Python 3.12.12；v0.29 provider formal 自身记录为 Python 3.12.13。v0.15 发布冻结时的 173-test、v0.16 初次验收时的 187-test 与 v0.17 验收时的 200-test 结果仍保存在各自 validation log 中。
+当前开发分支以 Python `3.11.15` 和 `3.12.12` 各运行 281 tests，全部通过；Ruff 0.15.17 check/format check 通过。v0.16–v0.24、v0.27、v0.28 正式实验 JSON、v0.29/v0.30 scripted preflight、v0.30 provider formal 以及 v0.25/v0.28 canary 使用 Python 3.12.12；v0.29 provider formal 自身记录为 Python 3.12.13。v0.15 发布冻结时的 173-test、v0.16 初次验收时的 187-test 与 v0.17 验收时的 200-test 结果仍保存在各自 validation log 中。
 
 ## 运行测试
 
@@ -34,7 +34,7 @@ ruff check src scripts tests
 ruff format --check src scripts tests
 ```
 
-公开 clone 不包含被 `.gitignore` 排除的完整 v0.10–v0.13 树；上述条件分支会先从四个确定性 bundle 恢复并校验它们。本地完整树已存在时不重复恢复。当前开发分支在 Python 3.11/3.12 均实测 `Ran 267 tests ... OK`，Ruff check/format check 均通过。历史增量的当时测试数和解释器版本保留在各自 `validation.log` 中。
+公开 clone 不包含被 `.gitignore` 排除的完整 v0.10–v0.13 树；上述条件分支会先从四个确定性 bundle 恢复并校验它们。本地完整树已存在时不重复恢复。当前开发分支在 Python 3.11/3.12 均实测 `Ran 281 tests ... OK`，Ruff check/format check 均通过。历史增量的当时测试数和解释器版本保留在各自 `validation.log` 中。
 
 ## 运行 v0.1 配对实验
 
@@ -1054,10 +1054,70 @@ env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
 [validation log](../artifacts/opencode_go_holdout_v29/validation.log)。后续不得通过
 选择性重跑、删除错误记录、调整预算或降低门槛把这次运行改写为有效。
 
+## v0.30 ARL 独立可靠性实验
+
+v0.30 研究的是 ARL 自己的 runtime 假设，不是上游论文 leaderboard 复现。它不复用或选择性重跑 v0.29 失败 cell，而是冻结新的 24-task/3-seed 目录、Flash/Pro binding、重试、预算和分析规则。先从保留的 v0.29 完整摘要重新校准预算，再运行零模型门禁：
+
+```bash
+ARL_PYTHON="$(uv python find 3.12)"
+
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/build_v30_budget_calibration.py \
+  --input artifacts/opencode_go_holdout_v29/full-summary.json \
+  --output artifacts/opencode_go_replication_v30_design/budget-calibration.json
+
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/run_replication_v30_preflight.py \
+  --output artifacts/opencode_go_replication_v30_preflight/full-summary.json \
+  --traces-dir artifacts/opencode_go_replication_v30_preflight/traces
+```
+
+本次冻结结果：
+
+- 预算校准精确核验 v0.29 的 2,592 个 episode、逐模型 maxima 与 Qwen p95/p99/p99.9/max；公开 JSON SHA-256 为 `3a3bd436500d90858a7e325179ec3665286402b83edb7a8b180a2e249d41dbf8`；
+- 零模型 preflight 完成 432/432，16/16 validity checks 通过，0 model/network calls；
+- 62-file source manifest 为 `9874e9e459efb14192e3deea77b001c46ebd89f823f46c70009689173d758af2`，432-file trace manifest 为 `0a0e04ae20f4a9bea099bae379672e555bf384c99434daab4f294b3700108445`；
+- 本地 full summary SHA-256 为 `ec6e6edc9a1a7e6c81e451e772139dcbcb6e55e30ba004cac3e5c4e5a048119c`，公开 compact summary SHA-256 为 `8a1e3ed697cd48247ea5b5dbe94db7a68e279416f3961a1eec7553ddb1e72f40`；
+- 独立临时目录重建与 full summary 逐字节一致，当时状态为 `ready_for_provider_probe=true`。
+
+provider 阶段已按下列冻结顺序完成；复核时仍只能在单独授权且 key 仅存在于当前进程的前提下使用相同命令：
+
+```bash
+env OPENCODE_GO_API_KEY="${OPENCODE_GO_API_KEY:?set in current process}" \
+  PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/probe_opencode_go_v30.py \
+  --preflight-summary artifacts/opencode_go_replication_v30_preflight/full-summary.json \
+  --output artifacts/opencode_go_replication_v30_probe/probe.json \
+  --timeout-seconds 120
+
+env OPENCODE_GO_API_KEY="${OPENCODE_GO_API_KEY:?set in current process}" \
+  PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/run_opencode_go_v30.py --stage canary \
+  --preflight-summary artifacts/opencode_go_replication_v30_preflight/full-summary.json \
+  --protocol-probe artifacts/opencode_go_replication_v30_probe/probe.json \
+  --workspace artifacts/opencode_go_replication_v30_canary/study \
+  --summary artifacts/opencode_go_replication_v30_canary/full-summary.json \
+  --timeout-seconds 120
+
+env OPENCODE_GO_API_KEY="${OPENCODE_GO_API_KEY:?set in current process}" \
+  PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/run_opencode_go_v30.py --stage formal \
+  --preflight-summary artifacts/opencode_go_replication_v30_preflight/full-summary.json \
+  --protocol-probe artifacts/opencode_go_replication_v30_probe/probe.json \
+  --canary-summary artifacts/opencode_go_replication_v30_canary/full-summary.json \
+  --workspace artifacts/opencode_go_replication_v30/study \
+  --summary artifacts/opencode_go_replication_v30/full-summary.json \
+  --timeout-seconds 120
+```
+
+Formal 实际完成 2,592/2,592，使用 10,047 个 logical calls、10,052 个 network attempts 和 11,079,571 tokens；5 次 transport retry 全恢复，0 个未恢复 provider/transport/parse error。四个 Pro clean episode 在同一合成取消任务上产生 `model_protocol_error / unknown_tool_or_arguments`，因此 `zero_local_model_protocol_errors=false`、infrastructure validity=false。Flash seed `30229` 的 R0/R1/R2 clean `SafePass@3` 为 18/24、18/24、17/24，也未过 all-seed readiness；Pro 三 seed 均通过。
+
+确认性与探索性 builder 都以 `RuntimeError: v0.30 analysis requires infrastructure-valid input` 非零退出，`analysis.json` 与 `exploratory-analysis.json` 均不存在。Flash/Pro 的描述性 R2−R1 matched fault-recovery point estimate 为 `+0.7158521303`/`+0.5537697253`，不得写成 CI、推断结果或成功 replication。Formal 中断规则仍是只能对同一 workspace、参数和 manifest 加 `--resume`；本次没有 resume，也没有选择性重跑。完整合同与处置见 [v0.30 Independent Reliability Study](./opencode-go-replication-v30.md)、[公开 artifact](../artifacts/opencode_go_replication_v30/README.md) 和 [validation log](../artifacts/opencode_go_replication_v30/validation.log)。
+
 ## 安全边界
 
 - 所有 benchmark world 都不读取真实账户、浏览器会话、真实网络目标或第三方业务系统；
-- v0.1–v0.17、v0.20/v0.21 与 v0.29 preflight scripted 路径不需要 API key；v0.18、v0.19、v0.24/v0.25 使用单独授权的 `DEEPSEEK_API_KEY`，v0.27–v0.29 provider runner 使用单独授权的 `OPENCODE_GO_API_KEY`，并只发送本项目合成 payload；
+- v0.1–v0.17、v0.20/v0.21 与 v0.29/v0.30 preflight scripted 路径不需要 API key；v0.18、v0.19、v0.24/v0.25 使用单独授权的 `DEEPSEEK_API_KEY`，v0.27–v0.30 provider runner 使用单独授权的 `OPENCODE_GO_API_KEY`，并只发送本项目合成 payload；
 - task、Workspace、Retail 与 Travel 记录均为固定合成数据；
 - trace 与公开模型证据只保存 digest 与类型化元数据，不保存 provider request/response 正文；
 - fault ID 仅写入 harness/evaluator trace，不出现在 policy observation 或 `StepResult` 中；
