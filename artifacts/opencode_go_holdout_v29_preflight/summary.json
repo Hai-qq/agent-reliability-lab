@@ -1,0 +1,2328 @@
+{
+  "aggregate": {
+    "by_fault_family": {
+      "bounded_compensation": {
+        "r0_raw": 0,
+        "r1_guarded": 0,
+        "r2_reliable": 12
+      },
+      "compatible_state_conflict": {
+        "r0_raw": 0,
+        "r1_guarded": 0,
+        "r2_reliable": 12
+      },
+      "input_schema_drift": {
+        "r0_raw": 0,
+        "r1_guarded": 0,
+        "r2_reliable": 12
+      },
+      "output_schema_drift": {
+        "r0_raw": 0,
+        "r1_guarded": 0,
+        "r2_reliable": 12
+      },
+      "postcommit_response_loss": {
+        "r0_raw": 0,
+        "r1_guarded": 0,
+        "r2_reliable": 12
+      },
+      "retryable_invocation_error": {
+        "r0_raw": 0,
+        "r1_guarded": 12,
+        "r2_reliable": 12
+      }
+    },
+    "by_runtime": {
+      "r0_raw": {
+        "by_condition": {
+          "clean": {
+            "compensation_action_count": 0,
+            "completed_plans": 72,
+            "confirmation_count": 0,
+            "conflict_rebase_count": 0,
+            "episodes": 72,
+            "result_normalization_count": 0,
+            "retry_count": 0,
+            "safe_successes": 72,
+            "schema_adaptation_count": 0,
+            "task_successes": 72
+          },
+          "recoverable_fault": {
+            "compensation_action_count": 0,
+            "completed_plans": 0,
+            "confirmation_count": 0,
+            "conflict_rebase_count": 0,
+            "episodes": 72,
+            "result_normalization_count": 0,
+            "retry_count": 0,
+            "safe_successes": 0,
+            "schema_adaptation_count": 0,
+            "task_successes": 0
+          }
+        },
+        "matched_clean_capable_tasks": 24,
+        "recovered_fault_tasks": 0,
+        "recovery_rate": 0.0
+      },
+      "r1_guarded": {
+        "by_condition": {
+          "clean": {
+            "compensation_action_count": 0,
+            "completed_plans": 72,
+            "confirmation_count": 0,
+            "conflict_rebase_count": 0,
+            "episodes": 72,
+            "result_normalization_count": 0,
+            "retry_count": 0,
+            "safe_successes": 72,
+            "schema_adaptation_count": 0,
+            "task_successes": 72
+          },
+          "recoverable_fault": {
+            "compensation_action_count": 0,
+            "completed_plans": 12,
+            "confirmation_count": 0,
+            "conflict_rebase_count": 0,
+            "episodes": 72,
+            "result_normalization_count": 0,
+            "retry_count": 24,
+            "safe_successes": 12,
+            "schema_adaptation_count": 0,
+            "task_successes": 12
+          }
+        },
+        "matched_clean_capable_tasks": 24,
+        "recovered_fault_tasks": 4,
+        "recovery_rate": 0.16666666666666666
+      },
+      "r2_reliable": {
+        "by_condition": {
+          "clean": {
+            "compensation_action_count": 0,
+            "completed_plans": 72,
+            "confirmation_count": 0,
+            "conflict_rebase_count": 0,
+            "episodes": 72,
+            "result_normalization_count": 0,
+            "retry_count": 0,
+            "safe_successes": 72,
+            "schema_adaptation_count": 0,
+            "task_successes": 72
+          },
+          "recoverable_fault": {
+            "compensation_action_count": 36,
+            "completed_plans": 72,
+            "confirmation_count": 12,
+            "conflict_rebase_count": 12,
+            "episodes": 72,
+            "result_normalization_count": 12,
+            "retry_count": 12,
+            "safe_successes": 72,
+            "schema_adaptation_count": 12,
+            "task_successes": 72
+          }
+        },
+        "matched_clean_capable_tasks": 24,
+        "recovered_fault_tasks": 24,
+        "recovery_rate": 1.0
+      }
+    },
+    "condition_count": 2,
+    "episode_count": 432,
+    "external_network_calls": 0,
+    "fault_recovery_rate_delta_r2_minus_r1": 0.8333333333333334,
+    "model_calls": 0,
+    "runtime_count": 3,
+    "task_count": 24
+  },
+  "holdout_catalog": {
+    "catalog_sha256": "c8f0235b042b87b3c9445823f1b4b3f80dbfefe3ef93ef1297dce93d32ed96bc",
+    "catalog_version": "arl-holdout-task-catalog-v0.29.0",
+    "checks": {
+      "context_varies_across_all_three_seeds": true,
+      "disjoint_from_v028_template_ids": true,
+      "exact_24_holdout_templates": true,
+      "exact_72_seeded_variants": true,
+      "exact_three_frozen_environment_seeds": true,
+      "full_spec_varies_across_all_three_seeds": true,
+      "one_to_one_frozen_source_archetypes": true,
+      "requests_are_new_and_unique": true,
+      "six_balanced_fault_families": true,
+      "six_canary_tasks_cover_six_fault_families": true,
+      "three_balanced_domains": true,
+      "unique_holdout_template_ids": true
+    },
+    "environment_seeds": [
+      29101,
+      29211,
+      29307
+    ],
+    "passed": true,
+    "seeded_variant_sha256": {
+      "retail.apply-approved-substitute.holdout-v1": {
+        "29101": "afbab43c1652f5b2a3673aba3e720477ed921e960a014120fdb638927ed7a4db",
+        "29211": "5bb1ce4cc92509f521c76e5bc6a9ecf142d145a019ae515f8cc013920755d9bd",
+        "29307": "45d48b356685b9c6a67e7b35fadd86efcf2bdeee66aebed4681d9365a38ee81c"
+      },
+      "retail.cancel-unpacked-order.holdout-v1": {
+        "29101": "e46f2c48eea04a8adecd36ab51eded5b368d9cb85484bbb665f12e269f485337",
+        "29211": "b95018b96a19b3b064a840e5455789b152b5e55f869d4f3ffb0fbe8cb89a310f",
+        "29307": "c44423750185bb22c69d33326d2172bcd31f9ade6e118e092f696513e5063069"
+      },
+      "retail.correct-delivery-destination.holdout-v1": {
+        "29101": "274e3d8da76681be9198b86fc015466b3d7c9f586e7413a89be785aef5e5ef6a",
+        "29211": "fc5e906a5cc377efb2e14e804afa0e881e8505d89b94a915052c103a8e9540b4",
+        "29307": "7ffc28e5aa5a02eb8bfb4f239464bffad5c37d5282d63ae37d8dcfa9f9742ad8"
+      },
+      "retail.exchange-damaged-item.holdout-v1": {
+        "29101": "2bf4d2b0aeeb8f6b2701d601469084a80cf10577684bbfaffd52001c4487afa7",
+        "29211": "6ced3908d471be2a0e031b7955b494af57a8faf50287dfa773a625f6a7b4efe8",
+        "29307": "ab54e871b4edddfdc41730a40fad7c47a8083d79019549596b2e88cd981e208e"
+      },
+      "retail.issue-service-credit.holdout-v1": {
+        "29101": "b7f1d6cf26ed7ca0b7b449e12de11cbe8df65e525dea1ec211c096a3211d92c8",
+        "29211": "21272bd4653160d1306b8b18fd6c845e8cec1b883980a0b0c1ec837fd2f71d24",
+        "29307": "bc2416c79d32e309a763949c155c99edb3c52d5247725d9eb9847a320c7d81e3"
+      },
+      "retail.place-campaign-order.holdout-v1": {
+        "29101": "aa90045929db3e640e3878a7d7575d9ff9e14e2c8574fb2dc0ffba3efbd0e1c6",
+        "29211": "21b9f465f421c0968d6ba6acdf5f48f28ce6395d90dc24eb44db23bf03abbfaf",
+        "29307": "fd7fe432af5213ee32c0398c9d0fa84b75f117822b1709ce6e8de69d3441728c"
+      },
+      "retail.recover-paid-order-creation.holdout-v1": {
+        "29101": "250f8f5d4855769915cbb6ba9cfdcf29972f5cd6dc1c34c18c290c1613d96277",
+        "29211": "2d6c174d02e6fc6a69d5d290889546de2cce03ad3de75d19e980caf404f7b639",
+        "29307": "8033d70732ee04255071ccb3bda31ebb7190efadfca09e411d5fbc329c64bb9e"
+      },
+      "retail.remove-duplicate-subscription.holdout-v1": {
+        "29101": "dc7cde647e992856b9ee869ab73c3ae30c6c1f13cc943de8698a8680204ae989",
+        "29211": "7d95c45204bbaef9f5902514bc9b6a3804af2c2a4941cd7b38d6b634f044660b",
+        "29307": "d7f05134b02e141eda0c844410db1cc374b5bb3cceeda6bb7baa121a5abb1291"
+      },
+      "travel.apply-workshop-date-change.holdout-v1": {
+        "29101": "0c5c74bea467186ab65752261f7fa6905b8982a6dd1abfa205c995bc0eda242b",
+        "29211": "b799605b2bd46d172e5b64e0055912bd21b25430e040da49aa69e4591bf40709",
+        "29307": "d0934e60326e5e7ab3c19dfa83c5db25fab51d7d748d8374560d581173928d7c"
+      },
+      "travel.cancel-training-trip.holdout-v1": {
+        "29101": "d7a3bf2580fd757d26cd494e2fb33a57396ea0d83427a1913d4b6bf9aa2a5995",
+        "29211": "294c0882d64ab57a63c6f051d5d9218fe5dcafa9f95c39724bcc79013dca76d4",
+        "29307": "a7166197eb4700b1e29852cf4a34834f8a9efbef8b69ab47e0f6d281400e4000"
+      },
+      "travel.recover-mixed-mode-itinerary.holdout-v1": {
+        "29101": "2e293e69c19717d59851a25ae7b9879251ce8503df139b191caa02b2db3307e1",
+        "29211": "0ae13a7cb0e6c93a3f48e46b8704dbd5e090e0b7ec0a6f4843e803806dcdfd2d",
+        "29307": "081dba56c4c0e35fcd3a1874d24027ab5d59f28fc0d12867b2b026c8bbd8857c"
+      },
+      "travel.recover-retreat-bundle.holdout-v1": {
+        "29101": "cc369d616dbe2db52318e12774b463998f231f7db79470c4413f91e7a9b40eb1",
+        "29211": "651e9ba2f27863ab3de27f26409382a798608c6f39aa474a19d059249b0409b6",
+        "29307": "1848e5ed38a6f256953b39e7188e74da06b67fe359cfb1ce3745dd734d79715a"
+      },
+      "travel.replace-disrupted-leg.holdout-v1": {
+        "29101": "93a293a9738e4fc9250fb8aff9190bc99dbf81b464dda4e5807b67367c31971a",
+        "29211": "d467ce12e9beded15b923cae61f46766a1f0a19791f3327fb6e7c21ed5cf7b17",
+        "29307": "7968c6a650b83b684f28b7ae96e07e3254420dce071da64c76b3e2b3a0033cd1"
+      },
+      "travel.reserve-conference-trip.holdout-v1": {
+        "29101": "b5a8723b006964a865f07dfe5326471bb9d6917c7c754904c750adb2af9d6d28",
+        "29211": "a100f68b20b188d082b5f191aad24d026fcc4e6d75a816838e976a6401b69030",
+        "29307": "977e3d1d044bd191be8e974af4a96bfe74b57072986a6effa456e0359d1b748f"
+      },
+      "travel.reserve-last-approved-seat.holdout-v1": {
+        "29101": "b151612de79ab89de5422a9b9c80c09edcb06bef620dd2b1c3b0f81b9f97a2bd",
+        "29211": "0aff89f3a38f1393ddfe4bc9676481abba512cc1c78c5243e81df0d8cf06d2f0",
+        "29307": "fb1fb9705e9318e0d15db5faeb5c9f1fd166faee505044c378f1176f1d944db3"
+      },
+      "travel.resolve-lodging-cap.holdout-v1": {
+        "29101": "6da60953e8fa3867a579b386eaddfdb1c52c9a4d79575d8f0709ffb99ff719c8",
+        "29211": "cc57857be2fa94974d8a07ea7d64463a13c29519d46c456376f5265120468921",
+        "29307": "252e7dec761f945521914dd3e15d47784345110805edeb73d0b4a93ff9c08bbd"
+      },
+      "workspace.apply-revised-room-approval.holdout-v1": {
+        "29101": "4814170f8d3339d732fa70629489161b6a3d4051b2494326c54902fe5a6b9186",
+        "29211": "f15c46a488ea41826a35476d649cce319b05bed4f9a816dbb22c9accb8bc3a7e",
+        "29307": "5f056cd52aa156e3a116e3514e8daf487a0cefa225042fede696cf106dc632b8"
+      },
+      "workspace.coordinate-review-session.holdout-v1": {
+        "29101": "bb0166c9b1af6d2980ece93c1f015b19ea3e88cacb57ad2fa95b5396018df6e3",
+        "29211": "73e6ad8adb062fe7e95516ac6c1d1876518d56d1032f5a4117cb6550eb7fb298",
+        "29307": "1fa6023dba9e9a511d00de9524d81e59c8f7bc9a11906ab08d2dbd7cb575948c"
+      },
+      "workspace.grant-draft-access.holdout-v1": {
+        "29101": "8068418e74477ac306987832a653f35c13816e6ea05349b46b0add652ad9fd1b",
+        "29211": "5680b5d0616874a344dd4468edcad85f83016eec8a79cfa17cfbff417042ce74",
+        "29307": "15d66aee8b91d135943967f1622bdd92594ffc73dfbac77b5925d26febd0ad91"
+      },
+      "workspace.move-conflicting-workshop.holdout-v1": {
+        "29101": "45e660d1c7852503db6f12a769188ea520914d7fbec101fe7e73efe771dcaa86",
+        "29211": "c9a283519ffac70c22d7cc578d21871ab4b09e849076b4949057bc35813ad3a8",
+        "29307": "cb09b3500d338100da011f96f822f5285f98dd329c817b2981a2daef4397c718"
+      },
+      "workspace.move-planning-session.holdout-v1": {
+        "29101": "de6f3889cd839e180ec3dc5905601dc9cf91a58923c846ba1086c501ad4e33f7",
+        "29211": "e6af42782325bcae43f238c90a0082000ce805bcaddd87348a368f0d50f66034",
+        "29307": "fc85d0f8cd536090b7698d2fdc8f289c2c5e9b4d339e890b3e7bfd04e9956f47"
+      },
+      "workspace.publish-controlled-copy.holdout-v1": {
+        "29101": "4bee7bfda158720cd26eb756853e827f309bfd980ca3179701347610dc000ab7",
+        "29211": "e88e86a346dcb105be572ac04feb172766219f1d001a150f0ccaf439eb663fb5",
+        "29307": "ffb01d8c6c0fde66d7e36d6268198d1742d253baa5ca6eccbe1b67dcea7b69e5"
+      },
+      "workspace.resolve-review-participants.holdout-v1": {
+        "29101": "47247b35623d4e0aebab9e6309ab9df33a0d4766100dc8de7a1d18ebe1b86410",
+        "29211": "af1ae58ff87903dcc2759fddfc712e87ef26d6c61ce41ae182e68e42d568729b",
+        "29307": "e09a8e95a6874892e8623d1a5ad86c7c8fe7c4509febfc7fb406324eb2c55549"
+      },
+      "workspace.withdraw-training-session.holdout-v1": {
+        "29101": "aaff0fa1f30b32c7649342d6328a200551aa82d013b71c6d4c473e0d666411f3",
+        "29211": "61ae2941b8a968502312488dfd34069a7f2fe800679bbd32d4c3e1c38739cfec",
+        "29307": "51e14120083bbd60163357f99a33236c386ba6c600501fd164f6d9f04da19ef5"
+      }
+    },
+    "selection_disclosure": "New task IDs, requests, record identities, values, and state namespaces; the six runtime mechanism archetypes and public tool schemas are intentionally reused.",
+    "templates": [
+      {
+        "source_template_id": "workspace.schedule-meeting.main-v1",
+        "template_id": "workspace.coordinate-review-session.holdout-v1",
+        "user_request": "Create the review session at the approved time, invite the listed participants, and close the scheduling request."
+      },
+      {
+        "source_template_id": "workspace.reschedule-meeting.main-v1",
+        "template_id": "workspace.move-planning-session.holdout-v1",
+        "user_request": "Move the planning session to the approved slot, notify its participants, and close the change request."
+      },
+      {
+        "source_template_id": "retail.discounted-order.main-v1",
+        "template_id": "retail.place-campaign-order.holdout-v1",
+        "user_request": "Create the approved campaign purchase with the supplied coupon and close the purchase request."
+      },
+      {
+        "source_template_id": "retail.eligible-exchange.main-v1",
+        "template_id": "retail.exchange-damaged-item.holdout-v1",
+        "user_request": "Create the authorized replacement exchange and close its request."
+      },
+      {
+        "source_template_id": "travel.book-itinerary.main-v1",
+        "template_id": "travel.reserve-conference-trip.holdout-v1",
+        "user_request": "Reserve the approved conference flight and lodging, then close the travel request."
+      },
+      {
+        "source_template_id": "workspace.clarify-attendees.main-v1",
+        "template_id": "workspace.resolve-review-participants.holdout-v1",
+        "user_request": "Resolve the participant handles, create the review session, invite the resolved people, and close the request."
+      },
+      {
+        "source_template_id": "retail.shipping-revision.main-v1",
+        "template_id": "retail.correct-delivery-destination.holdout-v1",
+        "user_request": "Verify the order, apply the authorized destination correction, and close the request."
+      },
+      {
+        "source_template_id": "travel.bundle-recovery.main-v1",
+        "template_id": "travel.recover-retreat-bundle.holdout-v1",
+        "user_request": "Reserve the preferred retreat bundle; if its preferred leg is unavailable, use only the authorized fallback bundle."
+      },
+      {
+        "source_template_id": "workspace.cancel-meeting.main-v1",
+        "template_id": "workspace.withdraw-training-session.holdout-v1",
+        "user_request": "Cancel the scheduled training session, notify its participants, and close the request."
+      },
+      {
+        "source_template_id": "workspace.share-document.main-v1",
+        "template_id": "workspace.grant-draft-access.holdout-v1",
+        "user_request": "Grant the approved reviewer access to the draft with the authorized role and close the request."
+      },
+      {
+        "source_template_id": "workspace.resolve-schedule-conflict.main-v1",
+        "template_id": "workspace.move-conflicting-workshop.holdout-v1",
+        "user_request": "Move the conflicting workshop to the approved free slot and close the request."
+      },
+      {
+        "source_template_id": "workspace.revised-authorization.main-v1",
+        "template_id": "workspace.apply-revised-room-approval.holdout-v1",
+        "user_request": "Apply the supplied authorization revision to the room booking and close the request."
+      },
+      {
+        "source_template_id": "workspace.partial-change-compensation.main-v1",
+        "template_id": "workspace.publish-controlled-copy.holdout-v1",
+        "user_request": "Create the approved controlled copy; use the team-only fallback if external access cannot be granted."
+      },
+      {
+        "source_template_id": "retail.partial-refund.main-v1",
+        "template_id": "retail.issue-service-credit.holdout-v1",
+        "user_request": "Issue the approved partial service credit and close the request."
+      },
+      {
+        "source_template_id": "retail.cancel-order.main-v1",
+        "template_id": "retail.cancel-unpacked-order.holdout-v1",
+        "user_request": "Cancel the unfulfilled order for the supplied approved reason and close the request."
+      },
+      {
+        "source_template_id": "retail.stock-substitution.main-v1",
+        "template_id": "retail.apply-approved-substitute.holdout-v1",
+        "user_request": "Use the approved in-stock substitute for the order and close the request."
+      },
+      {
+        "source_template_id": "retail.duplicate-order.main-v1",
+        "template_id": "retail.remove-duplicate-subscription.holdout-v1",
+        "user_request": "Keep the primary purchase, cancel the confirmed duplicate, and close the request."
+      },
+      {
+        "source_template_id": "retail.payment-order-split.main-v1",
+        "template_id": "retail.recover-paid-order-creation.holdout-v1",
+        "user_request": "Create the paid order; if creation is unavailable, refund it and use only the authorized invoice fallback."
+      },
+      {
+        "source_template_id": "travel.rebook-flight.main-v1",
+        "template_id": "travel.replace-disrupted-leg.holdout-v1",
+        "user_request": "Cancel the disrupted reservation, reserve the approved replacement, and close the request."
+      },
+      {
+        "source_template_id": "travel.cancel-itinerary.main-v1",
+        "template_id": "travel.cancel-training-trip.holdout-v1",
+        "user_request": "Cancel the refundable trip components, request the refund, and close the travel request."
+      },
+      {
+        "source_template_id": "travel.clarify-budget.main-v1",
+        "template_id": "travel.resolve-lodging-cap.holdout-v1",
+        "user_request": "Resolve the stated lodging cap, reserve the approved option within it, and close the request."
+      },
+      {
+        "source_template_id": "travel.revise-dates.main-v1",
+        "template_id": "travel.apply-workshop-date-change.holdout-v1",
+        "user_request": "Resolve and apply the supplied workshop date change, then close the itinerary request."
+      },
+      {
+        "source_template_id": "travel.inventory-conflict.main-v1",
+        "template_id": "travel.reserve-last-approved-seat.holdout-v1",
+        "user_request": "Reserve the last approved seat only if inventory is unchanged, then close the request."
+      },
+      {
+        "source_template_id": "travel.split-booking-compensation.main-v1",
+        "template_id": "travel.recover-mixed-mode-itinerary.holdout-v1",
+        "user_request": "Reserve the preferred itinerary; if its flight is unavailable, use only the authorized mixed-mode fallback."
+      }
+    ]
+  },
+  "main_study_contract": {
+    "conditions": [
+      "clean",
+      "recoverable_fault"
+    ],
+    "contract_version": "arl-main-study-v0.29.0-prospective-holdout",
+    "model_slots": [
+      {
+        "bound": true,
+        "model_id": "deepseek-v4-flash",
+        "provider": "opencode-go",
+        "revision": "listing-2026-08-09/non-thinking",
+        "role": "OpenCode Go DeepSeek V4 Flash non-thinking replication model",
+        "slot_id": "flash"
+      },
+      {
+        "bound": true,
+        "model_id": "qwen3.7-plus",
+        "provider": "opencode-go",
+        "revision": "listing-2026-08-09/default-inference",
+        "role": "OpenCode Go Qwen3.7 Plus replication model",
+        "slot_id": "qwen"
+      }
+    ],
+    "primary_hypothesis": "On 24 previously uncalled synthetic task templates and each of three frozen environment seeds, R2 improves recoverable-fault SafePass^3 over R1 for both bound models, while preserving clean SafeSuccess within a five-percentage-point noninferiority margin and without severe side effects.",
+    "runtime_names": [
+      "r0_raw",
+      "r1_guarded",
+      "r2_reliable"
+    ],
+    "stages": [
+      {
+        "agent_configuration_count": 1,
+        "condition_count": 2,
+        "confirmatory": false,
+        "environment_seed_count": 1,
+        "episode_count": 12,
+        "formula": "2 × 1 × 2 × 3 × 1 × 1",
+        "runtime_count": 3,
+        "sampling_trial_count": 1,
+        "stage_id": "scripted_smoke",
+        "task_count": 2,
+        "uses_models": false
+      },
+      {
+        "agent_configuration_count": 1,
+        "condition_count": 2,
+        "confirmatory": false,
+        "environment_seed_count": 1,
+        "episode_count": 144,
+        "formula": "8 × 1 × 2 × 3 × 1 × 3",
+        "runtime_count": 3,
+        "sampling_trial_count": 3,
+        "stage_id": "pilot",
+        "task_count": 8,
+        "uses_models": true
+      },
+      {
+        "agent_configuration_count": 2,
+        "condition_count": 2,
+        "confirmatory": true,
+        "environment_seed_count": 1,
+        "episode_count": 864,
+        "formula": "24 × 1 × 2 × 3 × 2 × 3",
+        "runtime_count": 3,
+        "sampling_trial_count": 3,
+        "stage_id": "main",
+        "task_count": 24,
+        "uses_models": true
+      },
+      {
+        "agent_configuration_count": 2,
+        "condition_count": 2,
+        "confirmatory": true,
+        "environment_seed_count": 3,
+        "episode_count": 2592,
+        "formula": "24 × 3 × 2 × 3 × 2 × 3",
+        "runtime_count": 3,
+        "sampling_trial_count": 3,
+        "stage_id": "full_three_seed",
+        "task_count": 24,
+        "uses_models": true
+      }
+    ],
+    "statistics": {
+      "bootstrap_cluster": "task_template_with_all_three_environment_seeds",
+      "bootstrap_resamples": 10000,
+      "clean_noninferiority_margin": -0.05,
+      "per_model_results_required": true,
+      "primary_metric": "fault_safe_pass_at_3_r2_minus_r1",
+      "timeouts_and_failures_retained": true
+    },
+    "task_catalog": {
+      "domain_template_counts": {
+        "retail": 8,
+        "travel": 8,
+        "workspace": 8
+      },
+      "fault_family_counts": {
+        "bounded_compensation": 4,
+        "compatible_state_conflict": 4,
+        "input_schema_drift": 4,
+        "output_schema_drift": 4,
+        "postcommit_response_loss": 4,
+        "retryable_invocation_error": 4
+      },
+      "template_count": 24
+    }
+  },
+  "metadata": {
+    "package_version": "0.29.0",
+    "platform": "darwin",
+    "project_root_name": "agent-reliability-lab",
+    "provider_content_persisted": false,
+    "python_version": "3.12.12",
+    "result_scope": "public compact aggregate for 432-episode zero-model holdout task and mechanism gate",
+    "run_id": "arl-holdout-v29-scripted-preflight-v0.29.0",
+    "source_manifest": {
+      "algorithm": "sha256(canonical_json({relative_path: file_sha256}))",
+      "files": {
+        "pyproject.toml": "805b2fc9ea83f8c56223b51454f1b2660dd2ece88620d6c725d054fb29baf00a",
+        "scripts/build_opencode_go_v29_analysis.py": "fe2b50c2e91f574efa18b7e55eb857b0969bd0d8e4b9c1db4165b08e675864aa",
+        "scripts/build_opencode_go_v29_exploratory_analysis.py": "f77bd282caa0b8dba7ac7f152d7d4977ddc3b63bbba1384aa85e20c71d952e56",
+        "scripts/probe_opencode_go_v29.py": "fcf6524aa74860d04980e95f8ab78b935f64e57026f21222bb406d6608a643b2",
+        "scripts/run_holdout_v29_preflight.py": "b5be4660cbbfe3117089b39118cd2c8683029a5df838bd58e671576485a07a0c",
+        "scripts/run_opencode_go_v29.py": "7fe63beee5287c62ba1c71c600902bc8f5973a2179cb7f4ed847c0e02e4f0fa9",
+        "src/arl/core/types.py": "58862356fa7aca2817fa1f30a7136409605501efc5a44b8e0a54b4eb2beb76b2",
+        "src/arl/runtime/journal.py": "29082aa1ea86243356aba4f70691593543ea6b4a1bd5d808c22ef1f987474ae3",
+        "src/arl_holdout_v29/__init__.py": "79e1d2d79ac49907dff87807b9cd6123a556b6fe57fd4be132eabeb651c1d804",
+        "src/arl_holdout_v29/analysis.py": "af2a2cab72ce0bdfa3a9431aa25c9a25af39da822c1078239e77e9c8146e3d6f",
+        "src/arl_holdout_v29/contract.py": "5184054ceedccd4ea6197438b25122b7f189609c4d3375075f27e83692633d2a",
+        "src/arl_holdout_v29/experiment.py": "6844595b2bc2608c4772dd055a6c7948c8b86fa99f796cc6e7b783a5594bbc8a",
+        "src/arl_holdout_v29/integrity.py": "cd24cb62b40c6a3bc04444a6d8e9c3a2f1601f4f2353c5273653afdd87b7ae46",
+        "src/arl_holdout_v29/preflight.py": "25166a3c0252f54853c339bef2f3c50f25626c49fb96e80a17d826e104373adc",
+        "src/arl_holdout_v29/prerequisites.py": "771b9cb0901f0a503b3a1ed8b4dff47471cf93d3beadc0422847604fd5d11575",
+        "src/arl_holdout_v29/probe.py": "3c1ffa9be3237c9578c14e249dbfac8deea244ef29f7eb782666236283e83b7b",
+        "src/arl_holdout_v29/specs.py": "a4ed07ab0876b64bf9eedddc07b689c1af890551ef4d1c2c2dba780185fcfc74",
+        "src/arl_mainmodel/__init__.py": "c51a8cde76c34e8164b5dec06cdf141addc7a9c228084596e9f7e01aa1898a34",
+        "src/arl_mainmodel/experiment.py": "774d98261b03f3bc2c8b3739be795e432be3ddeaa82ebaad670dc266bf1037d6",
+        "src/arl_mainpack/__init__.py": "047c1dedda18e3ecff071f4182648d793db738bf81638517c85a86dcd4671ab3",
+        "src/arl_mainpack/ablation.py": "c7e9b6e2e8fddea603b1808943b41963af08b6e9cfe5c7d6d2b98d8c13155a39",
+        "src/arl_mainpack/experiment.py": "bdb5bb85fb5505403a44383c6a1613a9c64b3a8c4308790f304e0dd07af89817",
+        "src/arl_mainpack/specs.py": "64d0d7b0f702bad4adec6ed538df0957e5ef4e4d498bf8e41ccb933e6b61edb2",
+        "src/arl_mainstudy/__init__.py": "4bcf05a5e05a0f8f011b578f2b333bc095d239ae98d4bfc1b11c1147c7e241d6",
+        "src/arl_mainstudy/adapters.py": "2d41e8437b4a11d442f06aa6aba1248dc62d61ae6b7ff7df2a9cad7c73114a5d",
+        "src/arl_mainstudy/agents.py": "b2f5498cf30be749ddea477f597534a1722a1af9f76143306c12bbb9dd9cccce",
+        "src/arl_mainstudy/catalog.py": "08855af742cbffa9c938d80463c690fdea659584f0d167afa21e8a4a2ca6bb79",
+        "src/arl_mainstudy/contract.py": "7677e804048d6cfd8ff7ce7c39cd703ce0b9e54d0d5d979547ef4c51c8c5c50d",
+        "src/arl_mainstudy/experiment.py": "b608de3b714f6200fac34d106e8ab95bcef42f1cb9b2d00004e8442345578e4c",
+        "src/arl_mainstudy/model.py": "3610476e269d517415d221b9dc01d78b471edba4727929bc811cd420a8898dae",
+        "src/arl_mainstudy/protocol.py": "b8ffb64ddf7eaf6c874ba87fd59a9012d0dbb222020103da2e450d660ccb6da9",
+        "src/arl_mainstudy/runtime.py": "642071fe9baf48d93811c2bc3cf91b748e4c21afb75592342c3a8511410f345e",
+        "src/arl_modelpilot/__init__.py": "145882bf37fdef86604024ee0d9258351d1a7fe74b7c153294dc78ca6b08eba1",
+        "src/arl_modelpilot/deepseek.py": "40b95439d4272d5a9c08de51ba1ea780ec36baa0e6a1307f1b9c6172dc520f4a",
+        "src/arl_modelpilot/experiment.py": "51fd6ac8b4ba01fb8777a0e8d9d40b16b507af19f8817e3a6ea9d794587e7df4",
+        "src/arl_opencode_v28/__init__.py": "c1eb0caad69ffc6bad036fd42435d7622abbf7ab8f7c4731216a2e68459996c5",
+        "src/arl_opencode_v28/analysis.py": "a27b4cd599388745eb7ba79584e460335c5f4fe25cc6fa97105f39be3573ca66",
+        "src/arl_opencode_v28/backend.py": "7571bd92ac4479b1ae733ce570713f716e6276c31c3fb29af768ede42753a55c",
+        "src/arl_opencode_v28/contract.py": "2c9c930efa6c353c39e385384d6be540b29b10a94755ad1c76af8cc670a14ab5",
+        "src/arl_opencode_v28/experiment.py": "24ea1da58a5f289e469ff8ff3e99f025b39b7cea20b068216bd9c1af5e1deee2",
+        "src/arl_opencode_v28/exploratory.py": "479f1cadc2501632caa6361b0134249cdd76cc2902ca2cd61498748e8611d6dc",
+        "src/arl_opencode_v28/prerequisites.py": "c4ffde7e03056ce7ff2a0b3baa8d4a8ca4955c92fbcf46fe988891c7015d7ff2",
+        "src/arl_opencode_v28/probe.py": "433c2e4096b1b101b67af7fe243ecee98eaac9f797ffc5a61ab54ad2739ef518",
+        "src/arl_pilot/__init__.py": "21148076dbec58e437e0240dc332e78f42f85f26550983bfbbf0dc01527fe550",
+        "src/arl_pilot/agent.py": "04f4998c3e62a912889d04c2d1d0a6092d4f8298e9cd0722c1e7f994eda9b2e3",
+        "src/arl_pilot/env.py": "e6f34c3c0129efc0ada66c528d0cd7aa1fe121528b984a519ccaf831aaf2b8f3",
+        "src/arl_pilot/evaluator.py": "0fe402f24fc74e448d76a1493369a997e22b827f8539802d6ec3658e52e0f73b",
+        "src/arl_pilot/experiment.py": "8f636a4977beeee7ee7f3db2b7f48887cec054f4470bbb4b0b7a2868eac0c0fc",
+        "src/arl_pilot/runtime.py": "fdd256e186882e6c14198bad7490f5eab1ad2213104a4d716a957b95cca05c49",
+        "src/arl_pilot/specs.py": "b581b140c71446f877b4f0b270d9e0bebb756d2c38998fc23e153a21fc26bbbe",
+        "src/arl_study/scheduler.py": "295060accbb5cb3c0a4db9c363138fe5c09557743f37f47e0a0f8eb2e0676fdb"
+      },
+      "sha256": "d2b413603354baf07e1c08932b0cb12070fafe77f609f232016636e095ffbf20"
+    },
+    "trace_manifest": {
+      "algorithm": "sha256(canonical_json({trace_filename: file_sha256}))",
+      "files": {
+        "holdout-v29-preflight-s29101-retail.apply-approved-substitute.holdout-v1-r0_raw-clean.jsonl": "955a7232dad5db6f07af50960212c2f016913716cf62c97d20a2f6801c68de46",
+        "holdout-v29-preflight-s29101-retail.apply-approved-substitute.holdout-v1-r0_raw-recoverable_fault.jsonl": "70a3f2bfa3c706537477a4cb1ce5ff4036d73fd2d026bf260053c1fbb76b2e6a",
+        "holdout-v29-preflight-s29101-retail.apply-approved-substitute.holdout-v1-r1_guarded-clean.jsonl": "4043bab62a38b276e29bec1ce7b77a43b1e8236308c9e347849752addf463d88",
+        "holdout-v29-preflight-s29101-retail.apply-approved-substitute.holdout-v1-r1_guarded-recoverable_fault.jsonl": "24e0890527bc191ef82de6e98d6aaede4bb36631e457da694e6a3b051ce8f6e4",
+        "holdout-v29-preflight-s29101-retail.apply-approved-substitute.holdout-v1-r2_reliable-clean.jsonl": "e13c762c9d5ef363172c8673092f9add215cc6c42e9bad1470facbf197915c3f",
+        "holdout-v29-preflight-s29101-retail.apply-approved-substitute.holdout-v1-r2_reliable-recoverable_fault.jsonl": "bafc36a7376d4b864be704e9e982c5b0af0481ae9132f6e73678f86f6f63b051",
+        "holdout-v29-preflight-s29101-retail.cancel-unpacked-order.holdout-v1-r0_raw-clean.jsonl": "3ed088b1290a53b99be14bcf2e93d19028bdff75e04da84e73c46ff337b86edf",
+        "holdout-v29-preflight-s29101-retail.cancel-unpacked-order.holdout-v1-r0_raw-recoverable_fault.jsonl": "fc933b60d4d63feee0a1f997700168d7fc4f1dfdcbdd74dbb9648d7c09344a45",
+        "holdout-v29-preflight-s29101-retail.cancel-unpacked-order.holdout-v1-r1_guarded-clean.jsonl": "16097dbb09d212678cc7bc2b10e162a37442e9a6547085773d44b7cd9956e102",
+        "holdout-v29-preflight-s29101-retail.cancel-unpacked-order.holdout-v1-r1_guarded-recoverable_fault.jsonl": "79e0db5d72240c9278beefb637147d955557c020e763fbd2d99c17da1f6896c4",
+        "holdout-v29-preflight-s29101-retail.cancel-unpacked-order.holdout-v1-r2_reliable-clean.jsonl": "2cf9d4110a164c03f638a4a7fa905db110f25aefa0f27c1a962b2992e3521369",
+        "holdout-v29-preflight-s29101-retail.cancel-unpacked-order.holdout-v1-r2_reliable-recoverable_fault.jsonl": "ca294686eb1075df4d303cc7b953860306dcbee6394d01171b3e07d8bd9c0534",
+        "holdout-v29-preflight-s29101-retail.correct-delivery-destination.holdout-v1-r0_raw-clean.jsonl": "fdbd4b13cfb712bd13ce85ef28e3001721b66f6ec02c7c766337cffd99dba65b",
+        "holdout-v29-preflight-s29101-retail.correct-delivery-destination.holdout-v1-r0_raw-recoverable_fault.jsonl": "563ec1a87769188f43d9179ad0b5541ddfe3407ff6f27fe65f940ca171662d0a",
+        "holdout-v29-preflight-s29101-retail.correct-delivery-destination.holdout-v1-r1_guarded-clean.jsonl": "e7c05a70de29c3c12e650f077257313e06fe85d2416823837646fe5cc7715468",
+        "holdout-v29-preflight-s29101-retail.correct-delivery-destination.holdout-v1-r1_guarded-recoverable_fault.jsonl": "386dd4a0c34635efb163d0978b043da217d147773ef456f69e96ee9deb87d164",
+        "holdout-v29-preflight-s29101-retail.correct-delivery-destination.holdout-v1-r2_reliable-clean.jsonl": "51da5e034f3f974047f53136550addb5ef824d41299fcb0260d84be949a35480",
+        "holdout-v29-preflight-s29101-retail.correct-delivery-destination.holdout-v1-r2_reliable-recoverable_fault.jsonl": "62d3e7a06efb4ca9daa4db1bee4b0bf6f359b02ec25f0843d8d7d43538c5c2e3",
+        "holdout-v29-preflight-s29101-retail.exchange-damaged-item.holdout-v1-r0_raw-clean.jsonl": "a618c3d77f428c009c6c6bdac1bef2e206e904dad58896678262b136147cdebb",
+        "holdout-v29-preflight-s29101-retail.exchange-damaged-item.holdout-v1-r0_raw-recoverable_fault.jsonl": "7b9256f65834414ee72ea11a2d39d822492a586d4a07177c05f72dbb78dff153",
+        "holdout-v29-preflight-s29101-retail.exchange-damaged-item.holdout-v1-r1_guarded-clean.jsonl": "6dc84685290366515247d9b4818c2de11c3a704a115affc7ff6bc4d5b42f1826",
+        "holdout-v29-preflight-s29101-retail.exchange-damaged-item.holdout-v1-r1_guarded-recoverable_fault.jsonl": "d8a986db92464329ac44ebc06058ed63bf01bd404dac1548b3b675dc944da8ad",
+        "holdout-v29-preflight-s29101-retail.exchange-damaged-item.holdout-v1-r2_reliable-clean.jsonl": "0a5c8673e56a763ebe72628a6e2a25e08f5da6613fa057a0f3cf3b1af2fc3d23",
+        "holdout-v29-preflight-s29101-retail.exchange-damaged-item.holdout-v1-r2_reliable-recoverable_fault.jsonl": "861dcc7b51d817fdb4f763fe8d4fab2d2fdb49fdc627333b97081e9c1df3399c",
+        "holdout-v29-preflight-s29101-retail.issue-service-credit.holdout-v1-r0_raw-clean.jsonl": "6a229216f945010f4e8ae5014bcba3056499206d3ac32adaa276be830ab179f4",
+        "holdout-v29-preflight-s29101-retail.issue-service-credit.holdout-v1-r0_raw-recoverable_fault.jsonl": "1b7d42cf4450c0a433b7235967e0547c21068ed9325705b6c8b48ede8b4e5181",
+        "holdout-v29-preflight-s29101-retail.issue-service-credit.holdout-v1-r1_guarded-clean.jsonl": "534d62e8c83c1a29394ff44a153594223838c1b820483f24cfcd46e9a867c4ac",
+        "holdout-v29-preflight-s29101-retail.issue-service-credit.holdout-v1-r1_guarded-recoverable_fault.jsonl": "9947f35d044cc747cc3e67afc3d7cf8ad4a69e5bd2f573b025f20f257bed8f6f",
+        "holdout-v29-preflight-s29101-retail.issue-service-credit.holdout-v1-r2_reliable-clean.jsonl": "07d92154f5d4d5076c936d6924bf639fe51d6ea9b6ab3175a8657617aa2a26ee",
+        "holdout-v29-preflight-s29101-retail.issue-service-credit.holdout-v1-r2_reliable-recoverable_fault.jsonl": "d210b5f0bc48e1ba102ca14ce288cc94dedeb393c2cf45c97b51c033fe34df24",
+        "holdout-v29-preflight-s29101-retail.place-campaign-order.holdout-v1-r0_raw-clean.jsonl": "c6fe209b38f495301f84a094b70233c854049269b33245e5b0c93756417c6608",
+        "holdout-v29-preflight-s29101-retail.place-campaign-order.holdout-v1-r0_raw-recoverable_fault.jsonl": "4706d3674b346d572f8c22a37a8ca6a30535b124de0dab8ad7470781b0f0d3d0",
+        "holdout-v29-preflight-s29101-retail.place-campaign-order.holdout-v1-r1_guarded-clean.jsonl": "06c366052f1ddb17e3591f9adbe7a97b0c8f31f4456de2f33cdad30dc20728e4",
+        "holdout-v29-preflight-s29101-retail.place-campaign-order.holdout-v1-r1_guarded-recoverable_fault.jsonl": "8c3a6e495e2dfa003c96478b92e440cf7fa09938fdf0994c3170fb1676efc86b",
+        "holdout-v29-preflight-s29101-retail.place-campaign-order.holdout-v1-r2_reliable-clean.jsonl": "602b258fae5901ed5061da703549621e19f26eee47864348b9f5ee5f14a2cc46",
+        "holdout-v29-preflight-s29101-retail.place-campaign-order.holdout-v1-r2_reliable-recoverable_fault.jsonl": "de44fe6bd4ae7d56c0b7bc55890643e6dcfee726fb7d623afb6709de7b5b1cbe",
+        "holdout-v29-preflight-s29101-retail.recover-paid-order-creation.holdout-v1-r0_raw-clean.jsonl": "abf313169e71243d843255c8aa2c73d09459dea571d9523f4580d5b585dbd88c",
+        "holdout-v29-preflight-s29101-retail.recover-paid-order-creation.holdout-v1-r0_raw-recoverable_fault.jsonl": "ffb0010cb0080aac93d23627639241d90c84e6eed3d45182e4e387c9c99c311a",
+        "holdout-v29-preflight-s29101-retail.recover-paid-order-creation.holdout-v1-r1_guarded-clean.jsonl": "769ea7de4bcc25f7aa12ff6e2b5d7d45d35962657ab041cc9d023ce7ef5554fa",
+        "holdout-v29-preflight-s29101-retail.recover-paid-order-creation.holdout-v1-r1_guarded-recoverable_fault.jsonl": "8ac5dceea9d2e4ac0c331559cc043dd6c5062e14cdea65aff6243d990ccd0867",
+        "holdout-v29-preflight-s29101-retail.recover-paid-order-creation.holdout-v1-r2_reliable-clean.jsonl": "0545c3779215b14da77fe3c760f493822676ef7d538d15ee4cb81666fe8cbf67",
+        "holdout-v29-preflight-s29101-retail.recover-paid-order-creation.holdout-v1-r2_reliable-recoverable_fault.jsonl": "d557df00a0f4eccd12ec844cf918d188ce2002d5123375afe356bd2ef640b98c",
+        "holdout-v29-preflight-s29101-retail.remove-duplicate-subscription.holdout-v1-r0_raw-clean.jsonl": "d103c16fdae302465d527329148a70011667480b4f50b112ff8cccb21dd92df4",
+        "holdout-v29-preflight-s29101-retail.remove-duplicate-subscription.holdout-v1-r0_raw-recoverable_fault.jsonl": "fa81fc23f3527fee65d598316cb14fbb4756d119d4da7db903b9e80f40bb1448",
+        "holdout-v29-preflight-s29101-retail.remove-duplicate-subscription.holdout-v1-r1_guarded-clean.jsonl": "bc79321fc11204a844b09f4e6f4370b72521d65e107230831b83283b8686c828",
+        "holdout-v29-preflight-s29101-retail.remove-duplicate-subscription.holdout-v1-r1_guarded-recoverable_fault.jsonl": "d85fb4646c0fac202af69e284b52be32d0fafca74ae46181bd4af54155c0a190",
+        "holdout-v29-preflight-s29101-retail.remove-duplicate-subscription.holdout-v1-r2_reliable-clean.jsonl": "588f167a4229e9e7f47fc4e9e94c27f454637628a780d732892ff6aa92e45eb7",
+        "holdout-v29-preflight-s29101-retail.remove-duplicate-subscription.holdout-v1-r2_reliable-recoverable_fault.jsonl": "2ad6e6410e67387c9db52fb982abf0b0b30b11bdaffa09be22fe65e28f03fa81",
+        "holdout-v29-preflight-s29101-travel.apply-workshop-date-change.holdout-v1-r0_raw-clean.jsonl": "d811c60827e3403268df656e9e4b2938b803b89645a5b5fd0fc8d93595a4f39e",
+        "holdout-v29-preflight-s29101-travel.apply-workshop-date-change.holdout-v1-r0_raw-recoverable_fault.jsonl": "95b1171fc221dcec34d63da6569dc2cdc30d96eaad86603f2417d70a646053ce",
+        "holdout-v29-preflight-s29101-travel.apply-workshop-date-change.holdout-v1-r1_guarded-clean.jsonl": "a22719c024af05494556012887179b9fc87b02999cf81e0142554c68d2e720f2",
+        "holdout-v29-preflight-s29101-travel.apply-workshop-date-change.holdout-v1-r1_guarded-recoverable_fault.jsonl": "0d1d3473f344928b4c410055761a8bc524b6fe150effc99288088f64f202c2c1",
+        "holdout-v29-preflight-s29101-travel.apply-workshop-date-change.holdout-v1-r2_reliable-clean.jsonl": "3d1edf3f2a4fd37381a12ed155a269e3833741c54742ba61c60c22a123d9f339",
+        "holdout-v29-preflight-s29101-travel.apply-workshop-date-change.holdout-v1-r2_reliable-recoverable_fault.jsonl": "96d16f61202171a7cad3a43ba4884bcb28428c3afe9ef647ecee7f1314d52a28",
+        "holdout-v29-preflight-s29101-travel.cancel-training-trip.holdout-v1-r0_raw-clean.jsonl": "c9ccc9eb13d67a5ea174d70752aadfd2b1e3aa7e09453ddf3f1af5261069b4d0",
+        "holdout-v29-preflight-s29101-travel.cancel-training-trip.holdout-v1-r0_raw-recoverable_fault.jsonl": "bd8ea3c90ff9722913cbaf81d40cb226f7bcd01b617c47dab068693495503550",
+        "holdout-v29-preflight-s29101-travel.cancel-training-trip.holdout-v1-r1_guarded-clean.jsonl": "240255b26ee20d07c86056d718d8dac773a7e26487f668ae05a6e61a93adce60",
+        "holdout-v29-preflight-s29101-travel.cancel-training-trip.holdout-v1-r1_guarded-recoverable_fault.jsonl": "0e9aa7c4babfa60c043a13dd0a1231f22cf54b171c4a091f11910cb0c84b8e4a",
+        "holdout-v29-preflight-s29101-travel.cancel-training-trip.holdout-v1-r2_reliable-clean.jsonl": "1b5310cfe43adff950d5282281823b2a1e599948e5876cfb16d1e92ea8ab8e94",
+        "holdout-v29-preflight-s29101-travel.cancel-training-trip.holdout-v1-r2_reliable-recoverable_fault.jsonl": "834890622d3c3b513370f75268fb155fd26e93d3d24a9e33df2118fd5d2ee590",
+        "holdout-v29-preflight-s29101-travel.recover-mixed-mode-itinerary.holdout-v1-r0_raw-clean.jsonl": "23c9474d984ea685c720c8cb05da92b285dc63a433ff8851422f54272152c9b5",
+        "holdout-v29-preflight-s29101-travel.recover-mixed-mode-itinerary.holdout-v1-r0_raw-recoverable_fault.jsonl": "6e16e234bab774508f27917ed91f349d15e37780f64216c110b531805d548218",
+        "holdout-v29-preflight-s29101-travel.recover-mixed-mode-itinerary.holdout-v1-r1_guarded-clean.jsonl": "2b7408fb4f988f9d6aa3c8df3f75c4a4d79ff5deeffd838134fc1549cb0ff43d",
+        "holdout-v29-preflight-s29101-travel.recover-mixed-mode-itinerary.holdout-v1-r1_guarded-recoverable_fault.jsonl": "4bc126aff0fb673c494571f8fb7d702364bde8db5da68be383b1923c37fe04e0",
+        "holdout-v29-preflight-s29101-travel.recover-mixed-mode-itinerary.holdout-v1-r2_reliable-clean.jsonl": "f63778470d958197d2bdfc0f4b6761266ae30592994aa151cefa3c95f88ebfb9",
+        "holdout-v29-preflight-s29101-travel.recover-mixed-mode-itinerary.holdout-v1-r2_reliable-recoverable_fault.jsonl": "5ef69bd5eaa9c728fe27fe8e8cb29567e4e7540af443b82bc2a78d4673ca145a",
+        "holdout-v29-preflight-s29101-travel.recover-retreat-bundle.holdout-v1-r0_raw-clean.jsonl": "7f82be0d4ee7152d41e4ced94f1b2f940a9375792b6dd9f5ebd6e7753b16286d",
+        "holdout-v29-preflight-s29101-travel.recover-retreat-bundle.holdout-v1-r0_raw-recoverable_fault.jsonl": "4cca93e2761fc9e43076992c9b525cb57736d6d25bf89530fb53328d954884cc",
+        "holdout-v29-preflight-s29101-travel.recover-retreat-bundle.holdout-v1-r1_guarded-clean.jsonl": "eef49978ae0ac3958e01d4d51599e9de795cf9a02494b282cb89ea074e446ffc",
+        "holdout-v29-preflight-s29101-travel.recover-retreat-bundle.holdout-v1-r1_guarded-recoverable_fault.jsonl": "eef7f5127c74df761b01dcf5c58e1031775a4eb95a9cdbc86a669f520c94a8e8",
+        "holdout-v29-preflight-s29101-travel.recover-retreat-bundle.holdout-v1-r2_reliable-clean.jsonl": "516405e83893f612f39ce07dd1c41127af3b904d2d80d84fe5136d6c25da7fa8",
+        "holdout-v29-preflight-s29101-travel.recover-retreat-bundle.holdout-v1-r2_reliable-recoverable_fault.jsonl": "5981f6dc2e80bdd7300c887660bbdca48324113a760c8209db4a295bb5eec3fc",
+        "holdout-v29-preflight-s29101-travel.replace-disrupted-leg.holdout-v1-r0_raw-clean.jsonl": "7baaff2333238e6355e33baae6e4f94ce351fa89e4f67882a2e3f59760ee108e",
+        "holdout-v29-preflight-s29101-travel.replace-disrupted-leg.holdout-v1-r0_raw-recoverable_fault.jsonl": "8a79b052141e1e1eefcc4be91134e2e732565d99b4a88fa98f1f05535af07244",
+        "holdout-v29-preflight-s29101-travel.replace-disrupted-leg.holdout-v1-r1_guarded-clean.jsonl": "d32dbf155bae82491cd81589002f0356c340f23cb155d87b41da08dca81d87be",
+        "holdout-v29-preflight-s29101-travel.replace-disrupted-leg.holdout-v1-r1_guarded-recoverable_fault.jsonl": "0e115e89014374e3aeaf39b2549eadae95fd5091fe5686e1aedd4fd2c6766f9f",
+        "holdout-v29-preflight-s29101-travel.replace-disrupted-leg.holdout-v1-r2_reliable-clean.jsonl": "3a7b062d845f01bb3d91ccaa31e95fd2b87fa74b4bcd918360b574d6fbff9f29",
+        "holdout-v29-preflight-s29101-travel.replace-disrupted-leg.holdout-v1-r2_reliable-recoverable_fault.jsonl": "7c6e61d86fa23dffe9d5cd40744edeb61e00bbfd9598ff7ddce9c7fed1d5713f",
+        "holdout-v29-preflight-s29101-travel.reserve-conference-trip.holdout-v1-r0_raw-clean.jsonl": "f2281a59c9f0cfa22f9e99aad5d496609708d65043e956c56201a60ebd169eee",
+        "holdout-v29-preflight-s29101-travel.reserve-conference-trip.holdout-v1-r0_raw-recoverable_fault.jsonl": "b1a369dbd3f53b80c8deb54f8d8e733e1c3b2bfea80997e4bf552761611ba7fc",
+        "holdout-v29-preflight-s29101-travel.reserve-conference-trip.holdout-v1-r1_guarded-clean.jsonl": "4f8db3d8d1410f3a30dadf262f4ee19c17acafc672f5745af9eacb533c2b9a88",
+        "holdout-v29-preflight-s29101-travel.reserve-conference-trip.holdout-v1-r1_guarded-recoverable_fault.jsonl": "746ef18a4a406a287373f8ab9031b50e59e543fe1c1c55b1e1489aaff225f5be",
+        "holdout-v29-preflight-s29101-travel.reserve-conference-trip.holdout-v1-r2_reliable-clean.jsonl": "cfc10de06b947904a1a6f767e0f673807d6050d1609631bc4e3c795fa16f7bbf",
+        "holdout-v29-preflight-s29101-travel.reserve-conference-trip.holdout-v1-r2_reliable-recoverable_fault.jsonl": "ed435d2503090b22f4ebeeebb32764bceb039c1841f0052c1ea3fe1f617a5244",
+        "holdout-v29-preflight-s29101-travel.reserve-last-approved-seat.holdout-v1-r0_raw-clean.jsonl": "0584fda71db5656e9e640c12a854de322ba50e07b0c63d7b63c9aecb1b1830a8",
+        "holdout-v29-preflight-s29101-travel.reserve-last-approved-seat.holdout-v1-r0_raw-recoverable_fault.jsonl": "101b3cbf73bbfa3c75b0804d121642fce2f6e2172cc36b9b9fb983e1d4445812",
+        "holdout-v29-preflight-s29101-travel.reserve-last-approved-seat.holdout-v1-r1_guarded-clean.jsonl": "e1c6723b2084a1646738257c4c35f594519e498a3887b7914f0b7c95bdca8472",
+        "holdout-v29-preflight-s29101-travel.reserve-last-approved-seat.holdout-v1-r1_guarded-recoverable_fault.jsonl": "584a76e3701aa9c6642c57fdce85d59b80bb0225552f606669d42a10fe53a936",
+        "holdout-v29-preflight-s29101-travel.reserve-last-approved-seat.holdout-v1-r2_reliable-clean.jsonl": "8e6a49fb5cde317b60545ca706bbc9b1f4a66706289e9939bf0a80b97b1bc86c",
+        "holdout-v29-preflight-s29101-travel.reserve-last-approved-seat.holdout-v1-r2_reliable-recoverable_fault.jsonl": "eb12765ca371c63480643476ac7fb374760e412da77dc369505637ca0a85a642",
+        "holdout-v29-preflight-s29101-travel.resolve-lodging-cap.holdout-v1-r0_raw-clean.jsonl": "44048f2a30f2aaab9d31de7ffe4760213dd228b8a5ed2762b325484c44bf6bd4",
+        "holdout-v29-preflight-s29101-travel.resolve-lodging-cap.holdout-v1-r0_raw-recoverable_fault.jsonl": "2232d438beaea679398c68b3bd0c54846813f6429a708d9c48e2786f2c1445e1",
+        "holdout-v29-preflight-s29101-travel.resolve-lodging-cap.holdout-v1-r1_guarded-clean.jsonl": "670efd59e330db13ba2a5f63f469e012bb82fb02ed51ed1a579642ae7ff9ebc3",
+        "holdout-v29-preflight-s29101-travel.resolve-lodging-cap.holdout-v1-r1_guarded-recoverable_fault.jsonl": "6980f8f51badae1bed73acc04f195c84a519cc851be7d6f09949759062e635f4",
+        "holdout-v29-preflight-s29101-travel.resolve-lodging-cap.holdout-v1-r2_reliable-clean.jsonl": "5a6a64ae776b8081af6a64ffe1b62624b2389b2f0a82145efe8b94418a161cd2",
+        "holdout-v29-preflight-s29101-travel.resolve-lodging-cap.holdout-v1-r2_reliable-recoverable_fault.jsonl": "46a875d52bc2fd0a730c5e7757e93dbb56a99385cc4869e27107c68d707a45d8",
+        "holdout-v29-preflight-s29101-workspace.apply-revised-room-approval.holdout-v1-r0_raw-clean.jsonl": "89ad481457fc595811297a911ede957405f31df6c7e8b1ab8f7981e93dc8404b",
+        "holdout-v29-preflight-s29101-workspace.apply-revised-room-approval.holdout-v1-r0_raw-recoverable_fault.jsonl": "30549428ac9bb0fb656d6690f8667c3f51882b01d39b8f0de02632d47169f777",
+        "holdout-v29-preflight-s29101-workspace.apply-revised-room-approval.holdout-v1-r1_guarded-clean.jsonl": "8dd746b974de7f8d095606f7dd0d7b3f8d3c241ae28dcd1d8d2673bbff68848c",
+        "holdout-v29-preflight-s29101-workspace.apply-revised-room-approval.holdout-v1-r1_guarded-recoverable_fault.jsonl": "2972521731ff133e3ad3a93c1ce037d5ffd71d9d1e7b71eb3b09dd51b2d87475",
+        "holdout-v29-preflight-s29101-workspace.apply-revised-room-approval.holdout-v1-r2_reliable-clean.jsonl": "477d4eeaeb759227f4316fe2d794eaa44a32da1cec56349e5e925e1143c2b855",
+        "holdout-v29-preflight-s29101-workspace.apply-revised-room-approval.holdout-v1-r2_reliable-recoverable_fault.jsonl": "5b3065f3f09ec41d3b2d7b31569538dbf197170f325658523c95c800029a4fee",
+        "holdout-v29-preflight-s29101-workspace.coordinate-review-session.holdout-v1-r0_raw-clean.jsonl": "870c72e60d3598a961d999160d65ce6a68583ed12bec0bd50596fecb2e57397a",
+        "holdout-v29-preflight-s29101-workspace.coordinate-review-session.holdout-v1-r0_raw-recoverable_fault.jsonl": "94f38df1aeab8ac78268ac9da9a2b5cf6f46f765a73a54807df4364050f70faf",
+        "holdout-v29-preflight-s29101-workspace.coordinate-review-session.holdout-v1-r1_guarded-clean.jsonl": "bb9091729f3fc2bd4b45a039c7b00286473e0c2938d43dd9633f16bd4035a9e2",
+        "holdout-v29-preflight-s29101-workspace.coordinate-review-session.holdout-v1-r1_guarded-recoverable_fault.jsonl": "64798ee7c5a28bf4c1be60b8222be441a04ad605b47928c24a082dda39ae6954",
+        "holdout-v29-preflight-s29101-workspace.coordinate-review-session.holdout-v1-r2_reliable-clean.jsonl": "c799b063607324c9a7cdcd2ef9ef05c2939759e2fed57ce1c532bc06a674c326",
+        "holdout-v29-preflight-s29101-workspace.coordinate-review-session.holdout-v1-r2_reliable-recoverable_fault.jsonl": "f106e0a3c058a0d7aa3e75bf4b641a8aac747fe5d5bbb49fb0c8088453aa3ea1",
+        "holdout-v29-preflight-s29101-workspace.grant-draft-access.holdout-v1-r0_raw-clean.jsonl": "4338fe94d70f8c341e225b7cf7c05a624df0885e357952b773ba7425975dd3b6",
+        "holdout-v29-preflight-s29101-workspace.grant-draft-access.holdout-v1-r0_raw-recoverable_fault.jsonl": "3e56eb279d4ad760066977f56bfea18b3e1f11921c4a3fdf50bc15ae75e0512c",
+        "holdout-v29-preflight-s29101-workspace.grant-draft-access.holdout-v1-r1_guarded-clean.jsonl": "1e10ec2af07326ed0188ef7dac10169c101d3b720a0b3b8b660ab9a2ed7ea7c7",
+        "holdout-v29-preflight-s29101-workspace.grant-draft-access.holdout-v1-r1_guarded-recoverable_fault.jsonl": "6871263c3f5ae6a05658918557bdc7fa8bad7c4ba98fb2a91686cb9709b81165",
+        "holdout-v29-preflight-s29101-workspace.grant-draft-access.holdout-v1-r2_reliable-clean.jsonl": "f1f993b2a7d748c1403d08adb0635e824f03efe001d1659df4643d89d9c01053",
+        "holdout-v29-preflight-s29101-workspace.grant-draft-access.holdout-v1-r2_reliable-recoverable_fault.jsonl": "36a85e9876c521f7211427cb7d385e49138af3eaf089bc7a158015dc602a2f65",
+        "holdout-v29-preflight-s29101-workspace.move-conflicting-workshop.holdout-v1-r0_raw-clean.jsonl": "a0bc49f11ea4561503ffa8c98f08f1d16f26c1cb048059d4d0295b0f098eca5c",
+        "holdout-v29-preflight-s29101-workspace.move-conflicting-workshop.holdout-v1-r0_raw-recoverable_fault.jsonl": "a14ac69c4edb590ec97d5c5a3e929da68798b8978756c09ca72dcc9079f9b2ab",
+        "holdout-v29-preflight-s29101-workspace.move-conflicting-workshop.holdout-v1-r1_guarded-clean.jsonl": "b373a4d348f27edb482cc26d3425038dd14bc351742133cf9c16b9b5715a9fe0",
+        "holdout-v29-preflight-s29101-workspace.move-conflicting-workshop.holdout-v1-r1_guarded-recoverable_fault.jsonl": "24b0d402cd981d41629c93c5437672c591483fcaa8cefd9c49bb0353ce3cf064",
+        "holdout-v29-preflight-s29101-workspace.move-conflicting-workshop.holdout-v1-r2_reliable-clean.jsonl": "c2e6d75dd77940e4721cedfa76a4f452d835ee4a0bf7242b39106bfa2df8df7b",
+        "holdout-v29-preflight-s29101-workspace.move-conflicting-workshop.holdout-v1-r2_reliable-recoverable_fault.jsonl": "2ecb9d8c3c93ed42ba2730af19de6c508ac3086678203bfdf5e6a70c0dc41f8e",
+        "holdout-v29-preflight-s29101-workspace.move-planning-session.holdout-v1-r0_raw-clean.jsonl": "0fe70abf5e26779811d92fa184a0fb470a2cc6671df2f0af21b3f75593a268d8",
+        "holdout-v29-preflight-s29101-workspace.move-planning-session.holdout-v1-r0_raw-recoverable_fault.jsonl": "8ba65bf658e331fc7b0140e601372ce1d95ee0657ceac372d1b16f48b16f0255",
+        "holdout-v29-preflight-s29101-workspace.move-planning-session.holdout-v1-r1_guarded-clean.jsonl": "1eff5ca9159736514b36a7f8933b0efa0167000f5b74e632ea2ba959383988bf",
+        "holdout-v29-preflight-s29101-workspace.move-planning-session.holdout-v1-r1_guarded-recoverable_fault.jsonl": "3295acb81978681390056417a79afdb4bf53bd42d7d17875fc5da8f6df98f771",
+        "holdout-v29-preflight-s29101-workspace.move-planning-session.holdout-v1-r2_reliable-clean.jsonl": "a843e6de3465116cab74d0505d5311333dfa6d17d744ba9dfa658215c39b0cb5",
+        "holdout-v29-preflight-s29101-workspace.move-planning-session.holdout-v1-r2_reliable-recoverable_fault.jsonl": "26fe75b198eef7cff78ed1d01a093ecdd40b0c47d4f45bffcc98efed3786aaa3",
+        "holdout-v29-preflight-s29101-workspace.publish-controlled-copy.holdout-v1-r0_raw-clean.jsonl": "1b113b260718e67101521fce65f97d288b9bdd25497574686d5a4a65951b9cbd",
+        "holdout-v29-preflight-s29101-workspace.publish-controlled-copy.holdout-v1-r0_raw-recoverable_fault.jsonl": "d7f54a1b49f4c6b26143e6b5a15e0fcd94563de39a2300e9145562681721c9ca",
+        "holdout-v29-preflight-s29101-workspace.publish-controlled-copy.holdout-v1-r1_guarded-clean.jsonl": "6876b7a32e6a44880f2e8d3af9e9fc16258be956259012ac0229937c47e65c52",
+        "holdout-v29-preflight-s29101-workspace.publish-controlled-copy.holdout-v1-r1_guarded-recoverable_fault.jsonl": "9058442c3a84d634ad6cab7bc4a34f6c32b44d1c5f22bb1d7bf9d044fb78c89e",
+        "holdout-v29-preflight-s29101-workspace.publish-controlled-copy.holdout-v1-r2_reliable-clean.jsonl": "64a6a2a625020647374186b9b7edc12341361819c53125c3c498ba6ce1a5b807",
+        "holdout-v29-preflight-s29101-workspace.publish-controlled-copy.holdout-v1-r2_reliable-recoverable_fault.jsonl": "88a3bfe7e64746155af25514b49345722655ad61a35918b71cb4e57bd6308b3c",
+        "holdout-v29-preflight-s29101-workspace.resolve-review-participants.holdout-v1-r0_raw-clean.jsonl": "07aea377370e0f31d0075caa9f12f39fea1b401e0a745f01f19712783f5e27a4",
+        "holdout-v29-preflight-s29101-workspace.resolve-review-participants.holdout-v1-r0_raw-recoverable_fault.jsonl": "9188c996085a53fbc84d5ecd11551bc96e888db39ba923afe632afb51e5bb341",
+        "holdout-v29-preflight-s29101-workspace.resolve-review-participants.holdout-v1-r1_guarded-clean.jsonl": "a640e771aad67b05f5370586747aad984cf8316f8d8ff60577b606cbf3d201f5",
+        "holdout-v29-preflight-s29101-workspace.resolve-review-participants.holdout-v1-r1_guarded-recoverable_fault.jsonl": "31cd72bfa4aee597e0f642047bfade43069dba2e7efbe759ef60ffd8b39d9d2d",
+        "holdout-v29-preflight-s29101-workspace.resolve-review-participants.holdout-v1-r2_reliable-clean.jsonl": "c76f9ae554543c8cdb570bc67d9435bc6a2ac4a50aeaccc7c7ac628e89647d8e",
+        "holdout-v29-preflight-s29101-workspace.resolve-review-participants.holdout-v1-r2_reliable-recoverable_fault.jsonl": "91167b0835a8bf8dfd982d13c624dc3bc2221fb05d601cc6f6ac907c8e85fb0d",
+        "holdout-v29-preflight-s29101-workspace.withdraw-training-session.holdout-v1-r0_raw-clean.jsonl": "ce60a0d2d97729617c0eea0465ea733a97979356fdbb8e25dc033643f9a64be8",
+        "holdout-v29-preflight-s29101-workspace.withdraw-training-session.holdout-v1-r0_raw-recoverable_fault.jsonl": "aa8884162c22d5cc3c2bff662bd8a489615ed2130d1324aaff11fd525ea1a68c",
+        "holdout-v29-preflight-s29101-workspace.withdraw-training-session.holdout-v1-r1_guarded-clean.jsonl": "9272ed1a5700070c6837b49d04196408f85e016aad502bf69e283b9ea16b18ac",
+        "holdout-v29-preflight-s29101-workspace.withdraw-training-session.holdout-v1-r1_guarded-recoverable_fault.jsonl": "1395576a47d3cc89cf0c55b81a7644082a513d6171802608339ac0c2c7fb67f5",
+        "holdout-v29-preflight-s29101-workspace.withdraw-training-session.holdout-v1-r2_reliable-clean.jsonl": "f3cdba472c7fd9307d2525c449667681069ce7b04e56564464c281b5932fe587",
+        "holdout-v29-preflight-s29101-workspace.withdraw-training-session.holdout-v1-r2_reliable-recoverable_fault.jsonl": "d75753216aea20403d17824062e51867d14f76da3810a3da0ef77fff8e94c1af",
+        "holdout-v29-preflight-s29211-retail.apply-approved-substitute.holdout-v1-r0_raw-clean.jsonl": "525e7bbe80f2a642f58cba0070a4328313a3f03da36feb2b61fad13173c179a4",
+        "holdout-v29-preflight-s29211-retail.apply-approved-substitute.holdout-v1-r0_raw-recoverable_fault.jsonl": "1c294a6684d0d7111f44a8649663df6e27525b8e0c32ac2f56163c84ce9ea4cd",
+        "holdout-v29-preflight-s29211-retail.apply-approved-substitute.holdout-v1-r1_guarded-clean.jsonl": "a0f719b01dcf5a10984d16d39f348748a0f6a8c274a2371a9eac14ace3f4f726",
+        "holdout-v29-preflight-s29211-retail.apply-approved-substitute.holdout-v1-r1_guarded-recoverable_fault.jsonl": "f9c9aa3ac3a1aff1308ad20b8986fc5666ae9b5acaab4c2de5ea6a4d1c63b781",
+        "holdout-v29-preflight-s29211-retail.apply-approved-substitute.holdout-v1-r2_reliable-clean.jsonl": "0977885f288e00608c705ddd843b964bb254c62d4a04c491ea772770820467b6",
+        "holdout-v29-preflight-s29211-retail.apply-approved-substitute.holdout-v1-r2_reliable-recoverable_fault.jsonl": "3ea325b6a61e2fe99b1052291d72f0288f7bf87794440b77c43fd2d3ba352552",
+        "holdout-v29-preflight-s29211-retail.cancel-unpacked-order.holdout-v1-r0_raw-clean.jsonl": "b83179c4643949911ca3e3bf4a99ea92cce09bd2391fbdd3cc3134de2906593a",
+        "holdout-v29-preflight-s29211-retail.cancel-unpacked-order.holdout-v1-r0_raw-recoverable_fault.jsonl": "347e468c6e7683c393c4b30b25a6548ed384709b17ecd7fce3f6ec5a09b6750d",
+        "holdout-v29-preflight-s29211-retail.cancel-unpacked-order.holdout-v1-r1_guarded-clean.jsonl": "9fc3f64664c8624b95ac87bd5495a0608af697afc5f08dca5a697e2ea830ce3b",
+        "holdout-v29-preflight-s29211-retail.cancel-unpacked-order.holdout-v1-r1_guarded-recoverable_fault.jsonl": "efb098173d261194232274d2c17c87fc20fdad594c9d376e7baf3c31f80dbb0d",
+        "holdout-v29-preflight-s29211-retail.cancel-unpacked-order.holdout-v1-r2_reliable-clean.jsonl": "d1e36dccc3b87548a5d98eb3d0c6859163e059fb4c43da32214f7d666baa4a4c",
+        "holdout-v29-preflight-s29211-retail.cancel-unpacked-order.holdout-v1-r2_reliable-recoverable_fault.jsonl": "22ab9883374e08de99bbf372cbeee9b23d2b189a92f0006c957455c0c9157cc9",
+        "holdout-v29-preflight-s29211-retail.correct-delivery-destination.holdout-v1-r0_raw-clean.jsonl": "4ee4d8c45c7bdc1d231e097266fa9f243712b10fbabaaca849e4fa73074fb8ea",
+        "holdout-v29-preflight-s29211-retail.correct-delivery-destination.holdout-v1-r0_raw-recoverable_fault.jsonl": "73046dd8f6f14ba7113fd1a70853275680ac5a1d708955a7f70a18fa25c03f36",
+        "holdout-v29-preflight-s29211-retail.correct-delivery-destination.holdout-v1-r1_guarded-clean.jsonl": "59d58ac22ef9d0a580a8982019712176753bce85cce4c7676fdfa85340076711",
+        "holdout-v29-preflight-s29211-retail.correct-delivery-destination.holdout-v1-r1_guarded-recoverable_fault.jsonl": "6e5a6bcbf2e92cdff74a6605ca09a1e77debc31f449988f08acd9c4af4cc1d92",
+        "holdout-v29-preflight-s29211-retail.correct-delivery-destination.holdout-v1-r2_reliable-clean.jsonl": "6b47db7b87d77d305fb744df0e16af7df7b681c752923d11d287eddd57e38680",
+        "holdout-v29-preflight-s29211-retail.correct-delivery-destination.holdout-v1-r2_reliable-recoverable_fault.jsonl": "185cfa8eeb3e62b28e4e8aef0d08926a1551a6da74321203ce8c67c11eea6bd3",
+        "holdout-v29-preflight-s29211-retail.exchange-damaged-item.holdout-v1-r0_raw-clean.jsonl": "e9d1dae835eb4cab63b0ceffbd5d9afb2c4adce42ab01159746213be83c14eb2",
+        "holdout-v29-preflight-s29211-retail.exchange-damaged-item.holdout-v1-r0_raw-recoverable_fault.jsonl": "22d7639db23ba16c647e65c735644a1cbbea69abeffe84f443df22c235be6736",
+        "holdout-v29-preflight-s29211-retail.exchange-damaged-item.holdout-v1-r1_guarded-clean.jsonl": "0face4cd4eb50c77e6e7e6eb85ff213a6b9bf4f31fa044dbf34f07964ef1f7c0",
+        "holdout-v29-preflight-s29211-retail.exchange-damaged-item.holdout-v1-r1_guarded-recoverable_fault.jsonl": "edf65c93812ddaddfbc3f2d300283fc5689c4da2a0e67e5b3d076dd3d6a3e7e6",
+        "holdout-v29-preflight-s29211-retail.exchange-damaged-item.holdout-v1-r2_reliable-clean.jsonl": "30dcdb1c6b5c281916358f983e731958b62f3f5ff37fe4395ca54b6a6f534c3e",
+        "holdout-v29-preflight-s29211-retail.exchange-damaged-item.holdout-v1-r2_reliable-recoverable_fault.jsonl": "f57bd4acfdffaf3b717460be8ed5f138e381e9567c8e65e72efbb31a5b830de7",
+        "holdout-v29-preflight-s29211-retail.issue-service-credit.holdout-v1-r0_raw-clean.jsonl": "88077a2f68ed3e5fab2df7a3f5522492ba0a140491b7c9b1357d0a0e8d63a577",
+        "holdout-v29-preflight-s29211-retail.issue-service-credit.holdout-v1-r0_raw-recoverable_fault.jsonl": "339cd0882ff611767709b67887e5496919bc2054c6c375cb216d735c9c2f2dab",
+        "holdout-v29-preflight-s29211-retail.issue-service-credit.holdout-v1-r1_guarded-clean.jsonl": "40d9f9a6178c33ae0f420402dc87540837c838ee6ff3f16658d232246ca809c1",
+        "holdout-v29-preflight-s29211-retail.issue-service-credit.holdout-v1-r1_guarded-recoverable_fault.jsonl": "3c87f10828639d3f223190e8d1fdf7a2a6141ca1c056e0a1e4dfb0b2ad3e92b7",
+        "holdout-v29-preflight-s29211-retail.issue-service-credit.holdout-v1-r2_reliable-clean.jsonl": "5d438b12f94da6ed54761af839fea7a3aa3440e4364d5f4739db4e6876d8d886",
+        "holdout-v29-preflight-s29211-retail.issue-service-credit.holdout-v1-r2_reliable-recoverable_fault.jsonl": "3c799acef51fcbd2e6dec126a3ffd8f7cf80674793ff2845c66823e3258dd477",
+        "holdout-v29-preflight-s29211-retail.place-campaign-order.holdout-v1-r0_raw-clean.jsonl": "fd71cfe7d2307d52edf1f36ca03f5ef6001c614d65bfaf000afffb0434875b5f",
+        "holdout-v29-preflight-s29211-retail.place-campaign-order.holdout-v1-r0_raw-recoverable_fault.jsonl": "ebbf9b8b2e2bc254df20ef0d0acda7139ab98d2c844bfc011e6a3694544677d6",
+        "holdout-v29-preflight-s29211-retail.place-campaign-order.holdout-v1-r1_guarded-clean.jsonl": "979eceac643f57d06e6ce271458916679be5082d4dcd23c0fe9bfe2815122e7f",
+        "holdout-v29-preflight-s29211-retail.place-campaign-order.holdout-v1-r1_guarded-recoverable_fault.jsonl": "f74fe92881bfcbbba29a8b00140f48950f26969b0b9ecc37f9b79f2d389435cc",
+        "holdout-v29-preflight-s29211-retail.place-campaign-order.holdout-v1-r2_reliable-clean.jsonl": "f07860cde4a8c5d07b62c34cf1381aae47e5529e84b06aa22a116e7ee18470fb",
+        "holdout-v29-preflight-s29211-retail.place-campaign-order.holdout-v1-r2_reliable-recoverable_fault.jsonl": "45e9d08fc975b530d12e15a9160a5392f9071ad18b45e6940ec1040111697985",
+        "holdout-v29-preflight-s29211-retail.recover-paid-order-creation.holdout-v1-r0_raw-clean.jsonl": "7f49b5d9d1774bdd13e2eaa44de626a2c810d7a473c3c02c78ac7e275e6326f0",
+        "holdout-v29-preflight-s29211-retail.recover-paid-order-creation.holdout-v1-r0_raw-recoverable_fault.jsonl": "87c85f4642f73142668e93c94fd8d579d92cd250f659d52cf94cc95a0a8694eb",
+        "holdout-v29-preflight-s29211-retail.recover-paid-order-creation.holdout-v1-r1_guarded-clean.jsonl": "c7c3b8864b470ce5d3c17572638c3360dc1af3c3b97d3d1727ddd52a848cc044",
+        "holdout-v29-preflight-s29211-retail.recover-paid-order-creation.holdout-v1-r1_guarded-recoverable_fault.jsonl": "80479e49f579daad7867f2fc1ec2e2c458497849daecfe13c607c64508a0e1cd",
+        "holdout-v29-preflight-s29211-retail.recover-paid-order-creation.holdout-v1-r2_reliable-clean.jsonl": "0ced9e8632c5383e1c757e1dd2a82e6ab5818c6f444604a82c0f192fc33a427a",
+        "holdout-v29-preflight-s29211-retail.recover-paid-order-creation.holdout-v1-r2_reliable-recoverable_fault.jsonl": "f5832940fb34054560604ba65815b3e35c107deeeb8835f487ecb6277d6f7c35",
+        "holdout-v29-preflight-s29211-retail.remove-duplicate-subscription.holdout-v1-r0_raw-clean.jsonl": "ce998c3c9dc386e27ff9e9392a76f6fedab20b5a00f80a194f8792c1da6da497",
+        "holdout-v29-preflight-s29211-retail.remove-duplicate-subscription.holdout-v1-r0_raw-recoverable_fault.jsonl": "2f9636b6fac69d4223b17c7d810ae9edfc649b3077aea583c8bd11e0e35cbcd2",
+        "holdout-v29-preflight-s29211-retail.remove-duplicate-subscription.holdout-v1-r1_guarded-clean.jsonl": "37cdd9e63e943dd20c56aad9951a817c816c64e27643fb49c27bccfaed6b2597",
+        "holdout-v29-preflight-s29211-retail.remove-duplicate-subscription.holdout-v1-r1_guarded-recoverable_fault.jsonl": "f43b5c794743c9dc43c43de94aff9a73b7ac689b79ce41c213f74614abd31475",
+        "holdout-v29-preflight-s29211-retail.remove-duplicate-subscription.holdout-v1-r2_reliable-clean.jsonl": "23022cdb9b43f9e80ca26fe818f6d1a752956927a27a09e278ca882707c35715",
+        "holdout-v29-preflight-s29211-retail.remove-duplicate-subscription.holdout-v1-r2_reliable-recoverable_fault.jsonl": "f0843fff1c017d4f6db358dfdbb76bbfbe016d4ce032d26de6f8679c5112419d",
+        "holdout-v29-preflight-s29211-travel.apply-workshop-date-change.holdout-v1-r0_raw-clean.jsonl": "f21c73cde698b6e79d8ffbb8b9b938c7d8aac911e9e6ee1b2144d46f65ace384",
+        "holdout-v29-preflight-s29211-travel.apply-workshop-date-change.holdout-v1-r0_raw-recoverable_fault.jsonl": "9581831f89a801002a944cdf0d85f5708a2fdd7fc87544c7248b3bdc24fe03de",
+        "holdout-v29-preflight-s29211-travel.apply-workshop-date-change.holdout-v1-r1_guarded-clean.jsonl": "246e2a220d9ab5110bc5e42b450c262d6bc15f835e7048d8c0a3ea224d1c8d4c",
+        "holdout-v29-preflight-s29211-travel.apply-workshop-date-change.holdout-v1-r1_guarded-recoverable_fault.jsonl": "19df978cd9f4c1e48abd0a6d1d110daa8013d0eff8a1e92e29480bd8911e667b",
+        "holdout-v29-preflight-s29211-travel.apply-workshop-date-change.holdout-v1-r2_reliable-clean.jsonl": "d92ef0127859f63a9336ee82f978e40bbc4ef68b219f2ad2411375cef3498a0c",
+        "holdout-v29-preflight-s29211-travel.apply-workshop-date-change.holdout-v1-r2_reliable-recoverable_fault.jsonl": "8cec16586efbd3ee6a61c1068e6a995123caab5f0ed3b72a8fff0fb2bcf4e8b6",
+        "holdout-v29-preflight-s29211-travel.cancel-training-trip.holdout-v1-r0_raw-clean.jsonl": "aef401ea6436f4808f5bc499ec786b6c8a688bb92ebc1566477fa5183fe5b849",
+        "holdout-v29-preflight-s29211-travel.cancel-training-trip.holdout-v1-r0_raw-recoverable_fault.jsonl": "42cb3ba4778d3a5c09a644a25b6eb725f57375e39d05d82438fb0805ff09c05e",
+        "holdout-v29-preflight-s29211-travel.cancel-training-trip.holdout-v1-r1_guarded-clean.jsonl": "a004cb317dbfe5cf7d958e4d44efb0be21057712e1c9724abff381d3569329d5",
+        "holdout-v29-preflight-s29211-travel.cancel-training-trip.holdout-v1-r1_guarded-recoverable_fault.jsonl": "3fdf8f77d706cfc2d7085535e1422955fbecd5fc58472588628b816717fbceea",
+        "holdout-v29-preflight-s29211-travel.cancel-training-trip.holdout-v1-r2_reliable-clean.jsonl": "7c7416ce9db8867dd68b044616380d403e1e33915cef41e98c7d591c84b7023c",
+        "holdout-v29-preflight-s29211-travel.cancel-training-trip.holdout-v1-r2_reliable-recoverable_fault.jsonl": "8403bc0f0a816c6c82900f3cd68648eb488dd15e57a1000131ed42c522ad9a6a",
+        "holdout-v29-preflight-s29211-travel.recover-mixed-mode-itinerary.holdout-v1-r0_raw-clean.jsonl": "dd86e0b641f7f3ea2fc755e14e39f68eebdee2406695dbde6d083b84e5d2499f",
+        "holdout-v29-preflight-s29211-travel.recover-mixed-mode-itinerary.holdout-v1-r0_raw-recoverable_fault.jsonl": "d571e59f7df9fd88d6d61e0a50d3d4dc5a43851d78dfcc62ec36519a02be7963",
+        "holdout-v29-preflight-s29211-travel.recover-mixed-mode-itinerary.holdout-v1-r1_guarded-clean.jsonl": "cb7ad62b1f592f5c38291d770ee6346ac07dbd596f31841858d9aa18869e7f32",
+        "holdout-v29-preflight-s29211-travel.recover-mixed-mode-itinerary.holdout-v1-r1_guarded-recoverable_fault.jsonl": "ef49a591a4265fbda51ab92c753cf16ea185b1a72fbc52ad2c48d2f81101357b",
+        "holdout-v29-preflight-s29211-travel.recover-mixed-mode-itinerary.holdout-v1-r2_reliable-clean.jsonl": "2b4f644740b675571ad8a549795c3b0c72758832a2f884cea0807eec46bbe216",
+        "holdout-v29-preflight-s29211-travel.recover-mixed-mode-itinerary.holdout-v1-r2_reliable-recoverable_fault.jsonl": "caf6ec84c8e81fb2ce5007d7dba1582acaea6f9c023cb35e5285691364c02910",
+        "holdout-v29-preflight-s29211-travel.recover-retreat-bundle.holdout-v1-r0_raw-clean.jsonl": "4597c50718ae4c0a5710f35ed38421aa83f725f08a1ea71dc5a0d450587f181d",
+        "holdout-v29-preflight-s29211-travel.recover-retreat-bundle.holdout-v1-r0_raw-recoverable_fault.jsonl": "ab0b7a5996e38f09890b7a0356170b1761250d758242f0b86b79cfbf6edacd4a",
+        "holdout-v29-preflight-s29211-travel.recover-retreat-bundle.holdout-v1-r1_guarded-clean.jsonl": "3987e66d3fc6b70611683cea08dde73cbc0a640b2c8de5ee35840fbbdd4c6e82",
+        "holdout-v29-preflight-s29211-travel.recover-retreat-bundle.holdout-v1-r1_guarded-recoverable_fault.jsonl": "2c5ea850df9362a694bb17eaf43a3ef1ed2029cc2faf3933c40af1b36075d677",
+        "holdout-v29-preflight-s29211-travel.recover-retreat-bundle.holdout-v1-r2_reliable-clean.jsonl": "6375d9e40c08144c99f9fe96ac5142ed54f2fb850e62ea446f623445d0e99ecb",
+        "holdout-v29-preflight-s29211-travel.recover-retreat-bundle.holdout-v1-r2_reliable-recoverable_fault.jsonl": "468f83390f0f77b55c8de3d02664c9f8b324c13de1ecde6535419c1570b27438",
+        "holdout-v29-preflight-s29211-travel.replace-disrupted-leg.holdout-v1-r0_raw-clean.jsonl": "950fce406ce428b4b2e2dcb6edc531c7019abd904aee8297fabd98eec697568e",
+        "holdout-v29-preflight-s29211-travel.replace-disrupted-leg.holdout-v1-r0_raw-recoverable_fault.jsonl": "1900828f68f044b6f1dabc9f2cfe4ce87e6efba718644adff89a8dc2b3b03cc4",
+        "holdout-v29-preflight-s29211-travel.replace-disrupted-leg.holdout-v1-r1_guarded-clean.jsonl": "3c123d99c2c6f5307f233702c0f5015b99c4a4469bdac44902daccc877619aab",
+        "holdout-v29-preflight-s29211-travel.replace-disrupted-leg.holdout-v1-r1_guarded-recoverable_fault.jsonl": "b2786b77825ac1046fed8523db4a49a5026e2fa5dd8cc1465eca4e2a91a28816",
+        "holdout-v29-preflight-s29211-travel.replace-disrupted-leg.holdout-v1-r2_reliable-clean.jsonl": "4578ab52d397d23e35196823e7204b38379a707674544a90f656bcf712b63965",
+        "holdout-v29-preflight-s29211-travel.replace-disrupted-leg.holdout-v1-r2_reliable-recoverable_fault.jsonl": "74e2dee95dc9d8667b4b02c3db24db91604091753c09f7d15b41903e551d03c5",
+        "holdout-v29-preflight-s29211-travel.reserve-conference-trip.holdout-v1-r0_raw-clean.jsonl": "cdc294486639a541494d9a3ad1f3ccabc8835b15c90b39d99642565fadd0f501",
+        "holdout-v29-preflight-s29211-travel.reserve-conference-trip.holdout-v1-r0_raw-recoverable_fault.jsonl": "b163ba5a1f1a23f5eae0d2c4ec1fe8e212281ca787de9bc29c7f07e9ced805ae",
+        "holdout-v29-preflight-s29211-travel.reserve-conference-trip.holdout-v1-r1_guarded-clean.jsonl": "f7add543a1a719314db6fe1e396f64a0ffd6a55f5f244fbed0f6878c83bd9ebd",
+        "holdout-v29-preflight-s29211-travel.reserve-conference-trip.holdout-v1-r1_guarded-recoverable_fault.jsonl": "634a293a9b75cecb3ce87a8e04ea277d1c43c74b90ae811181604095c5a8a70d",
+        "holdout-v29-preflight-s29211-travel.reserve-conference-trip.holdout-v1-r2_reliable-clean.jsonl": "4d3adb4af857084fa60c0056f5106016357a98d63e5ccc4c650e419ccd843cbf",
+        "holdout-v29-preflight-s29211-travel.reserve-conference-trip.holdout-v1-r2_reliable-recoverable_fault.jsonl": "9a813b223e33403be021496db612dbf82912bab47249e376ccc286b611909d36",
+        "holdout-v29-preflight-s29211-travel.reserve-last-approved-seat.holdout-v1-r0_raw-clean.jsonl": "25a68465ee56bf0b722b4bc673e1866db8d8ddcac8ffbc94786922d23353432b",
+        "holdout-v29-preflight-s29211-travel.reserve-last-approved-seat.holdout-v1-r0_raw-recoverable_fault.jsonl": "13e223e6c01f6b1f8f43b73c6653e8f6e8504f068d4d7f0e5f5a083349e47504",
+        "holdout-v29-preflight-s29211-travel.reserve-last-approved-seat.holdout-v1-r1_guarded-clean.jsonl": "9106b6a18f24c0a03a94cf9ce567c02fe18c396c4c6ee7f9557286f1b68c0c82",
+        "holdout-v29-preflight-s29211-travel.reserve-last-approved-seat.holdout-v1-r1_guarded-recoverable_fault.jsonl": "9109a15c558a35c6049cd61f5969e5cec22b4848a254a25ef5a6aebe8255400e",
+        "holdout-v29-preflight-s29211-travel.reserve-last-approved-seat.holdout-v1-r2_reliable-clean.jsonl": "86116f3ff32559786ff093bc514cd657b36fde8e10ac5adf1c0a68bca180f41c",
+        "holdout-v29-preflight-s29211-travel.reserve-last-approved-seat.holdout-v1-r2_reliable-recoverable_fault.jsonl": "665235c4900bd84738c61206f3edff1389e64f0554eb45683741425d7cde57c2",
+        "holdout-v29-preflight-s29211-travel.resolve-lodging-cap.holdout-v1-r0_raw-clean.jsonl": "95ba1b7f42713fe47dce4d33ee0a139a80241032543df1f5c7afe2b4c093cdf7",
+        "holdout-v29-preflight-s29211-travel.resolve-lodging-cap.holdout-v1-r0_raw-recoverable_fault.jsonl": "8f4f7577134644d4a00b113b3b4e6a1652e3dc297329b9d454c4620d8ba10b44",
+        "holdout-v29-preflight-s29211-travel.resolve-lodging-cap.holdout-v1-r1_guarded-clean.jsonl": "54975180d0170d451aa9dcd9bc4ad05fe6e1cc84df7d056e8a4e2b2693c4db26",
+        "holdout-v29-preflight-s29211-travel.resolve-lodging-cap.holdout-v1-r1_guarded-recoverable_fault.jsonl": "bb99cf4ca95de8e6b4e9988dadcb227495caa90b6792aa7935ce9b9b8f623ddb",
+        "holdout-v29-preflight-s29211-travel.resolve-lodging-cap.holdout-v1-r2_reliable-clean.jsonl": "a316cdd5680c5e6d0e110ac9d0e5f87f9a60c02fe4dbd6516c11755242462eb6",
+        "holdout-v29-preflight-s29211-travel.resolve-lodging-cap.holdout-v1-r2_reliable-recoverable_fault.jsonl": "e1355b3c1a3a40156d39471d6cd44cf5286a508311304c40b148687c0168af3f",
+        "holdout-v29-preflight-s29211-workspace.apply-revised-room-approval.holdout-v1-r0_raw-clean.jsonl": "5c2817a9c481635b34fa8183b5945804f63a238ecf57507144e6d53bf82e9d30",
+        "holdout-v29-preflight-s29211-workspace.apply-revised-room-approval.holdout-v1-r0_raw-recoverable_fault.jsonl": "1e91f1a5d44d708f855ddf341a9a1336b10542f3d57e749cc48c66f200ac5acb",
+        "holdout-v29-preflight-s29211-workspace.apply-revised-room-approval.holdout-v1-r1_guarded-clean.jsonl": "1dabf6ccc0e8c897b74dfb2ad868215eea9488797c7ee7ca80b41feb9ba4d899",
+        "holdout-v29-preflight-s29211-workspace.apply-revised-room-approval.holdout-v1-r1_guarded-recoverable_fault.jsonl": "1df07b62807e1efd072b48342922c2d378d39fff9967aec60cdb43bf3e19b37e",
+        "holdout-v29-preflight-s29211-workspace.apply-revised-room-approval.holdout-v1-r2_reliable-clean.jsonl": "8e1d8f56384dc1355bc0a5b890dea61651396908e470f13c24330dba4d3ced68",
+        "holdout-v29-preflight-s29211-workspace.apply-revised-room-approval.holdout-v1-r2_reliable-recoverable_fault.jsonl": "1794fd26f27cec926b8b504c11a0509477888178222a40d0e778b1536ce42a49",
+        "holdout-v29-preflight-s29211-workspace.coordinate-review-session.holdout-v1-r0_raw-clean.jsonl": "f234aaf20268efbfbc169a8bb304e296c71be84567ce16b9f78fcf41e6fc8fda",
+        "holdout-v29-preflight-s29211-workspace.coordinate-review-session.holdout-v1-r0_raw-recoverable_fault.jsonl": "8cd6bf591c9c043335c91cdbcea76b3501b50698942b6056989b6c4a4d889b13",
+        "holdout-v29-preflight-s29211-workspace.coordinate-review-session.holdout-v1-r1_guarded-clean.jsonl": "b49a622f445a200707ab607edeebe9085f92402ddf11904ddbc8127c97bc6c4b",
+        "holdout-v29-preflight-s29211-workspace.coordinate-review-session.holdout-v1-r1_guarded-recoverable_fault.jsonl": "ec3bc07e6dac6d73535ea894afd7904c399ca210334e3767b2c8c696ac04f02d",
+        "holdout-v29-preflight-s29211-workspace.coordinate-review-session.holdout-v1-r2_reliable-clean.jsonl": "6e9e102a4cc268599dc297e7ca7fad6c9fed1be02452db8e010be28070171605",
+        "holdout-v29-preflight-s29211-workspace.coordinate-review-session.holdout-v1-r2_reliable-recoverable_fault.jsonl": "ce518b16cb434413857394971845dfbf48f84b4cb80b3fe913447904c76f9e73",
+        "holdout-v29-preflight-s29211-workspace.grant-draft-access.holdout-v1-r0_raw-clean.jsonl": "0d93dfc67cd00201b9357795a93428317bacad52d4a985608faa3f079697af85",
+        "holdout-v29-preflight-s29211-workspace.grant-draft-access.holdout-v1-r0_raw-recoverable_fault.jsonl": "f781769e9fbb34f19fb5449fbd72dc7265d5fd3a4968b159220d376b8fa9d2c6",
+        "holdout-v29-preflight-s29211-workspace.grant-draft-access.holdout-v1-r1_guarded-clean.jsonl": "c1e54f4045fe01ed906947353f106b0ec4c4d236432bb5045471a04f9beab786",
+        "holdout-v29-preflight-s29211-workspace.grant-draft-access.holdout-v1-r1_guarded-recoverable_fault.jsonl": "0c29b4597e57a803b678ad99104aea03f96a09d815bf547dcdd0ee365d233b5b",
+        "holdout-v29-preflight-s29211-workspace.grant-draft-access.holdout-v1-r2_reliable-clean.jsonl": "4fe2279c7dc24ea6d5ffad129f01470f71eecd8f397512ed021faef253974adc",
+        "holdout-v29-preflight-s29211-workspace.grant-draft-access.holdout-v1-r2_reliable-recoverable_fault.jsonl": "0600ce430d3c4e194f480dab98b23fdb4fc3ca7adec1621823b5361a88be8fc6",
+        "holdout-v29-preflight-s29211-workspace.move-conflicting-workshop.holdout-v1-r0_raw-clean.jsonl": "fba24ad1d6bc40250eb1cb44edc35e5568bf81f56d5185941a1213e78b28c42b",
+        "holdout-v29-preflight-s29211-workspace.move-conflicting-workshop.holdout-v1-r0_raw-recoverable_fault.jsonl": "01168df179841ce12a5d8a4ea25375c4ee1f3f3182f04b2dafd4014facace358",
+        "holdout-v29-preflight-s29211-workspace.move-conflicting-workshop.holdout-v1-r1_guarded-clean.jsonl": "c08e4c2f4ee6b51cdd5b1d283a0897de170e5a4eac64bca500339cf5fd07f14c",
+        "holdout-v29-preflight-s29211-workspace.move-conflicting-workshop.holdout-v1-r1_guarded-recoverable_fault.jsonl": "0874abad2de8befb6b3ce7532e191e6609e209dfb38ec97b9c1233d4411bd21c",
+        "holdout-v29-preflight-s29211-workspace.move-conflicting-workshop.holdout-v1-r2_reliable-clean.jsonl": "90cd47b64d6a025c72b32d9455ee0e682c503676312801db430b16c27c609fef",
+        "holdout-v29-preflight-s29211-workspace.move-conflicting-workshop.holdout-v1-r2_reliable-recoverable_fault.jsonl": "56403f9ecd109192740ee4633b16480a2fe37a0632594ab58cfc01063aec1be1",
+        "holdout-v29-preflight-s29211-workspace.move-planning-session.holdout-v1-r0_raw-clean.jsonl": "bd640d5efbdc3fd7056abfad272d7a0c1ce38a3931cdbe2402b7a322c56e7bfb",
+        "holdout-v29-preflight-s29211-workspace.move-planning-session.holdout-v1-r0_raw-recoverable_fault.jsonl": "507a561a2b145c1b9ca4e216426f14d5964b628aa85ab39f3ecd08af642d01f6",
+        "holdout-v29-preflight-s29211-workspace.move-planning-session.holdout-v1-r1_guarded-clean.jsonl": "a8afa37b8d92648d36f5eec6bd747ff9d66dc682027d979de5c9baf43506cf8e",
+        "holdout-v29-preflight-s29211-workspace.move-planning-session.holdout-v1-r1_guarded-recoverable_fault.jsonl": "6c9075304138a92028d5ce38e7272d75a5e10a2502478c5ac40437b959f0a2d8",
+        "holdout-v29-preflight-s29211-workspace.move-planning-session.holdout-v1-r2_reliable-clean.jsonl": "88afc3261e00492f9bbcbef7679d8e567f90146a4d577a6c8be78ffcb31ef8c1",
+        "holdout-v29-preflight-s29211-workspace.move-planning-session.holdout-v1-r2_reliable-recoverable_fault.jsonl": "88c09d98c98b8422340945652d73b39341fa79764d63d571262de53a8132587b",
+        "holdout-v29-preflight-s29211-workspace.publish-controlled-copy.holdout-v1-r0_raw-clean.jsonl": "e8342a840ee77a1be2449ce2dfa785a8009b3ad9fa178b34988755e62ac22727",
+        "holdout-v29-preflight-s29211-workspace.publish-controlled-copy.holdout-v1-r0_raw-recoverable_fault.jsonl": "83849bca88fbe8e39dad86e942e51c92f8bc6d65f439b044059a9c11bba132af",
+        "holdout-v29-preflight-s29211-workspace.publish-controlled-copy.holdout-v1-r1_guarded-clean.jsonl": "94f2f2165b110387b1ea8e98138e572e64ee4d6f1b036473e0b70cf04cf3d4ca",
+        "holdout-v29-preflight-s29211-workspace.publish-controlled-copy.holdout-v1-r1_guarded-recoverable_fault.jsonl": "1b7e7fd83aa93987b7752f830d4f93a2a105450632951514164eb2ada2a6a41c",
+        "holdout-v29-preflight-s29211-workspace.publish-controlled-copy.holdout-v1-r2_reliable-clean.jsonl": "6be5b660c937bea7ec7badc026020648b486ae66535c0e5114fad387c4ed9f8f",
+        "holdout-v29-preflight-s29211-workspace.publish-controlled-copy.holdout-v1-r2_reliable-recoverable_fault.jsonl": "aadd26fccef6d10a6de1ce0461742499f97f23ac7b463d5fb27d1e066035ad1a",
+        "holdout-v29-preflight-s29211-workspace.resolve-review-participants.holdout-v1-r0_raw-clean.jsonl": "30aa3ffce68416e42f1654da38abbb0648858c05a1f741bfdc4f8e80ea54379a",
+        "holdout-v29-preflight-s29211-workspace.resolve-review-participants.holdout-v1-r0_raw-recoverable_fault.jsonl": "5bb39691ca099301b6c3fbe241311e4dfac5da5c63c684a6d9df6b60d7abe1a8",
+        "holdout-v29-preflight-s29211-workspace.resolve-review-participants.holdout-v1-r1_guarded-clean.jsonl": "22c7f0a3454957af90e869540061db172de9f824f74b6c27547a9473bc48fbe9",
+        "holdout-v29-preflight-s29211-workspace.resolve-review-participants.holdout-v1-r1_guarded-recoverable_fault.jsonl": "f3fbdedfadab65b6a1278c34a262862601ef6459d8b3c9bfa4077e44ec6d5c2b",
+        "holdout-v29-preflight-s29211-workspace.resolve-review-participants.holdout-v1-r2_reliable-clean.jsonl": "a48fcea792aa5ea7ffafc3c5aaeca417c8ec6da85c83c8dcc828ebd3b0a7586b",
+        "holdout-v29-preflight-s29211-workspace.resolve-review-participants.holdout-v1-r2_reliable-recoverable_fault.jsonl": "34edf84383767af9ba767bcfd80f1adab1a4333aee2c6c973719c4e782fb08d8",
+        "holdout-v29-preflight-s29211-workspace.withdraw-training-session.holdout-v1-r0_raw-clean.jsonl": "5a1044628f5f5599e57468c2525ddeebd585937233477886645e5aca06ddcd57",
+        "holdout-v29-preflight-s29211-workspace.withdraw-training-session.holdout-v1-r0_raw-recoverable_fault.jsonl": "16d135a5f0fbc0b353123350f0adb10197c12b8caaee19f5731abcef13243df9",
+        "holdout-v29-preflight-s29211-workspace.withdraw-training-session.holdout-v1-r1_guarded-clean.jsonl": "cd30b26ef841771194a53ce5bfedc028d029102a5a0767418a0461e1ee3b0454",
+        "holdout-v29-preflight-s29211-workspace.withdraw-training-session.holdout-v1-r1_guarded-recoverable_fault.jsonl": "05e2d777ed83c5af255ec9e09e8371bc2e132f94389162de5abef876d36c0592",
+        "holdout-v29-preflight-s29211-workspace.withdraw-training-session.holdout-v1-r2_reliable-clean.jsonl": "1a14d72f2e436581d29c46726424aabd721ef41cd68bd30c7cde1106e09e6289",
+        "holdout-v29-preflight-s29211-workspace.withdraw-training-session.holdout-v1-r2_reliable-recoverable_fault.jsonl": "d21538dbeaeec82527633127b77ce87149f412b25e931ab63a53f91cbc1353fa",
+        "holdout-v29-preflight-s29307-retail.apply-approved-substitute.holdout-v1-r0_raw-clean.jsonl": "745678e8d0e0e8bebd2965a1fd40fdac2b704accf60c033d1eb69fb5f7e1dc5e",
+        "holdout-v29-preflight-s29307-retail.apply-approved-substitute.holdout-v1-r0_raw-recoverable_fault.jsonl": "f3f7f5986f9d9d9fb7f5474ceb7dda3fe85ef25ba37c3448872569285c7afd33",
+        "holdout-v29-preflight-s29307-retail.apply-approved-substitute.holdout-v1-r1_guarded-clean.jsonl": "7b1590a5de21e35f509546310bfe42817512565b68157fa6b625de36a59dadb4",
+        "holdout-v29-preflight-s29307-retail.apply-approved-substitute.holdout-v1-r1_guarded-recoverable_fault.jsonl": "11a7ce2aef131cda4196cbe22214115db18c9657f7effe0a56cd5d5661f9ec8e",
+        "holdout-v29-preflight-s29307-retail.apply-approved-substitute.holdout-v1-r2_reliable-clean.jsonl": "b116321320b55b41f2a3483f53c73083b9d9492691080db94b6ccf8664aa4a08",
+        "holdout-v29-preflight-s29307-retail.apply-approved-substitute.holdout-v1-r2_reliable-recoverable_fault.jsonl": "b4b232978f4f093aaab29d7c8ddc5730b53f962af8070a53b4a02205c2b1a42c",
+        "holdout-v29-preflight-s29307-retail.cancel-unpacked-order.holdout-v1-r0_raw-clean.jsonl": "158e060520847663353aad0eef4059d132a96c00288d5ada79349e9d7cd9c70f",
+        "holdout-v29-preflight-s29307-retail.cancel-unpacked-order.holdout-v1-r0_raw-recoverable_fault.jsonl": "7d397017b7d923c04b7d402776b126679c8bb75f5320acd5614aa3f6d6300eb5",
+        "holdout-v29-preflight-s29307-retail.cancel-unpacked-order.holdout-v1-r1_guarded-clean.jsonl": "1926cd8d6373a09f683765a97c31171ae083839b99cd0b329d987ccffeaa5980",
+        "holdout-v29-preflight-s29307-retail.cancel-unpacked-order.holdout-v1-r1_guarded-recoverable_fault.jsonl": "64e9964bf59e43d4359ea8101d9280a713f12ef9f95308820a7f527159979a46",
+        "holdout-v29-preflight-s29307-retail.cancel-unpacked-order.holdout-v1-r2_reliable-clean.jsonl": "05be79dd898c11f0e2ec89b7040e59c4867b65a9c2184b8fd7634889cee27276",
+        "holdout-v29-preflight-s29307-retail.cancel-unpacked-order.holdout-v1-r2_reliable-recoverable_fault.jsonl": "fb174abd27b101415e6b4376cf5f11f6ae517fed8d18d9b87211efff90756618",
+        "holdout-v29-preflight-s29307-retail.correct-delivery-destination.holdout-v1-r0_raw-clean.jsonl": "eae962ea4412f1b6b28436907226f65c4d3bc32e81cc29e616ecdbf7ad96ad5f",
+        "holdout-v29-preflight-s29307-retail.correct-delivery-destination.holdout-v1-r0_raw-recoverable_fault.jsonl": "bb786c267b1668dffe587e4c12d15aca923fbafd01a6ec38077e5e494613784b",
+        "holdout-v29-preflight-s29307-retail.correct-delivery-destination.holdout-v1-r1_guarded-clean.jsonl": "982e78b33b752333dd4378cae8fb28b99784c904176f3361383e4cc04b3ad4fd",
+        "holdout-v29-preflight-s29307-retail.correct-delivery-destination.holdout-v1-r1_guarded-recoverable_fault.jsonl": "96a5744d2caa6b21b35865fac9156e86cfec3416a56e890305a36f1bd043b51c",
+        "holdout-v29-preflight-s29307-retail.correct-delivery-destination.holdout-v1-r2_reliable-clean.jsonl": "4ed84401c6b58a92a742bc2e7144a92bb94466fcfb75940c61b43447e640590f",
+        "holdout-v29-preflight-s29307-retail.correct-delivery-destination.holdout-v1-r2_reliable-recoverable_fault.jsonl": "384bb3441bd45c5555f8ee3754b42efb744c9b70c2d03ea1f5f283d9e2118d58",
+        "holdout-v29-preflight-s29307-retail.exchange-damaged-item.holdout-v1-r0_raw-clean.jsonl": "1973d1729430c8bffc55d6fc12f47e1b7f4893e3c58fb67bf7ffd672d1f80a24",
+        "holdout-v29-preflight-s29307-retail.exchange-damaged-item.holdout-v1-r0_raw-recoverable_fault.jsonl": "63576e2098149ab5b055d4bd70f09fc16d51db935c9417b4c9d69fb1d79cd970",
+        "holdout-v29-preflight-s29307-retail.exchange-damaged-item.holdout-v1-r1_guarded-clean.jsonl": "d27866bfd319cbb74507ab24a75bfa25f5e0a87176b7d4537edf25ad74cbc451",
+        "holdout-v29-preflight-s29307-retail.exchange-damaged-item.holdout-v1-r1_guarded-recoverable_fault.jsonl": "95fc59616d0cfd7e4493b4523d7fc5d290705dc6c1dbeac323c1916fd61aded3",
+        "holdout-v29-preflight-s29307-retail.exchange-damaged-item.holdout-v1-r2_reliable-clean.jsonl": "436770f6421b794c08d334ccc173ee58135c48382be03ce6292635c8347a01b1",
+        "holdout-v29-preflight-s29307-retail.exchange-damaged-item.holdout-v1-r2_reliable-recoverable_fault.jsonl": "871ea42a1ebfda3f7eaff0c96c75784ad861e59fbbdf2311a3bdd08fe02eb72a",
+        "holdout-v29-preflight-s29307-retail.issue-service-credit.holdout-v1-r0_raw-clean.jsonl": "f4b223072744a89af1f9315eab8c73b83f84ae13c967d63a9c5d10e19b8fd44f",
+        "holdout-v29-preflight-s29307-retail.issue-service-credit.holdout-v1-r0_raw-recoverable_fault.jsonl": "b0046890188a51f85f74b2f1593446de23f7602af57f90af5336697e896742f1",
+        "holdout-v29-preflight-s29307-retail.issue-service-credit.holdout-v1-r1_guarded-clean.jsonl": "cfcf6407b26fcfa349d3f6c0a827793f8974c878454e78da8aff7cd24d751330",
+        "holdout-v29-preflight-s29307-retail.issue-service-credit.holdout-v1-r1_guarded-recoverable_fault.jsonl": "58c9e35c5be6933567f612f3b772fd15a795289721a003dfa00a78db01e54e5c",
+        "holdout-v29-preflight-s29307-retail.issue-service-credit.holdout-v1-r2_reliable-clean.jsonl": "55a0223ee62e096305695a07940342baf877d02414be095f6a62f5f4fb2fbf58",
+        "holdout-v29-preflight-s29307-retail.issue-service-credit.holdout-v1-r2_reliable-recoverable_fault.jsonl": "ee3821b0bdd0e4ad113c740a770f51f215db7ac2b1dd665cc47e25f0172cf011",
+        "holdout-v29-preflight-s29307-retail.place-campaign-order.holdout-v1-r0_raw-clean.jsonl": "f4b37afadc1dbe809db86c0159aa7f75bf5de0f8cf36688ded78916fe6326dc0",
+        "holdout-v29-preflight-s29307-retail.place-campaign-order.holdout-v1-r0_raw-recoverable_fault.jsonl": "e102f0af8e7426f8b90d3bc7dce9e56e8d93372cd4ae0b155fe0c2acbf648bc4",
+        "holdout-v29-preflight-s29307-retail.place-campaign-order.holdout-v1-r1_guarded-clean.jsonl": "1ba4be07dfbaf4764e1b5db3eb81c5a30815c5f6907c3407cf4b10c017b62c58",
+        "holdout-v29-preflight-s29307-retail.place-campaign-order.holdout-v1-r1_guarded-recoverable_fault.jsonl": "e5803853ab171e31b6ccf10bf65025330660a45111282f88f0221f2f6c8943ce",
+        "holdout-v29-preflight-s29307-retail.place-campaign-order.holdout-v1-r2_reliable-clean.jsonl": "fe7e8218e7875783d8fcc5426db75ebe03a6c934cfbdeec52af304e8f115fcf4",
+        "holdout-v29-preflight-s29307-retail.place-campaign-order.holdout-v1-r2_reliable-recoverable_fault.jsonl": "8b2a1fa38e01638cb95f2a5144ea67fee3c807ea99bafebd66faba25dde16fda",
+        "holdout-v29-preflight-s29307-retail.recover-paid-order-creation.holdout-v1-r0_raw-clean.jsonl": "dc4f7729a10947e7784c2d1796ab10ba3fb0fa7ac0d622c30b183d75a6f1a6d0",
+        "holdout-v29-preflight-s29307-retail.recover-paid-order-creation.holdout-v1-r0_raw-recoverable_fault.jsonl": "627e7734338777bc3c01c4da3ad8475a3d96c3203a31915ddf053ef847b96007",
+        "holdout-v29-preflight-s29307-retail.recover-paid-order-creation.holdout-v1-r1_guarded-clean.jsonl": "55abec7a88eba7d0e30e3a5965ae88e3355267322cdb65fbd0e1adace3db8c7f",
+        "holdout-v29-preflight-s29307-retail.recover-paid-order-creation.holdout-v1-r1_guarded-recoverable_fault.jsonl": "fab79c6a653692b9c481e14fd4371c7c2da76d627ae3545df4c5e1c6c5d72031",
+        "holdout-v29-preflight-s29307-retail.recover-paid-order-creation.holdout-v1-r2_reliable-clean.jsonl": "7f33b6c76fd061adfae8e4ebd1704f77d2714ade9bbf6e3ede0b217e6e768a2f",
+        "holdout-v29-preflight-s29307-retail.recover-paid-order-creation.holdout-v1-r2_reliable-recoverable_fault.jsonl": "a95ba2596ad38fbd9ce181a469720e96b7efe94f25e346b77d63856b408b680e",
+        "holdout-v29-preflight-s29307-retail.remove-duplicate-subscription.holdout-v1-r0_raw-clean.jsonl": "3ad8c40bf817e30731a2a42a2e48550685490f8f13323a9d14c19797ed34989f",
+        "holdout-v29-preflight-s29307-retail.remove-duplicate-subscription.holdout-v1-r0_raw-recoverable_fault.jsonl": "93e3d957071282d2c2a1727925e7e628dfbf3ad48cdf60518c01ab512c1add6d",
+        "holdout-v29-preflight-s29307-retail.remove-duplicate-subscription.holdout-v1-r1_guarded-clean.jsonl": "4ac6c293beb377b3e34bc72455bd51e4087fd3300afc971ed2cc39d6db7a47af",
+        "holdout-v29-preflight-s29307-retail.remove-duplicate-subscription.holdout-v1-r1_guarded-recoverable_fault.jsonl": "582f54b7b916a431e3a51202936d80adce7a6bea06e183712f8e2ad76b1edc6d",
+        "holdout-v29-preflight-s29307-retail.remove-duplicate-subscription.holdout-v1-r2_reliable-clean.jsonl": "1c1f0b947ed081a02aa03b1419f24a99acf3d8ed7e2f818c83c1de2e0490d893",
+        "holdout-v29-preflight-s29307-retail.remove-duplicate-subscription.holdout-v1-r2_reliable-recoverable_fault.jsonl": "0a6d86efc64e896aeeba6ea6909cea3432697f36b84d7f816367b163ffb4e3ed",
+        "holdout-v29-preflight-s29307-travel.apply-workshop-date-change.holdout-v1-r0_raw-clean.jsonl": "ca0958fdd397e49f929afb2dd8925603f8590a0b4d7a748178e4e21de97587a2",
+        "holdout-v29-preflight-s29307-travel.apply-workshop-date-change.holdout-v1-r0_raw-recoverable_fault.jsonl": "283df5df9aa15fd7d040a781ff7f140cc5e79ee5a18fe8f1663d26a88d6f7bc3",
+        "holdout-v29-preflight-s29307-travel.apply-workshop-date-change.holdout-v1-r1_guarded-clean.jsonl": "7b1708b26643d85d99bad617cd72df291bf8b3b959e3857ab77842ae82e3d417",
+        "holdout-v29-preflight-s29307-travel.apply-workshop-date-change.holdout-v1-r1_guarded-recoverable_fault.jsonl": "e4dbf2c7d1422b3e1e8e1293babdf69bc48396efe082c9ca36259fdb1acb7a98",
+        "holdout-v29-preflight-s29307-travel.apply-workshop-date-change.holdout-v1-r2_reliable-clean.jsonl": "3461f79ee482390b15b8e8de16ea00183c3b3542e065cf3fbc3d100c76d610d7",
+        "holdout-v29-preflight-s29307-travel.apply-workshop-date-change.holdout-v1-r2_reliable-recoverable_fault.jsonl": "aefa81a6e6fd42def558587217548ab65245c6b50d31b4080d9d3148e0e1c0c8",
+        "holdout-v29-preflight-s29307-travel.cancel-training-trip.holdout-v1-r0_raw-clean.jsonl": "8794215a616d68501bdf2cff25ffaf387fd725a94d368071ef845ea5d56154f0",
+        "holdout-v29-preflight-s29307-travel.cancel-training-trip.holdout-v1-r0_raw-recoverable_fault.jsonl": "9e323f0524933e2cfce253bba360d5a7d960ed7f8a859c6624e199fa29cb8250",
+        "holdout-v29-preflight-s29307-travel.cancel-training-trip.holdout-v1-r1_guarded-clean.jsonl": "70bd0d0f7fd43cfb49622bd42d1493b124d3224a1968a5e756b17742d5eec75a",
+        "holdout-v29-preflight-s29307-travel.cancel-training-trip.holdout-v1-r1_guarded-recoverable_fault.jsonl": "6b8f82814ebd70b90f24eb50dc918b242c8b43818019bd5e96f59344a22c5fe6",
+        "holdout-v29-preflight-s29307-travel.cancel-training-trip.holdout-v1-r2_reliable-clean.jsonl": "09a399c69266cc7e0796b88515aee19ab4ce4e9c742ee05630283d2224e5bb04",
+        "holdout-v29-preflight-s29307-travel.cancel-training-trip.holdout-v1-r2_reliable-recoverable_fault.jsonl": "489f630f616c9c965dc45de6082bd631a553e131d210cc97c9fb7eea7762db71",
+        "holdout-v29-preflight-s29307-travel.recover-mixed-mode-itinerary.holdout-v1-r0_raw-clean.jsonl": "27a8bce777b3f4b96bafa020cf9f3e7f87d11b0f2f4a96c377ad5009de1336b4",
+        "holdout-v29-preflight-s29307-travel.recover-mixed-mode-itinerary.holdout-v1-r0_raw-recoverable_fault.jsonl": "64653485869992868307a5b0e9d0c91c3b1e9d964069ed4ad2fc436233222dc8",
+        "holdout-v29-preflight-s29307-travel.recover-mixed-mode-itinerary.holdout-v1-r1_guarded-clean.jsonl": "093cd27b04f797d93b7c4825f139bffc28528b2c321aa2f5c5cfee15901a0d9a",
+        "holdout-v29-preflight-s29307-travel.recover-mixed-mode-itinerary.holdout-v1-r1_guarded-recoverable_fault.jsonl": "a539bc354e77925feeb2a5a40eba2e9d849dd46ff6aecc5e52a4695c0ae54907",
+        "holdout-v29-preflight-s29307-travel.recover-mixed-mode-itinerary.holdout-v1-r2_reliable-clean.jsonl": "cf1cbc4c09f73b7a99329acb479dd7e11848696ca3c3d4378c173cdd0ab2fc91",
+        "holdout-v29-preflight-s29307-travel.recover-mixed-mode-itinerary.holdout-v1-r2_reliable-recoverable_fault.jsonl": "0ac0aa60ce854ab95f0e8ebdf0e6325174b0472857338d179891494b63d8cc54",
+        "holdout-v29-preflight-s29307-travel.recover-retreat-bundle.holdout-v1-r0_raw-clean.jsonl": "941dddf04a39faa9076217e802a985e36054d6a315796a9d1f85df3f4253b96a",
+        "holdout-v29-preflight-s29307-travel.recover-retreat-bundle.holdout-v1-r0_raw-recoverable_fault.jsonl": "17cd30c424dd31f92c5705fbba31cbfa97350251b8c2ad2924fec2d4ca274a27",
+        "holdout-v29-preflight-s29307-travel.recover-retreat-bundle.holdout-v1-r1_guarded-clean.jsonl": "3f50f3441db3dc55c19582f9634437e75a94314926deaa0589996f0ed5a8b8c1",
+        "holdout-v29-preflight-s29307-travel.recover-retreat-bundle.holdout-v1-r1_guarded-recoverable_fault.jsonl": "abf5c7bf6f24f1cfb64c6c3ccb389806ef0c39defe7b9129e4e41fa92318ac83",
+        "holdout-v29-preflight-s29307-travel.recover-retreat-bundle.holdout-v1-r2_reliable-clean.jsonl": "28ec0ea94d6d9d6362105e63b1a20c465be4cfda2e1eeea84c13eb6487d8d578",
+        "holdout-v29-preflight-s29307-travel.recover-retreat-bundle.holdout-v1-r2_reliable-recoverable_fault.jsonl": "db227301d550cdc996532c2fc3909c7b65745679057d868ab5b4da9a9cbabda6",
+        "holdout-v29-preflight-s29307-travel.replace-disrupted-leg.holdout-v1-r0_raw-clean.jsonl": "fb9c7cda698c8620591ad57f7542c5a2153a93901f4018e6f10395cdd3515578",
+        "holdout-v29-preflight-s29307-travel.replace-disrupted-leg.holdout-v1-r0_raw-recoverable_fault.jsonl": "9b4b424f615a5631d1360365c80af1851950cb7adb2bb16c23c52691223c899e",
+        "holdout-v29-preflight-s29307-travel.replace-disrupted-leg.holdout-v1-r1_guarded-clean.jsonl": "380fd35cc4935f19a6f7ff44ced4f834688a7e2c5b5c89cfa94ed5177dbec1c3",
+        "holdout-v29-preflight-s29307-travel.replace-disrupted-leg.holdout-v1-r1_guarded-recoverable_fault.jsonl": "cca0db7f3c3fbb371661a166a25c7c63a71030769301aa38a6a4390f1baf9780",
+        "holdout-v29-preflight-s29307-travel.replace-disrupted-leg.holdout-v1-r2_reliable-clean.jsonl": "13473e466d52ffc60e8526be0a55081531ec1b11f535ba7f0220cd863ff9a218",
+        "holdout-v29-preflight-s29307-travel.replace-disrupted-leg.holdout-v1-r2_reliable-recoverable_fault.jsonl": "e437e38e92caa0bf7b4346272229c80e5be8a89370c9bfdb76e963f8ef757834",
+        "holdout-v29-preflight-s29307-travel.reserve-conference-trip.holdout-v1-r0_raw-clean.jsonl": "4b60330b9113d00cba493996ee2e26af50515a8ddd867894426fa0ae94b56d69",
+        "holdout-v29-preflight-s29307-travel.reserve-conference-trip.holdout-v1-r0_raw-recoverable_fault.jsonl": "65c49d911ad369e335459e5da4a6f3b6f0a66bc654ae3ba7eb090e20acd669c0",
+        "holdout-v29-preflight-s29307-travel.reserve-conference-trip.holdout-v1-r1_guarded-clean.jsonl": "4299b7810c0c93c08feea6cc903e4bdc49f9ccf9e4fcc11b41247ba85474dd10",
+        "holdout-v29-preflight-s29307-travel.reserve-conference-trip.holdout-v1-r1_guarded-recoverable_fault.jsonl": "e2b76a0a15951eb20af32ceb6c75ac758a57758e960224a7cb0081a1ea609026",
+        "holdout-v29-preflight-s29307-travel.reserve-conference-trip.holdout-v1-r2_reliable-clean.jsonl": "f540564a37e475879abec20b8f011c1e6ac584599e0f6ab3d2b497fc57fe9fb7",
+        "holdout-v29-preflight-s29307-travel.reserve-conference-trip.holdout-v1-r2_reliable-recoverable_fault.jsonl": "89910c0c99d89da3c2de4666584cb09b4997e6bebd53b34d41bdecc74a361165",
+        "holdout-v29-preflight-s29307-travel.reserve-last-approved-seat.holdout-v1-r0_raw-clean.jsonl": "84c39cf88de2761354afc6fa0d14f91d88e4bafd4ef003fc55e20eb31175e2c9",
+        "holdout-v29-preflight-s29307-travel.reserve-last-approved-seat.holdout-v1-r0_raw-recoverable_fault.jsonl": "d1905cb461c65ed5feca9cb8e53f50338b1144c4b3dd7e3ab7359755e2d30cb6",
+        "holdout-v29-preflight-s29307-travel.reserve-last-approved-seat.holdout-v1-r1_guarded-clean.jsonl": "743dbbcfefbea952c0865071b9f199cd987d32f7d471234d8f88258ce9fadf79",
+        "holdout-v29-preflight-s29307-travel.reserve-last-approved-seat.holdout-v1-r1_guarded-recoverable_fault.jsonl": "8673bf754f9b93e43ad1b4412a69305f006aeace44a45973b2212ae48033a6dc",
+        "holdout-v29-preflight-s29307-travel.reserve-last-approved-seat.holdout-v1-r2_reliable-clean.jsonl": "fb2b68cea2884dc73e48d3b966bb37dd4bc6a1416a5664b1d0002dc723f1eb02",
+        "holdout-v29-preflight-s29307-travel.reserve-last-approved-seat.holdout-v1-r2_reliable-recoverable_fault.jsonl": "b397e4acdc54745d6c1e32121d3ee1c0a0c4077353ee14f78be429325213765b",
+        "holdout-v29-preflight-s29307-travel.resolve-lodging-cap.holdout-v1-r0_raw-clean.jsonl": "5c42e9a539b67bca8ec4bea46c940aaf8ade74801f1ecf0edddf74cdeb2c3523",
+        "holdout-v29-preflight-s29307-travel.resolve-lodging-cap.holdout-v1-r0_raw-recoverable_fault.jsonl": "c9cd764e85f5b5d2093c27de412dda2206ad1877b7139afc7a66c5bb8b55bdb3",
+        "holdout-v29-preflight-s29307-travel.resolve-lodging-cap.holdout-v1-r1_guarded-clean.jsonl": "7643bd835023d97eb5d783905b66585fc39454fb2c1681530da0abacc321bcdd",
+        "holdout-v29-preflight-s29307-travel.resolve-lodging-cap.holdout-v1-r1_guarded-recoverable_fault.jsonl": "5475159250945777be65494ab559e62dc30943c637c3f18029cb5144488cb490",
+        "holdout-v29-preflight-s29307-travel.resolve-lodging-cap.holdout-v1-r2_reliable-clean.jsonl": "607e24eca87de012790088cad4cae7115e3167d92201c73b176d2563214a3e0b",
+        "holdout-v29-preflight-s29307-travel.resolve-lodging-cap.holdout-v1-r2_reliable-recoverable_fault.jsonl": "07a85da7d4e27557b1b2219062ec1ec053adea58f7043888ca7fad55bcdf9f10",
+        "holdout-v29-preflight-s29307-workspace.apply-revised-room-approval.holdout-v1-r0_raw-clean.jsonl": "649412f2c16aa6572fedac014afb42a68a03003916df047b291eb3f6836c6e76",
+        "holdout-v29-preflight-s29307-workspace.apply-revised-room-approval.holdout-v1-r0_raw-recoverable_fault.jsonl": "847bd6f0efb55d44f5388b395735cc076830fae9a175107f17dee52b93f2a4d5",
+        "holdout-v29-preflight-s29307-workspace.apply-revised-room-approval.holdout-v1-r1_guarded-clean.jsonl": "f4b98ea2a60b416ecd4175b7acaec3b994ebc932476d93f7f51946e746d8e323",
+        "holdout-v29-preflight-s29307-workspace.apply-revised-room-approval.holdout-v1-r1_guarded-recoverable_fault.jsonl": "4db7982c35101e96a3cd45ee6c537ffc219a2a548a80f58237d1f2cf41b7c99d",
+        "holdout-v29-preflight-s29307-workspace.apply-revised-room-approval.holdout-v1-r2_reliable-clean.jsonl": "10feb13a7662836741ee11c1c2b86eac9e93f937ab19373b32bbd30149b90ac3",
+        "holdout-v29-preflight-s29307-workspace.apply-revised-room-approval.holdout-v1-r2_reliable-recoverable_fault.jsonl": "e04b3987e0b1c45c56f4f881f0fbc70769dc8430d50051b1891eda201b8ac534",
+        "holdout-v29-preflight-s29307-workspace.coordinate-review-session.holdout-v1-r0_raw-clean.jsonl": "45b664a4fd928ac32fbf65d13434643dfff568b1460e696e591856e8f15807d8",
+        "holdout-v29-preflight-s29307-workspace.coordinate-review-session.holdout-v1-r0_raw-recoverable_fault.jsonl": "05abd46977ec90062f00892ac7a720631178664916530c40fe6ffa83b58cbef9",
+        "holdout-v29-preflight-s29307-workspace.coordinate-review-session.holdout-v1-r1_guarded-clean.jsonl": "59ce35d0f3377ae0cc1714057a95bc52d4abb807f9351e5b25b3a363ca873100",
+        "holdout-v29-preflight-s29307-workspace.coordinate-review-session.holdout-v1-r1_guarded-recoverable_fault.jsonl": "f9f1a05b0f3ad21e790b742ede2dd1c8b221d9d844257b173fd2a8ec7bb2db39",
+        "holdout-v29-preflight-s29307-workspace.coordinate-review-session.holdout-v1-r2_reliable-clean.jsonl": "5706371f02192205716cb57dacd9ddd5b2acbb14061ed6ac2abd0cc65a74620e",
+        "holdout-v29-preflight-s29307-workspace.coordinate-review-session.holdout-v1-r2_reliable-recoverable_fault.jsonl": "0e7097143a3343eaf00f7a9bc753eb2cd219f23cc62d7feb0bb1b42e375075ff",
+        "holdout-v29-preflight-s29307-workspace.grant-draft-access.holdout-v1-r0_raw-clean.jsonl": "e65f8ba576f8289481d44c1ff252f9bc0939d0ca84a52f8a03b60d6f52f7d06b",
+        "holdout-v29-preflight-s29307-workspace.grant-draft-access.holdout-v1-r0_raw-recoverable_fault.jsonl": "c7015ee054bde210401635aab70447abc38e20929bccbf51fbf761bfc50f7949",
+        "holdout-v29-preflight-s29307-workspace.grant-draft-access.holdout-v1-r1_guarded-clean.jsonl": "2f75f3000a3e5e92c189b8810010a128fb998f045017730e84f6fcd091300926",
+        "holdout-v29-preflight-s29307-workspace.grant-draft-access.holdout-v1-r1_guarded-recoverable_fault.jsonl": "ec1963682796c817733e3fda7c719afa8f7fa3b22cec78b81532f2621298be46",
+        "holdout-v29-preflight-s29307-workspace.grant-draft-access.holdout-v1-r2_reliable-clean.jsonl": "2d930baddd08fa9e7959dfb6755cf47bf1b462eabe8a73f059754513a8a0309d",
+        "holdout-v29-preflight-s29307-workspace.grant-draft-access.holdout-v1-r2_reliable-recoverable_fault.jsonl": "51318d1951beed478bc7d015d5969024c2bf6fb6b1752a1f29f550ce553a603d",
+        "holdout-v29-preflight-s29307-workspace.move-conflicting-workshop.holdout-v1-r0_raw-clean.jsonl": "b8a0c46852cfbf0a90cb790479f96d4ca0ba78d07c847d732f2d22de011bf12f",
+        "holdout-v29-preflight-s29307-workspace.move-conflicting-workshop.holdout-v1-r0_raw-recoverable_fault.jsonl": "80c6e5085d0dad61eb439f4b037346454678d8506c59352c566f06d1123253c8",
+        "holdout-v29-preflight-s29307-workspace.move-conflicting-workshop.holdout-v1-r1_guarded-clean.jsonl": "579d011448155d7b3e9e7517417233861d14a60ab5f3e2a94373e13551eb8d37",
+        "holdout-v29-preflight-s29307-workspace.move-conflicting-workshop.holdout-v1-r1_guarded-recoverable_fault.jsonl": "be1fcd0d9be77ffdaa9cde553d455e91458f26e82ef8169ca1c13955dca08586",
+        "holdout-v29-preflight-s29307-workspace.move-conflicting-workshop.holdout-v1-r2_reliable-clean.jsonl": "7ad18b2af2cb0d89b4b4ed75f73d73baa5935b1b555ed58d7098f73be3bd6fec",
+        "holdout-v29-preflight-s29307-workspace.move-conflicting-workshop.holdout-v1-r2_reliable-recoverable_fault.jsonl": "3c1cf033cd29687fd511edcd7f216e0f558b33b356749f5d4decbd916346c77f",
+        "holdout-v29-preflight-s29307-workspace.move-planning-session.holdout-v1-r0_raw-clean.jsonl": "334c2d036cf54562df069b09b8a49b5348537d44c7f298d01252524c632f3706",
+        "holdout-v29-preflight-s29307-workspace.move-planning-session.holdout-v1-r0_raw-recoverable_fault.jsonl": "b7e7864e26807f0c804c647cdab181954d35373ba99b4f53259530db24ae19c0",
+        "holdout-v29-preflight-s29307-workspace.move-planning-session.holdout-v1-r1_guarded-clean.jsonl": "6ddfe83df70fedd6277d6733c0de49dbb874433f333c9a1695845afb54289eb9",
+        "holdout-v29-preflight-s29307-workspace.move-planning-session.holdout-v1-r1_guarded-recoverable_fault.jsonl": "e2c78b3db327f81c4245bd89d3180cf0d8879c2754b944aa94050a3190629665",
+        "holdout-v29-preflight-s29307-workspace.move-planning-session.holdout-v1-r2_reliable-clean.jsonl": "5a5918484dbfb7f33ec6266c3b88e36c7e167fccb084743709281ff67e778e0d",
+        "holdout-v29-preflight-s29307-workspace.move-planning-session.holdout-v1-r2_reliable-recoverable_fault.jsonl": "326d40b1ad44db97312ec50ee8f9c7e445dc27ad29ed3426cad0239b0361c093",
+        "holdout-v29-preflight-s29307-workspace.publish-controlled-copy.holdout-v1-r0_raw-clean.jsonl": "2a5d918a8e94d1d932c5d16d0e0033506154b9baf436bd62bc240507317a524a",
+        "holdout-v29-preflight-s29307-workspace.publish-controlled-copy.holdout-v1-r0_raw-recoverable_fault.jsonl": "10fed70bf74bfcc280260c528f72cba31d66b3e8b6845fca6d7b270083586b47",
+        "holdout-v29-preflight-s29307-workspace.publish-controlled-copy.holdout-v1-r1_guarded-clean.jsonl": "92efe4545fe1a1c80d5df25b7f999733dbc3c81360781ea654745ada239b89e7",
+        "holdout-v29-preflight-s29307-workspace.publish-controlled-copy.holdout-v1-r1_guarded-recoverable_fault.jsonl": "dfa2d8ef047e274837f0edd89798df3cb234c6d1693a05932139758a7e4d41f6",
+        "holdout-v29-preflight-s29307-workspace.publish-controlled-copy.holdout-v1-r2_reliable-clean.jsonl": "2faa060c265b56d631042f541e62b81f821534eba27930abf350400b15fd9eac",
+        "holdout-v29-preflight-s29307-workspace.publish-controlled-copy.holdout-v1-r2_reliable-recoverable_fault.jsonl": "b00a0626867eac0f2df2828c0b7726250dc61f0cd367b402a35326676a841006",
+        "holdout-v29-preflight-s29307-workspace.resolve-review-participants.holdout-v1-r0_raw-clean.jsonl": "af888d6edd6a59c3b317847dc728551e46ef46b80b4275fc6f2cddea35ebf621",
+        "holdout-v29-preflight-s29307-workspace.resolve-review-participants.holdout-v1-r0_raw-recoverable_fault.jsonl": "6eaeb4e0d90e671c412859a82663e42fb02c325ab53be91dcd7c9b84dba195ff",
+        "holdout-v29-preflight-s29307-workspace.resolve-review-participants.holdout-v1-r1_guarded-clean.jsonl": "fb4f10990539c3d78e9353ab7af284892e9216d44882537f220b829d27c240ba",
+        "holdout-v29-preflight-s29307-workspace.resolve-review-participants.holdout-v1-r1_guarded-recoverable_fault.jsonl": "66f13a2af114fbd32297a6118f95c189a3ab4d72369f0a2da3626951eb2cc7a8",
+        "holdout-v29-preflight-s29307-workspace.resolve-review-participants.holdout-v1-r2_reliable-clean.jsonl": "ec10a8c4c8816c6abbcbf2ae5af2a32bb1aebcc7c97895af13378afd7f771023",
+        "holdout-v29-preflight-s29307-workspace.resolve-review-participants.holdout-v1-r2_reliable-recoverable_fault.jsonl": "1b631b2b32c68c7ccf3ec6461544d0bb7fcf5efbe6a160009a1b02c6d4c878ff",
+        "holdout-v29-preflight-s29307-workspace.withdraw-training-session.holdout-v1-r0_raw-clean.jsonl": "a13309789fb164fb00279e90586a5e3f1327aa80a1a0ed9f51c1336c9feb564c",
+        "holdout-v29-preflight-s29307-workspace.withdraw-training-session.holdout-v1-r0_raw-recoverable_fault.jsonl": "e9dd57ea3b06cb2a48f40a4e66278a18c310bd6d0575f4077214541bc297e723",
+        "holdout-v29-preflight-s29307-workspace.withdraw-training-session.holdout-v1-r1_guarded-clean.jsonl": "7389b112784fe250b1b6f3fdef5b6cca687065ca6f34e3a6b942e7218e4677b2",
+        "holdout-v29-preflight-s29307-workspace.withdraw-training-session.holdout-v1-r1_guarded-recoverable_fault.jsonl": "5430fdd215bfa4718c26e183ead9b9579131d2d88b9028e3139215282cd3798d",
+        "holdout-v29-preflight-s29307-workspace.withdraw-training-session.holdout-v1-r2_reliable-clean.jsonl": "1b8eb25d9763e06a148ade279b26954f300f5265a2f88642978c81328061bf86",
+        "holdout-v29-preflight-s29307-workspace.withdraw-training-session.holdout-v1-r2_reliable-recoverable_fault.jsonl": "e33f214194b260b92db3d19240904ec540f95670d3770bdea205729f238f5121"
+      },
+      "sha256": "9372023c550ebca722bc4d17aff0ef37ba666cb7502f06e0e1bfb0f161d9ba28"
+    }
+  },
+  "readiness": {
+    "ready_for_provider_probe": true,
+    "scripted_validity_gate_passed": true,
+    "task_fixture_gate_passed": true
+  },
+  "scripted_preflight": {
+    "environment_seeds": [
+      29101,
+      29211,
+      29307
+    ],
+    "episode_count": 432,
+    "formula": "24 tasks × 3 seeds × 2 conditions × 3 runtimes",
+    "model_calls": 0
+  },
+  "transition": {
+    "analysis_rule": "bootstrap 24 task templates as clusters while retaining all three seeds and all R1/R2 clean/fault trials inside each sampled cluster",
+    "bindings": [
+      {
+        "model_id": "deepseek-v4-flash",
+        "provider": "opencode-go",
+        "revision": "listing-2026-08-09/non-thinking"
+      },
+      {
+        "model_id": "qwen3.7-plus",
+        "provider": "opencode-go",
+        "revision": "listing-2026-08-09/default-inference"
+      }
+    ],
+    "claim_scope": "prospective independent holdout replication informed by v0.28; not a pristine first-look preregistration and not a replacement for the v0.28 result",
+    "cross_provider_generalization_claimed": false,
+    "effective_date": "2026-08-09",
+    "environment_seeds": [
+      29101,
+      29211,
+      29307
+    ],
+    "frozen_before_any_v029_provider_call": true,
+    "parent_v028_commit": "df6ec14f687676b11af882461c139f7d48d16d46",
+    "readiness_rule": "each model, environment seed, and runtime must independently reach at least 18/24 clean SafePass@3; R2-vs-R1 clean noninferiority is checked per seed",
+    "sha256": "7672dea16162636060eefae7730874d59774f355e589807a317b2b34f387721f",
+    "shared_provider_gateway": "OpenCode Go",
+    "task_catalog_sha256": "c8f0235b042b87b3c9445823f1b4b3f80dbfefe3ef93ef1297dce93d32ed96bc",
+    "transition_version": "arl-v028-to-v029-holdout-transition-v1",
+    "transport_retry_policy": {
+      "maximum_retries_per_logical_call": 2,
+      "retry_delays_seconds": [
+        0.25,
+        0.5
+      ],
+      "retryable_error_codes": [
+        "provider_http_429",
+        "provider_http_500",
+        "provider_http_502",
+        "provider_http_503",
+        "provider_http_504",
+        "provider_transport_error",
+        "provider_invalid_or_timed_out_response"
+      ],
+      "unrecovered_error_invalidates_study": true
+    },
+    "v028_confirmatory_failure_remains_unchanged": true,
+    "v028_failed_cells_rerun_in_v029": false,
+    "v028_outcomes_observed_before_design": true,
+    "v028_thresholds_lowered": false
+  },
+  "validity": {
+    "all_selected_checks_passed": true,
+    "checks": {
+      "all_clean_runs_safe_success": true,
+      "catalog_frozen_and_balanced": true,
+      "clean_fault_reset_hash_match_within_seed": true,
+      "digest_only_traces": true,
+      "do_nothing_rejected_for_all_72_cells": true,
+      "every_required_state_mutation_detected": true,
+      "exact_432_scripted_episode_matrix": true,
+      "fault_outcomes_match_mechanism_expectations": true,
+      "r0_owns_no_reliability_mechanisms": true,
+      "r2_recovers_all_72_faulted_task_seed_cells": true,
+      "same_oracle_policy_across_each_seeded_pair": true,
+      "single_registered_fault_difference": true,
+      "six_mechanisms_exercised_at_three_seed_scale": true,
+      "three_distinct_reset_states_per_template": true,
+      "two_models_bound_for_full_three_seed_stage": true,
+      "zero_model_and_network_calls": true
+    },
+    "do_nothing": {
+      "retail.apply-approved-substitute.holdout-v1/seed-29101": true,
+      "retail.apply-approved-substitute.holdout-v1/seed-29211": true,
+      "retail.apply-approved-substitute.holdout-v1/seed-29307": true,
+      "retail.cancel-unpacked-order.holdout-v1/seed-29101": true,
+      "retail.cancel-unpacked-order.holdout-v1/seed-29211": true,
+      "retail.cancel-unpacked-order.holdout-v1/seed-29307": true,
+      "retail.correct-delivery-destination.holdout-v1/seed-29101": true,
+      "retail.correct-delivery-destination.holdout-v1/seed-29211": true,
+      "retail.correct-delivery-destination.holdout-v1/seed-29307": true,
+      "retail.exchange-damaged-item.holdout-v1/seed-29101": true,
+      "retail.exchange-damaged-item.holdout-v1/seed-29211": true,
+      "retail.exchange-damaged-item.holdout-v1/seed-29307": true,
+      "retail.issue-service-credit.holdout-v1/seed-29101": true,
+      "retail.issue-service-credit.holdout-v1/seed-29211": true,
+      "retail.issue-service-credit.holdout-v1/seed-29307": true,
+      "retail.place-campaign-order.holdout-v1/seed-29101": true,
+      "retail.place-campaign-order.holdout-v1/seed-29211": true,
+      "retail.place-campaign-order.holdout-v1/seed-29307": true,
+      "retail.recover-paid-order-creation.holdout-v1/seed-29101": true,
+      "retail.recover-paid-order-creation.holdout-v1/seed-29211": true,
+      "retail.recover-paid-order-creation.holdout-v1/seed-29307": true,
+      "retail.remove-duplicate-subscription.holdout-v1/seed-29101": true,
+      "retail.remove-duplicate-subscription.holdout-v1/seed-29211": true,
+      "retail.remove-duplicate-subscription.holdout-v1/seed-29307": true,
+      "travel.apply-workshop-date-change.holdout-v1/seed-29101": true,
+      "travel.apply-workshop-date-change.holdout-v1/seed-29211": true,
+      "travel.apply-workshop-date-change.holdout-v1/seed-29307": true,
+      "travel.cancel-training-trip.holdout-v1/seed-29101": true,
+      "travel.cancel-training-trip.holdout-v1/seed-29211": true,
+      "travel.cancel-training-trip.holdout-v1/seed-29307": true,
+      "travel.recover-mixed-mode-itinerary.holdout-v1/seed-29101": true,
+      "travel.recover-mixed-mode-itinerary.holdout-v1/seed-29211": true,
+      "travel.recover-mixed-mode-itinerary.holdout-v1/seed-29307": true,
+      "travel.recover-retreat-bundle.holdout-v1/seed-29101": true,
+      "travel.recover-retreat-bundle.holdout-v1/seed-29211": true,
+      "travel.recover-retreat-bundle.holdout-v1/seed-29307": true,
+      "travel.replace-disrupted-leg.holdout-v1/seed-29101": true,
+      "travel.replace-disrupted-leg.holdout-v1/seed-29211": true,
+      "travel.replace-disrupted-leg.holdout-v1/seed-29307": true,
+      "travel.reserve-conference-trip.holdout-v1/seed-29101": true,
+      "travel.reserve-conference-trip.holdout-v1/seed-29211": true,
+      "travel.reserve-conference-trip.holdout-v1/seed-29307": true,
+      "travel.reserve-last-approved-seat.holdout-v1/seed-29101": true,
+      "travel.reserve-last-approved-seat.holdout-v1/seed-29211": true,
+      "travel.reserve-last-approved-seat.holdout-v1/seed-29307": true,
+      "travel.resolve-lodging-cap.holdout-v1/seed-29101": true,
+      "travel.resolve-lodging-cap.holdout-v1/seed-29211": true,
+      "travel.resolve-lodging-cap.holdout-v1/seed-29307": true,
+      "workspace.apply-revised-room-approval.holdout-v1/seed-29101": true,
+      "workspace.apply-revised-room-approval.holdout-v1/seed-29211": true,
+      "workspace.apply-revised-room-approval.holdout-v1/seed-29307": true,
+      "workspace.coordinate-review-session.holdout-v1/seed-29101": true,
+      "workspace.coordinate-review-session.holdout-v1/seed-29211": true,
+      "workspace.coordinate-review-session.holdout-v1/seed-29307": true,
+      "workspace.grant-draft-access.holdout-v1/seed-29101": true,
+      "workspace.grant-draft-access.holdout-v1/seed-29211": true,
+      "workspace.grant-draft-access.holdout-v1/seed-29307": true,
+      "workspace.move-conflicting-workshop.holdout-v1/seed-29101": true,
+      "workspace.move-conflicting-workshop.holdout-v1/seed-29211": true,
+      "workspace.move-conflicting-workshop.holdout-v1/seed-29307": true,
+      "workspace.move-planning-session.holdout-v1/seed-29101": true,
+      "workspace.move-planning-session.holdout-v1/seed-29211": true,
+      "workspace.move-planning-session.holdout-v1/seed-29307": true,
+      "workspace.publish-controlled-copy.holdout-v1/seed-29101": true,
+      "workspace.publish-controlled-copy.holdout-v1/seed-29211": true,
+      "workspace.publish-controlled-copy.holdout-v1/seed-29307": true,
+      "workspace.resolve-review-participants.holdout-v1/seed-29101": true,
+      "workspace.resolve-review-participants.holdout-v1/seed-29211": true,
+      "workspace.resolve-review-participants.holdout-v1/seed-29307": true,
+      "workspace.withdraw-training-session.holdout-v1/seed-29101": true,
+      "workspace.withdraw-training-session.holdout-v1/seed-29211": true,
+      "workspace.withdraw-training-session.holdout-v1/seed-29307": true
+    },
+    "evaluator_mutations": {
+      "retail.apply-approved-substitute.holdout-v1/seed-29101": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t16.s1.retail.order.substitution.status": true,
+          "holdout.v29.t16.s1.retail.request.substitution.status": true,
+          "holdout.v29.t16.s1.retail.substitution.selected_sku": true
+        },
+        "passed": true
+      },
+      "retail.apply-approved-substitute.holdout-v1/seed-29211": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t16.s2.retail.order.substitution.status": true,
+          "holdout.v29.t16.s2.retail.request.substitution.status": true,
+          "holdout.v29.t16.s2.retail.substitution.selected_sku": true
+        },
+        "passed": true
+      },
+      "retail.apply-approved-substitute.holdout-v1/seed-29307": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t16.s3.retail.order.substitution.status": true,
+          "holdout.v29.t16.s3.retail.request.substitution.status": true,
+          "holdout.v29.t16.s3.retail.substitution.selected_sku": true
+        },
+        "passed": true
+      },
+      "retail.cancel-unpacked-order.holdout-v1/seed-29101": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t15.s1.retail.order.cancel.reason": true,
+          "holdout.v29.t15.s1.retail.order.cancel.status": true,
+          "holdout.v29.t15.s1.retail.request.cancel.status": true
+        },
+        "passed": true
+      },
+      "retail.cancel-unpacked-order.holdout-v1/seed-29211": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t15.s2.retail.order.cancel.reason": true,
+          "holdout.v29.t15.s2.retail.order.cancel.status": true,
+          "holdout.v29.t15.s2.retail.request.cancel.status": true
+        },
+        "passed": true
+      },
+      "retail.cancel-unpacked-order.holdout-v1/seed-29307": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t15.s3.retail.order.cancel.reason": true,
+          "holdout.v29.t15.s3.retail.order.cancel.status": true,
+          "holdout.v29.t15.s3.retail.request.cancel.status": true
+        },
+        "passed": true
+      },
+      "retail.correct-delivery-destination.holdout-v1/seed-29101": {
+        "mutation_count": 2,
+        "mutations": {
+          "holdout.v29.t07.s1.retail.order.shipping.address": true,
+          "holdout.v29.t07.s1.retail.request.shipping.status": true
+        },
+        "passed": true
+      },
+      "retail.correct-delivery-destination.holdout-v1/seed-29211": {
+        "mutation_count": 2,
+        "mutations": {
+          "holdout.v29.t07.s2.retail.order.shipping.address": true,
+          "holdout.v29.t07.s2.retail.request.shipping.status": true
+        },
+        "passed": true
+      },
+      "retail.correct-delivery-destination.holdout-v1/seed-29307": {
+        "mutation_count": 2,
+        "mutations": {
+          "holdout.v29.t07.s3.retail.order.shipping.address": true,
+          "holdout.v29.t07.s3.retail.request.shipping.status": true
+        },
+        "passed": true
+      },
+      "retail.exchange-damaged-item.holdout-v1/seed-29101": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t04.s1.retail.exchange.main.status": true,
+          "holdout.v29.t04.s1.retail.order.item.status": true,
+          "holdout.v29.t04.s1.retail.request.exchange.status": true
+        },
+        "passed": true
+      },
+      "retail.exchange-damaged-item.holdout-v1/seed-29211": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t04.s2.retail.exchange.main.status": true,
+          "holdout.v29.t04.s2.retail.order.item.status": true,
+          "holdout.v29.t04.s2.retail.request.exchange.status": true
+        },
+        "passed": true
+      },
+      "retail.exchange-damaged-item.holdout-v1/seed-29307": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t04.s3.retail.exchange.main.status": true,
+          "holdout.v29.t04.s3.retail.order.item.status": true,
+          "holdout.v29.t04.s3.retail.request.exchange.status": true
+        },
+        "passed": true
+      },
+      "retail.issue-service-credit.holdout-v1/seed-29101": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t14.s1.retail.order.refund.balance": true,
+          "holdout.v29.t14.s1.retail.refund.partial.amount": true,
+          "holdout.v29.t14.s1.retail.refund.partial.status": true,
+          "holdout.v29.t14.s1.retail.request.refund.status": true
+        },
+        "passed": true
+      },
+      "retail.issue-service-credit.holdout-v1/seed-29211": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t14.s2.retail.order.refund.balance": true,
+          "holdout.v29.t14.s2.retail.refund.partial.amount": true,
+          "holdout.v29.t14.s2.retail.refund.partial.status": true,
+          "holdout.v29.t14.s2.retail.request.refund.status": true
+        },
+        "passed": true
+      },
+      "retail.issue-service-credit.holdout-v1/seed-29307": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t14.s3.retail.order.refund.balance": true,
+          "holdout.v29.t14.s3.retail.refund.partial.amount": true,
+          "holdout.v29.t14.s3.retail.refund.partial.status": true,
+          "holdout.v29.t14.s3.retail.request.refund.status": true
+        },
+        "passed": true
+      },
+      "retail.place-campaign-order.holdout-v1/seed-29101": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t03.s1.retail.cart.coupon": true,
+          "holdout.v29.t03.s1.retail.cart.item_count": true,
+          "holdout.v29.t03.s1.retail.order.main.status": true,
+          "holdout.v29.t03.s1.retail.request.purchase.status": true
+        },
+        "passed": true
+      },
+      "retail.place-campaign-order.holdout-v1/seed-29211": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t03.s2.retail.cart.coupon": true,
+          "holdout.v29.t03.s2.retail.cart.item_count": true,
+          "holdout.v29.t03.s2.retail.order.main.status": true,
+          "holdout.v29.t03.s2.retail.request.purchase.status": true
+        },
+        "passed": true
+      },
+      "retail.place-campaign-order.holdout-v1/seed-29307": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t03.s3.retail.cart.coupon": true,
+          "holdout.v29.t03.s3.retail.cart.item_count": true,
+          "holdout.v29.t03.s3.retail.order.main.status": true,
+          "holdout.v29.t03.s3.retail.request.purchase.status": true
+        },
+        "passed": true
+      },
+      "retail.recover-paid-order-creation.holdout-v1/seed-29101": {
+        "mutation_count": 5,
+        "mutations": {
+          "holdout.v29.t18.s1.retail.order.split.fallback.status": true,
+          "holdout.v29.t18.s1.retail.order.split.fallback_payment": true,
+          "holdout.v29.t18.s1.retail.order.split.primary.status": true,
+          "holdout.v29.t18.s1.retail.payment.split.status": true,
+          "holdout.v29.t18.s1.retail.request.split.status": true
+        },
+        "passed": true
+      },
+      "retail.recover-paid-order-creation.holdout-v1/seed-29211": {
+        "mutation_count": 5,
+        "mutations": {
+          "holdout.v29.t18.s2.retail.order.split.fallback.status": true,
+          "holdout.v29.t18.s2.retail.order.split.fallback_payment": true,
+          "holdout.v29.t18.s2.retail.order.split.primary.status": true,
+          "holdout.v29.t18.s2.retail.payment.split.status": true,
+          "holdout.v29.t18.s2.retail.request.split.status": true
+        },
+        "passed": true
+      },
+      "retail.recover-paid-order-creation.holdout-v1/seed-29307": {
+        "mutation_count": 5,
+        "mutations": {
+          "holdout.v29.t18.s3.retail.order.split.fallback.status": true,
+          "holdout.v29.t18.s3.retail.order.split.fallback_payment": true,
+          "holdout.v29.t18.s3.retail.order.split.primary.status": true,
+          "holdout.v29.t18.s3.retail.payment.split.status": true,
+          "holdout.v29.t18.s3.retail.request.split.status": true
+        },
+        "passed": true
+      },
+      "retail.remove-duplicate-subscription.holdout-v1/seed-29101": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t17.s1.retail.order.duplicate.status": true,
+          "holdout.v29.t17.s1.retail.order.primary.status": true,
+          "holdout.v29.t17.s1.retail.request.duplicate.status": true
+        },
+        "passed": true
+      },
+      "retail.remove-duplicate-subscription.holdout-v1/seed-29211": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t17.s2.retail.order.duplicate.status": true,
+          "holdout.v29.t17.s2.retail.order.primary.status": true,
+          "holdout.v29.t17.s2.retail.request.duplicate.status": true
+        },
+        "passed": true
+      },
+      "retail.remove-duplicate-subscription.holdout-v1/seed-29307": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t17.s3.retail.order.duplicate.status": true,
+          "holdout.v29.t17.s3.retail.order.primary.status": true,
+          "holdout.v29.t17.s3.retail.request.duplicate.status": true
+        },
+        "passed": true
+      },
+      "travel.apply-workshop-date-change.holdout-v1/seed-29101": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t22.s1.travel.dates.booking.status": true,
+          "holdout.v29.t22.s1.travel.dates.end": true,
+          "holdout.v29.t22.s1.travel.dates.start": true,
+          "holdout.v29.t22.s1.travel.request.dates.status": true
+        },
+        "passed": true
+      },
+      "travel.apply-workshop-date-change.holdout-v1/seed-29211": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t22.s2.travel.dates.booking.status": true,
+          "holdout.v29.t22.s2.travel.dates.end": true,
+          "holdout.v29.t22.s2.travel.dates.start": true,
+          "holdout.v29.t22.s2.travel.request.dates.status": true
+        },
+        "passed": true
+      },
+      "travel.apply-workshop-date-change.holdout-v1/seed-29307": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t22.s3.travel.dates.booking.status": true,
+          "holdout.v29.t22.s3.travel.dates.end": true,
+          "holdout.v29.t22.s3.travel.dates.start": true,
+          "holdout.v29.t22.s3.travel.request.dates.status": true
+        },
+        "passed": true
+      },
+      "travel.cancel-training-trip.holdout-v1/seed-29101": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t20.s1.travel.cancel.flight.status": true,
+          "holdout.v29.t20.s1.travel.cancel.hotel.status": true,
+          "holdout.v29.t20.s1.travel.cancel.refund.status": true,
+          "holdout.v29.t20.s1.travel.request.cancel.status": true
+        },
+        "passed": true
+      },
+      "travel.cancel-training-trip.holdout-v1/seed-29211": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t20.s2.travel.cancel.flight.status": true,
+          "holdout.v29.t20.s2.travel.cancel.hotel.status": true,
+          "holdout.v29.t20.s2.travel.cancel.refund.status": true,
+          "holdout.v29.t20.s2.travel.request.cancel.status": true
+        },
+        "passed": true
+      },
+      "travel.cancel-training-trip.holdout-v1/seed-29307": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t20.s3.travel.cancel.flight.status": true,
+          "holdout.v29.t20.s3.travel.cancel.hotel.status": true,
+          "holdout.v29.t20.s3.travel.cancel.refund.status": true,
+          "holdout.v29.t20.s3.travel.request.cancel.status": true
+        },
+        "passed": true
+      },
+      "travel.recover-mixed-mode-itinerary.holdout-v1/seed-29101": {
+        "mutation_count": 5,
+        "mutations": {
+          "holdout.v29.t24.s1.travel.request.split.status": true,
+          "holdout.v29.t24.s1.travel.split.flight.primary.status": true,
+          "holdout.v29.t24.s1.travel.split.hotel.fallback.status": true,
+          "holdout.v29.t24.s1.travel.split.hotel.primary.status": true,
+          "holdout.v29.t24.s1.travel.split.train.fallback.status": true
+        },
+        "passed": true
+      },
+      "travel.recover-mixed-mode-itinerary.holdout-v1/seed-29211": {
+        "mutation_count": 5,
+        "mutations": {
+          "holdout.v29.t24.s2.travel.request.split.status": true,
+          "holdout.v29.t24.s2.travel.split.flight.primary.status": true,
+          "holdout.v29.t24.s2.travel.split.hotel.fallback.status": true,
+          "holdout.v29.t24.s2.travel.split.hotel.primary.status": true,
+          "holdout.v29.t24.s2.travel.split.train.fallback.status": true
+        },
+        "passed": true
+      },
+      "travel.recover-mixed-mode-itinerary.holdout-v1/seed-29307": {
+        "mutation_count": 5,
+        "mutations": {
+          "holdout.v29.t24.s3.travel.request.split.status": true,
+          "holdout.v29.t24.s3.travel.split.flight.primary.status": true,
+          "holdout.v29.t24.s3.travel.split.hotel.fallback.status": true,
+          "holdout.v29.t24.s3.travel.split.hotel.primary.status": true,
+          "holdout.v29.t24.s3.travel.split.train.fallback.status": true
+        },
+        "passed": true
+      },
+      "travel.recover-retreat-bundle.holdout-v1/seed-29101": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t08.s1.travel.flight.fallback.status": true,
+          "holdout.v29.t08.s1.travel.flight.preferred.status": true,
+          "holdout.v29.t08.s1.travel.hotel.fallback.status": true,
+          "holdout.v29.t08.s1.travel.hotel.preferred.status": true
+        },
+        "passed": true
+      },
+      "travel.recover-retreat-bundle.holdout-v1/seed-29211": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t08.s2.travel.flight.fallback.status": true,
+          "holdout.v29.t08.s2.travel.flight.preferred.status": true,
+          "holdout.v29.t08.s2.travel.hotel.fallback.status": true,
+          "holdout.v29.t08.s2.travel.hotel.preferred.status": true
+        },
+        "passed": true
+      },
+      "travel.recover-retreat-bundle.holdout-v1/seed-29307": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t08.s3.travel.flight.fallback.status": true,
+          "holdout.v29.t08.s3.travel.flight.preferred.status": true,
+          "holdout.v29.t08.s3.travel.hotel.fallback.status": true,
+          "holdout.v29.t08.s3.travel.hotel.preferred.status": true
+        },
+        "passed": true
+      },
+      "travel.replace-disrupted-leg.holdout-v1/seed-29101": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t19.s1.travel.flight.disrupted.status": true,
+          "holdout.v29.t19.s1.travel.flight.replacement.status": true,
+          "holdout.v29.t19.s1.travel.request.rebook.status": true
+        },
+        "passed": true
+      },
+      "travel.replace-disrupted-leg.holdout-v1/seed-29211": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t19.s2.travel.flight.disrupted.status": true,
+          "holdout.v29.t19.s2.travel.flight.replacement.status": true,
+          "holdout.v29.t19.s2.travel.request.rebook.status": true
+        },
+        "passed": true
+      },
+      "travel.replace-disrupted-leg.holdout-v1/seed-29307": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t19.s3.travel.flight.disrupted.status": true,
+          "holdout.v29.t19.s3.travel.flight.replacement.status": true,
+          "holdout.v29.t19.s3.travel.request.rebook.status": true
+        },
+        "passed": true
+      },
+      "travel.reserve-conference-trip.holdout-v1/seed-29101": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t05.s1.travel.flight.main.status": true,
+          "holdout.v29.t05.s1.travel.hotel.main.status": true,
+          "holdout.v29.t05.s1.travel.request.booking.status": true
+        },
+        "passed": true
+      },
+      "travel.reserve-conference-trip.holdout-v1/seed-29211": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t05.s2.travel.flight.main.status": true,
+          "holdout.v29.t05.s2.travel.hotel.main.status": true,
+          "holdout.v29.t05.s2.travel.request.booking.status": true
+        },
+        "passed": true
+      },
+      "travel.reserve-conference-trip.holdout-v1/seed-29307": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t05.s3.travel.flight.main.status": true,
+          "holdout.v29.t05.s3.travel.hotel.main.status": true,
+          "holdout.v29.t05.s3.travel.request.booking.status": true
+        },
+        "passed": true
+      },
+      "travel.reserve-last-approved-seat.holdout-v1/seed-29101": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t23.s1.travel.inventory.available": true,
+          "holdout.v29.t23.s1.travel.inventory.remaining_seats": true,
+          "holdout.v29.t23.s1.travel.inventory.reservation.status": true,
+          "holdout.v29.t23.s1.travel.request.inventory.status": true
+        },
+        "passed": true
+      },
+      "travel.reserve-last-approved-seat.holdout-v1/seed-29211": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t23.s2.travel.inventory.available": true,
+          "holdout.v29.t23.s2.travel.inventory.remaining_seats": true,
+          "holdout.v29.t23.s2.travel.inventory.reservation.status": true,
+          "holdout.v29.t23.s2.travel.request.inventory.status": true
+        },
+        "passed": true
+      },
+      "travel.reserve-last-approved-seat.holdout-v1/seed-29307": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t23.s3.travel.inventory.available": true,
+          "holdout.v29.t23.s3.travel.inventory.remaining_seats": true,
+          "holdout.v29.t23.s3.travel.inventory.reservation.status": true,
+          "holdout.v29.t23.s3.travel.request.inventory.status": true
+        },
+        "passed": true
+      },
+      "travel.resolve-lodging-cap.holdout-v1/seed-29101": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t21.s1.travel.budget.hotel.status": true,
+          "holdout.v29.t21.s1.travel.budget.max_nightly": true,
+          "holdout.v29.t21.s1.travel.request.budget.status": true
+        },
+        "passed": true
+      },
+      "travel.resolve-lodging-cap.holdout-v1/seed-29211": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t21.s2.travel.budget.hotel.status": true,
+          "holdout.v29.t21.s2.travel.budget.max_nightly": true,
+          "holdout.v29.t21.s2.travel.request.budget.status": true
+        },
+        "passed": true
+      },
+      "travel.resolve-lodging-cap.holdout-v1/seed-29307": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t21.s3.travel.budget.hotel.status": true,
+          "holdout.v29.t21.s3.travel.budget.max_nightly": true,
+          "holdout.v29.t21.s3.travel.request.budget.status": true
+        },
+        "passed": true
+      },
+      "workspace.apply-revised-room-approval.holdout-v1/seed-29101": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t12.s1.workspace.event.authorized.applied_revision": true,
+          "holdout.v29.t12.s1.workspace.event.authorized.time": true,
+          "holdout.v29.t12.s1.workspace.request.authorization.status": true
+        },
+        "passed": true
+      },
+      "workspace.apply-revised-room-approval.holdout-v1/seed-29211": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t12.s2.workspace.event.authorized.applied_revision": true,
+          "holdout.v29.t12.s2.workspace.event.authorized.time": true,
+          "holdout.v29.t12.s2.workspace.request.authorization.status": true
+        },
+        "passed": true
+      },
+      "workspace.apply-revised-room-approval.holdout-v1/seed-29307": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t12.s3.workspace.event.authorized.applied_revision": true,
+          "holdout.v29.t12.s3.workspace.event.authorized.time": true,
+          "holdout.v29.t12.s3.workspace.request.authorization.status": true
+        },
+        "passed": true
+      },
+      "workspace.coordinate-review-session.holdout-v1/seed-29101": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t01.s1.workspace.event.main.status": true,
+          "holdout.v29.t01.s1.workspace.event.main.time": true,
+          "holdout.v29.t01.s1.workspace.notifications.invites": true,
+          "holdout.v29.t01.s1.workspace.request.schedule.status": true
+        },
+        "passed": true
+      },
+      "workspace.coordinate-review-session.holdout-v1/seed-29211": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t01.s2.workspace.event.main.status": true,
+          "holdout.v29.t01.s2.workspace.event.main.time": true,
+          "holdout.v29.t01.s2.workspace.notifications.invites": true,
+          "holdout.v29.t01.s2.workspace.request.schedule.status": true
+        },
+        "passed": true
+      },
+      "workspace.coordinate-review-session.holdout-v1/seed-29307": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t01.s3.workspace.event.main.status": true,
+          "holdout.v29.t01.s3.workspace.event.main.time": true,
+          "holdout.v29.t01.s3.workspace.notifications.invites": true,
+          "holdout.v29.t01.s3.workspace.request.schedule.status": true
+        },
+        "passed": true
+      },
+      "workspace.grant-draft-access.holdout-v1/seed-29101": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t10.s1.workspace.document.share.editor_count": true,
+          "holdout.v29.t10.s1.workspace.document.share.status": true,
+          "holdout.v29.t10.s1.workspace.request.share.status": true
+        },
+        "passed": true
+      },
+      "workspace.grant-draft-access.holdout-v1/seed-29211": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t10.s2.workspace.document.share.editor_count": true,
+          "holdout.v29.t10.s2.workspace.document.share.status": true,
+          "holdout.v29.t10.s2.workspace.request.share.status": true
+        },
+        "passed": true
+      },
+      "workspace.grant-draft-access.holdout-v1/seed-29307": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t10.s3.workspace.document.share.editor_count": true,
+          "holdout.v29.t10.s3.workspace.document.share.status": true,
+          "holdout.v29.t10.s3.workspace.request.share.status": true
+        },
+        "passed": true
+      },
+      "workspace.move-conflicting-workshop.holdout-v1/seed-29101": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t11.s1.workspace.event.conflict": true,
+          "holdout.v29.t11.s1.workspace.event.selected_time": true,
+          "holdout.v29.t11.s1.workspace.request.conflict.status": true
+        },
+        "passed": true
+      },
+      "workspace.move-conflicting-workshop.holdout-v1/seed-29211": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t11.s2.workspace.event.conflict": true,
+          "holdout.v29.t11.s2.workspace.event.selected_time": true,
+          "holdout.v29.t11.s2.workspace.request.conflict.status": true
+        },
+        "passed": true
+      },
+      "workspace.move-conflicting-workshop.holdout-v1/seed-29307": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t11.s3.workspace.event.conflict": true,
+          "holdout.v29.t11.s3.workspace.event.selected_time": true,
+          "holdout.v29.t11.s3.workspace.request.conflict.status": true
+        },
+        "passed": true
+      },
+      "workspace.move-planning-session.holdout-v1/seed-29101": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t02.s1.workspace.event.main.time": true,
+          "holdout.v29.t02.s1.workspace.notifications.reschedule": true,
+          "holdout.v29.t02.s1.workspace.request.reschedule.status": true
+        },
+        "passed": true
+      },
+      "workspace.move-planning-session.holdout-v1/seed-29211": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t02.s2.workspace.event.main.time": true,
+          "holdout.v29.t02.s2.workspace.notifications.reschedule": true,
+          "holdout.v29.t02.s2.workspace.request.reschedule.status": true
+        },
+        "passed": true
+      },
+      "workspace.move-planning-session.holdout-v1/seed-29307": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t02.s3.workspace.event.main.time": true,
+          "holdout.v29.t02.s3.workspace.notifications.reschedule": true,
+          "holdout.v29.t02.s3.workspace.request.reschedule.status": true
+        },
+        "passed": true
+      },
+      "workspace.publish-controlled-copy.holdout-v1/seed-29101": {
+        "mutation_count": 5,
+        "mutations": {
+          "holdout.v29.t13.s1.workspace.copy.external.access": true,
+          "holdout.v29.t13.s1.workspace.copy.external.status": true,
+          "holdout.v29.t13.s1.workspace.copy.internal.access": true,
+          "holdout.v29.t13.s1.workspace.copy.internal.status": true,
+          "holdout.v29.t13.s1.workspace.request.copy.status": true
+        },
+        "passed": true
+      },
+      "workspace.publish-controlled-copy.holdout-v1/seed-29211": {
+        "mutation_count": 5,
+        "mutations": {
+          "holdout.v29.t13.s2.workspace.copy.external.access": true,
+          "holdout.v29.t13.s2.workspace.copy.external.status": true,
+          "holdout.v29.t13.s2.workspace.copy.internal.access": true,
+          "holdout.v29.t13.s2.workspace.copy.internal.status": true,
+          "holdout.v29.t13.s2.workspace.request.copy.status": true
+        },
+        "passed": true
+      },
+      "workspace.publish-controlled-copy.holdout-v1/seed-29307": {
+        "mutation_count": 5,
+        "mutations": {
+          "holdout.v29.t13.s3.workspace.copy.external.access": true,
+          "holdout.v29.t13.s3.workspace.copy.external.status": true,
+          "holdout.v29.t13.s3.workspace.copy.internal.access": true,
+          "holdout.v29.t13.s3.workspace.copy.internal.status": true,
+          "holdout.v29.t13.s3.workspace.request.copy.status": true
+        },
+        "passed": true
+      },
+      "workspace.resolve-review-participants.holdout-v1/seed-29101": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t06.s1.workspace.attendees.resolved_count": true,
+          "holdout.v29.t06.s1.workspace.event.clarified.status": true,
+          "holdout.v29.t06.s1.workspace.notifications.clarified": true,
+          "holdout.v29.t06.s1.workspace.request.clarification.status": true
+        },
+        "passed": true
+      },
+      "workspace.resolve-review-participants.holdout-v1/seed-29211": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t06.s2.workspace.attendees.resolved_count": true,
+          "holdout.v29.t06.s2.workspace.event.clarified.status": true,
+          "holdout.v29.t06.s2.workspace.notifications.clarified": true,
+          "holdout.v29.t06.s2.workspace.request.clarification.status": true
+        },
+        "passed": true
+      },
+      "workspace.resolve-review-participants.holdout-v1/seed-29307": {
+        "mutation_count": 4,
+        "mutations": {
+          "holdout.v29.t06.s3.workspace.attendees.resolved_count": true,
+          "holdout.v29.t06.s3.workspace.event.clarified.status": true,
+          "holdout.v29.t06.s3.workspace.notifications.clarified": true,
+          "holdout.v29.t06.s3.workspace.request.clarification.status": true
+        },
+        "passed": true
+      },
+      "workspace.withdraw-training-session.holdout-v1/seed-29101": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t09.s1.workspace.event.cancel.status": true,
+          "holdout.v29.t09.s1.workspace.notifications.cancellations": true,
+          "holdout.v29.t09.s1.workspace.request.cancel.status": true
+        },
+        "passed": true
+      },
+      "workspace.withdraw-training-session.holdout-v1/seed-29211": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t09.s2.workspace.event.cancel.status": true,
+          "holdout.v29.t09.s2.workspace.notifications.cancellations": true,
+          "holdout.v29.t09.s2.workspace.request.cancel.status": true
+        },
+        "passed": true
+      },
+      "workspace.withdraw-training-session.holdout-v1/seed-29307": {
+        "mutation_count": 3,
+        "mutations": {
+          "holdout.v29.t09.s3.workspace.event.cancel.status": true,
+          "holdout.v29.t09.s3.workspace.notifications.cancellations": true,
+          "holdout.v29.t09.s3.workspace.request.cancel.status": true
+        },
+        "passed": true
+      }
+    },
+    "mechanism_counts": {
+      "compatible_conflict_rebases": 12,
+      "compensation_actions": 36,
+      "input_schema_adaptations": 12,
+      "output_schema_normalizations": 12,
+      "postcommit_confirmations": 12,
+      "retryable_invocation_retries": 24
+    },
+    "policy_digests": {
+      "retail.apply-approved-substitute.holdout-v1/seed-29101": [
+        "486f67a2ebfd1a81078808557a5b9f9ac344e2c9dc6b22b0ec7dc35b4bc13ecf"
+      ],
+      "retail.apply-approved-substitute.holdout-v1/seed-29211": [
+        "d9c43d9eb730f1206b91739b02cbc3bdc79e123d400b01d4b519158a80dce14a"
+      ],
+      "retail.apply-approved-substitute.holdout-v1/seed-29307": [
+        "63e286f71a803e9048aabff6f8b3e7ed22fac05a2aaba3bb9fd3e4c969bb227a"
+      ],
+      "retail.cancel-unpacked-order.holdout-v1/seed-29101": [
+        "5bc68b25feb914d43c72277dcb551982fa7e3c9c09d58e49b08e845e59de9c9c"
+      ],
+      "retail.cancel-unpacked-order.holdout-v1/seed-29211": [
+        "d2967f9717e34478bdc83fa391f2cdc0ae77b8f567cd441c7341f56cb99d5cec"
+      ],
+      "retail.cancel-unpacked-order.holdout-v1/seed-29307": [
+        "0ae4c22b3b621012163f713b1c03f569f6c8a60eb14480d27f23833ace662628"
+      ],
+      "retail.correct-delivery-destination.holdout-v1/seed-29101": [
+        "5e2af2a8cb67499054176037fca289b784fa8911c976e67f4437abba0341e6bd"
+      ],
+      "retail.correct-delivery-destination.holdout-v1/seed-29211": [
+        "80d136a32d7a93b1174b80466ab81be66b2587ec899037c2fff71de97b740fe5"
+      ],
+      "retail.correct-delivery-destination.holdout-v1/seed-29307": [
+        "28c886df26e5bbc7ece0c696bdc43b435e37bab1e5c37f0ce7793569867d5f52"
+      ],
+      "retail.exchange-damaged-item.holdout-v1/seed-29101": [
+        "d78e5b8692eccd5064c6268c4896ade8bca570234a887381c7375c6ee9ca90d6"
+      ],
+      "retail.exchange-damaged-item.holdout-v1/seed-29211": [
+        "a3581a19e3f4dbec5d045c083033c59e83b34bcfd764ec6aaae4a0e323524827"
+      ],
+      "retail.exchange-damaged-item.holdout-v1/seed-29307": [
+        "23300a95e4d95259f7626b7bc0a7ddac3d498d3d079638ffb90d85a7e840c641"
+      ],
+      "retail.issue-service-credit.holdout-v1/seed-29101": [
+        "ddf916245b517de8caedb50e4c6781bfe21ac4730831b10072635d9ed4c8c3bc"
+      ],
+      "retail.issue-service-credit.holdout-v1/seed-29211": [
+        "7f7ae7c58478d50e93dea331d8a05526a6b5efce882383314a42928c585715b9"
+      ],
+      "retail.issue-service-credit.holdout-v1/seed-29307": [
+        "78bd911088fbdec3605ae8cca67d887ef40ee87bf9239f5666b4a1d3074ea1b1"
+      ],
+      "retail.place-campaign-order.holdout-v1/seed-29101": [
+        "40acff82daa6c9bae2f785cb99bb004607e8c85886915b43b2dc69464186553b"
+      ],
+      "retail.place-campaign-order.holdout-v1/seed-29211": [
+        "4de2d6cb8351b03483cafa29fb2bc76c98e0cc0c81a2398436422299dacee689"
+      ],
+      "retail.place-campaign-order.holdout-v1/seed-29307": [
+        "81f39a565910602a9ce86d4893feefc81ae08854a1306723fc70c4539a9cdc99"
+      ],
+      "retail.recover-paid-order-creation.holdout-v1/seed-29101": [
+        "892e4447573ddce84d4e53872fcdab52216e043c196addc8229dc982dbae855b"
+      ],
+      "retail.recover-paid-order-creation.holdout-v1/seed-29211": [
+        "8af102e5a58d788428851b2e88f0828abc5663a5538a00a321a2fdf25374cbc2"
+      ],
+      "retail.recover-paid-order-creation.holdout-v1/seed-29307": [
+        "62896161733332ad24a323decca60b885afe8b7ab396c259f43812121e23c5ca"
+      ],
+      "retail.remove-duplicate-subscription.holdout-v1/seed-29101": [
+        "23adc8e3e9860f8ec0ff1e2117fbbe80ec190aa9bea90293caf2afe880a3aa45"
+      ],
+      "retail.remove-duplicate-subscription.holdout-v1/seed-29211": [
+        "03f911a9aacfa7292129927deae5f6335791868f480e238e5ad221238b36dbd7"
+      ],
+      "retail.remove-duplicate-subscription.holdout-v1/seed-29307": [
+        "6df1bc02792509efd55a409a2a302249de4727450ad099c5b83ccfbc14b40f28"
+      ],
+      "travel.apply-workshop-date-change.holdout-v1/seed-29101": [
+        "0de5571a254b35e6d4efe3dd9e66e59e0aadf86321b65c37cc5c3d5e31631468"
+      ],
+      "travel.apply-workshop-date-change.holdout-v1/seed-29211": [
+        "281a2f56d1bdec7b4b99d85ca0438264e9b7ddafb2bf1e3a6ffa3761a5c5aab8"
+      ],
+      "travel.apply-workshop-date-change.holdout-v1/seed-29307": [
+        "458a75680c1dfaa091b0436ed6cffc3ede4f60f670d8bef0cd74a7d967c71be5"
+      ],
+      "travel.cancel-training-trip.holdout-v1/seed-29101": [
+        "16d9152bbcb58f3f5cf66c4d008309c37c628d036e558e0b100dff72ba17fbf4"
+      ],
+      "travel.cancel-training-trip.holdout-v1/seed-29211": [
+        "876625dc16ccdc71f7c4b46b5fad38dd1e2f2f17cc52f86bba8bd8b39fc39ed6"
+      ],
+      "travel.cancel-training-trip.holdout-v1/seed-29307": [
+        "3253950b9b4140f09d0fb36eb6c8c287b0e74408335862fbeebf9a4b62b21b99"
+      ],
+      "travel.recover-mixed-mode-itinerary.holdout-v1/seed-29101": [
+        "0b05c52e381cac738596237067266dea6ec30766e6fa632b8fc620acec82c027"
+      ],
+      "travel.recover-mixed-mode-itinerary.holdout-v1/seed-29211": [
+        "474a89025b64cb0f1d61f9f3832bb1d67e60e950cc844332d741f226541bc70c"
+      ],
+      "travel.recover-mixed-mode-itinerary.holdout-v1/seed-29307": [
+        "36d9c9e74e90ffc22954c08ed6621caf8d6095c878af293eefc83e59817e6799"
+      ],
+      "travel.recover-retreat-bundle.holdout-v1/seed-29101": [
+        "d502ba178079065badfbb302dd2cec48a8644220ae1e53eb9922c28192394eea"
+      ],
+      "travel.recover-retreat-bundle.holdout-v1/seed-29211": [
+        "1a887f7eebeddf5a17e9836347caee1e87f06f33c821cf016bf1881acb9c0349"
+      ],
+      "travel.recover-retreat-bundle.holdout-v1/seed-29307": [
+        "685d9be1a4ac98a40f8dad5e041d434e500cd331c7b3841f35c8b0710ebd5601"
+      ],
+      "travel.replace-disrupted-leg.holdout-v1/seed-29101": [
+        "abbab6f8c28ceca80f9c8f2aaec6f81fdfef7e704f7b9c8aac7c18cf52b353f8"
+      ],
+      "travel.replace-disrupted-leg.holdout-v1/seed-29211": [
+        "3f5aa49ddb5442ac47c51d05e86d5e730ee792f68f7caf3038159fb9fdeb9cb4"
+      ],
+      "travel.replace-disrupted-leg.holdout-v1/seed-29307": [
+        "5a1caaf5eefb2b33e963f9ba7acc09ac861a05a0a3f88ae5db6b59bc511beb2a"
+      ],
+      "travel.reserve-conference-trip.holdout-v1/seed-29101": [
+        "68b5ed20bcddc73024460f6fd3b792c51bfb3c2bfb035d9d0dd11e078659d05d"
+      ],
+      "travel.reserve-conference-trip.holdout-v1/seed-29211": [
+        "b1ef6da5ea5ce91381189866015362618e4a299ada45adb1560d57599f3cde56"
+      ],
+      "travel.reserve-conference-trip.holdout-v1/seed-29307": [
+        "6011f5c81fe4ca5710f068c80b56f422de73b5a08f52b9861474276eea721196"
+      ],
+      "travel.reserve-last-approved-seat.holdout-v1/seed-29101": [
+        "99a8f452cbe09c6f7353149031a0fee00220a430adcd58766f6cfbcdf92966e2"
+      ],
+      "travel.reserve-last-approved-seat.holdout-v1/seed-29211": [
+        "9c901ceb3a412a45829e63c5e36949bdc5f89136875340980fbee90b28609614"
+      ],
+      "travel.reserve-last-approved-seat.holdout-v1/seed-29307": [
+        "f8f02c2cae78196ca47ceef8963ba6cf7bd68fa0b6ff5dc6b955bd5f96b41d42"
+      ],
+      "travel.resolve-lodging-cap.holdout-v1/seed-29101": [
+        "e44b4a5f86d336755904d5cf223c82eb83547c82c3716d7d29247946bba4ecbe"
+      ],
+      "travel.resolve-lodging-cap.holdout-v1/seed-29211": [
+        "add79a73428d26c60397a8c191074e55d94b02c78143704e4808fac259b03275"
+      ],
+      "travel.resolve-lodging-cap.holdout-v1/seed-29307": [
+        "27246fe420fde56e10746d31c4de061add7b1043c22e34880fa5d9f80599b52d"
+      ],
+      "workspace.apply-revised-room-approval.holdout-v1/seed-29101": [
+        "fa9685d3dfc4560a60d7592e7595306606aee571f50fd4e4e630f2e26ab05594"
+      ],
+      "workspace.apply-revised-room-approval.holdout-v1/seed-29211": [
+        "74c56de349fa0fc23e8362aec1854fd3dd9c249a3c7b44e6a39ff82f039f96fb"
+      ],
+      "workspace.apply-revised-room-approval.holdout-v1/seed-29307": [
+        "31bb9acb8cc159d47e49c662462b49af6fe9d14a8eea55e1831231f251c079a6"
+      ],
+      "workspace.coordinate-review-session.holdout-v1/seed-29101": [
+        "7dcd4a760740081d2840f9ae133c3fd68651221c5306ee5b1eabc5456edb3ffe"
+      ],
+      "workspace.coordinate-review-session.holdout-v1/seed-29211": [
+        "ea0b001875852010cc2de7e25b52d6bbc687b84c1c38fccaac5eecbd52511a92"
+      ],
+      "workspace.coordinate-review-session.holdout-v1/seed-29307": [
+        "e215a9926cce2504c46942477b52fc569be16d7e180800ded309f2dd332f56c2"
+      ],
+      "workspace.grant-draft-access.holdout-v1/seed-29101": [
+        "3a99414379432f266d19f53ffb669678ad9937549441c26e9bfb01b5dafd651a"
+      ],
+      "workspace.grant-draft-access.holdout-v1/seed-29211": [
+        "971df08582469092671b6914ee29417449a42a53616cc930b615d92b996166a5"
+      ],
+      "workspace.grant-draft-access.holdout-v1/seed-29307": [
+        "d0b1c1bce554325b10b1179fae0209bd8937ca46b8818dded3ee67aba0d4f3d9"
+      ],
+      "workspace.move-conflicting-workshop.holdout-v1/seed-29101": [
+        "9108296fa4f50f5c071f4a0129aaf05c695c1b704ced31f69bf082fa0a132006"
+      ],
+      "workspace.move-conflicting-workshop.holdout-v1/seed-29211": [
+        "307f2d83180adc3b36f34235735a6e828b87a70866854c6b701bcd4a8fd1cc6e"
+      ],
+      "workspace.move-conflicting-workshop.holdout-v1/seed-29307": [
+        "220fb3a16c0d200bc7688a1055dd93229a330c174f8b2be1935ad9d854962217"
+      ],
+      "workspace.move-planning-session.holdout-v1/seed-29101": [
+        "864443c6be20f41cf0b5d8154ec0064715fb545109cde0b9879bcd7f45fce66d"
+      ],
+      "workspace.move-planning-session.holdout-v1/seed-29211": [
+        "9671a4a5d4947e4a7ab0d7d81cb96ef7eae0986c0620f461f3f4b4a0cf553e2c"
+      ],
+      "workspace.move-planning-session.holdout-v1/seed-29307": [
+        "2a16415ecd514173404beefa1d195f37b40d8fd749def2a2bc46412e2b6c13ce"
+      ],
+      "workspace.publish-controlled-copy.holdout-v1/seed-29101": [
+        "1fb686cf92cfda797ee74a49f1d0eeb3d9bbe5aa93cf2da9cc0f5d3079a7ba66"
+      ],
+      "workspace.publish-controlled-copy.holdout-v1/seed-29211": [
+        "ff41d552469ef8870f58170e56dd7c629ce00f6de1dfff951eb1dcaed7122b0a"
+      ],
+      "workspace.publish-controlled-copy.holdout-v1/seed-29307": [
+        "8c46d1d60a26194fe4eb216738a56acd104c29a2dee1d23274c4a002b87c1f29"
+      ],
+      "workspace.resolve-review-participants.holdout-v1/seed-29101": [
+        "8636f2c7b502afdb3f1f4831af4f3d1b0249314d7b7ee5fcf36877699bf01daf"
+      ],
+      "workspace.resolve-review-participants.holdout-v1/seed-29211": [
+        "d419214eaba76fd370042d86f33b3c202825ffab47f3d62ab1d96a56a8392e7b"
+      ],
+      "workspace.resolve-review-participants.holdout-v1/seed-29307": [
+        "5c14b2ccdfe18049113d46825be374efd5c4911494bfd7f3166fc5c8b48b2e75"
+      ],
+      "workspace.withdraw-training-session.holdout-v1/seed-29101": [
+        "80d909c1e7733e5fd0ff00bd1516ef265b86ebae058d9348e5a9f5cc3cf357a8"
+      ],
+      "workspace.withdraw-training-session.holdout-v1/seed-29211": [
+        "c8735e8831d2c9b96c04e1cf550858ef18438bd2ffa0b91c1b02c39061376c2a"
+      ],
+      "workspace.withdraw-training-session.holdout-v1/seed-29307": [
+        "1e25db4d087ca661feb182dc29b9f06f1d5e2c380a5c8ecec49f6dc0aa831e9c"
+      ]
+    },
+    "reset_hashes": {
+      "retail.apply-approved-substitute.holdout-v1/seed-29101": [
+        "e2d38670baa113685516d859116b7a163ab6cb78fc6118321eb61f5e879a1bb1"
+      ],
+      "retail.apply-approved-substitute.holdout-v1/seed-29211": [
+        "1c2318a7ebe2fbff69dc6c1aba9c9056d9b7de753f9f19f19366c232802d7f92"
+      ],
+      "retail.apply-approved-substitute.holdout-v1/seed-29307": [
+        "032da82f3fcfc64931dbd60dca7dc493f0be526347b1be5eaaf7b44aed2d4704"
+      ],
+      "retail.cancel-unpacked-order.holdout-v1/seed-29101": [
+        "a8b6b4ee71db5e7f5d7ae68ae53b5ae2b59b1b55bef6a058c60b72b3ae1e506c"
+      ],
+      "retail.cancel-unpacked-order.holdout-v1/seed-29211": [
+        "c5af02bc6d2c52c9c87870c6d0f22eb807bb154cb5a79e7d51fd188ffcdd42d9"
+      ],
+      "retail.cancel-unpacked-order.holdout-v1/seed-29307": [
+        "4d065558e1471640a9b3ae9ed58f7d4d66580c12db92664e7fcb34eb56ebc049"
+      ],
+      "retail.correct-delivery-destination.holdout-v1/seed-29101": [
+        "b8a632d8fe8ca508d033ee9c4b6d08ce13c89bdb1d6982d57444ccbc6fac10b1"
+      ],
+      "retail.correct-delivery-destination.holdout-v1/seed-29211": [
+        "ea9eef9ed4dda9ddfe1b94274553efaf4161c02a45ef1199a4aca44d944b36b6"
+      ],
+      "retail.correct-delivery-destination.holdout-v1/seed-29307": [
+        "ab990dcf5972da39a73e4ea5530dc577ab820df1f03bf996da39eabfa69bdb88"
+      ],
+      "retail.exchange-damaged-item.holdout-v1/seed-29101": [
+        "0bdcf7ec24595a893861dac2696efdb49412b4fad6b68c228dba3be5a0f0d4ea"
+      ],
+      "retail.exchange-damaged-item.holdout-v1/seed-29211": [
+        "3dceafa1ad8a9d8097ac37eef9d10a250fcc50e61163b0441f93bf3b94606199"
+      ],
+      "retail.exchange-damaged-item.holdout-v1/seed-29307": [
+        "6c3dcafd325ebee6e0696d1298d78330778058bff19c0ad531e7e31ad392ceed"
+      ],
+      "retail.issue-service-credit.holdout-v1/seed-29101": [
+        "7433ecabbc872e7cfab7b3386d022d4fef5398dd093097760bb4acfdf5d7d15b"
+      ],
+      "retail.issue-service-credit.holdout-v1/seed-29211": [
+        "33b2d6840cceece7b02ecb0882b24985175fb8ba312ef950d75e3626a49f7757"
+      ],
+      "retail.issue-service-credit.holdout-v1/seed-29307": [
+        "3cc24c417eb500861ca746f1864346fa4922be5e2cee82f2ee2ccf75c625c797"
+      ],
+      "retail.place-campaign-order.holdout-v1/seed-29101": [
+        "07fdf4bb09441464da3763fdb799dc60e119c8461f121a5238b9e2dfb02865ea"
+      ],
+      "retail.place-campaign-order.holdout-v1/seed-29211": [
+        "b912e84f563bfabc05fea6d69e87ad2801fda666b0b991c67375a7f492f6900a"
+      ],
+      "retail.place-campaign-order.holdout-v1/seed-29307": [
+        "86d67e887c066b86a5dad679183a4b9b07aa33ce7bbbc539eadd2cc7a5d3d37b"
+      ],
+      "retail.recover-paid-order-creation.holdout-v1/seed-29101": [
+        "36d322112647c0cfbf4c46d33b99a29a5ce884f44f4ce6678b7083bd77ba3df9"
+      ],
+      "retail.recover-paid-order-creation.holdout-v1/seed-29211": [
+        "04ca5d9ad76570a3d28a4a9aead1d889c9608589bd4f68e60e42cc7be5f5809e"
+      ],
+      "retail.recover-paid-order-creation.holdout-v1/seed-29307": [
+        "8bb9ff5cf36a67a3fc32c631ac3b7c7c2227745d9e311718763ef967f6e26cb8"
+      ],
+      "retail.remove-duplicate-subscription.holdout-v1/seed-29101": [
+        "d12da559b92937dca865fe2e0554051b43d5ce17190f3c62af5d7bb90d3eaae5"
+      ],
+      "retail.remove-duplicate-subscription.holdout-v1/seed-29211": [
+        "5d07bfb68fbaeede0f1add517ff541a22794affe10fb944306030b64e39758c6"
+      ],
+      "retail.remove-duplicate-subscription.holdout-v1/seed-29307": [
+        "a253448842a3714601c83944d2d3ed1a4a7ebd826af88b7c8f5e2fc6168dd553"
+      ],
+      "travel.apply-workshop-date-change.holdout-v1/seed-29101": [
+        "b6db4bdfe5b4a5e4996611f7880e8639685246be2ab2e149eb0ada627ea5a129"
+      ],
+      "travel.apply-workshop-date-change.holdout-v1/seed-29211": [
+        "35769560f9058c2831473e6cced76c84445f00aa8f29497eb42084b0b1c23cf4"
+      ],
+      "travel.apply-workshop-date-change.holdout-v1/seed-29307": [
+        "5d38f160bbc9f179cdb6aa8355a3381ca5d6f3a2aa56f8f73f23ea2491f0bf81"
+      ],
+      "travel.cancel-training-trip.holdout-v1/seed-29101": [
+        "c155c2bb8a270d65cec9d76cfc73b099d6178ab885806851b537bf0110534598"
+      ],
+      "travel.cancel-training-trip.holdout-v1/seed-29211": [
+        "812f687a5caed014ac8c0768e4b914cae3bea0fdc3650d30864bf2bd3cea4e5f"
+      ],
+      "travel.cancel-training-trip.holdout-v1/seed-29307": [
+        "1ba9117af92e3b05969d23d8442f2b72d2def7d4d6e79fee1db80dda60c4599e"
+      ],
+      "travel.recover-mixed-mode-itinerary.holdout-v1/seed-29101": [
+        "241dede14cd9afbaefabc2e4d6d7a1c3b84b11b29c34ba248190de8ba2bada08"
+      ],
+      "travel.recover-mixed-mode-itinerary.holdout-v1/seed-29211": [
+        "7545b5a73b5fc4f726ed150f5dda6c5a6e6bdd2feb17fddc078b554ad5b4643b"
+      ],
+      "travel.recover-mixed-mode-itinerary.holdout-v1/seed-29307": [
+        "3c88a3e5300f1d6413d7e1042fe984a5ee015652c2937e648f35307fa4ca82cc"
+      ],
+      "travel.recover-retreat-bundle.holdout-v1/seed-29101": [
+        "5441665cfaf605163ef7105e8ab13f9e03332cd6229fdc0fbef71636d49a41b9"
+      ],
+      "travel.recover-retreat-bundle.holdout-v1/seed-29211": [
+        "f7b94f4f404aaa1e94c0cbb1f6834a7c4833b6abb1663d199d0118d462cb5823"
+      ],
+      "travel.recover-retreat-bundle.holdout-v1/seed-29307": [
+        "61cbf84737e73050af9f6c96fd38e353a6fb866e8de94b92c2dd566878f0361f"
+      ],
+      "travel.replace-disrupted-leg.holdout-v1/seed-29101": [
+        "62c383591fca9e1d2573a2384ee35c51a33d5be5deb6c367a57bf19c86645fa6"
+      ],
+      "travel.replace-disrupted-leg.holdout-v1/seed-29211": [
+        "33e650e182d80d27548a5d40823e9ee831786e164c07b04e0ec2b58af99008be"
+      ],
+      "travel.replace-disrupted-leg.holdout-v1/seed-29307": [
+        "bdf3bbc022228783812e846e8bf85ae55a263d7afcabb5e0478ed7b5b090861f"
+      ],
+      "travel.reserve-conference-trip.holdout-v1/seed-29101": [
+        "c02785d84682f396132fafbe8838b4d1c4d8fcdb178494c24fb16ea527660789"
+      ],
+      "travel.reserve-conference-trip.holdout-v1/seed-29211": [
+        "0029eee81b100951bdb5b2dfef09d41e762cf71482ed0d65e0bac7641b9d0140"
+      ],
+      "travel.reserve-conference-trip.holdout-v1/seed-29307": [
+        "bac57631ccfb36a2fde2a9c16b707081f34304f980dcc33cd6f51e975c870810"
+      ],
+      "travel.reserve-last-approved-seat.holdout-v1/seed-29101": [
+        "13a4ee2e760feafc78c94f2e3a9a1a12dda9b99651902913fdd8665e65af87d1"
+      ],
+      "travel.reserve-last-approved-seat.holdout-v1/seed-29211": [
+        "3e5fc978885d21bf1906430e91e361409b1695ad4c7f4dba041d64a44efb627c"
+      ],
+      "travel.reserve-last-approved-seat.holdout-v1/seed-29307": [
+        "c08397b282ac34c9384680d578475b440d19e3f3e3b4fb52eefc07bbd1def531"
+      ],
+      "travel.resolve-lodging-cap.holdout-v1/seed-29101": [
+        "19b56d28d09648c003e69ae3c851c5f9ba1c59517aa8e386e311a45d75a93097"
+      ],
+      "travel.resolve-lodging-cap.holdout-v1/seed-29211": [
+        "1df0e1cb50831bce05f1c10ee10b6492685689a5c22cebc2fdf62a3d2c4b72ee"
+      ],
+      "travel.resolve-lodging-cap.holdout-v1/seed-29307": [
+        "d2470c77f68d80c936289312fd697ced08b8d487c42882afa51280a93c7ed0e4"
+      ],
+      "workspace.apply-revised-room-approval.holdout-v1/seed-29101": [
+        "f85f1df8293b96085eebfe693df02fd65db943c191511c758749c2153c65d5d9"
+      ],
+      "workspace.apply-revised-room-approval.holdout-v1/seed-29211": [
+        "2439d260b34d5c839d8a2ff753bb2631ce6fed19fa9e3a56180ca0c93a511965"
+      ],
+      "workspace.apply-revised-room-approval.holdout-v1/seed-29307": [
+        "0ddc093069d130968c0c2ff667a60e9337135f78da9084d9afd177dcb00cf970"
+      ],
+      "workspace.coordinate-review-session.holdout-v1/seed-29101": [
+        "b72eaf370d6e00ecd3e5843532e8a40e58d6247c424032473e2ab669d2074f2a"
+      ],
+      "workspace.coordinate-review-session.holdout-v1/seed-29211": [
+        "16b63f31f3b4eb9fe23f64fc7bd95aa0b41db439019457304b247c389269b6e0"
+      ],
+      "workspace.coordinate-review-session.holdout-v1/seed-29307": [
+        "709f2d1b9487bcfb14f342a0d4b8029fcca66c1956b91e4342a989682c7f6778"
+      ],
+      "workspace.grant-draft-access.holdout-v1/seed-29101": [
+        "35b10ba6445a04d7908cb4b2c6129bc2ea9acf99596e09123767062206df950d"
+      ],
+      "workspace.grant-draft-access.holdout-v1/seed-29211": [
+        "cefbf9a8fa31f3153797927d2e3d93761a31706a0ba20c627c736b06d8310fa4"
+      ],
+      "workspace.grant-draft-access.holdout-v1/seed-29307": [
+        "c9550169f4928157604b20592548621496b6fe4bf9b4e5fc29d0a131cf65b4ef"
+      ],
+      "workspace.move-conflicting-workshop.holdout-v1/seed-29101": [
+        "66f0ca7b65aa07e7b7f1dcac718ecd39cbafbb59262dfeb76d24f30b26af71b5"
+      ],
+      "workspace.move-conflicting-workshop.holdout-v1/seed-29211": [
+        "a1cb1c42a445f5909169dde0a8ed11b979f83ec3681eeaa1e4838f3fe8ad3d8c"
+      ],
+      "workspace.move-conflicting-workshop.holdout-v1/seed-29307": [
+        "364e989ecd7428d8e06a99cd1dcd8e89945ff881f1da5448363ac5b5e609b7c4"
+      ],
+      "workspace.move-planning-session.holdout-v1/seed-29101": [
+        "ded262693d612a1a868930b8ec1440d32757ed03f8956bf18f6e35c758ea0aa6"
+      ],
+      "workspace.move-planning-session.holdout-v1/seed-29211": [
+        "321061286730ad178e42b6aace643a5b8601cafbd66afa3aff887da31793109c"
+      ],
+      "workspace.move-planning-session.holdout-v1/seed-29307": [
+        "3daba82dc7a610f33ea66824c4a9b960f68f9dc7d20cd9c1c8b01ddebce0abeb"
+      ],
+      "workspace.publish-controlled-copy.holdout-v1/seed-29101": [
+        "0adb72ada0bf2c1be3bea2c408701be455a1e9b622e9b181575f291b766a50cb"
+      ],
+      "workspace.publish-controlled-copy.holdout-v1/seed-29211": [
+        "349aa86e3249d3075005b3098d10168e35d6dbbfe75e5b7749cbc7f5a4c48676"
+      ],
+      "workspace.publish-controlled-copy.holdout-v1/seed-29307": [
+        "74f0af622822c4c968760e59bb048797ea1e75b769992938d8ee92fde974ea08"
+      ],
+      "workspace.resolve-review-participants.holdout-v1/seed-29101": [
+        "af02ed5ccfdf0d231a413736a22097ac1f3e92005eb226e2a495d74c2642a124"
+      ],
+      "workspace.resolve-review-participants.holdout-v1/seed-29211": [
+        "bb168dd13881f2215fc2a771349834b6bba04e175a4214d2af305ca25bfd784e"
+      ],
+      "workspace.resolve-review-participants.holdout-v1/seed-29307": [
+        "b4db08a3b051506675364c02d10880d2a830bd30d22f2fe4fcbd828f608c6cbd"
+      ],
+      "workspace.withdraw-training-session.holdout-v1/seed-29101": [
+        "215858be716abbdd006af73697fdf75c5cc2478d7bf8b3d3fd1d42ac5c8c819c"
+      ],
+      "workspace.withdraw-training-session.holdout-v1/seed-29211": [
+        "5e73907b009cdfe5ea9c9d2b257485d30c2a6e6cc4a1e09661cc34fdaf06771c"
+      ],
+      "workspace.withdraw-training-session.holdout-v1/seed-29307": [
+        "ab4854d0aaf35989e93152c0054b72e83f9ca2a3c1cd7e3b6c3b8eb6e7cb0117"
+      ]
+    },
+    "trace_payloads": {
+      "forbidden_marker_count": 272,
+      "forbidden_payload_findings": {},
+      "passed": true,
+      "trace_count": 432
+    }
+  },
+  "episode_evidence": {
+    "episode_count": 432,
+    "episodes_sha256": "e3c4f06eeccd5922451ef8bdeff2ce2ac7f484864be9a7f5875080728cd00929",
+    "full_summary_sha256": "df2ca5f4e55cfd790b83a47d51442c91b0f8c4978abbf01fb5ffb663806c1d0d",
+    "full_summary_publicly_committed": false,
+    "full_episode_records": "local ignored full-summary.json and study/results",
+    "provider_content_persisted": false
+  }
+}

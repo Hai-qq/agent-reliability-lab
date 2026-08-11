@@ -1,0 +1,74 @@
+OpenCode Go Flash + Qwen v0.28 contract validation
+Date: 2026-08-09
+Disposition: CONTRACT FROZEN AND OFFLINE-VALIDATED; LIVE RUN COMPLETED SEPARATELY
+
+Frozen bindings
+- opencode-go/deepseek-v4-flash/listing-2026-08-09/non-thinking
+- opencode-go/qwen3.7-plus/listing-2026-08-09/default-inference
+
+Frozen arithmetic
+- protocol probe: two logical Qwen calls on one fixed synthetic tool contract
+- canary: 6 fault-family representatives x 2 models = 12 episodes
+- formal: 24 tasks x 2 models x 3 runtimes x 2 conditions x 3 trials = 864 episodes
+
+Hard gates
+- protocol probe artifact must pass and contain digest-only provider evidence
+- probe source hashes must match current probe/backend/contract code
+- formal requires a valid 12-episode canary from the exact current source manifest
+- missing, stale, invalid, or malformed prerequisite evidence is rejected before workspace creation
+- analysis requires infrastructure validity and per-model quality readiness
+
+Transport and budget policy
+- maximum 8 logical model calls per episode
+- maximum 20,000 input tokens and 8,192 output tokens per episode
+- maximum 1,024 output tokens per logical response
+- maximum USD 0.01 usage-value estimate per episode
+- maximum 2 retries after the initial attempt, with 0.25/0.5 second delays
+- retryable only: HTTP 429/500/502/503/504, transport error, invalid/timed-out response
+- logical calls, physical attempts, and recovered retries are recorded separately
+- unrecovered provider, usage-parse, or model-protocol failure invalidates the study
+
+Machine contracts
+- main study contract sha256: 366777d66f613ea82fc68deda98f9ca765524ebd16a598126d3c91a9c91056b5
+- v0.28 amendment sha256: eed0f47c6d010853aa476d585f084c8290fe50dd89a53efa3d3366e225041986
+- canary manifest sha256: 569249ef6e8b8927f0eb186d4df07ee42e07b2ddba42b2a704a2a6273f9bf23c
+- formal manifest sha256: 52efd4e2c4662db3cbbeb61188e99a40df6037db77be87745a5a5b6547ec93c8
+- source manifest: 43 files
+- source manifest sha256: 0c4eafbff92881cdbbcaac3baa73a1159d7daa3cf3e9343686767eefd92712e0
+
+Targeted command
+PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12)" -m unittest tests.unit.test_opencode_go_v28_contract tests.unit.test_opencode_go_v28_backend tests.unit.test_opencode_go_v28_probe tests.unit.test_opencode_go_v28_prerequisites tests.unit.test_opencode_go_v28_analysis tests.integration.test_opencode_go_v28_runtime
+
+Targeted result
+- 12 tests passed
+
+Full Python 3.11 result
+- interpreter: 3.11.15
+- command: PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.11)" -m unittest discover -s tests -p 'test_*.py'
+- Ran 256 tests in 7.517s: OK
+- clean-checkout restore gate rebuilt 4 deterministic bundles with 940 files
+
+Full Python 3.12 result
+- interpreter: 3.12.12
+- command: PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12)" -m unittest discover -s tests -p 'test_*.py'
+- Ran 256 tests in 6.822s: OK
+- clean-checkout restore gate rebuilt 4 deterministic bundles with 940 files
+
+Static validation
+- ruff check: passed
+- ruff format --check: passed
+- raw credential/model content persisted: no
+
+Downstream live evidence (completed after this contract freeze)
+- authenticated Qwen structured-tool protocol probe: passed
+- 12-episode Flash + Qwen canary: passed
+- fresh 864-episode Flash + Qwen formal matrix: 864/864, infrastructure valid
+- compact summary: artifacts/opencode_go_flash_qwen_v28/summary.json
+- confirmatory analysis: refused because Qwen clean readiness failed
+- explicitly exploratory bootstrap: artifacts/opencode_go_flash_qwen_v28/exploratory-analysis.json
+- current validation: artifacts/opencode_go_flash_qwen_v28/validation.log
+
+Interpretation boundary
+- both models share OpenCode Go, so a valid result can support cross-model consistency within this gateway, not cross-provider generalization
+- catalog dates are observed listings, not immutable serving-weight hashes
+- usage-value estimates are not incremental subscription charges

@@ -1,0 +1,188 @@
+OpenCode Go Prospective Holdout v0.29 validation
+Date: 2026-08-10
+Disposition: COMPLETED; INFRASTRUCTURE INVALID; ANALYSIS BLOCKED
+
+Frozen design
+- formula: 24 tasks x 3 environment seeds x 2 models x 3 runtimes x
+  2 conditions x 3 trials = 2,592
+- seeds: 29101, 29211, 29307
+- flash: opencode-go/deepseek-v4-flash/listing-2026-08-09/non-thinking
+- qwen: opencode-go/qwen3.7-plus/listing-2026-08-09/default-inference
+- per-episode hard budget: 8 logical calls, 20,000 input tokens,
+  8,192 output tokens, 1,024 output tokens/response, USD 0.01 usage value
+- transport policy: initial attempt plus at most 2 retries after 0.25/0.5 s;
+  retryable 429/500/502/503/504, transport, invalid/timed-out response
+- clean readiness: at least 18/24 SafePass@3 for every model x seed x runtime
+- task-template bootstrap keeps both models and all seeds inside each cluster
+
+Prerequisites
+- corrected zero-model preflight: 432/432; 16/16 checks; ready=true
+- preflight full-summary sha256:
+  df2ca5f4e55cfd790b83a47d51442c91b0f8c4978abbf01fb5ffb663806c1d0d
+- two-model probe: 4 calls/attempts; 0 retries; passed=true
+- probe sha256:
+  32cd608ece843f225814cd79936da6758a46621d3fa0348dda32bac0d368eb8e
+- canary: 36/36; infrastructure valid; ready_for_2592_episode_holdout=true
+- canary: 117 logical calls/attempts; 0 retries; 118,070 tokens;
+  USD 0.0424927464 usage value
+- canary full-summary sha256:
+  1b206040de8be10dcd6d681a85f075ca995970ba5c70c2748ce5437565a4cde0
+
+Formal command
+ARL_PYTHON="$(uv python find 3.12)"
+env OPENCODE_GO_API_KEY="<process-only secret>" PYTHONPATH=src \
+  PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/run_opencode_go_v29.py --stage formal \
+  --preflight-summary artifacts/opencode_go_holdout_v29_preflight/full-summary.json \
+  --protocol-probe artifacts/opencode_go_holdout_v29_probe/probe.json \
+  --canary-summary artifacts/opencode_go_holdout_v29_canary/full-summary.json \
+  --workspace artifacts/opencode_go_holdout_v29/study \
+  --summary artifacts/opencode_go_holdout_v29/full-summary.json \
+  --timeout-seconds 120
+
+Resume command
+env OPENCODE_GO_API_KEY="<process-only secret>" PYTHONPATH=src \
+  PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/run_opencode_go_v29.py --stage formal --resume \
+  --preflight-summary artifacts/opencode_go_holdout_v29_preflight/full-summary.json \
+  --protocol-probe artifacts/opencode_go_holdout_v29_probe/probe.json \
+  --canary-summary artifacts/opencode_go_holdout_v29_canary/full-summary.json \
+  --workspace artifacts/opencode_go_holdout_v29/study \
+  --summary artifacts/opencode_go_holdout_v29/full-summary.json \
+  --timeout-seconds 120
+
+Formal result
+- exit after resume: 0
+- Python: 3.12.13
+- episodes: 2,592/2,592; resume_used: true
+- logical model calls: 10,402
+- external network attempts: 10,422
+- transport retries: 18
+- input/output/reasoning/total tokens:
+  9,890,915 / 1,731,199 / 935,383 / 11,622,114
+- usage-value estimate: USD 4.1171332752
+  (not incremental subscription charge)
+- latency p50/p95: 4,021 / 10,934 ms
+- accepted model responses: 10,402
+- unrecovered provider/protocol errors: 2
+- infrastructure validity: false
+
+Resume integrity
+- the initial process disconnected after 2,322 completed jobs
+- the running job was requeued and completed on scheduler attempt 2
+- resumed job: opencode-v29-flash-s29211-t0-
+  travel.apply-workshop-date-change.holdout-v1-r1_guarded-recoverable_fault
+- preexisting 2,322-result digest before/after resume:
+  547a240c47baa7a83d70f168be1b7c173dc49b829e99e3effe2ddefa5eb76a8c
+- preexisting results preserved: true
+- final state: complete; 2,592 completed; 0 pending
+
+Failed validity checks
+- zero_unrecovered_provider_transport_or_parse_errors
+- usage_totals_match_provider_records
+- per_episode_model_budgets_respected
+
+Unrecovered errors
+- qwen seed 29101 trial 2 travel.reserve-last-approved-seat, R1 fault:
+  terminal provider_http_503 after the frozen retry policy
+- qwen seed 29101 trial 0 travel.reserve-last-approved-seat, R2 clean:
+  terminal provider_http_503 after the frozen retry policy
+- terminal error records are retained in provider.calls; they explain the
+  logical-call/provider-record mismatch rather than being removed post hoc
+
+Cost-cap violations
+- qwen seed 29307 trial 0 retail.remove-duplicate-subscription, R1 fault:
+  USD 0.0111072
+- qwen seed 29307 trial 1 retail.remove-duplicate-subscription, R1 fault:
+  USD 0.0102032
+- qwen seed 29101 trial 0 travel.apply-workshop-date-change, R1 fault:
+  USD 0.0100080
+- qwen seed 29211 trial 2 travel.apply-workshop-date-change, R1 fault:
+  USD 0.0119260
+- all other per-episode budget dimensions remained within their frozen caps
+
+Clean readiness by seed (R0 / R1 / R2 SafePass@3)
+- Flash 29101: 20/24, 20/24, 20/24; passed
+- Flash 29211: 19/24, 19/24, 19/24; passed
+- Flash 29307: 19/24, 19/24, 19/24; passed
+- Qwen 29101: 18/24, 18/24, 16/24; failed
+- Qwen 29211: 17/24, 15/24, 16/24; failed
+- Qwen 29307: 16/24, 18/24, 18/24; failed
+- ready_for_replication_analysis: false
+
+Descriptive point estimates only
+- Flash R2-R1 matched fault-recovery delta: +0.6896551724
+  (seeds: +0.6500000000, +0.6842105263, +0.7368421053)
+- Flash R2-R1 clean delta: 0.0
+- Qwen R2-R1 matched fault-recovery delta: +0.6847058824
+  (seeds: +0.6527777778, +0.7375000000, +0.6666666667)
+- Qwen R2-R1 clean delta: -0.0138888889
+- these are retained diagnostics, not confirmatory or exploratory inference
+
+Analysis gates
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/build_opencode_go_v29_analysis.py \
+  --input artifacts/opencode_go_holdout_v29/full-summary.json \
+  --output artifacts/opencode_go_holdout_v29/analysis.json \
+  --iterations 10000 --seed 20260810
+
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/build_opencode_go_v29_exploratory_analysis.py \
+  --input artifacts/opencode_go_holdout_v29/full-summary.json \
+  --output artifacts/opencode_go_holdout_v29/exploratory-analysis.json \
+  --iterations 10000 --seed 20260810
+
+- both expected exits: non-zero
+- both errors: RuntimeError: v0.29 analysis requires infrastructure-valid input
+- analysis.json: absent
+- exploratory-analysis.json: absent
+
+Public compact command
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/compact_model_pilot_summary.py \
+  --input artifacts/opencode_go_holdout_v29/full-summary.json \
+  --output artifacts/opencode_go_holdout_v29/summary.json
+
+Evidence integrity
+- full summary: 27,785,740 bytes; local ignored evidence; sha256
+  ae59041b7314ea765da00cc40008d98751d856deece478378eeef99e0c5e2800
+- compact summary: 551,908 bytes; sha256
+  0bbef25f0d2aa0ad0bfd3656589444f9a42b41a57bde0ecfa4ad2e5965d6aae2
+- episode-set sha256:
+  49a3e9d37e204779dc232067d4d5e1f3447131dbe52a78138c41cd0d3fe408c7
+- source manifest: 51 files; sha256
+  d2b413603354baf07e1c08932b0cb12070fafe77f609f232016636e095ffbf20
+- trace manifest: 2,592 files; sha256
+  28feb50aee6ededeac583f8249633f9846acad228e468175c22e604b1c778d3b
+- study manifest sha256:
+  7a934437f0e141850fddeb1abf1bca7346f30aa41b090e409bcc1a1da3435960
+- study state sha256:
+  4e6a9a9078ca9135e2003ce3a45e97f047a8be993434721deea3fdae3f71e226
+- provider content persisted: false
+
+Offline validation
+- Python 3.11.15: 267/267 tests passed in 6.622 s
+- Python 3.12.12: 267/267 tests passed in 6.073 s
+- each suite rebuilt 4 deterministic bundles / 940 files
+- Ruff 0.15.17 check: passed
+- Ruff 0.15.17 format check: 261 files already formatted
+- compact summary deterministic rebuild: byte-identical
+- confirmatory and exploratory fail-closed behavior: rechecked
+- public JSON parse and relative Markdown link audit: passed
+- public candidate files over 1 MiB: 0
+- public candidate absolute home-path files: 0
+- public candidate non-test credential-like literal files: 0
+- synthetic secret-pattern test fixtures: retained and reviewed separately
+- local full summary, study tree, and canary: ignored
+- public summaries, probe, READMEs, and validation logs: not ignored
+
+Limitations
+- Completion is not validity: this run cannot support inferential claims.
+- Failed cells and budget overruns remain in the evidence; no selective rerun,
+  threshold change, or post hoc censoring was applied.
+- Both models share OpenCode Go, so provider effects and cross-provider
+  generalization are not identified.
+- Catalog listings are not immutable serving-weight hashes, and the provider
+  exposes no unified sampling seed.
+- A new independently frozen replication is required before testing the main
+  hypothesis again; v0.29 must remain unchanged as failed evidence.

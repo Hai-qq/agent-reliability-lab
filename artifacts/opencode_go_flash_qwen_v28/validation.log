@@ -1,0 +1,166 @@
+OpenCode Go Flash + Qwen Main v0.28 validation
+Date: 2026-08-09
+Disposition: COMPLETED; INFRASTRUCTURE VALID; CONFIRMATORY READINESS FAILED;
+             EXPLORATORY ANALYSIS ONLY
+
+Frozen design
+- formula: 24 tasks x 2 models x 3 runtimes x 2 conditions x 3 trials = 864
+- flash: opencode-go/deepseek-v4-flash/listing-2026-08-09/non-thinking
+- qwen: opencode-go/qwen3.7-plus/listing-2026-08-09/default-inference
+- shared endpoint: https://opencode.ai/zen/go/v1/chat/completions
+- per-episode hard budget: 8 logical calls, 20,000 input tokens,
+  8,192 output tokens, 1,024 output tokens/response, USD 0.01 usage value
+- transport policy: initial attempt plus at most 2 retries after 0.25/0.5 s;
+  retryable 429/500/502/503/504, transport, invalid/timed-out response
+- main contract sha256:
+  366777d66f613ea82fc68deda98f9ca765524ebd16a598126d3c91a9c91056b5
+- amendment sha256:
+  eed0f47c6d010853aa476d585f084c8290fe50dd89a53efa3d3366e225041986
+
+Prerequisite commands
+ARL_PYTHON="$(uv python find 3.12)"
+env OPENCODE_GO_API_KEY="<process-only secret>" PYTHONPATH=src \
+  PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/probe_opencode_go_v28.py \
+  --output artifacts/opencode_go_flash_qwen_v28_probe/probe.json \
+  --timeout-seconds 120
+
+env OPENCODE_GO_API_KEY="<process-only secret>" PYTHONPATH=src \
+  PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/run_opencode_go_v28.py --stage canary \
+  --protocol-probe artifacts/opencode_go_flash_qwen_v28_probe/probe.json \
+  --workspace artifacts/opencode_go_flash_qwen_v28_canary/study \
+  --summary artifacts/opencode_go_flash_qwen_v28_canary/full-summary.json \
+  --timeout-seconds 120
+
+Prerequisite results
+- Qwen protocol probe: passed; 2 logical calls; 2 attempts; 0 retries
+- protocol probe sha256:
+  b1567a0a3c1fa04ab04494216fb03075e069ec2f7de2929adad847d3b0a50f0a
+- canary: 12/12 episodes; infrastructure validity true; ready_for_864 true
+- canary: 39 logical calls/attempts; 36,067 tokens; USD 0.0128745184 usage value
+- canary full-summary sha256:
+  14d2cbe42bc19c29d81cba03b6626dc5a222e3df9712fbab1b8e41bfaba6ed97
+
+Formal command
+env OPENCODE_GO_API_KEY="<process-only secret>" PYTHONPATH=src \
+  PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/run_opencode_go_v28.py --stage formal \
+  --protocol-probe artifacts/opencode_go_flash_qwen_v28_probe/probe.json \
+  --canary-summary artifacts/opencode_go_flash_qwen_v28_canary/full-summary.json \
+  --workspace artifacts/opencode_go_flash_qwen_v28/study \
+  --summary artifacts/opencode_go_flash_qwen_v28/full-summary.json \
+  --timeout-seconds 120
+
+Formal result
+- exit: 0
+- Python: 3.12.12
+- episodes: 864/864; resume_used: false
+- logical model calls: 3,541
+- external network attempts: 3,542
+- transport retries: 1
+- input/output/total tokens: 3,189,662 / 531,414 / 3,721,076
+- usage-value estimate: USD 1.2767371528 (not incremental subscription charge)
+- latency p50/p95: 4,426 / 12,325 ms
+- accepted model responses: 3,541
+- unrecovered provider/protocol errors: 0
+- infrastructure validity: true; 18/18 selected checks passed
+- digest-only trace audit: 864/864 passed
+- credential audit: 1,729 files checked; 0 exact credential matches
+- recovered transport event: Flash t0 workspace.reschedule-meeting, R2 clean;
+  logical call 1 received provider_http_503 and succeeded on the second attempt
+
+SafePass@3 and matched recovery
+- Flash clean R0/R1/R2: 18/24, 18/24, 18/24
+- Flash fault SafePass@3 R0/R1/R2: 8/24, 5/24, 17/24
+- Flash matched recovery R1/R2: 5/18, 17/18; delta +0.6666666667
+- Qwen clean R0/R1/R2: 17/24, 18/24, 17/24
+- Qwen fault SafePass@3 R0/R1/R2: 9/24, 4/24, 16/24
+- Qwen matched recovery R1/R2: 4/18, 15/17; delta +0.6601307190
+- Qwen R2 clean failures: the same 6 tasks failed by Flash, plus
+  travel.split-booking-compensation; readiness missed by exactly 1 task
+
+Confirmatory gate
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/build_opencode_go_v28_analysis.py \
+  --input artifacts/opencode_go_flash_qwen_v28/full-summary.json \
+  --output artifacts/opencode_go_flash_qwen_v28/analysis.json \
+  --iterations 10000 --seed 20260809
+
+- expected exit: non-zero
+- RuntimeError: Analysis input must pass the model-quality readiness gate
+- reason: Qwen did not reach 75% clean SafePass@3 in every runtime
+- analysis.json: absent
+
+Exploratory analysis command
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/build_opencode_go_v28_exploratory_analysis.py \
+  --input artifacts/opencode_go_flash_qwen_v28/full-summary.json \
+  --output artifacts/opencode_go_flash_qwen_v28/exploratory-analysis.json \
+  --iterations 10000 --seed 20260809
+
+Exploratory result
+- analysis_mode: exploratory
+- confirmatory_claim_allowed: false
+- primary_hypothesis_supported: false
+- Flash R2-R1 recovery delta: +0.6666666667; 95% CI [0.4375, 0.8823529412]
+- Qwen R2-R1 recovery delta: +0.6601307190; 95% CI [0.4285714286, 0.875]
+- macro R2-R1 recovery delta: +0.6633986928; 95% CI
+  [0.4803113553, 0.8333333333]
+- bootstrap probability both model deltas > 0: 1.0
+- all exploratory analysis checks: passed
+- deterministic rebuild: byte-identical
+
+Public compact command
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" \
+  scripts/compact_model_pilot_summary.py \
+  --input artifacts/opencode_go_flash_qwen_v28/full-summary.json \
+  --output artifacts/opencode_go_flash_qwen_v28/summary.json
+
+Evidence integrity
+- full summary: 9,242,104 bytes; local ignored evidence
+- full summary sha256:
+  97d2db133728396995c39f3f22b33433f578c3eb63597793f51d78a9baf93c75
+- compact summary: 174,028 bytes
+- compact summary sha256:
+  3d01f1e251ad5d323cb2bca88f7ac36b5786d6d038d670f5f3a0965dd7e1b55c
+- episode-set sha256:
+  e0b319dad718c403373d83059aecc7a25e945f4141a1162f38325fbc5c40161f
+- exploratory analysis: 57,076 bytes
+- exploratory analysis sha256:
+  b4c80228d15e6d12a03ee0ede85dcb271d38e879cb6c99a6f60ae71399d7a141
+- study manifest sha256:
+  52efd4e2c4662db3cbbeb61188e99a40df6037db77be87745a5a5b6547ec93c8
+- study state sha256:
+  aece8c74c19580ca8e7ae817e98b3540540905316828c5e468c97b085632db6f
+- formal source manifest: 43 files; 0 current mismatches; sha256
+  0c4eafbff92881cdbbcaac3baa73a1159d7daa3cf3e9343686767eefd92712e0
+- exploratory source manifest: 7 files; 0 current mismatches; sha256
+  bb49a1fed449312291364731ada3c0513a1ccc99349f178e6fd1dd59d25d7e3a
+- trace manifest: 864 files; sha256
+  b0d42f09052987301b520e1d692deda149a28782cc8d659458ceeaefecdfe48e
+- compact summary deterministic rebuild: byte-identical
+- public compact omits per-episode records and records provider_content_persisted=false
+
+Offline validation
+- Python 3.11.15: 259/259 tests passed in 5.460 s
+- Python 3.12.12: 259/259 tests passed in 5.020 s
+- each suite rebuilt 4 deterministic bundles / 940 files
+- Ruff 0.15.17 check: passed
+- Ruff 0.15.17 format check: 243 files already formatted
+- public candidate files over 1 MiB: 0
+- public candidate absolute home-path files: 0
+- non-test secret-pattern files: 0 (test fixtures retained separately)
+- public JSON parse: passed
+- local full summary, study tree, and canary are ignored
+- public summary, exploratory analysis, README, and validation are not ignored
+
+Limitations
+- The preregistered confirmatory readiness gate failed. Exploratory intervals
+  cannot be cited as the confirmatory primary result.
+- Both models share OpenCode Go, so provider effects and cross-provider
+  generalization are not identified.
+- OpenCode Go exposes catalog listings, not immutable serving-weight hashes.
+- The provider exposes no unified sampling seed; repeated calls are not
+  byte-deterministic model outputs.
+- The benchmark has 24 project-owned synthetic tasks and one environment seed.

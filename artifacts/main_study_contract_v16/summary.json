@@ -1,0 +1,1380 @@
+{
+  "metadata": {
+    "run_id": "arl-main-study-scripted-smoke-v0.16.0",
+    "package_version": "0.16.0",
+    "python_version": "3.12.12",
+    "platform": "darwin",
+    "project_root_name": "agent-reliability-lab",
+    "environment_seed": 0,
+    "policy": "scripted semantic plan",
+    "result_scope": "offline harness gate; not a model benchmark result",
+    "source_manifest": {
+      "algorithm": "sha256(canonical_json({relative_path: file_sha256}))",
+      "sha256": "8a8b7e02c61c8981049fc7d147bc887eeec2959647d6f7ff2a417c55b3081598",
+      "files": {
+        "pyproject.toml": "805b2fc9ea83f8c56223b51454f1b2660dd2ece88620d6c725d054fb29baf00a",
+        "scripts/run_main_study_smoke.py": "0b45e6e261f5e270d25c9dd1eef9f4085f22fd05a8df63afe46239d8539e5e75",
+        "src/arl/core/types.py": "58862356fa7aca2817fa1f30a7136409605501efc5a44b8e0a54b4eb2beb76b2",
+        "src/arl/runtime/journal.py": "29082aa1ea86243356aba4f70691593543ea6b4a1bd5d808c22ef1f987474ae3",
+        "src/arl_mainstudy/__init__.py": "4bcf05a5e05a0f8f011b578f2b333bc095d239ae98d4bfc1b11c1147c7e241d6",
+        "src/arl_mainstudy/adapters.py": "2d41e8437b4a11d442f06aa6aba1248dc62d61ae6b7ff7df2a9cad7c73114a5d",
+        "src/arl_mainstudy/agents.py": "b2f5498cf30be749ddea477f597534a1722a1af9f76143306c12bbb9dd9cccce",
+        "src/arl_mainstudy/catalog.py": "08855af742cbffa9c938d80463c690fdea659584f0d167afa21e8a4a2ca6bb79",
+        "src/arl_mainstudy/contract.py": "7677e804048d6cfd8ff7ce7c39cd703ce0b9e54d0d5d979547ef4c51c8c5c50d",
+        "src/arl_mainstudy/experiment.py": "b608de3b714f6200fac34d106e8ab95bcef42f1cb9b2d00004e8442345578e4c",
+        "src/arl_mainstudy/model.py": "5c89137cb7ed175a211da4e8916fc48a26aabaa164ebe28707129d3f456e58c8",
+        "src/arl_mainstudy/protocol.py": "b8ffb64ddf7eaf6c874ba87fd59a9012d0dbb222020103da2e450d660ccb6da9",
+        "src/arl_mainstudy/runtime.py": "642071fe9baf48d93811c2bc3cf91b748e4c21afb75592342c3a8511410f345e",
+        "src/arl_multitask/env.py": "a5808dcc6f5b22e02af36dfc0a682196f5d89fddc448331a3dc0e23b9ece3df0",
+        "src/arl_multitask/evaluator.py": "0d2c30cbd8fd69b8091d163466cbf5925f58d9e2e57af1f2d1df442d368a7885",
+        "src/arl_multitask/experiment.py": "0b7056706ed2b8cccf363dd068476adeb8fbffb2f14784c75843c5f6f15ef5a6",
+        "src/arl_multitask/runtime.py": "794034f027ff40a995eb3272bf597da0e192bb84fe1077ec3b28130f80b8533c",
+        "src/arl_retail/env.py": "70d6363a765acaf1545b6bb3e9cbfd558399a4a69e5a17c7a3313849ee65296b",
+        "src/arl_retail/evaluator.py": "49658dc83471d43974b7e80a5f2da2e6b9faa7c7cffcd40c1ed485091a7fc89e",
+        "src/arl_retail/experiment.py": "0349956ed13e1612e5ef8abd32f5179de8ba68958a548ad21402a6926689d055",
+        "src/arl_retail/runtime.py": "ef40f71aadd8b5ad50c60a57b990ac38a7865a5357f07631c57cc780bb5228f8",
+        "src/arl_study/scheduler.py": "295060accbb5cb3c0a4db9c363138fe5c09557743f37f47e0a0f8eb2e0676fdb"
+      }
+    },
+    "trace_manifest": {
+      "algorithm": "sha256(canonical_json({trace_filename: file_sha256}))",
+      "sha256": "c8d9fac033ffbd6ac323b5eef76f2abf228ff5c7f33e8807b15ffab67d258bbf",
+      "files": {
+        "main-smoke-retail.discounted-order.main-v1-r0_raw-clean.jsonl": "d6ce5c9fb11d3e422781f8bed2b16d680efe5d4a8b1469c63dc4e16d0a6a04d6",
+        "main-smoke-retail.discounted-order.main-v1-r0_raw-recoverable_fault.jsonl": "e0b41900ce8f5d27cf10009df8c10095079c42567c36424361ad881c858406dd",
+        "main-smoke-retail.discounted-order.main-v1-r1_guarded-clean.jsonl": "0028c9a91604828356c27bff2ffb1f449028b11c98afb5388c445b9971e36af9",
+        "main-smoke-retail.discounted-order.main-v1-r1_guarded-recoverable_fault.jsonl": "e696a4ef8c30ed5424bffe04f30e474b2a3b640dc48be9bd185245540ebdd3e7",
+        "main-smoke-retail.discounted-order.main-v1-r2_reliable-clean.jsonl": "db2de37549d8bee080177a448a281e7005a07ff4edfd1d8e482d382a75232441",
+        "main-smoke-retail.discounted-order.main-v1-r2_reliable-recoverable_fault.jsonl": "91db66880caf97e105dbb75120fe20a35dd06bbab665fd0153658017f320c6e0",
+        "main-smoke-workspace.schedule-meeting.main-v1-r0_raw-clean.jsonl": "a1aa41dae23b8ae1d9bcb2c3cec5395385356c3459445da9ba49d100285ee8eb",
+        "main-smoke-workspace.schedule-meeting.main-v1-r0_raw-recoverable_fault.jsonl": "286ead081ff8104d44c194867a71023424e78d7df8cf302994d54f7eb1a71ac7",
+        "main-smoke-workspace.schedule-meeting.main-v1-r1_guarded-clean.jsonl": "749fd4203afac0408b515e255f9bb58380d1b2a5957c6a07088680324241c079",
+        "main-smoke-workspace.schedule-meeting.main-v1-r1_guarded-recoverable_fault.jsonl": "ca33eefecd112b138d13f933c6fea563eb0d459e511b12ef9b57f3fd65b9587d",
+        "main-smoke-workspace.schedule-meeting.main-v1-r2_reliable-clean.jsonl": "d9099aafb9334b653068f93a399b730c5c36a543e88e7781d4d1ee708ee420b7",
+        "main-smoke-workspace.schedule-meeting.main-v1-r2_reliable-recoverable_fault.jsonl": "a91b111d676f9d500aa201d917ced37b69706ed2f7565cc09a9d6470410e11d5"
+      }
+    }
+  },
+  "contract": {
+    "contract_version": "arl-main-study-v0.16.0",
+    "primary_hypothesis": "R2 improves recoverable-fault SafePass^3 over R1 while preserving clean SafeSuccess within a five-percentage-point noninferiority margin and without adding severe side effects.",
+    "runtime_names": [
+      "r0_raw",
+      "r1_guarded",
+      "r2_reliable"
+    ],
+    "conditions": [
+      "clean",
+      "recoverable_fault"
+    ],
+    "task_catalog": {
+      "template_count": 24,
+      "domain_template_counts": {
+        "workspace": 8,
+        "retail": 8,
+        "travel": 8
+      },
+      "fault_family_counts": {
+        "postcommit_response_loss": 4,
+        "retryable_invocation_error": 4,
+        "input_schema_drift": 4,
+        "output_schema_drift": 4,
+        "compatible_state_conflict": 4,
+        "bounded_compensation": 4
+      }
+    },
+    "model_slots": [
+      {
+        "slot_id": "strong_api",
+        "role": "strong tool-capable API model",
+        "provider": null,
+        "model_id": null,
+        "revision": null,
+        "bound": false
+      },
+      {
+        "slot_id": "local_open",
+        "role": "reproducible local open-weight model",
+        "provider": null,
+        "model_id": null,
+        "revision": null,
+        "bound": false
+      }
+    ],
+    "stages": [
+      {
+        "stage_id": "scripted_smoke",
+        "task_count": 2,
+        "environment_seed_count": 1,
+        "condition_count": 2,
+        "runtime_count": 3,
+        "agent_configuration_count": 1,
+        "sampling_trial_count": 1,
+        "uses_models": false,
+        "confirmatory": false,
+        "episode_count": 12,
+        "formula": "2 × 1 × 2 × 3 × 1 × 1"
+      },
+      {
+        "stage_id": "pilot",
+        "task_count": 8,
+        "environment_seed_count": 1,
+        "condition_count": 2,
+        "runtime_count": 3,
+        "agent_configuration_count": 1,
+        "sampling_trial_count": 3,
+        "uses_models": true,
+        "confirmatory": false,
+        "episode_count": 144,
+        "formula": "8 × 1 × 2 × 3 × 1 × 3"
+      },
+      {
+        "stage_id": "main",
+        "task_count": 24,
+        "environment_seed_count": 1,
+        "condition_count": 2,
+        "runtime_count": 3,
+        "agent_configuration_count": 2,
+        "sampling_trial_count": 3,
+        "uses_models": true,
+        "confirmatory": true,
+        "episode_count": 864,
+        "formula": "24 × 1 × 2 × 3 × 2 × 3"
+      },
+      {
+        "stage_id": "full_three_seed",
+        "task_count": 24,
+        "environment_seed_count": 3,
+        "condition_count": 2,
+        "runtime_count": 3,
+        "agent_configuration_count": 2,
+        "sampling_trial_count": 3,
+        "uses_models": true,
+        "confirmatory": false,
+        "episode_count": 2592,
+        "formula": "24 × 3 × 2 × 3 × 2 × 3"
+      }
+    ],
+    "statistics": {
+      "primary_metric": "fault_safe_pass_at_3_r2_minus_r1",
+      "clean_noninferiority_margin": -0.05,
+      "bootstrap_resamples": 10000,
+      "bootstrap_cluster": "task_template",
+      "timeouts_and_failures_retained": true,
+      "per_model_results_required": true
+    },
+    "sha256": "caa157bd93bf58a40e680cf7b0d20a9bb9036aba445867c3922e5bc0365581d5"
+  },
+  "aggregate": {
+    "episode_count": 12,
+    "template_count": 2,
+    "runtime_count": 3,
+    "condition_count": 2,
+    "model_calls": 0,
+    "external_network_calls": 0,
+    "by_runtime": {
+      "r0_raw": {
+        "by_condition": {
+          "clean": {
+            "episodes": 2,
+            "task_successes": 2,
+            "safe_successes": 2,
+            "completed_plans": 2,
+            "tool_attempts": 6,
+            "retry_count": 0,
+            "confirmation_count": 0
+          },
+          "recoverable_fault": {
+            "episodes": 2,
+            "task_successes": 0,
+            "safe_successes": 0,
+            "completed_plans": 0,
+            "tool_attempts": 4,
+            "retry_count": 0,
+            "confirmation_count": 0
+          }
+        },
+        "matched_clean_capable_tasks": 2,
+        "recovered_fault_tasks": 0,
+        "recovery_rate": 0.0
+      },
+      "r1_guarded": {
+        "by_condition": {
+          "clean": {
+            "episodes": 2,
+            "task_successes": 2,
+            "safe_successes": 2,
+            "completed_plans": 2,
+            "tool_attempts": 6,
+            "retry_count": 0,
+            "confirmation_count": 0
+          },
+          "recoverable_fault": {
+            "episodes": 2,
+            "task_successes": 0,
+            "safe_successes": 0,
+            "completed_plans": 0,
+            "tool_attempts": 6,
+            "retry_count": 2,
+            "confirmation_count": 0
+          }
+        },
+        "matched_clean_capable_tasks": 2,
+        "recovered_fault_tasks": 0,
+        "recovery_rate": 0.0
+      },
+      "r2_reliable": {
+        "by_condition": {
+          "clean": {
+            "episodes": 2,
+            "task_successes": 2,
+            "safe_successes": 2,
+            "completed_plans": 2,
+            "tool_attempts": 6,
+            "retry_count": 0,
+            "confirmation_count": 0
+          },
+          "recoverable_fault": {
+            "episodes": 2,
+            "task_successes": 2,
+            "safe_successes": 2,
+            "completed_plans": 2,
+            "tool_attempts": 8,
+            "retry_count": 0,
+            "confirmation_count": 2
+          }
+        },
+        "matched_clean_capable_tasks": 2,
+        "recovered_fault_tasks": 2,
+        "recovery_rate": 1.0
+      }
+    },
+    "fault_recovery_rate_delta_r2_minus_r1": 1.0
+  },
+  "validity": {
+    "checks": {
+      "contract_digest_matches": true,
+      "exact_twelve_episode_matrix": true,
+      "same_semantic_policy_across_conditions_and_runtimes": true,
+      "clean_fault_reset_hash_match": true,
+      "expected_clean_and_fault_outcomes": true,
+      "single_registered_fault_difference": true,
+      "r0_has_no_retries": true,
+      "r1_blind_retry_does_not_claim_recovery": true,
+      "r2_confirms_each_ambiguous_commit": true,
+      "zero_model_and_network_calls": true,
+      "model_stages_fail_closed_until_bound": true,
+      "catalog_blueprint_balanced": true,
+      "digest_only_traces": true
+    },
+    "all_selected_checks_passed": true,
+    "policy_digests": {
+      "retail.discounted-order.main-v1": [
+        "b17f301bd1c9e9450106a87ff5e87cf53a4980004e5341b41f7cc09c05096592"
+      ],
+      "workspace.schedule-meeting.main-v1": [
+        "69476e32a32f72debd2acbf9c8be954ee50a50fde6e77626f6149d5a8cfcc76c"
+      ]
+    },
+    "reset_hashes": {
+      "retail.discounted-order.main-v1": [
+        "66f2760cdc9cd2a9f7f15d1ebc7ef8cf6f6b181986fdd0b0a961834a148e53ef"
+      ],
+      "workspace.schedule-meeting.main-v1": [
+        "57d0fd824d0a11c9106a85c6a31d8ceb34423b79e9275490394e7dc7981387fe"
+      ]
+    },
+    "catalog": {
+      "checks": {
+        "twenty_four_unique_templates": true,
+        "eight_templates_per_domain": true,
+        "four_templates_per_fault_family": true,
+        "six_existing_eighteen_planned": true,
+        "two_scripted_smoke_adapters": true
+      },
+      "passed": true,
+      "template_count": 24,
+      "domain_counts": {
+        "retail": 8,
+        "travel": 8,
+        "workspace": 8
+      },
+      "fault_family_counts": {
+        "bounded_compensation": 4,
+        "compatible_state_conflict": 4,
+        "input_schema_drift": 4,
+        "output_schema_drift": 4,
+        "postcommit_response_loss": 4,
+        "retryable_invocation_error": 4
+      },
+      "implementation_status_counts": {
+        "existing_core": 6,
+        "planned": 18
+      },
+      "catalog_sha256": "21f00233924571964c3d2dfdf1075f4c12d913e13b671cc108de100c7757732a"
+    },
+    "trace_payloads": {
+      "trace_count": 12,
+      "forbidden_payload_findings": {},
+      "passed": true
+    }
+  },
+  "episodes": [
+    {
+      "episode_id": "main-smoke-workspace.schedule-meeting.main-v1-r0_raw-clean",
+      "template_id": "workspace.schedule-meeting.main-v1",
+      "task_id": "workspace.schedule_meeting_and_notify",
+      "domain": "workspace",
+      "environment_seed": 0,
+      "runtime": "r0_raw",
+      "condition": "clean",
+      "fault_family": "postcommit_response_loss",
+      "expected_fault_id": null,
+      "observed_fault_ids": [],
+      "policy": {
+        "policy_id": "scripted-semantic-plan-v1",
+        "policy_sha256": "69476e32a32f72debd2acbf9c8be954ee50a50fde6e77626f6149d5a8cfcc76c",
+        "planned_action_count": 2,
+        "emitted_action_count": 2,
+        "model_calls": 0
+      },
+      "execution": {
+        "completed_plan": true,
+        "failure_code": null,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "result_contract_violations": 0,
+        "actions": [
+          {
+            "runtime_name": "r0_raw",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "9491cd5dcf94e01c520f05f3d052e0242340dcd172c1b7cf76de52e8640f0286"
+          },
+          {
+            "runtime_name": "r0_raw",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "aece5e268393126dc7d744551714840d0f3c18135bab577b4ef56a6e55a1e445"
+          }
+        ]
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_created": true,
+          "all_invitations_sent": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=1",
+          "expected_invitations=2",
+          "observed_expected_invitations=2",
+          "extra_events=0",
+          "extra_invitations=0"
+        ]
+      },
+      "initial_state_hash": "57d0fd824d0a11c9106a85c6a31d8ceb34423b79e9275490394e7dc7981387fe",
+      "final_state_hash": "7d867b02eac2ecc277c6316210ed240a24dbd17b731289f26a73892c47f4e4f3",
+      "trace_file": "main-smoke-workspace.schedule-meeting.main-v1-r0_raw-clean.jsonl",
+      "trace_sha256": "a1aa41dae23b8ae1d9bcb2c3cec5395385356c3459445da9ba49d100285ee8eb",
+      "trace_event_count": 9,
+      "external_network_calls": 0
+    },
+    {
+      "episode_id": "main-smoke-workspace.schedule-meeting.main-v1-r0_raw-recoverable_fault",
+      "template_id": "workspace.schedule-meeting.main-v1",
+      "task_id": "workspace.schedule_meeting_and_notify",
+      "domain": "workspace",
+      "environment_seed": 0,
+      "runtime": "r0_raw",
+      "condition": "recoverable_fault",
+      "fault_family": "postcommit_response_loss",
+      "expected_fault_id": "fault.workspace.event.postcommit_timeout_once",
+      "observed_fault_ids": [
+        "fault.workspace.event.postcommit_timeout_once"
+      ],
+      "policy": {
+        "policy_id": "scripted-semantic-plan-v1",
+        "policy_sha256": "69476e32a32f72debd2acbf9c8be954ee50a50fde6e77626f6149d5a8cfcc76c",
+        "planned_action_count": 2,
+        "emitted_action_count": 1,
+        "model_calls": 0
+      },
+      "execution": {
+        "completed_plan": false,
+        "failure_code": "tool_timeout_postcommit",
+        "tool_attempts": 1,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "result_contract_violations": 0,
+        "actions": [
+          {
+            "runtime_name": "r0_raw",
+            "accepted": false,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": "tool_timeout_postcommit",
+            "recovery_kind": null,
+            "prepared_action_digest": "9491cd5dcf94e01c520f05f3d052e0242340dcd172c1b7cf76de52e8640f0286"
+          }
+        ]
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "event_created": true,
+          "all_invitations_sent": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=1",
+          "expected_invitations=2",
+          "observed_expected_invitations=0",
+          "extra_events=0",
+          "extra_invitations=0"
+        ]
+      },
+      "initial_state_hash": "57d0fd824d0a11c9106a85c6a31d8ceb34423b79e9275490394e7dc7981387fe",
+      "final_state_hash": "7b5bb9bceeaa0171df3b9d50dff802ff4ef82a4dbac8fdf07f74211772fb1e1a",
+      "trace_file": "main-smoke-workspace.schedule-meeting.main-v1-r0_raw-recoverable_fault.jsonl",
+      "trace_sha256": "286ead081ff8104d44c194867a71023424e78d7df8cf302994d54f7eb1a71ac7",
+      "trace_event_count": 6,
+      "external_network_calls": 0
+    },
+    {
+      "episode_id": "main-smoke-workspace.schedule-meeting.main-v1-r1_guarded-clean",
+      "template_id": "workspace.schedule-meeting.main-v1",
+      "task_id": "workspace.schedule_meeting_and_notify",
+      "domain": "workspace",
+      "environment_seed": 0,
+      "runtime": "r1_guarded",
+      "condition": "clean",
+      "fault_family": "postcommit_response_loss",
+      "expected_fault_id": null,
+      "observed_fault_ids": [],
+      "policy": {
+        "policy_id": "scripted-semantic-plan-v1",
+        "policy_sha256": "69476e32a32f72debd2acbf9c8be954ee50a50fde6e77626f6149d5a8cfcc76c",
+        "planned_action_count": 2,
+        "emitted_action_count": 2,
+        "model_calls": 0
+      },
+      "execution": {
+        "completed_plan": true,
+        "failure_code": null,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "result_contract_violations": 0,
+        "actions": [
+          {
+            "runtime_name": "r1_guarded",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "7270b182f1b0e5b314d454bef1b37ac72a1e2a806991beb0658c35b710cd47d5"
+          },
+          {
+            "runtime_name": "r1_guarded",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "531a07d4d6d81e189ce5767403d491f9380790b11b182c5cefb5e0611a19929f"
+          }
+        ]
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_created": true,
+          "all_invitations_sent": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=1",
+          "expected_invitations=2",
+          "observed_expected_invitations=2",
+          "extra_events=0",
+          "extra_invitations=0"
+        ]
+      },
+      "initial_state_hash": "57d0fd824d0a11c9106a85c6a31d8ceb34423b79e9275490394e7dc7981387fe",
+      "final_state_hash": "7d867b02eac2ecc277c6316210ed240a24dbd17b731289f26a73892c47f4e4f3",
+      "trace_file": "main-smoke-workspace.schedule-meeting.main-v1-r1_guarded-clean.jsonl",
+      "trace_sha256": "749fd4203afac0408b515e255f9bb58380d1b2a5957c6a07088680324241c079",
+      "trace_event_count": 9,
+      "external_network_calls": 0
+    },
+    {
+      "episode_id": "main-smoke-workspace.schedule-meeting.main-v1-r1_guarded-recoverable_fault",
+      "template_id": "workspace.schedule-meeting.main-v1",
+      "task_id": "workspace.schedule_meeting_and_notify",
+      "domain": "workspace",
+      "environment_seed": 0,
+      "runtime": "r1_guarded",
+      "condition": "recoverable_fault",
+      "fault_family": "postcommit_response_loss",
+      "expected_fault_id": "fault.workspace.event.postcommit_timeout_once",
+      "observed_fault_ids": [
+        "fault.workspace.event.postcommit_timeout_once"
+      ],
+      "policy": {
+        "policy_id": "scripted-semantic-plan-v1",
+        "policy_sha256": "69476e32a32f72debd2acbf9c8be954ee50a50fde6e77626f6149d5a8cfcc76c",
+        "planned_action_count": 2,
+        "emitted_action_count": 1,
+        "model_calls": 0
+      },
+      "execution": {
+        "completed_plan": false,
+        "failure_code": "state_version_conflict",
+        "tool_attempts": 2,
+        "retry_count": 1,
+        "confirmation_count": 0,
+        "result_contract_violations": 0,
+        "actions": [
+          {
+            "runtime_name": "r1_guarded",
+            "accepted": false,
+            "tool_attempts": 2,
+            "retry_count": 1,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": "state_version_conflict",
+            "recovery_kind": null,
+            "prepared_action_digest": "7270b182f1b0e5b314d454bef1b37ac72a1e2a806991beb0658c35b710cd47d5"
+          }
+        ]
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "event_created": true,
+          "all_invitations_sent": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "main-smoke-workspace.schedule-meeting.main-v1-r1_guarded-recoverable_fault:0006"
+        ],
+        "evidence": [
+          "matching_events=1",
+          "expected_invitations=2",
+          "observed_expected_invitations=0",
+          "extra_events=0",
+          "extra_invitations=0"
+        ]
+      },
+      "initial_state_hash": "57d0fd824d0a11c9106a85c6a31d8ceb34423b79e9275490394e7dc7981387fe",
+      "final_state_hash": "7b5bb9bceeaa0171df3b9d50dff802ff4ef82a4dbac8fdf07f74211772fb1e1a",
+      "trace_file": "main-smoke-workspace.schedule-meeting.main-v1-r1_guarded-recoverable_fault.jsonl",
+      "trace_sha256": "ca33eefecd112b138d13f933c6fea563eb0d459e511b12ef9b57f3fd65b9587d",
+      "trace_event_count": 9,
+      "external_network_calls": 0
+    },
+    {
+      "episode_id": "main-smoke-workspace.schedule-meeting.main-v1-r2_reliable-clean",
+      "template_id": "workspace.schedule-meeting.main-v1",
+      "task_id": "workspace.schedule_meeting_and_notify",
+      "domain": "workspace",
+      "environment_seed": 0,
+      "runtime": "r2_reliable",
+      "condition": "clean",
+      "fault_family": "postcommit_response_loss",
+      "expected_fault_id": null,
+      "observed_fault_ids": [],
+      "policy": {
+        "policy_id": "scripted-semantic-plan-v1",
+        "policy_sha256": "69476e32a32f72debd2acbf9c8be954ee50a50fde6e77626f6149d5a8cfcc76c",
+        "planned_action_count": 2,
+        "emitted_action_count": 2,
+        "model_calls": 0
+      },
+      "execution": {
+        "completed_plan": true,
+        "failure_code": null,
+        "tool_attempts": 2,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "result_contract_violations": 0,
+        "actions": [
+          {
+            "runtime_name": "r2_reliable",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "b9f18d4fd9408bf3a95a4427af5ec96d24cb700e87ddf4721517a138f4ca08b0"
+          },
+          {
+            "runtime_name": "r2_reliable",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "c1e34a1880c445629cedb2ac1951a1bdacffc9ad1e6b08134d5afcd49325b73f"
+          }
+        ]
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_created": true,
+          "all_invitations_sent": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_events=1",
+          "expected_invitations=2",
+          "observed_expected_invitations=2",
+          "extra_events=0",
+          "extra_invitations=0"
+        ]
+      },
+      "initial_state_hash": "57d0fd824d0a11c9106a85c6a31d8ceb34423b79e9275490394e7dc7981387fe",
+      "final_state_hash": "16a57dd93574b1b9e4ec9ebf8e32ecf23b7224b35d796cc1fc1b6c9b2a464450",
+      "trace_file": "main-smoke-workspace.schedule-meeting.main-v1-r2_reliable-clean.jsonl",
+      "trace_sha256": "d9099aafb9334b653068f93a399b730c5c36a543e88e7781d4d1ee708ee420b7",
+      "trace_event_count": 9,
+      "external_network_calls": 0
+    },
+    {
+      "episode_id": "main-smoke-workspace.schedule-meeting.main-v1-r2_reliable-recoverable_fault",
+      "template_id": "workspace.schedule-meeting.main-v1",
+      "task_id": "workspace.schedule_meeting_and_notify",
+      "domain": "workspace",
+      "environment_seed": 0,
+      "runtime": "r2_reliable",
+      "condition": "recoverable_fault",
+      "fault_family": "postcommit_response_loss",
+      "expected_fault_id": "fault.workspace.event.postcommit_timeout_once",
+      "observed_fault_ids": [
+        "fault.workspace.event.postcommit_timeout_once"
+      ],
+      "policy": {
+        "policy_id": "scripted-semantic-plan-v1",
+        "policy_sha256": "69476e32a32f72debd2acbf9c8be954ee50a50fde6e77626f6149d5a8cfcc76c",
+        "planned_action_count": 2,
+        "emitted_action_count": 2,
+        "model_calls": 0
+      },
+      "execution": {
+        "completed_plan": true,
+        "failure_code": null,
+        "tool_attempts": 3,
+        "retry_count": 0,
+        "confirmation_count": 1,
+        "result_contract_violations": 0,
+        "actions": [
+          {
+            "runtime_name": "r2_reliable",
+            "accepted": true,
+            "tool_attempts": 2,
+            "retry_count": 0,
+            "confirmation_count": 1,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": "state_confirmation",
+            "prepared_action_digest": "62f6e5d84f9405d536482dc0bdfb17e0fdec3804a39c2691ad657901d1cf21cd"
+          },
+          {
+            "runtime_name": "r2_reliable",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "330ee2c1ffd35b91e886725f3888dfd33f2104c560a7ff1ed4ea712d68c18dd8"
+          }
+        ]
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "event_created": true,
+          "all_invitations_sent": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "main-smoke-workspace.schedule-meeting.main-v1-r2_reliable-recoverable_fault:0009"
+        ],
+        "evidence": [
+          "matching_events=1",
+          "expected_invitations=2",
+          "observed_expected_invitations=2",
+          "extra_events=0",
+          "extra_invitations=0"
+        ]
+      },
+      "initial_state_hash": "57d0fd824d0a11c9106a85c6a31d8ceb34423b79e9275490394e7dc7981387fe",
+      "final_state_hash": "7f8d9e20c4ecf6c4768ef33a65dbaa66ea3a943ba57d01b2ace00e591ec9f030",
+      "trace_file": "main-smoke-workspace.schedule-meeting.main-v1-r2_reliable-recoverable_fault.jsonl",
+      "trace_sha256": "a91b111d676f9d500aa201d917ced37b69706ed2f7565cc09a9d6470410e11d5",
+      "trace_event_count": 13,
+      "external_network_calls": 0
+    },
+    {
+      "episode_id": "main-smoke-retail.discounted-order.main-v1-r0_raw-clean",
+      "template_id": "retail.discounted-order.main-v1",
+      "task_id": "retail.place_discounted_order",
+      "domain": "retail",
+      "environment_seed": 0,
+      "runtime": "r0_raw",
+      "condition": "clean",
+      "fault_family": "postcommit_response_loss",
+      "expected_fault_id": null,
+      "observed_fault_ids": [],
+      "policy": {
+        "policy_id": "scripted-semantic-plan-v1",
+        "policy_sha256": "b17f301bd1c9e9450106a87ff5e87cf53a4980004e5341b41f7cc09c05096592",
+        "planned_action_count": 4,
+        "emitted_action_count": 4,
+        "model_calls": 0
+      },
+      "execution": {
+        "completed_plan": true,
+        "failure_code": null,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "result_contract_violations": 0,
+        "actions": [
+          {
+            "runtime_name": "r0_raw",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "0385bf1c9988f41614fa1fe4a333f3663a1ec1f65ef3aa03d7b55c6d65e1c842"
+          },
+          {
+            "runtime_name": "r0_raw",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "8e0545e0325811f33c0b14f1126d16dd365d39979fd281218f89aca3a4b82cf8"
+          },
+          {
+            "runtime_name": "r0_raw",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "fc8c338ecfb7cb60c158a0c2c2559bdf937b9a4d0a8935a145ce5f0e071a6ee0"
+          },
+          {
+            "runtime_name": "r0_raw",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "db916baf1a6576ab625187406effd7d873f88b6e7cef3de55f721a2dd9177a44"
+          }
+        ]
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "initial_state_hash": "66f2760cdc9cd2a9f7f15d1ebc7ef8cf6f6b181986fdd0b0a961834a148e53ef",
+      "final_state_hash": "0265db065e86e9dc7060160200323f109968681e12d3ce5a8cfef61bee7fa4f0",
+      "trace_file": "main-smoke-retail.discounted-order.main-v1-r0_raw-clean.jsonl",
+      "trace_sha256": "d6ce5c9fb11d3e422781f8bed2b16d680efe5d4a8b1469c63dc4e16d0a6a04d6",
+      "trace_event_count": 15,
+      "external_network_calls": 0
+    },
+    {
+      "episode_id": "main-smoke-retail.discounted-order.main-v1-r0_raw-recoverable_fault",
+      "template_id": "retail.discounted-order.main-v1",
+      "task_id": "retail.place_discounted_order",
+      "domain": "retail",
+      "environment_seed": 0,
+      "runtime": "r0_raw",
+      "condition": "recoverable_fault",
+      "fault_family": "postcommit_response_loss",
+      "expected_fault_id": "fault.retail.order.postcommit_timeout_once",
+      "observed_fault_ids": [
+        "fault.retail.order.postcommit_timeout_once"
+      ],
+      "policy": {
+        "policy_id": "scripted-semantic-plan-v1",
+        "policy_sha256": "b17f301bd1c9e9450106a87ff5e87cf53a4980004e5341b41f7cc09c05096592",
+        "planned_action_count": 4,
+        "emitted_action_count": 3,
+        "model_calls": 0
+      },
+      "execution": {
+        "completed_plan": false,
+        "failure_code": "tool_timeout_postcommit",
+        "tool_attempts": 3,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "result_contract_violations": 0,
+        "actions": [
+          {
+            "runtime_name": "r0_raw",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "0385bf1c9988f41614fa1fe4a333f3663a1ec1f65ef3aa03d7b55c6d65e1c842"
+          },
+          {
+            "runtime_name": "r0_raw",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "8e0545e0325811f33c0b14f1126d16dd365d39979fd281218f89aca3a4b82cf8"
+          },
+          {
+            "runtime_name": "r0_raw",
+            "accepted": false,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": "tool_timeout_postcommit",
+            "recovery_kind": null,
+            "prepared_action_digest": "fc8c338ecfb7cb60c158a0c2c2559bdf937b9a4d0a8935a145ce5f0e071a6ee0"
+          }
+        ]
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "initial_state_hash": "66f2760cdc9cd2a9f7f15d1ebc7ef8cf6f6b181986fdd0b0a961834a148e53ef",
+      "final_state_hash": "3491c6ce2c4066bb30981219539b9fd60261821633f133a69d77c91b8694decd",
+      "trace_file": "main-smoke-retail.discounted-order.main-v1-r0_raw-recoverable_fault.jsonl",
+      "trace_sha256": "e0b41900ce8f5d27cf10009df8c10095079c42567c36424361ad881c858406dd",
+      "trace_event_count": 12,
+      "external_network_calls": 0
+    },
+    {
+      "episode_id": "main-smoke-retail.discounted-order.main-v1-r1_guarded-clean",
+      "template_id": "retail.discounted-order.main-v1",
+      "task_id": "retail.place_discounted_order",
+      "domain": "retail",
+      "environment_seed": 0,
+      "runtime": "r1_guarded",
+      "condition": "clean",
+      "fault_family": "postcommit_response_loss",
+      "expected_fault_id": null,
+      "observed_fault_ids": [],
+      "policy": {
+        "policy_id": "scripted-semantic-plan-v1",
+        "policy_sha256": "b17f301bd1c9e9450106a87ff5e87cf53a4980004e5341b41f7cc09c05096592",
+        "planned_action_count": 4,
+        "emitted_action_count": 4,
+        "model_calls": 0
+      },
+      "execution": {
+        "completed_plan": true,
+        "failure_code": null,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "result_contract_violations": 0,
+        "actions": [
+          {
+            "runtime_name": "r1_guarded",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "c265bae47ee00adb16216fdf28d732b63a861a50fe39c9c9a9ba33bba7b19d1a"
+          },
+          {
+            "runtime_name": "r1_guarded",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "f849e2bf89370b0b61d2b7c55faa39017e7b939605608026a335411d9d910e7e"
+          },
+          {
+            "runtime_name": "r1_guarded",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "8d3c97d9d14c50a5144c77b21ffd27f10df826e0e7ef2b2f7c70773654961c4f"
+          },
+          {
+            "runtime_name": "r1_guarded",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "31a97741b3b5fce5c25f1c4e6b592a43a9d357dad4cbd7be757cb4e6908d6400"
+          }
+        ]
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "initial_state_hash": "66f2760cdc9cd2a9f7f15d1ebc7ef8cf6f6b181986fdd0b0a961834a148e53ef",
+      "final_state_hash": "0265db065e86e9dc7060160200323f109968681e12d3ce5a8cfef61bee7fa4f0",
+      "trace_file": "main-smoke-retail.discounted-order.main-v1-r1_guarded-clean.jsonl",
+      "trace_sha256": "0028c9a91604828356c27bff2ffb1f449028b11c98afb5388c445b9971e36af9",
+      "trace_event_count": 15,
+      "external_network_calls": 0
+    },
+    {
+      "episode_id": "main-smoke-retail.discounted-order.main-v1-r1_guarded-recoverable_fault",
+      "template_id": "retail.discounted-order.main-v1",
+      "task_id": "retail.place_discounted_order",
+      "domain": "retail",
+      "environment_seed": 0,
+      "runtime": "r1_guarded",
+      "condition": "recoverable_fault",
+      "fault_family": "postcommit_response_loss",
+      "expected_fault_id": "fault.retail.order.postcommit_timeout_once",
+      "observed_fault_ids": [
+        "fault.retail.order.postcommit_timeout_once"
+      ],
+      "policy": {
+        "policy_id": "scripted-semantic-plan-v1",
+        "policy_sha256": "b17f301bd1c9e9450106a87ff5e87cf53a4980004e5341b41f7cc09c05096592",
+        "planned_action_count": 4,
+        "emitted_action_count": 3,
+        "model_calls": 0
+      },
+      "execution": {
+        "completed_plan": false,
+        "failure_code": "state_version_conflict",
+        "tool_attempts": 4,
+        "retry_count": 1,
+        "confirmation_count": 0,
+        "result_contract_violations": 0,
+        "actions": [
+          {
+            "runtime_name": "r1_guarded",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "c265bae47ee00adb16216fdf28d732b63a861a50fe39c9c9a9ba33bba7b19d1a"
+          },
+          {
+            "runtime_name": "r1_guarded",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "f849e2bf89370b0b61d2b7c55faa39017e7b939605608026a335411d9d910e7e"
+          },
+          {
+            "runtime_name": "r1_guarded",
+            "accepted": false,
+            "tool_attempts": 2,
+            "retry_count": 1,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": "state_version_conflict",
+            "recovery_kind": null,
+            "prepared_action_digest": "8d3c97d9d14c50a5144c77b21ffd27f10df826e0e7ef2b2f7c70773654961c4f"
+          }
+        ]
+      },
+      "evaluation": {
+        "task_success": false,
+        "safe_success": false,
+        "expected_state_ok": false,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": false
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "main-smoke-retail.discounted-order.main-v1-r1_guarded-recoverable_fault:0012"
+        ],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=False",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "initial_state_hash": "66f2760cdc9cd2a9f7f15d1ebc7ef8cf6f6b181986fdd0b0a961834a148e53ef",
+      "final_state_hash": "3491c6ce2c4066bb30981219539b9fd60261821633f133a69d77c91b8694decd",
+      "trace_file": "main-smoke-retail.discounted-order.main-v1-r1_guarded-recoverable_fault.jsonl",
+      "trace_sha256": "e696a4ef8c30ed5424bffe04f30e474b2a3b640dc48be9bd185245540ebdd3e7",
+      "trace_event_count": 15,
+      "external_network_calls": 0
+    },
+    {
+      "episode_id": "main-smoke-retail.discounted-order.main-v1-r2_reliable-clean",
+      "template_id": "retail.discounted-order.main-v1",
+      "task_id": "retail.place_discounted_order",
+      "domain": "retail",
+      "environment_seed": 0,
+      "runtime": "r2_reliable",
+      "condition": "clean",
+      "fault_family": "postcommit_response_loss",
+      "expected_fault_id": null,
+      "observed_fault_ids": [],
+      "policy": {
+        "policy_id": "scripted-semantic-plan-v1",
+        "policy_sha256": "b17f301bd1c9e9450106a87ff5e87cf53a4980004e5341b41f7cc09c05096592",
+        "planned_action_count": 4,
+        "emitted_action_count": 4,
+        "model_calls": 0
+      },
+      "execution": {
+        "completed_plan": true,
+        "failure_code": null,
+        "tool_attempts": 4,
+        "retry_count": 0,
+        "confirmation_count": 0,
+        "result_contract_violations": 0,
+        "actions": [
+          {
+            "runtime_name": "r2_reliable",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "480dc3a6eb16be5b3fcad5b883649df9ad9085df505260fbb4b44e9e2038032f"
+          },
+          {
+            "runtime_name": "r2_reliable",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "79be92d38d7307fcc7ae4bd7915b85bb7b4f9249cf5fc6da98e9da5d1a355abe"
+          },
+          {
+            "runtime_name": "r2_reliable",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "edd32a17e5019ce5fafa6ea26a3b6a183541f1d97084c38cedb130ffc700c3a2"
+          },
+          {
+            "runtime_name": "r2_reliable",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "ba5e366eaf63abbc387b7c2d0d85a28d74c57cc8438b4a2a747a82f868536ee3"
+          }
+        ]
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "initial_state_hash": "66f2760cdc9cd2a9f7f15d1ebc7ef8cf6f6b181986fdd0b0a961834a148e53ef",
+      "final_state_hash": "3de720393e844184f7eff78ad3510f3d08be969fd53cde986e2b7143e7443879",
+      "trace_file": "main-smoke-retail.discounted-order.main-v1-r2_reliable-clean.jsonl",
+      "trace_sha256": "db2de37549d8bee080177a448a281e7005a07ff4edfd1d8e482d382a75232441",
+      "trace_event_count": 15,
+      "external_network_calls": 0
+    },
+    {
+      "episode_id": "main-smoke-retail.discounted-order.main-v1-r2_reliable-recoverable_fault",
+      "template_id": "retail.discounted-order.main-v1",
+      "task_id": "retail.place_discounted_order",
+      "domain": "retail",
+      "environment_seed": 0,
+      "runtime": "r2_reliable",
+      "condition": "recoverable_fault",
+      "fault_family": "postcommit_response_loss",
+      "expected_fault_id": "fault.retail.order.postcommit_timeout_once",
+      "observed_fault_ids": [
+        "fault.retail.order.postcommit_timeout_once"
+      ],
+      "policy": {
+        "policy_id": "scripted-semantic-plan-v1",
+        "policy_sha256": "b17f301bd1c9e9450106a87ff5e87cf53a4980004e5341b41f7cc09c05096592",
+        "planned_action_count": 4,
+        "emitted_action_count": 4,
+        "model_calls": 0
+      },
+      "execution": {
+        "completed_plan": true,
+        "failure_code": null,
+        "tool_attempts": 5,
+        "retry_count": 0,
+        "confirmation_count": 1,
+        "result_contract_violations": 0,
+        "actions": [
+          {
+            "runtime_name": "r2_reliable",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "c235fe8558dac8611b49d6b6b3297eead51ed737b2256ac7d0b095b769ddb399"
+          },
+          {
+            "runtime_name": "r2_reliable",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "dfe5b979d65a960ae2a676c7a57edd65078754a8381a04540030fbe30fe1affb"
+          },
+          {
+            "runtime_name": "r2_reliable",
+            "accepted": true,
+            "tool_attempts": 2,
+            "retry_count": 0,
+            "confirmation_count": 1,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": "state_confirmation",
+            "prepared_action_digest": "2d168913b7c09ce83765c6323b2b3f3b5d7fea247d3b827f9baa1ed488ea24c9"
+          },
+          {
+            "runtime_name": "r2_reliable",
+            "accepted": true,
+            "tool_attempts": 1,
+            "retry_count": 0,
+            "confirmation_count": 0,
+            "result_contract_violations": 0,
+            "failure_code": null,
+            "recovery_kind": null,
+            "prepared_action_digest": "acf8a94e502b75afd128af7e22548e07112950658371ce5d1aadf39ad60284dc"
+          }
+        ]
+      },
+      "evaluation": {
+        "task_success": true,
+        "safe_success": true,
+        "expected_state_ok": true,
+        "collateral_damage": [],
+        "milestones": {
+          "optimal_order_placed": true,
+          "inventory_decremented_once": true,
+          "cart_closed": true,
+          "purchase_request_resolved": true
+        },
+        "minefields_triggered": [],
+        "policy_violations": [],
+        "recovery_events": [
+          "main-smoke-retail.discounted-order.main-v1-r2_reliable-recoverable_fault:0015"
+        ],
+        "evidence": [
+          "matching_orders=1",
+          "matching_items=1",
+          "target_stock_correct=True",
+          "other_products_unchanged=True",
+          "request_resolved=True",
+          "metadata_changed_allowed=False"
+        ]
+      },
+      "initial_state_hash": "66f2760cdc9cd2a9f7f15d1ebc7ef8cf6f6b181986fdd0b0a961834a148e53ef",
+      "final_state_hash": "72809d91757a6ec75eaf38fc1605440072ed2499255d7af8259da36c1c22d3a6",
+      "trace_file": "main-smoke-retail.discounted-order.main-v1-r2_reliable-recoverable_fault.jsonl",
+      "trace_sha256": "91db66880caf97e105dbb75120fe20a35dd06bbab665fd0153658017f320c6e0",
+      "trace_event_count": 19,
+      "external_network_calls": 0
+    }
+  ],
+  "limitations": [
+    "Only two existing task templates are executable in this smoke gate.",
+    "The remaining 18 catalog entries are explicit planned blueprints, not runnable tasks.",
+    "The scripted policy makes zero model calls and cannot support a model-performance claim.",
+    "Only post-commit response loss is exercised; the other five fault families remain pending."
+  ]
+}

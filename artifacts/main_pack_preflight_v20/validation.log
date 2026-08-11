@@ -1,0 +1,34 @@
+Agent Reliability Lab - Main Pack Scripted Preflight v0.20
+Date: 2026-08-08
+Scope: local synthetic 24-task fixture/runtime/evaluator gate; zero model/network calls
+Python: 3.12.12
+
+Formal command:
+  env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python scripts/run_main_pack_preflight.py --output artifacts/main_pack_preflight_v20/summary.json --traces-dir artifacts/main_pack_preflight_v20/traces
+
+Independent repeat command:
+  env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python scripts/run_main_pack_preflight.py --output artifacts/main_pack_preflight_v20_repeat/summary.json --traces-dir artifacts/main_pack_preflight_v20_repeat/traces
+
+Observed result:
+  episodes=144; tasks=24; model_calls=0; external_network_calls=0
+  clean SafeSuccess: R0=24/24, R1=24/24, R2=24/24
+  fault SafeSuccess: R0=0/24, R1=4/24, R2=24/24
+  R2-R1 fault recovery-rate delta=0.8333333333333334
+  validity.all_selected_checks_passed=true
+  main_readiness.task_fixture_gate_passed=true
+  main_readiness.scripted_validity_gate_passed=true
+  main_readiness.two_exact_model_bindings_present=false
+  main_readiness.ready_for_864_episode_confirmatory_main=false
+
+Reproducibility:
+  formal/repeat summary byte equality=PASS
+  formal/repeat 144 trace byte equality=PASS
+  summary SHA-256=3e7d083e07c4d212164a96cbcfb57c465108a601e7e3bac110ec0abe90b07835
+  source manifest SHA-256=227c176321cadaee27e95a0de81fd3f6d48275f241fee12fa0c5f885b7f5125e
+  trace manifest SHA-256=b05d45747ddb023ea1e4715a4a940fcbaec20e41d51316b04d49e28e3984514d
+  task catalog SHA-256=bec96e5cbbcded9eac96d3d1182f8c092fe539f9d73d0ccffa1a6a1eb6b4fad4
+
+Limits:
+  Deterministic reactive oracle only; no model capability claim.
+  One environment seed and fixed synthetic task cards.
+  Two exact model bindings remain required for the 864-episode contract.

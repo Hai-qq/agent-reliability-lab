@@ -1,0 +1,921 @@
+{
+  "metadata": {
+    "run_id": "arl-deepseek-flash-main-single-slot-v0.24.0",
+    "package_version": "0.24.0",
+    "python_version": "3.11.15",
+    "platform": "darwin",
+    "project_root_name": "agent-reliability-lab",
+    "result_scope": "public compact aggregate for 432-episode DeepSeek Flash single-slot main preflight",
+    "provider_content_persisted": false,
+    "study_manifest_sha256": "93fd34741c2d78856c2df178948941a4691e5d08905bd75d30c4a33639d04508",
+    "study_state_sha256": "8737c83c82fac4cac7962947fe78f38fb0b04240b2372bdb076b9872a66e8580",
+    "source_manifest": {
+      "algorithm": "sha256(canonical_json({relative_path: file_sha256}))",
+      "sha256": "60bdd5ec898a3d0636abe6cece2f93a5f2e2786e39026afbf507661859da3f70",
+      "files": {
+        "pyproject.toml": "805b2fc9ea83f8c56223b51454f1b2660dd2ece88620d6c725d054fb29baf00a",
+        "scripts/run_main_single_slot.py": "5b98a261b0f793d273369268dca672a993f99eb441bbceeb245625393fa0e615",
+        "src/arl/core/types.py": "58862356fa7aca2817fa1f30a7136409605501efc5a44b8e0a54b4eb2beb76b2",
+        "src/arl/runtime/journal.py": "29082aa1ea86243356aba4f70691593543ea6b4a1bd5d808c22ef1f987474ae3",
+        "src/arl_mainmodel/__init__.py": "c51a8cde76c34e8164b5dec06cdf141addc7a9c228084596e9f7e01aa1898a34",
+        "src/arl_mainmodel/experiment.py": "774d98261b03f3bc2c8b3739be795e432be3ddeaa82ebaad670dc266bf1037d6",
+        "src/arl_mainpack/__init__.py": "047c1dedda18e3ecff071f4182648d793db738bf81638517c85a86dcd4671ab3",
+        "src/arl_mainpack/ablation.py": "c7e9b6e2e8fddea603b1808943b41963af08b6e9cfe5c7d6d2b98d8c13155a39",
+        "src/arl_mainpack/experiment.py": "bdb5bb85fb5505403a44383c6a1613a9c64b3a8c4308790f304e0dd07af89817",
+        "src/arl_mainpack/specs.py": "64d0d7b0f702bad4adec6ed538df0957e5ef4e4d498bf8e41ccb933e6b61edb2",
+        "src/arl_mainstudy/__init__.py": "4bcf05a5e05a0f8f011b578f2b333bc095d239ae98d4bfc1b11c1147c7e241d6",
+        "src/arl_mainstudy/adapters.py": "2d41e8437b4a11d442f06aa6aba1248dc62d61ae6b7ff7df2a9cad7c73114a5d",
+        "src/arl_mainstudy/agents.py": "b2f5498cf30be749ddea477f597534a1722a1af9f76143306c12bbb9dd9cccce",
+        "src/arl_mainstudy/catalog.py": "08855af742cbffa9c938d80463c690fdea659584f0d167afa21e8a4a2ca6bb79",
+        "src/arl_mainstudy/contract.py": "7677e804048d6cfd8ff7ce7c39cd703ce0b9e54d0d5d979547ef4c51c8c5c50d",
+        "src/arl_mainstudy/experiment.py": "b608de3b714f6200fac34d106e8ab95bcef42f1cb9b2d00004e8442345578e4c",
+        "src/arl_mainstudy/model.py": "3610476e269d517415d221b9dc01d78b471edba4727929bc811cd420a8898dae",
+        "src/arl_mainstudy/protocol.py": "b8ffb64ddf7eaf6c874ba87fd59a9012d0dbb222020103da2e450d660ccb6da9",
+        "src/arl_mainstudy/runtime.py": "642071fe9baf48d93811c2bc3cf91b748e4c21afb75592342c3a8511410f345e",
+        "src/arl_modelpilot/__init__.py": "145882bf37fdef86604024ee0d9258351d1a7fe74b7c153294dc78ca6b08eba1",
+        "src/arl_modelpilot/deepseek.py": "40b95439d4272d5a9c08de51ba1ea780ec36baa0e6a1307f1b9c6172dc520f4a",
+        "src/arl_modelpilot/experiment.py": "51fd6ac8b4ba01fb8777a0e8d9d40b16b507af19f8817e3a6ea9d794587e7df4",
+        "src/arl_pilot/__init__.py": "21148076dbec58e437e0240dc332e78f42f85f26550983bfbbf0dc01527fe550",
+        "src/arl_pilot/agent.py": "04f4998c3e62a912889d04c2d1d0a6092d4f8298e9cd0722c1e7f994eda9b2e3",
+        "src/arl_pilot/env.py": "e6f34c3c0129efc0ada66c528d0cd7aa1fe121528b984a519ccaf831aaf2b8f3",
+        "src/arl_pilot/evaluator.py": "0fe402f24fc74e448d76a1493369a997e22b827f8539802d6ec3658e52e0f73b",
+        "src/arl_pilot/experiment.py": "8f636a4977beeee7ee7f3db2b7f48887cec054f4470bbb4b0b7a2868eac0c0fc",
+        "src/arl_pilot/runtime.py": "fdd256e186882e6c14198bad7490f5eab1ad2213104a4d716a957b95cca05c49",
+        "src/arl_pilot/specs.py": "b581b140c71446f877b4f0b270d9e0bebb756d2c38998fc23e153a21fc26bbbe",
+        "src/arl_study/scheduler.py": "295060accbb5cb3c0a4db9c363138fe5c09557743f37f47e0a0f8eb2e0676fdb"
+      }
+    },
+    "trace_manifest": {
+      "algorithm": "sha256(canonical_json({trace_filename: file_sha256}))",
+      "sha256": "f1b3362de1503e8eb75fcece0b6ee652054cfe0161500c9ee27c365ac786ddd7",
+      "files": {
+        "main-single-t0-retail.cancel-order.main-v1-r0_raw-clean.jsonl": "11e0d217818b18164b6163e2f1c23c98d9307798423f07cd3edfc2c4d9831eed",
+        "main-single-t0-retail.cancel-order.main-v1-r0_raw-recoverable_fault.jsonl": "365c63f7219731ba3e04b232836fe680e5ac4283a7a2f5e794c95e20a717a0e8",
+        "main-single-t0-retail.cancel-order.main-v1-r1_guarded-clean.jsonl": "3b5208ec8959d30decb60ba9b1d5363f3cd608d61504fec019b5bf4bc2381aeb",
+        "main-single-t0-retail.cancel-order.main-v1-r1_guarded-recoverable_fault.jsonl": "5f81ce101d5bcab9a8669ce534efe22095e4355f8d35c1b1e0fd2626bf221333",
+        "main-single-t0-retail.cancel-order.main-v1-r2_reliable-clean.jsonl": "e95b1e21ac8748d6e8d53e9a90f7acb4aac03a1766e8849cabdc6fcc2204f037",
+        "main-single-t0-retail.cancel-order.main-v1-r2_reliable-recoverable_fault.jsonl": "6a9195be9dbec47f622fc49951252de02d3ad5c80490bfd6c8c9653bfe0909c6",
+        "main-single-t0-retail.discounted-order.main-v1-r0_raw-clean.jsonl": "dffb65b952d907b491b18b4d1bdb8979f6043eb2e73b4c37268fc6a5e0cd762b",
+        "main-single-t0-retail.discounted-order.main-v1-r0_raw-recoverable_fault.jsonl": "02167cbaf0bb6029e68fe2eab6f85dd0ad9b63f6f88d905018b103b16774d62a",
+        "main-single-t0-retail.discounted-order.main-v1-r1_guarded-clean.jsonl": "306dad9db35f8b32542675e978a8f8b1231a9aa4bb3841d554914ceb1c5bd9d9",
+        "main-single-t0-retail.discounted-order.main-v1-r1_guarded-recoverable_fault.jsonl": "7fd17f1115948bf3fb2fb5813746f4784c2304cf895892e88e9e1908c5793211",
+        "main-single-t0-retail.discounted-order.main-v1-r2_reliable-clean.jsonl": "b0a7d7c9d102532c6201a8e68755050acbeb596923f38bce1cc60f8292788aeb",
+        "main-single-t0-retail.discounted-order.main-v1-r2_reliable-recoverable_fault.jsonl": "dffe6476a8fc8bb44c0d029e6f7c31ed73820d25cebdd0c9d9d5f97758e2bc0d",
+        "main-single-t0-retail.duplicate-order.main-v1-r0_raw-clean.jsonl": "0d75a09ff73668d5815ddd4ee291db9ce0b5a702da71507cb308bd77ab0b9130",
+        "main-single-t0-retail.duplicate-order.main-v1-r0_raw-recoverable_fault.jsonl": "2c68e1c13859a15b14f9dd156118950dc84f4eb1bf4472cfbc2abb1c2804dfa5",
+        "main-single-t0-retail.duplicate-order.main-v1-r1_guarded-clean.jsonl": "f12f472543c2834522c68620c0d9110bd3fbc94c41a96ebd552c34983165ce5d",
+        "main-single-t0-retail.duplicate-order.main-v1-r1_guarded-recoverable_fault.jsonl": "8c650fae1d9244d959f77b8c42acb305e672284571ee105925b4885a25014740",
+        "main-single-t0-retail.duplicate-order.main-v1-r2_reliable-clean.jsonl": "410ec3563a7f34838638852a5704ca94f9c2837c8385ab8eef6f064a054d2249",
+        "main-single-t0-retail.duplicate-order.main-v1-r2_reliable-recoverable_fault.jsonl": "5f8230875d183231a1048b2f5522f332d54264e4d3b69822eb659b8593f49143",
+        "main-single-t0-retail.eligible-exchange.main-v1-r0_raw-clean.jsonl": "b72777cac1f26ab14e82a58b486322e06d54c398971091d6c0cfeeec1721843b",
+        "main-single-t0-retail.eligible-exchange.main-v1-r0_raw-recoverable_fault.jsonl": "fcff5351ece48fbc01cff87750fcafc8aff3402703a67f779fd2cb5443ce668a",
+        "main-single-t0-retail.eligible-exchange.main-v1-r1_guarded-clean.jsonl": "cbcf01bf5b32597b4c45032e891eb261f68462b5d693b6ca406190a9e3670ef6",
+        "main-single-t0-retail.eligible-exchange.main-v1-r1_guarded-recoverable_fault.jsonl": "e8d05bf2a3b82ed09835482df427c8881807b96b24167c1124d8b37b4d8835ca",
+        "main-single-t0-retail.eligible-exchange.main-v1-r2_reliable-clean.jsonl": "0b36ce8231d4acb5066aa1077b071ca79b99cedd63d5274dcdd34184cd36cc60",
+        "main-single-t0-retail.eligible-exchange.main-v1-r2_reliable-recoverable_fault.jsonl": "0e136f438d1026912fe2f2e92d7f35d5cc62c63bfb8d9f6f3c999fa0b55e89fc",
+        "main-single-t0-retail.partial-refund.main-v1-r0_raw-clean.jsonl": "dd6a8711eff2a252eddd2f265f2f1456218d3e08ca654e4d66602e123fd59952",
+        "main-single-t0-retail.partial-refund.main-v1-r0_raw-recoverable_fault.jsonl": "70890d4f4cb18c9260509942a44e45a5cdbcb3f98d78c20947038687e086dd58",
+        "main-single-t0-retail.partial-refund.main-v1-r1_guarded-clean.jsonl": "6d69c4b55c9950cd67e85b6c391669ddc74fdc8296f00a6ee2e5af4e6159f254",
+        "main-single-t0-retail.partial-refund.main-v1-r1_guarded-recoverable_fault.jsonl": "d7810e806a40f1ef558461559f73b9673c76b23d3b0e162cfaf18ed66a37b92b",
+        "main-single-t0-retail.partial-refund.main-v1-r2_reliable-clean.jsonl": "a023e13f849ee8705ad8749ba8b60df07cf6762338b334e222f14df180e9d9b6",
+        "main-single-t0-retail.partial-refund.main-v1-r2_reliable-recoverable_fault.jsonl": "106f791075f41aacd8bd4ec25649f021e9e1b077956b429acdb7ed441492d001",
+        "main-single-t0-retail.payment-order-split.main-v1-r0_raw-clean.jsonl": "e7b26d1f7b2d385335ddca38f32ba52a434b195df0592b26ee554a92c1b3a6fb",
+        "main-single-t0-retail.payment-order-split.main-v1-r0_raw-recoverable_fault.jsonl": "f88de7cb9f718ea8b838e0ca4e9894a71e0bdf3578d8b60951678f8c071906f6",
+        "main-single-t0-retail.payment-order-split.main-v1-r1_guarded-clean.jsonl": "a566560a1c14a114c467d2e58a8ea8349a735dd2b7e12301155ffc817b876fd4",
+        "main-single-t0-retail.payment-order-split.main-v1-r1_guarded-recoverable_fault.jsonl": "8a65738e4ccfa9c2f7e911f7fe3ff3b6275dfcc1b1ca359bbf5ae155b85aa732",
+        "main-single-t0-retail.payment-order-split.main-v1-r2_reliable-clean.jsonl": "14d729ffc7abb382fbe5b8ad74b34ffaaef5b43e953d90e56aaed9f6338d9e22",
+        "main-single-t0-retail.payment-order-split.main-v1-r2_reliable-recoverable_fault.jsonl": "1dc0d14c37bb177f0253050813954b70caf10d3f326b590c168efac4da1bb3d6",
+        "main-single-t0-retail.shipping-revision.main-v1-r0_raw-clean.jsonl": "45c00d4d534ab5843431b774d3df9160add83c7efc429e3a8b736aabe32130bc",
+        "main-single-t0-retail.shipping-revision.main-v1-r0_raw-recoverable_fault.jsonl": "8f56ec9a9d636fad4d0889a7f9e9f863bc152f1d6d7bc296d5e62e492b55f744",
+        "main-single-t0-retail.shipping-revision.main-v1-r1_guarded-clean.jsonl": "00cb0321235184a437a584906af7fbb7a7c4bedb9b176382e1f5f7c8f6fadaca",
+        "main-single-t0-retail.shipping-revision.main-v1-r1_guarded-recoverable_fault.jsonl": "cb4594322ebaa196421741600c4ec7f2ee9f55d9cf4e5d49708aeaa35762f24a",
+        "main-single-t0-retail.shipping-revision.main-v1-r2_reliable-clean.jsonl": "911d00f6876ae62b8542fd229d16f5a8ce32ba586f9c8ab34ffdc0bae231272f",
+        "main-single-t0-retail.shipping-revision.main-v1-r2_reliable-recoverable_fault.jsonl": "b51ef473d641fc5e7b5c41f3bc6e6443bd159b18ff8fc5545c1b2537877258d3",
+        "main-single-t0-retail.stock-substitution.main-v1-r0_raw-clean.jsonl": "76b88bb638cd686aaf9dd2d1e0da0cd47c45d4fd91d8748acacb80663515ba9f",
+        "main-single-t0-retail.stock-substitution.main-v1-r0_raw-recoverable_fault.jsonl": "a9e6220130a0098a5cc83578820135131adc75ea73f7dda6cbfbbc65f00ed9fb",
+        "main-single-t0-retail.stock-substitution.main-v1-r1_guarded-clean.jsonl": "b2174dbe2ec683446640b5044fbe63438fe39466a961393328381613d1c73a96",
+        "main-single-t0-retail.stock-substitution.main-v1-r1_guarded-recoverable_fault.jsonl": "f956f9899ce1dbe53672ecb6473ab4ca1181f04601744adc65b2163d0b80d236",
+        "main-single-t0-retail.stock-substitution.main-v1-r2_reliable-clean.jsonl": "a16d1156e12f7c0b9885706a4b860604f178c90966eed504a1d7c9f83d4e5cb8",
+        "main-single-t0-retail.stock-substitution.main-v1-r2_reliable-recoverable_fault.jsonl": "c418fd08050458efc2667013bf2ccf3d8421ce89fbc6ce99b66484f83a093c91",
+        "main-single-t0-travel.book-itinerary.main-v1-r0_raw-clean.jsonl": "4002c9e0f249161fefb2b7d55d5ca09948708f083b79696e3931e764c0e59917",
+        "main-single-t0-travel.book-itinerary.main-v1-r0_raw-recoverable_fault.jsonl": "b723e0eeabd8ecca1081dbf14f7f1e7ec524233d7d45bd84f222b83131cf8cd4",
+        "main-single-t0-travel.book-itinerary.main-v1-r1_guarded-clean.jsonl": "1534bc214b9c35394a3f075305058019f59a17da3ccb337bca0d300977f6a28d",
+        "main-single-t0-travel.book-itinerary.main-v1-r1_guarded-recoverable_fault.jsonl": "d265aeec6fa686b228aaa509865e9da9a8b6d9e2e003915378605d9949c34796",
+        "main-single-t0-travel.book-itinerary.main-v1-r2_reliable-clean.jsonl": "4ae3a9a41d454fbb2f75550767003354e167cc2b92fa58c6c3ca7467eba341d6",
+        "main-single-t0-travel.book-itinerary.main-v1-r2_reliable-recoverable_fault.jsonl": "a04fae0d1587fbe0bdc026faf72fd29b76a249d10a05d0ba05b0f636f1d8c9d0",
+        "main-single-t0-travel.bundle-recovery.main-v1-r0_raw-clean.jsonl": "f7c5f2b1cafa6ae3760646d7a48cfff1434bb66e1ab564b9c3e4559b8f147aaa",
+        "main-single-t0-travel.bundle-recovery.main-v1-r0_raw-recoverable_fault.jsonl": "dc4e08f463aeb4a345180c284d1c0634c50cad3b2a1bb3b1ccf8c0d4ba480c27",
+        "main-single-t0-travel.bundle-recovery.main-v1-r1_guarded-clean.jsonl": "73387284f460d19d979ea449c524ab1fd7c4d71acc17cd89f4cacb2ef11b582e",
+        "main-single-t0-travel.bundle-recovery.main-v1-r1_guarded-recoverable_fault.jsonl": "7f9f36a2effd215e32d62dcbc8693093f6d95c0a4f3e9f2b50b244b960342873",
+        "main-single-t0-travel.bundle-recovery.main-v1-r2_reliable-clean.jsonl": "864c6013b9a3af8247ad04ca446d259205fdc153881d714cd969f75ccecae79b",
+        "main-single-t0-travel.bundle-recovery.main-v1-r2_reliable-recoverable_fault.jsonl": "3c6ee1ff5838b80a0e3d045e878e690ca73903f8a17af764901e71fd99572f46",
+        "main-single-t0-travel.cancel-itinerary.main-v1-r0_raw-clean.jsonl": "82b41d51414e4ddcbe0bf05ca2aef354cd2f4938c8a2fb12a5349d50f24ffcd1",
+        "main-single-t0-travel.cancel-itinerary.main-v1-r0_raw-recoverable_fault.jsonl": "7f3e8fa1b23f5fef84d4b9a5dea7cdf9c05b67ae835530946129bfcf8d59b098",
+        "main-single-t0-travel.cancel-itinerary.main-v1-r1_guarded-clean.jsonl": "632f1c41ab51b5c5e002f8c890e71834f64c2011e9210a8a337e29652b6dcd9e",
+        "main-single-t0-travel.cancel-itinerary.main-v1-r1_guarded-recoverable_fault.jsonl": "9ea6d54a7e6a81fe4dfe0a2fdf45a4cbd1cb8aa4580510611bbf082ad82395f2",
+        "main-single-t0-travel.cancel-itinerary.main-v1-r2_reliable-clean.jsonl": "fa6e7d44ee7c79e72b14641b0027d60da28fab515c75c902090c29ef34d5a22c",
+        "main-single-t0-travel.cancel-itinerary.main-v1-r2_reliable-recoverable_fault.jsonl": "a9c06b65d7bec44e30abdd93228b80e4279ee70e22fd477aad322bd5e8bf46ac",
+        "main-single-t0-travel.clarify-budget.main-v1-r0_raw-clean.jsonl": "d9efa610ed02dccab4c6dc439f7612171dd64caed30049d1d90e665704e00fa5",
+        "main-single-t0-travel.clarify-budget.main-v1-r0_raw-recoverable_fault.jsonl": "8a817364a6f5749ebf41c589bf4f961056689f4d70f6bb5a74c89e43093fd103",
+        "main-single-t0-travel.clarify-budget.main-v1-r1_guarded-clean.jsonl": "cad468b50eb18987424f9319344a35f4edd710d75b21c2a9cd9e9ecfd4e6be9f",
+        "main-single-t0-travel.clarify-budget.main-v1-r1_guarded-recoverable_fault.jsonl": "bc1831351c9842d6a6d40009d69cdc45141f3c9782f8ccf2c1cbeb5eb0494f75",
+        "main-single-t0-travel.clarify-budget.main-v1-r2_reliable-clean.jsonl": "71d0c67af981f48463e57d9627b3934a77ab439d7eeac9140d2b0fa9ef312802",
+        "main-single-t0-travel.clarify-budget.main-v1-r2_reliable-recoverable_fault.jsonl": "fd568f0db6e9f626dd7b89304a793c699a103501bb109c2eebc2231c7baf19ac",
+        "main-single-t0-travel.inventory-conflict.main-v1-r0_raw-clean.jsonl": "eeb0b2dd712c979e1a2432e30f6db6176ea3ad09ffef3d8e01b2890ae6b66bde",
+        "main-single-t0-travel.inventory-conflict.main-v1-r0_raw-recoverable_fault.jsonl": "96b0632fd47e353b6e5dda7c1e9c45791d251485e4b117ea1974a89f5121778c",
+        "main-single-t0-travel.inventory-conflict.main-v1-r1_guarded-clean.jsonl": "d15518c353131035f29c73f0eda4935c64dce88231c20e2328ed6b4fc1776896",
+        "main-single-t0-travel.inventory-conflict.main-v1-r1_guarded-recoverable_fault.jsonl": "a3ef912402ea71bd6df264930ea32abd850e7435a9642956136b47a591bcf66c",
+        "main-single-t0-travel.inventory-conflict.main-v1-r2_reliable-clean.jsonl": "41566a0e1cb41c21d573e22064e541378263cf5266255f45fd45c18ec5f87191",
+        "main-single-t0-travel.inventory-conflict.main-v1-r2_reliable-recoverable_fault.jsonl": "48e46db7ec1d4476de3d0f4fccc667fdbfabbab4e209376721413b76af76666d",
+        "main-single-t0-travel.rebook-flight.main-v1-r0_raw-clean.jsonl": "e1e0eb73d6bdb2e3c1a875ec88511a459e6887cb96039543326b1e82ac43dba6",
+        "main-single-t0-travel.rebook-flight.main-v1-r0_raw-recoverable_fault.jsonl": "a8d09f2bea5cb240b6aba9766838a4405b689d6edca41cbb3e37de3385834850",
+        "main-single-t0-travel.rebook-flight.main-v1-r1_guarded-clean.jsonl": "145b98739e815206b66931dde53a8276f0b157783d72bf39a975d5f06c844fb0",
+        "main-single-t0-travel.rebook-flight.main-v1-r1_guarded-recoverable_fault.jsonl": "03d0b204340213bf644f98219fcd518c6cc5b2a6161b37a519fbbb05c7a199ce",
+        "main-single-t0-travel.rebook-flight.main-v1-r2_reliable-clean.jsonl": "b72ee7aaac7eb7a03fb07b73728ed3c52ff281ce5f768cfb89904d1d082a891b",
+        "main-single-t0-travel.rebook-flight.main-v1-r2_reliable-recoverable_fault.jsonl": "9afd292e2fc009f949b5445db12900f945e6be413fa18ca00f26493e4ea5a763",
+        "main-single-t0-travel.revise-dates.main-v1-r0_raw-clean.jsonl": "6c072a221d13946eb69c78aa8f4330a5040e06ead487452ff10f2c7fd1a00780",
+        "main-single-t0-travel.revise-dates.main-v1-r0_raw-recoverable_fault.jsonl": "e01344d99825703d23d994859fb884c0158fa4febb14c0c974b04f558eb7b1ea",
+        "main-single-t0-travel.revise-dates.main-v1-r1_guarded-clean.jsonl": "df462833c7e5dbcac89af06e59fb0849b9b697ab8bd12db928896978f42df9ba",
+        "main-single-t0-travel.revise-dates.main-v1-r1_guarded-recoverable_fault.jsonl": "4c9e8f5ebca498fb8e906e5a626dbc8aa048706015b0bae58530d13573b2b338",
+        "main-single-t0-travel.revise-dates.main-v1-r2_reliable-clean.jsonl": "f01b13ad28af688d280b571aec8a8191c57830407b05c8ce96f36bd9deadd891",
+        "main-single-t0-travel.revise-dates.main-v1-r2_reliable-recoverable_fault.jsonl": "2e5420d3a582db3c035d3cc2693927c334c70d2d91347c350c6152dc5f7491db",
+        "main-single-t0-travel.split-booking-compensation.main-v1-r0_raw-clean.jsonl": "2804d10d4909e3dc7c490a2f79d02e19cb7dd513531ae8268d1508c08d41fe7b",
+        "main-single-t0-travel.split-booking-compensation.main-v1-r0_raw-recoverable_fault.jsonl": "e0625fc3bea88b01942320d3cfabb2207b2bc5b8a8ed0e047b1d796f15cf71f9",
+        "main-single-t0-travel.split-booking-compensation.main-v1-r1_guarded-clean.jsonl": "1210847f5b2cfd882973694ff7ddadc320c5546410bfd3bdf8404a70f72a879d",
+        "main-single-t0-travel.split-booking-compensation.main-v1-r1_guarded-recoverable_fault.jsonl": "38715c040261f62f4cbde8518cc38f45ea5cb9e4f33437c72c52b86b15335ea3",
+        "main-single-t0-travel.split-booking-compensation.main-v1-r2_reliable-clean.jsonl": "a0fcbca992ebd3526835ccec708e97fddb9626851045dc024f1d990b3d63c6f5",
+        "main-single-t0-travel.split-booking-compensation.main-v1-r2_reliable-recoverable_fault.jsonl": "309e4e29ea83c8174b8894748641c2b3f803c78a86aa81501043912252236a7d",
+        "main-single-t0-workspace.cancel-meeting.main-v1-r0_raw-clean.jsonl": "b29f1453086de4e86a556184d41328c3fcbeb77038abb6063b18e15bd3bae1f2",
+        "main-single-t0-workspace.cancel-meeting.main-v1-r0_raw-recoverable_fault.jsonl": "eaec66fc4835fdae3ebde76e7d166a67d76eaacd3d2c687546f35585685a7201",
+        "main-single-t0-workspace.cancel-meeting.main-v1-r1_guarded-clean.jsonl": "e77550b8646751c2ddbd3c99fd9b6e7699bc778f4ad14d1fc120edd3f93b3bbe",
+        "main-single-t0-workspace.cancel-meeting.main-v1-r1_guarded-recoverable_fault.jsonl": "35ec1fde6bee355e1362aa3a9d62c73d07f0b9ddd5a1e6a8db2d67592ebd78ab",
+        "main-single-t0-workspace.cancel-meeting.main-v1-r2_reliable-clean.jsonl": "ca4587e05f83551e1539a0bd0d861a771f4689c678e2febf11d32e42afcf26c6",
+        "main-single-t0-workspace.cancel-meeting.main-v1-r2_reliable-recoverable_fault.jsonl": "b3134f44e721af6a741176007b38cfe09bca723fa1289d20dd386046b4e2078c",
+        "main-single-t0-workspace.clarify-attendees.main-v1-r0_raw-clean.jsonl": "a3d3c944d04c9103b53d33a61f57141914e354cb9c89f6b0c24f2caaf725f7ce",
+        "main-single-t0-workspace.clarify-attendees.main-v1-r0_raw-recoverable_fault.jsonl": "cb16b9aef37435948d27192fa9f60a11fded9227842ed1cfe695b9a3e5e0e0fe",
+        "main-single-t0-workspace.clarify-attendees.main-v1-r1_guarded-clean.jsonl": "45d82448018a607bb8aedbf31e889fb1d242b220ec09afcb9e00ec0a7a908fe2",
+        "main-single-t0-workspace.clarify-attendees.main-v1-r1_guarded-recoverable_fault.jsonl": "48f2797b695300b115fd2aee40829a3f05c9b8a1b942da0c474bdb5f58a7f72f",
+        "main-single-t0-workspace.clarify-attendees.main-v1-r2_reliable-clean.jsonl": "a9943b3c21cacaff51039ce9ecd3228e279d4539cfd201a07cc8687f772378ab",
+        "main-single-t0-workspace.clarify-attendees.main-v1-r2_reliable-recoverable_fault.jsonl": "70a0f07088af682daf930403ef911da9503ad723af94687584d9cbae59d8e5e9",
+        "main-single-t0-workspace.partial-change-compensation.main-v1-r0_raw-clean.jsonl": "720d77c9f3bc6126bdc4ab4e5bbbf2fbfeefe02c767cf4da4efe3d8961a23901",
+        "main-single-t0-workspace.partial-change-compensation.main-v1-r0_raw-recoverable_fault.jsonl": "f72aecc613e4c88738ac45a257ae641c06c42bb40d5d7eb4d154618859dc2d7f",
+        "main-single-t0-workspace.partial-change-compensation.main-v1-r1_guarded-clean.jsonl": "8e8fb788e13621ea84f6fa8bfedd8ecc47a1017751e39a03cceefad617f60b58",
+        "main-single-t0-workspace.partial-change-compensation.main-v1-r1_guarded-recoverable_fault.jsonl": "48cf0d829f6ccd98c7b482bcd8c4eb42803219a52f1e3e9ff3dcccb1d0708fe9",
+        "main-single-t0-workspace.partial-change-compensation.main-v1-r2_reliable-clean.jsonl": "9032a14d3e51afe32bdb9be946f6850f06a0529214e8e0d6adbe2d34f28363d3",
+        "main-single-t0-workspace.partial-change-compensation.main-v1-r2_reliable-recoverable_fault.jsonl": "8bfa1beb1a168cca276dcdac09cf8b6d56c0a681a892ce937bae2c1af2bf01d5",
+        "main-single-t0-workspace.reschedule-meeting.main-v1-r0_raw-clean.jsonl": "8530f743296b23155048c4c2c37fbd98e3887e4cacda4ef7bbd02d26a1356e06",
+        "main-single-t0-workspace.reschedule-meeting.main-v1-r0_raw-recoverable_fault.jsonl": "4512223aaedb8348bfe0967effd655720a3909afaa8a223f811a191f11de80f1",
+        "main-single-t0-workspace.reschedule-meeting.main-v1-r1_guarded-clean.jsonl": "aca4b46bf24a4e35d925d2d4040bb54069d56376d210aa2b5453aabb568a21e7",
+        "main-single-t0-workspace.reschedule-meeting.main-v1-r1_guarded-recoverable_fault.jsonl": "03ce756585c5b5a17c931c23cb05a877d5cca255305828d98fe28ea249d783bf",
+        "main-single-t0-workspace.reschedule-meeting.main-v1-r2_reliable-clean.jsonl": "b31482d449ae717405bcb0daea6a958b0fd5c8221771f56fc7d49d290e55ed0f",
+        "main-single-t0-workspace.reschedule-meeting.main-v1-r2_reliable-recoverable_fault.jsonl": "1f8526248b3a715867e4afb9ceae93977950a2b7ef13af5c517f079569fd53b8",
+        "main-single-t0-workspace.resolve-schedule-conflict.main-v1-r0_raw-clean.jsonl": "6fd34cef9ec77c4fe9c609cb00adbe09bc41354dff9f50ee1b0a86cd328a00b8",
+        "main-single-t0-workspace.resolve-schedule-conflict.main-v1-r0_raw-recoverable_fault.jsonl": "6b3ac347feaef5a79b847d0a62ba33a1a2a36059dc3856659fee8db544a340f4",
+        "main-single-t0-workspace.resolve-schedule-conflict.main-v1-r1_guarded-clean.jsonl": "a2f1007a78f0c340013394d3f07db95f36a020d5bcec836ce4b02fa51c9277a2",
+        "main-single-t0-workspace.resolve-schedule-conflict.main-v1-r1_guarded-recoverable_fault.jsonl": "0efe78d49f85787100525a8dd0074e283cf9b870c4f60cfc90baeaf2abfbcaf6",
+        "main-single-t0-workspace.resolve-schedule-conflict.main-v1-r2_reliable-clean.jsonl": "dc4b6260b889e7766672fe625d3b57fa3ef86eac4cb1817b3e51420b52e4fed9",
+        "main-single-t0-workspace.resolve-schedule-conflict.main-v1-r2_reliable-recoverable_fault.jsonl": "a4ba0f1dcc180d77e0c87ffeb13adad54dcbd153b48382895c232711c5fd99ab",
+        "main-single-t0-workspace.revised-authorization.main-v1-r0_raw-clean.jsonl": "8731be15d965ed930c250d2f11a368017c56aedaa0ab90fe41b3aa13a1e667c0",
+        "main-single-t0-workspace.revised-authorization.main-v1-r0_raw-recoverable_fault.jsonl": "504b80480f63c58f7592698072aa7dc75e493720afc8c53f369b9b4dd809f368",
+        "main-single-t0-workspace.revised-authorization.main-v1-r1_guarded-clean.jsonl": "9f9d46d64fdc01f69909cf53aaf3b5d8f2240d5a46967f3fd5b4a8b3ebcb7222",
+        "main-single-t0-workspace.revised-authorization.main-v1-r1_guarded-recoverable_fault.jsonl": "65fdb6edfdf41eb8c2eaef85500da8ffc9b44c63cde4c1eb187523d6493cbf09",
+        "main-single-t0-workspace.revised-authorization.main-v1-r2_reliable-clean.jsonl": "30b957aebc5415a168e2b1c582f230cc61498706ca2fd5e45ec4e740fcac6cd7",
+        "main-single-t0-workspace.revised-authorization.main-v1-r2_reliable-recoverable_fault.jsonl": "931f0fd250d38e0ec49eec784648cdfe874620d72b8ddd7ef88b4147deb9d7a5",
+        "main-single-t0-workspace.schedule-meeting.main-v1-r0_raw-clean.jsonl": "4bdc8b90faf98017a36f3d350708124ab4e4d833ecc6b5ac8e10ab0f6b3258ed",
+        "main-single-t0-workspace.schedule-meeting.main-v1-r0_raw-recoverable_fault.jsonl": "fc1dc30f162e0f43c40c93f1e8d9dcc2f001f9074b48796c506bb6c0a8a09031",
+        "main-single-t0-workspace.schedule-meeting.main-v1-r1_guarded-clean.jsonl": "ba59f5120436d67723d34bd1367b1313fe194707274faf8bc6c0b4e6233bf70c",
+        "main-single-t0-workspace.schedule-meeting.main-v1-r1_guarded-recoverable_fault.jsonl": "b4d4ee77840ac532abf5bfee002977492f8c32fc996fb2838784e842661f45f2",
+        "main-single-t0-workspace.schedule-meeting.main-v1-r2_reliable-clean.jsonl": "e829f005fb98d667bfe9fdd05a956d21c878bd6b427d0ddf3756d97e794208fc",
+        "main-single-t0-workspace.schedule-meeting.main-v1-r2_reliable-recoverable_fault.jsonl": "5d87cd58b62a7b1b268f2b45716950c41455bbec0d4191042fb15f5079022303",
+        "main-single-t0-workspace.share-document.main-v1-r0_raw-clean.jsonl": "1bd203bdf1bc5f4ee3e83a1d11fa43d83ce235073c1aa6405f1cbe1c977d0ada",
+        "main-single-t0-workspace.share-document.main-v1-r0_raw-recoverable_fault.jsonl": "433d30affb2fda0e5817fb0c7f6ccafab11fd30989de087ed0902e11565e8db5",
+        "main-single-t0-workspace.share-document.main-v1-r1_guarded-clean.jsonl": "fd5df871890bf032859b629a07083bb584064c5e3500022df6aff66615234f9b",
+        "main-single-t0-workspace.share-document.main-v1-r1_guarded-recoverable_fault.jsonl": "391d7e7b1fdfd94d5e85ee988e9567c91d75932aa9d382a1b054f31299bb65f4",
+        "main-single-t0-workspace.share-document.main-v1-r2_reliable-clean.jsonl": "37a02d7ddd3d5fe3c2f6de93cb7609084008d554aa96914f1cac9a3dbd20c75f",
+        "main-single-t0-workspace.share-document.main-v1-r2_reliable-recoverable_fault.jsonl": "cf25184097c5e22f1730212e022b0928f3a3424ccf0bcc8d6bdc021924b97448",
+        "main-single-t1-retail.cancel-order.main-v1-r0_raw-clean.jsonl": "21799fb6afc6d9b69ec6a5904d2b0d2878a5eabc0280dfcf1fa4fe994809b52a",
+        "main-single-t1-retail.cancel-order.main-v1-r0_raw-recoverable_fault.jsonl": "689ceaa4532fbe8a41fc82bdff0b2d6ea295f54358466c1c290c435d7bfcf7b3",
+        "main-single-t1-retail.cancel-order.main-v1-r1_guarded-clean.jsonl": "59b775c4758002a27706361f738928d6b417703a3b34d19a001197fbf1dd76b5",
+        "main-single-t1-retail.cancel-order.main-v1-r1_guarded-recoverable_fault.jsonl": "194049559c7677f5def89bd8a4a9b6a23faa3bdc8d159ecf97928f8ac0f0e8f3",
+        "main-single-t1-retail.cancel-order.main-v1-r2_reliable-clean.jsonl": "a5317b3919b295bd1c137547d8ff97523d83af8517704a9bffbac7c3e0db1886",
+        "main-single-t1-retail.cancel-order.main-v1-r2_reliable-recoverable_fault.jsonl": "38aaf9d7f6b8efea7e133a114c8ca542dce4ee88bd0920254eca0583cb403723",
+        "main-single-t1-retail.discounted-order.main-v1-r0_raw-clean.jsonl": "eb49574b2284dbbb3d79a050132488baf66e75c932c70ee2cf21dd874fd12034",
+        "main-single-t1-retail.discounted-order.main-v1-r0_raw-recoverable_fault.jsonl": "5d3693923faed27e1d9b94f07d31cdbdbdaba3f2d78324211fb23dbe1c83dfb4",
+        "main-single-t1-retail.discounted-order.main-v1-r1_guarded-clean.jsonl": "c52ec5e92480ad11131a1c486ac6b2db3e43a54f551b8e6e388580e34dc5d75e",
+        "main-single-t1-retail.discounted-order.main-v1-r1_guarded-recoverable_fault.jsonl": "7f89dbecffcd79c51b09a48f3904396a7709068af5bbc2282ad2e5e940d7311d",
+        "main-single-t1-retail.discounted-order.main-v1-r2_reliable-clean.jsonl": "14dc1ac849c4700b6880e9e17666acb48b2b75376bae5b104bf15b6a14a2c380",
+        "main-single-t1-retail.discounted-order.main-v1-r2_reliable-recoverable_fault.jsonl": "9b805ff96b787701992b56c6468edc07f08e96929b1023f95b131e66a8bb0f24",
+        "main-single-t1-retail.duplicate-order.main-v1-r0_raw-clean.jsonl": "4d388f670b50daa10e498026bd97de661641f9425e58ec6529ba82a31c774a9c",
+        "main-single-t1-retail.duplicate-order.main-v1-r0_raw-recoverable_fault.jsonl": "a9f14ac913e5b266d62d6cf3d98b519714ce96e8aaaa1cdf87c6b6df00871d0c",
+        "main-single-t1-retail.duplicate-order.main-v1-r1_guarded-clean.jsonl": "a65319a8dcc6eb45798a6c71e7a5cc29f3e7f518b0a32c5f1b475f44573caeb4",
+        "main-single-t1-retail.duplicate-order.main-v1-r1_guarded-recoverable_fault.jsonl": "1e3589a6b0f1f026e9dd03ff5a951e452f08505968b93ff1c7d187c4d7b4ad6e",
+        "main-single-t1-retail.duplicate-order.main-v1-r2_reliable-clean.jsonl": "cbc51950e003319c7d3ff7a77c57d557b70fba5de639ff848d1a1aa7f4ccecca",
+        "main-single-t1-retail.duplicate-order.main-v1-r2_reliable-recoverable_fault.jsonl": "0552bcea2c90557f688ac11450256a96af34af6bfa1a74a3c3e056ef55e2302e",
+        "main-single-t1-retail.eligible-exchange.main-v1-r0_raw-clean.jsonl": "6708efd704fbb35f096522f436af84c4e615d6f5b4a6a614a6d51c218006e251",
+        "main-single-t1-retail.eligible-exchange.main-v1-r0_raw-recoverable_fault.jsonl": "c93db63dc659fc3eedda1269f0881e33bfee581a564b048239765d7aa9fa1195",
+        "main-single-t1-retail.eligible-exchange.main-v1-r1_guarded-clean.jsonl": "05f5cc53d8be741f891c5690294c1b526c992bf894fa4c12b0f38f2ec86d147b",
+        "main-single-t1-retail.eligible-exchange.main-v1-r1_guarded-recoverable_fault.jsonl": "225e961c1eff63a1405c2b0da33aa061416f5fe7623a7902b52443a5418b0b77",
+        "main-single-t1-retail.eligible-exchange.main-v1-r2_reliable-clean.jsonl": "2d93e9d4ff93a4aa86ade40db3f9088fc9f0a17c821c481b19df24de92aaf15a",
+        "main-single-t1-retail.eligible-exchange.main-v1-r2_reliable-recoverable_fault.jsonl": "bfc887a0aa557a2d43a1ac30253e0fefd1d2349bb0742ec0b0638a08331fbf7e",
+        "main-single-t1-retail.partial-refund.main-v1-r0_raw-clean.jsonl": "909639799c169295f64f879cb6f512bdeb4be9dd472a23c3218e64ca50c98966",
+        "main-single-t1-retail.partial-refund.main-v1-r0_raw-recoverable_fault.jsonl": "ea0d3e57b55e321994deb751a5b150614d933bffdf95705b2a88317648d52dbb",
+        "main-single-t1-retail.partial-refund.main-v1-r1_guarded-clean.jsonl": "474c072ab1c30a344dea1e40ebe7dee63f5eb4346c584af66f65bf487c787ed0",
+        "main-single-t1-retail.partial-refund.main-v1-r1_guarded-recoverable_fault.jsonl": "e2d16ac70bc91f9a38ca4b7b46476a0b9f5e3e1226b0506a32fda80311552391",
+        "main-single-t1-retail.partial-refund.main-v1-r2_reliable-clean.jsonl": "6b1e50d8d3ae9e21ce774d71d9e91cba2a27e9ff429905fcf9b8b65ed63f247b",
+        "main-single-t1-retail.partial-refund.main-v1-r2_reliable-recoverable_fault.jsonl": "d612d11985374278e89f6c735eca8d659477e6fd36f967e6505c8b0d5a00cdb1",
+        "main-single-t1-retail.payment-order-split.main-v1-r0_raw-clean.jsonl": "1de768e12ec24d79cb588139ad1b853dd9098ca9368e34aa89c563948e65a01a",
+        "main-single-t1-retail.payment-order-split.main-v1-r0_raw-recoverable_fault.jsonl": "9948f70f0ab9c5bf0585aa1baa8fca36c55d29d3677251f60c5cacd670dd999c",
+        "main-single-t1-retail.payment-order-split.main-v1-r1_guarded-clean.jsonl": "1ae9750b9d42f4482456ca585e26e96c4c51f513657ddea17485b7cf407e384f",
+        "main-single-t1-retail.payment-order-split.main-v1-r1_guarded-recoverable_fault.jsonl": "425f2047c380289a0d0cf093042228bc04dbd9534a95bb693f4fcce6c7f28a58",
+        "main-single-t1-retail.payment-order-split.main-v1-r2_reliable-clean.jsonl": "517c59bf385a4ce6ff40659a5b20bffd00b178ae57e755a8d947c67c90fae559",
+        "main-single-t1-retail.payment-order-split.main-v1-r2_reliable-recoverable_fault.jsonl": "e23f4f02a12101979e670d9b02cc86d23b6588ef7b1637adc7ec3e20b706b17c",
+        "main-single-t1-retail.shipping-revision.main-v1-r0_raw-clean.jsonl": "09c09d1123721c96bca2772c0e35456c2cb470a69f2cab2001cec5d0682eb6a9",
+        "main-single-t1-retail.shipping-revision.main-v1-r0_raw-recoverable_fault.jsonl": "d061ff1923b9011f80249e3e43b3f081f0909dd50e0d011e9195944753bf5ac9",
+        "main-single-t1-retail.shipping-revision.main-v1-r1_guarded-clean.jsonl": "9c08ba1e267a69038c2234f1339cda3c1dd92437583d99afee0f04e636ac6d8b",
+        "main-single-t1-retail.shipping-revision.main-v1-r1_guarded-recoverable_fault.jsonl": "604d306bcf2c684d142e4cc04af40e58a620e032e3f9a9b2c294e2dc684b152c",
+        "main-single-t1-retail.shipping-revision.main-v1-r2_reliable-clean.jsonl": "793309a772e18f8dafd442388cb905ce41a4e34e666a3bce43db733c4f4f32f8",
+        "main-single-t1-retail.shipping-revision.main-v1-r2_reliable-recoverable_fault.jsonl": "06eac0519282a3124f9ad9f1c116b1df3f8deb11eb5ffb58d6e206f604a6c576",
+        "main-single-t1-retail.stock-substitution.main-v1-r0_raw-clean.jsonl": "021adfbc8ea8ab0f98af1056d37efae928f8e806d380518a5670fa30300d62cb",
+        "main-single-t1-retail.stock-substitution.main-v1-r0_raw-recoverable_fault.jsonl": "9cdcdd0b74fe6b4daf904139f8d579f393af36e037ed9cbe9065e7b64e42996b",
+        "main-single-t1-retail.stock-substitution.main-v1-r1_guarded-clean.jsonl": "c9fb4b074319b820064a6fbf1ba01cf0c698df4d8ae5495c6733f7bf617ab622",
+        "main-single-t1-retail.stock-substitution.main-v1-r1_guarded-recoverable_fault.jsonl": "42cb0d9ffbcf6c04d6198ba16cec3f2a0f9b42c31897bbddfacaf82ac9ced324",
+        "main-single-t1-retail.stock-substitution.main-v1-r2_reliable-clean.jsonl": "012b4da9b937238da0637a7a3b00d26f54ce94be750a62651dea4b5daead9eb9",
+        "main-single-t1-retail.stock-substitution.main-v1-r2_reliable-recoverable_fault.jsonl": "177ef7e91953f71ebe3be8fcd1f52c90beb6167dcf9f3aeee3d7d8d61c300e65",
+        "main-single-t1-travel.book-itinerary.main-v1-r0_raw-clean.jsonl": "cbc8aab05c810a902d28320a0a2e29b1765ed568bc9c5d9a9211a546498bc3fb",
+        "main-single-t1-travel.book-itinerary.main-v1-r0_raw-recoverable_fault.jsonl": "e706fdc5d3aad4fb3c49f7f8bddc27eca86fb0be6cbf9f56862676a657486683",
+        "main-single-t1-travel.book-itinerary.main-v1-r1_guarded-clean.jsonl": "3d617095f4cce93e5c156fbeb2414c5ecbc8177499332e08a223ad9df3b29c1c",
+        "main-single-t1-travel.book-itinerary.main-v1-r1_guarded-recoverable_fault.jsonl": "0be689108987a30681e2a2cb1f2105552cfaee48721919a7eae1003efb45d36d",
+        "main-single-t1-travel.book-itinerary.main-v1-r2_reliable-clean.jsonl": "42ef41694cd46259cbfdf3e9532d2df9af7bbd7e75bbb75454b943fd809fd2e6",
+        "main-single-t1-travel.book-itinerary.main-v1-r2_reliable-recoverable_fault.jsonl": "8ff5fab6b819974bf2dab8ae3fe057458af398110227eb2ac97aa6dcc819d1b3",
+        "main-single-t1-travel.bundle-recovery.main-v1-r0_raw-clean.jsonl": "9fde8001d076eac933f49a53ab8ac05783c7b9f5be4e7f8eea9d6643be820329",
+        "main-single-t1-travel.bundle-recovery.main-v1-r0_raw-recoverable_fault.jsonl": "8d69e30974d398299f7a9274a0278991ccefc0686f9aa5632ab9530c89f12c18",
+        "main-single-t1-travel.bundle-recovery.main-v1-r1_guarded-clean.jsonl": "45f66c949b5e887a68a747e5d4d78037bad9cd22692524d29c4a0d1162f82b00",
+        "main-single-t1-travel.bundle-recovery.main-v1-r1_guarded-recoverable_fault.jsonl": "05aa30d68a4e3df195d5c577a3b0f14170734e8cae92393c1913f96ea298c8ea",
+        "main-single-t1-travel.bundle-recovery.main-v1-r2_reliable-clean.jsonl": "9c674f34506f08dc437a10f80a2b3d45249082da5e202a7921dcb850b8f94e1f",
+        "main-single-t1-travel.bundle-recovery.main-v1-r2_reliable-recoverable_fault.jsonl": "6d4ce97f250343880f55e444d435dd2e70d506eb4b6b0158f21bfa9c4eddcad9",
+        "main-single-t1-travel.cancel-itinerary.main-v1-r0_raw-clean.jsonl": "89713a33b0ff75bbc2c53d5b3b68daf75aab74e813d5c7044ac36ea1b2a6862e",
+        "main-single-t1-travel.cancel-itinerary.main-v1-r0_raw-recoverable_fault.jsonl": "56064380aabdd8e90a8da2ac64b0b75b690f319ebd87873807d0bdb975e1d4b9",
+        "main-single-t1-travel.cancel-itinerary.main-v1-r1_guarded-clean.jsonl": "75f687f1f3e70c35c902bbf159a728600c61ce62df1a1332910eb6c00dbf9b7b",
+        "main-single-t1-travel.cancel-itinerary.main-v1-r1_guarded-recoverable_fault.jsonl": "b8fc180179c6fac686c7d1600436e44718a92723324a638d13717f72dae6612b",
+        "main-single-t1-travel.cancel-itinerary.main-v1-r2_reliable-clean.jsonl": "68f94ccd8dde65e82c48f43e23069c70258960dbd44e74f4d07cb683498376fb",
+        "main-single-t1-travel.cancel-itinerary.main-v1-r2_reliable-recoverable_fault.jsonl": "78f47cae1612c901cbbf0179f6e2c9f1815e293b6f39b797038445c6919a070a",
+        "main-single-t1-travel.clarify-budget.main-v1-r0_raw-clean.jsonl": "cc284370f40559d2c1e0e1ac73cb65593ae5285bfbe3674919cb713e86a56aee",
+        "main-single-t1-travel.clarify-budget.main-v1-r0_raw-recoverable_fault.jsonl": "f896ac82e08fe639e6793bbc020d0aba234c4f888c84e58edddb58bbf8202e80",
+        "main-single-t1-travel.clarify-budget.main-v1-r1_guarded-clean.jsonl": "e29fea098de1f929b8b1d7e1fcab67c9c5398dd2d2e16f1131b731ce18400044",
+        "main-single-t1-travel.clarify-budget.main-v1-r1_guarded-recoverable_fault.jsonl": "9f30c9075504090687ebd53baa555e2313fe255b0372e7e82490f4daa86c233d",
+        "main-single-t1-travel.clarify-budget.main-v1-r2_reliable-clean.jsonl": "76add344f09bf517fbbf854af956f43e795e00207be87ea133454d02a167c2fc",
+        "main-single-t1-travel.clarify-budget.main-v1-r2_reliable-recoverable_fault.jsonl": "6138e59ba433cc03f4f489323b5442df84d5f0c09114a7e50799ccbc3bec9b61",
+        "main-single-t1-travel.inventory-conflict.main-v1-r0_raw-clean.jsonl": "192301a79791152401fe3ae1163a1da03b35a65ee96fc92eea2687168c999cba",
+        "main-single-t1-travel.inventory-conflict.main-v1-r0_raw-recoverable_fault.jsonl": "2d56594305e20dcf9f2bd9f04fd485763b28f99d635626ab4c4341e5575b884e",
+        "main-single-t1-travel.inventory-conflict.main-v1-r1_guarded-clean.jsonl": "fee2df30dbb89b0b2a0b7fac2a1c3021e98aecd5452d01e1f9e978e8dc894b99",
+        "main-single-t1-travel.inventory-conflict.main-v1-r1_guarded-recoverable_fault.jsonl": "b920b8f073e9dd2381fda783d6f32e6d0d37f76956977f73a94e4bc19b22bf30",
+        "main-single-t1-travel.inventory-conflict.main-v1-r2_reliable-clean.jsonl": "01d79a90782af75d11abd87ab5a4d3c721eb73d20dbaf5c391bf9ca72bd6b7b9",
+        "main-single-t1-travel.inventory-conflict.main-v1-r2_reliable-recoverable_fault.jsonl": "9770baf622d1af1e31abbad2f7aad48ff25bab7b221cea5eefd709169d7655e1",
+        "main-single-t1-travel.rebook-flight.main-v1-r0_raw-clean.jsonl": "49816aae2b059e86ebcb76d31c084f87f0c4c1bb3e86c39089e7a52d69417863",
+        "main-single-t1-travel.rebook-flight.main-v1-r0_raw-recoverable_fault.jsonl": "487c840bb000f7bbf3560d8ad1baa0b17660cee0bc218efc5901b57b2766d131",
+        "main-single-t1-travel.rebook-flight.main-v1-r1_guarded-clean.jsonl": "599aa933f6e5518c1a047c5c4f7b376ecdb0029edbe4ad84b266a7b83bbe4bc2",
+        "main-single-t1-travel.rebook-flight.main-v1-r1_guarded-recoverable_fault.jsonl": "4d81b70e567bdb0f48c8ac686a2c59a02cb38da033c254dbef14eb15650e6563",
+        "main-single-t1-travel.rebook-flight.main-v1-r2_reliable-clean.jsonl": "fec5bf3be5d71a778501afdbcc4c3ef17cb5c50f0934b2f1eaf886282013ae93",
+        "main-single-t1-travel.rebook-flight.main-v1-r2_reliable-recoverable_fault.jsonl": "d29b92ca3fe9d2ced537a8fa88bff06c2eb7fb4a9ea181cf239e34087ab339a1",
+        "main-single-t1-travel.revise-dates.main-v1-r0_raw-clean.jsonl": "8b5aa0576fd4b6e61f26830b12ee6298cee4afa215e256e0906bcb7b7b658d9a",
+        "main-single-t1-travel.revise-dates.main-v1-r0_raw-recoverable_fault.jsonl": "70d9b91c56cc9b8f2278d84394065037b6f527ae3af42168f7f483a7fc03aa71",
+        "main-single-t1-travel.revise-dates.main-v1-r1_guarded-clean.jsonl": "b9179f6fbf20806462e3229adbbaa12a6afb9c0640ad8dc2ff1a1ed76916d3e3",
+        "main-single-t1-travel.revise-dates.main-v1-r1_guarded-recoverable_fault.jsonl": "fc72247a7dcc4d070041911434acff9635756c3d547eb26943bd6fe6e9121af6",
+        "main-single-t1-travel.revise-dates.main-v1-r2_reliable-clean.jsonl": "553280f556dd8c6da3f88807dc1e3def5ef66320949b6311c84c4620a1dc74c8",
+        "main-single-t1-travel.revise-dates.main-v1-r2_reliable-recoverable_fault.jsonl": "29d84a29e4bf68c04825d2d290350c30571fd1af25f4b93a3161318f6577c3fc",
+        "main-single-t1-travel.split-booking-compensation.main-v1-r0_raw-clean.jsonl": "2cae58c18907300f971157d50a87e7d60039cf2c06055a357a11a2e8db814422",
+        "main-single-t1-travel.split-booking-compensation.main-v1-r0_raw-recoverable_fault.jsonl": "5b7003194fd6012402b8277d4ae8979a6b9403c6dd7a3137a3ec022644a5b06e",
+        "main-single-t1-travel.split-booking-compensation.main-v1-r1_guarded-clean.jsonl": "ccbbb609b569070c8671b8145f8d78bb5a2765299b55a24393d2d77440df5233",
+        "main-single-t1-travel.split-booking-compensation.main-v1-r1_guarded-recoverable_fault.jsonl": "6b84b93fba510b9637bda351f9f4dfa73eeb8ee90187597bff5d65d1e1067b9f",
+        "main-single-t1-travel.split-booking-compensation.main-v1-r2_reliable-clean.jsonl": "79bf836c0056210b99245eb576ee9f710009e3b35c7578b363c2d7406ac895f6",
+        "main-single-t1-travel.split-booking-compensation.main-v1-r2_reliable-recoverable_fault.jsonl": "65fb47976a09120f291e64759a909c461c45a485a9fdab004702a690ddccc1f7",
+        "main-single-t1-workspace.cancel-meeting.main-v1-r0_raw-clean.jsonl": "f6ecd7518a2d908757db228dde865f2f062a02e0e0d509ac48c731569fc6d27a",
+        "main-single-t1-workspace.cancel-meeting.main-v1-r0_raw-recoverable_fault.jsonl": "ebe404be614bf935f20b483ae95b3a1357197502b9a720a8347b233bfde6ce92",
+        "main-single-t1-workspace.cancel-meeting.main-v1-r1_guarded-clean.jsonl": "4c0d8f33d817bd12935b3df11e0b7f485fc3817b8b64bf91b83b3778ce884a8e",
+        "main-single-t1-workspace.cancel-meeting.main-v1-r1_guarded-recoverable_fault.jsonl": "0fed74f8684c9c1d9029faeed5f875a694f748901b1d151795d03be90cd71e7d",
+        "main-single-t1-workspace.cancel-meeting.main-v1-r2_reliable-clean.jsonl": "b41c7f455bae182f6ee91d5c98074d2b52c54aa89ee049b9d6be0d1f46cefd78",
+        "main-single-t1-workspace.cancel-meeting.main-v1-r2_reliable-recoverable_fault.jsonl": "dc8088537e0bfcb097c667ec24159fe46222129e5e41762d07153befe2467ba1",
+        "main-single-t1-workspace.clarify-attendees.main-v1-r0_raw-clean.jsonl": "7630d609e92ae83e3960c2f9274d36709861b1dc25ea43711e9a46f995605456",
+        "main-single-t1-workspace.clarify-attendees.main-v1-r0_raw-recoverable_fault.jsonl": "94ac2533de163c8b4ed580102fa29c44bcf4a423e38da8df9c1a3ad36e93a0a6",
+        "main-single-t1-workspace.clarify-attendees.main-v1-r1_guarded-clean.jsonl": "e6ce8b2ae7d2a2ab0eb0901ecebd2a45a319f624bee84ec672ab38be4fd37a03",
+        "main-single-t1-workspace.clarify-attendees.main-v1-r1_guarded-recoverable_fault.jsonl": "3ef035b77d8ff7e615216bd4962f2a8a8533fd5c86ad6a50bacd0bd5f68d9cba",
+        "main-single-t1-workspace.clarify-attendees.main-v1-r2_reliable-clean.jsonl": "77184bd6829476ba584dbf5985ccdcf39c9053bcce77f095f50955c09f2a21c2",
+        "main-single-t1-workspace.clarify-attendees.main-v1-r2_reliable-recoverable_fault.jsonl": "cc14c74eb00c54d82d699891508a1e5c4c077f07430152ff642f01cea1622cc4",
+        "main-single-t1-workspace.partial-change-compensation.main-v1-r0_raw-clean.jsonl": "9f593aea2e19a48c9ee900f72e136776d09543b434006895d977ee320b616cee",
+        "main-single-t1-workspace.partial-change-compensation.main-v1-r0_raw-recoverable_fault.jsonl": "2bd9c51dc89f0934998048ac07136dde08cff5c1990de76c51839b19d23728a8",
+        "main-single-t1-workspace.partial-change-compensation.main-v1-r1_guarded-clean.jsonl": "bf5f11676149f0b786c6b73727a29463244572797f368196926e39a26d7db4fb",
+        "main-single-t1-workspace.partial-change-compensation.main-v1-r1_guarded-recoverable_fault.jsonl": "a2afe21db56d5a694711638adb5dbc5c77e52e8d19328ee33c3fa8f839788fec",
+        "main-single-t1-workspace.partial-change-compensation.main-v1-r2_reliable-clean.jsonl": "6167fd66bf6ed6b5421295348349bda045450f9f05a890dee916336c7478d4a3",
+        "main-single-t1-workspace.partial-change-compensation.main-v1-r2_reliable-recoverable_fault.jsonl": "7140e20b7cb8c8bab108095f8e877726e561ad49aacad9d19be542bfc1cfd517",
+        "main-single-t1-workspace.reschedule-meeting.main-v1-r0_raw-clean.jsonl": "ca5293846b6c09257eb40394b704ff535410e006b27df22b1a19c2c0a349a021",
+        "main-single-t1-workspace.reschedule-meeting.main-v1-r0_raw-recoverable_fault.jsonl": "a749f532481892257f4652861beff37577551cfe724059a14dbdb19e327636c8",
+        "main-single-t1-workspace.reschedule-meeting.main-v1-r1_guarded-clean.jsonl": "5e680b1c41c2742db7627fac92533db7ab07761095c84545ec024635e77e7663",
+        "main-single-t1-workspace.reschedule-meeting.main-v1-r1_guarded-recoverable_fault.jsonl": "4a59fe27ad46acc11192e50fecda0dc41a8513e71d1718953f481e0b192af1c2",
+        "main-single-t1-workspace.reschedule-meeting.main-v1-r2_reliable-clean.jsonl": "3c6c014a4b8b65cad197440d6b3a2b1a2c34a8045fde7dca9db91209c333aa56",
+        "main-single-t1-workspace.reschedule-meeting.main-v1-r2_reliable-recoverable_fault.jsonl": "3a6e80a3125ec46c975a7293c28a4f1d8e7dcc6ba6965f9ae78169af06ca0d76",
+        "main-single-t1-workspace.resolve-schedule-conflict.main-v1-r0_raw-clean.jsonl": "0e60309bf706dbb61d1f4455a1035f7be3107880020515e8b143c09dc5c9d4f1",
+        "main-single-t1-workspace.resolve-schedule-conflict.main-v1-r0_raw-recoverable_fault.jsonl": "959bdd3fedfd4f7ae7b1f2f702debdeea9ef6663e5b9b71e59077c10ae2891e8",
+        "main-single-t1-workspace.resolve-schedule-conflict.main-v1-r1_guarded-clean.jsonl": "1556eeb7f06084e6ff1ea48063bae65e635de019487c39797bc7c7adac612075",
+        "main-single-t1-workspace.resolve-schedule-conflict.main-v1-r1_guarded-recoverable_fault.jsonl": "347e73399d9d0301ceac9846507f587b5fa53e15224a6a26ab162a46f86a7ee2",
+        "main-single-t1-workspace.resolve-schedule-conflict.main-v1-r2_reliable-clean.jsonl": "7a3102ee4f9fdf0226cf883576037ec053b2b36ba2ec0820e61a2e934cab35dd",
+        "main-single-t1-workspace.resolve-schedule-conflict.main-v1-r2_reliable-recoverable_fault.jsonl": "1754d9942599e8779931ab6aef04e9c9e708ccd4d6c8dd61f21e110dc580a94b",
+        "main-single-t1-workspace.revised-authorization.main-v1-r0_raw-clean.jsonl": "20327590d2e08dbc82f87153d182faa0a51be8b40310704885803768110156ae",
+        "main-single-t1-workspace.revised-authorization.main-v1-r0_raw-recoverable_fault.jsonl": "5bdb8f6e92e095e2cf68dd19af632ab9594d14f7e9691f8417fc8cc96d351ace",
+        "main-single-t1-workspace.revised-authorization.main-v1-r1_guarded-clean.jsonl": "24ea0246c6313b96681414ae5c08c29b42e73fe76d13f80e76e71cb81f7d7e94",
+        "main-single-t1-workspace.revised-authorization.main-v1-r1_guarded-recoverable_fault.jsonl": "2f4e979157d17a3697bd5d1389d4b81490d1fa7f44818c8a7a5f86d51d08e9fd",
+        "main-single-t1-workspace.revised-authorization.main-v1-r2_reliable-clean.jsonl": "44f45f8a2f397b741dbc22620e4635d9af4a0f2866ef0abafdfeaec0037401bf",
+        "main-single-t1-workspace.revised-authorization.main-v1-r2_reliable-recoverable_fault.jsonl": "f16522a15873a75c9b464d7d95a5ba66b0e0f4881205b0ee8251ed0b1bf617b7",
+        "main-single-t1-workspace.schedule-meeting.main-v1-r0_raw-clean.jsonl": "4ce8e368cb18a383fdedceed1410579c86ebcab58a71e2c90d7a9bed34d3c011",
+        "main-single-t1-workspace.schedule-meeting.main-v1-r0_raw-recoverable_fault.jsonl": "26936b1ccf99ef6a16d52acd315b8e7a149fb15bd55931522b5b0bb30c87c901",
+        "main-single-t1-workspace.schedule-meeting.main-v1-r1_guarded-clean.jsonl": "3686baf3ba323d3d950fcd75f61e3346f8cf3e30ce513f967c08b20905b725ae",
+        "main-single-t1-workspace.schedule-meeting.main-v1-r1_guarded-recoverable_fault.jsonl": "6dd7ab9a311ff42b43d85df7e72683963e8f179fc259641756f65396cb5dfcbc",
+        "main-single-t1-workspace.schedule-meeting.main-v1-r2_reliable-clean.jsonl": "0c8543102b97231f1883949e21c1642bb11b515bf5ce4f4d90953566b3196a5a",
+        "main-single-t1-workspace.schedule-meeting.main-v1-r2_reliable-recoverable_fault.jsonl": "1bcdc4312e776b5e3b66d358db0c63ce75967eefc44c396dc63755369d348fe3",
+        "main-single-t1-workspace.share-document.main-v1-r0_raw-clean.jsonl": "4e673fd39eba217bf56ebce291a8bcb93abbc8817c5a47ee9bee1e7681e6d2a7",
+        "main-single-t1-workspace.share-document.main-v1-r0_raw-recoverable_fault.jsonl": "2afeffbc5d04407213b210f61192a63a8b4b1b9bfde106de4b704d283ac651cd",
+        "main-single-t1-workspace.share-document.main-v1-r1_guarded-clean.jsonl": "890891afb50b1a22c81e266d3a7b050e2fa02847c417251c607df178062fd4de",
+        "main-single-t1-workspace.share-document.main-v1-r1_guarded-recoverable_fault.jsonl": "5065356a1ff3e00fbd6bbbe2e641051714c693ae014badbd542161113b466c8c",
+        "main-single-t1-workspace.share-document.main-v1-r2_reliable-clean.jsonl": "a794faa4314133ba7337655467a961b436f0cced58ed784cea37e616f49d9e2e",
+        "main-single-t1-workspace.share-document.main-v1-r2_reliable-recoverable_fault.jsonl": "37d03d43a78c2c539ed72da0fc47871e9a11607d4ca6a2a3f94caf82002c5be7",
+        "main-single-t2-retail.cancel-order.main-v1-r0_raw-clean.jsonl": "4efb8ea6219cdebb99dafd6ea0994c6b12a469a9bbf9c2dbccfbff65c21c83f1",
+        "main-single-t2-retail.cancel-order.main-v1-r0_raw-recoverable_fault.jsonl": "fbee13fb94f86496b3dd8cef62a01517ed005dd41138bac835abecb4e90cad8c",
+        "main-single-t2-retail.cancel-order.main-v1-r1_guarded-clean.jsonl": "1cc78557c83e40f8202d72b9437e9f6375ec3f233105879e4a461c936abf5cd6",
+        "main-single-t2-retail.cancel-order.main-v1-r1_guarded-recoverable_fault.jsonl": "4f9cc522051112e5722f7f3684096a311fbee60f1f3bfbdb63919664d15c137e",
+        "main-single-t2-retail.cancel-order.main-v1-r2_reliable-clean.jsonl": "fa3a6457650b18562a7638c99a84d640d8aa4e2238ec97af48644c35a4564952",
+        "main-single-t2-retail.cancel-order.main-v1-r2_reliable-recoverable_fault.jsonl": "51e2bb204f502b4e057f0c3bcf3436e8f1a4774ca7c5e3ef526127880ca13a2d",
+        "main-single-t2-retail.discounted-order.main-v1-r0_raw-clean.jsonl": "a19210351d8ec4c60d8af7b578c0761e4e82563fecbae649bc6eace737597430",
+        "main-single-t2-retail.discounted-order.main-v1-r0_raw-recoverable_fault.jsonl": "33d5fa5bce58a7ed0048bbb483c95108872330507622f243e6f8d066c7a9d1ce",
+        "main-single-t2-retail.discounted-order.main-v1-r1_guarded-clean.jsonl": "ecef0ada977986a2cb4976701a8efbb4e90267f6713ebc1f97ae0752a327aa8a",
+        "main-single-t2-retail.discounted-order.main-v1-r1_guarded-recoverable_fault.jsonl": "5ea724efb8821d55a7d00aeed5720f82eb9602c990dc013510176ebd3c3a8523",
+        "main-single-t2-retail.discounted-order.main-v1-r2_reliable-clean.jsonl": "f43b684082c4de544a72a54392750bd21de3baf4cb709a057ac9a541edc75ae5",
+        "main-single-t2-retail.discounted-order.main-v1-r2_reliable-recoverable_fault.jsonl": "bd187064d3c87f0a681d9a3f0b22e6b998832e70fdc9086732a042d1d3226d33",
+        "main-single-t2-retail.duplicate-order.main-v1-r0_raw-clean.jsonl": "b76f390131da5e23514af4f7f7df48274da9e9b93d0f4bb4359fa2e3b9632a1f",
+        "main-single-t2-retail.duplicate-order.main-v1-r0_raw-recoverable_fault.jsonl": "9f8d0deb8d5348196c5756fee17540ad2ff8934e06c03f55f12d419a3362e612",
+        "main-single-t2-retail.duplicate-order.main-v1-r1_guarded-clean.jsonl": "b7d0311d23ba7a5a27cfa358c9ffddfdbe24489f2af4442e87477f49365f203b",
+        "main-single-t2-retail.duplicate-order.main-v1-r1_guarded-recoverable_fault.jsonl": "84f425451b5af66ce7bff2c5bb45943fa755829b315681ebd847a98c093a66b0",
+        "main-single-t2-retail.duplicate-order.main-v1-r2_reliable-clean.jsonl": "3fbec11df0b31172de88ae74d258294e09a9e58d0bb1117bd8bf86ec45fa52a2",
+        "main-single-t2-retail.duplicate-order.main-v1-r2_reliable-recoverable_fault.jsonl": "f11bae22265f0c092ccb9be19929d02b3004127443a78093047f7b1870ddd95e",
+        "main-single-t2-retail.eligible-exchange.main-v1-r0_raw-clean.jsonl": "b2b04e3a198f74be5dd347f906d21ac206990319cc9bf9f8d5e27adc8ae71108",
+        "main-single-t2-retail.eligible-exchange.main-v1-r0_raw-recoverable_fault.jsonl": "b47fb19bc425d4910daa09a7bb71ce72893ccee6aaf0c79d1b8c443759ed2c42",
+        "main-single-t2-retail.eligible-exchange.main-v1-r1_guarded-clean.jsonl": "f9a46c2fbd5b06ace11c6a15c874e8d4d54df382fd52500b70cb1ab8497da2fa",
+        "main-single-t2-retail.eligible-exchange.main-v1-r1_guarded-recoverable_fault.jsonl": "07da321c7e48bd418de3717d15440f6d6e32d00a154e017b7b7b2caac6bbcafc",
+        "main-single-t2-retail.eligible-exchange.main-v1-r2_reliable-clean.jsonl": "47b47d6b53d90daf76293e75dbab728dc6016c517e4b75a7d1f517c05d624071",
+        "main-single-t2-retail.eligible-exchange.main-v1-r2_reliable-recoverable_fault.jsonl": "87d43c77ac5f3f1d0b83191bfb41f1b942ddef23e5e94bbdd65fd12b52f1512b",
+        "main-single-t2-retail.partial-refund.main-v1-r0_raw-clean.jsonl": "8e9c3e3e082179689f38e349b851231122cfef7ea29965c568fa7695200e8a5c",
+        "main-single-t2-retail.partial-refund.main-v1-r0_raw-recoverable_fault.jsonl": "d5266c88c384fba4043403828901095648bb3ed4da7c3c553410adabe12ca13a",
+        "main-single-t2-retail.partial-refund.main-v1-r1_guarded-clean.jsonl": "d5468b947cf7551118bb654a7c5cb77d0bddcdac80d860de52ada020cd137153",
+        "main-single-t2-retail.partial-refund.main-v1-r1_guarded-recoverable_fault.jsonl": "995ed04d917dc47f02d15f498327841190744aa575ee6f04041459a56f7445c9",
+        "main-single-t2-retail.partial-refund.main-v1-r2_reliable-clean.jsonl": "1f66aa3001dfadcc6d412d5db01172cd359fcda287a6b15b6691d34f2ffd7c18",
+        "main-single-t2-retail.partial-refund.main-v1-r2_reliable-recoverable_fault.jsonl": "7042469dae4abcdd72bcfc61b8df87e893d65143a028e5b837c1af59b78c8f7a",
+        "main-single-t2-retail.payment-order-split.main-v1-r0_raw-clean.jsonl": "b504c51a6f719b9c664964b2bb8a8ee6235512028d003dcc1c06a9b651dc56f1",
+        "main-single-t2-retail.payment-order-split.main-v1-r0_raw-recoverable_fault.jsonl": "df7ce026d700f970b6822139e64a76c7d318fd300ed7209229a0bd9d187ec9cc",
+        "main-single-t2-retail.payment-order-split.main-v1-r1_guarded-clean.jsonl": "ce8768e5a7e0c3135333eaa4bc52a732744297ea337bd251d49683eb7777d46f",
+        "main-single-t2-retail.payment-order-split.main-v1-r1_guarded-recoverable_fault.jsonl": "b677b282105cb81898bfb7b68fbfd9c59cef3e4b486a4e294985252a18bae3a1",
+        "main-single-t2-retail.payment-order-split.main-v1-r2_reliable-clean.jsonl": "d2f324f8c45c702343de3d4d5518a12253d04e698af26d2d2c3287dc66befcd7",
+        "main-single-t2-retail.payment-order-split.main-v1-r2_reliable-recoverable_fault.jsonl": "4a29b73696da7e802aa4e5a4ee714999bb455150b73fc7593bf0d6404a609820",
+        "main-single-t2-retail.shipping-revision.main-v1-r0_raw-clean.jsonl": "f79bc00d73443c6afb60d5eb2359878004ca4068e28e3c1358da478ffcf6ab08",
+        "main-single-t2-retail.shipping-revision.main-v1-r0_raw-recoverable_fault.jsonl": "554df2e608c481207b81a39dffe7e1f95cd48777fff8026b0f2d5812c656746c",
+        "main-single-t2-retail.shipping-revision.main-v1-r1_guarded-clean.jsonl": "c18ead972c7f45669bab6f774747a896028ad8fa10f701246cf77261d94e5c27",
+        "main-single-t2-retail.shipping-revision.main-v1-r1_guarded-recoverable_fault.jsonl": "a2bf9e12f7ee22ddb7e5c268d61051a85b1c7f89176442557eaa8cbf889cb4a3",
+        "main-single-t2-retail.shipping-revision.main-v1-r2_reliable-clean.jsonl": "640d6bd375f02dff8eaea11460e7b7369af529f8933ad3dc9897bbc704785647",
+        "main-single-t2-retail.shipping-revision.main-v1-r2_reliable-recoverable_fault.jsonl": "59069ba7ecfc87004bb6050b24fc160b1374790a8b8a7fc4632192ced62b172f",
+        "main-single-t2-retail.stock-substitution.main-v1-r0_raw-clean.jsonl": "9409ec81e13821e9196e6467edc2c64226e2d9a3ff30586034d6b3449333d1e0",
+        "main-single-t2-retail.stock-substitution.main-v1-r0_raw-recoverable_fault.jsonl": "25bc5376f5084dfe074bab3b3e4615a0e582c11847d9266b6c25c1b931244815",
+        "main-single-t2-retail.stock-substitution.main-v1-r1_guarded-clean.jsonl": "ee9f530f49623ac5d1b774e46b0004c239031c0dd55795cfef6405a0593a3204",
+        "main-single-t2-retail.stock-substitution.main-v1-r1_guarded-recoverable_fault.jsonl": "c29974cfdb629138f23ef4bf26fd12052c5884773ad4f047849b0f41459fcfa4",
+        "main-single-t2-retail.stock-substitution.main-v1-r2_reliable-clean.jsonl": "1c334fd7eda1d878bf882796e8e279657c541d8b5e1735a7249c8c00137dd15b",
+        "main-single-t2-retail.stock-substitution.main-v1-r2_reliable-recoverable_fault.jsonl": "e17cad0a6245bf5efbd838bc2275800f1511bb1f3a37594e6f54e5f67369f751",
+        "main-single-t2-travel.book-itinerary.main-v1-r0_raw-clean.jsonl": "7f67e0e5fcd7705c87da77f6b0b1b92eff2fb7a5eca90493f50c9df81d0fbe09",
+        "main-single-t2-travel.book-itinerary.main-v1-r0_raw-recoverable_fault.jsonl": "e6d662580913b4c70f3414e7ed44699b9b87fd4c80b4b42688e6739542977523",
+        "main-single-t2-travel.book-itinerary.main-v1-r1_guarded-clean.jsonl": "f1b8d0d5e97ebfad8334476b0d69ced98d300e56d23fa983a5572bb463724575",
+        "main-single-t2-travel.book-itinerary.main-v1-r1_guarded-recoverable_fault.jsonl": "a304da86632f41a6b5ccaea84d3d27943bae44cb6bb1770be5b449c7bb0a1ff5",
+        "main-single-t2-travel.book-itinerary.main-v1-r2_reliable-clean.jsonl": "48612ca2a1b467a95ba61322d7819bdcec9e6417988843e844e92e91667c0d0d",
+        "main-single-t2-travel.book-itinerary.main-v1-r2_reliable-recoverable_fault.jsonl": "16ec3643a3c4371a602247deabdd97d1ebfd1083bd19f7047c4e445ecdc2a237",
+        "main-single-t2-travel.bundle-recovery.main-v1-r0_raw-clean.jsonl": "d84ed47c8077e4aaeb4105e870d620a44d17eebf9a6742c2c185f91caf0aaef9",
+        "main-single-t2-travel.bundle-recovery.main-v1-r0_raw-recoverable_fault.jsonl": "025386891f1b4fad749a36983a4fa90cedd49d4136d03621a7fd284df4d176e1",
+        "main-single-t2-travel.bundle-recovery.main-v1-r1_guarded-clean.jsonl": "bd34352e96c5b549858a1c56e5d01a00eba5aeb9b229f690d4645af014ab6c04",
+        "main-single-t2-travel.bundle-recovery.main-v1-r1_guarded-recoverable_fault.jsonl": "6c9ffbc84c0dfd003527d809379d26c519580d749c8142f0cf0fce1f4124ef5a",
+        "main-single-t2-travel.bundle-recovery.main-v1-r2_reliable-clean.jsonl": "c903a7e39216727678d562685c935fa21845e812d76cc526190e3138c901fde2",
+        "main-single-t2-travel.bundle-recovery.main-v1-r2_reliable-recoverable_fault.jsonl": "4f7b3ff83327f4a05b95c48d8288ef1c4efcf154301ce2afc03d81f8e3a7a18c",
+        "main-single-t2-travel.cancel-itinerary.main-v1-r0_raw-clean.jsonl": "6d63954bffb03f69f7114f0361c5bc8cd9dababfd979ea944f907886c6d96d73",
+        "main-single-t2-travel.cancel-itinerary.main-v1-r0_raw-recoverable_fault.jsonl": "763642b16b423f9adf8709e4a9e200a658a4a591e7e0022fb1c325c58ca1501a",
+        "main-single-t2-travel.cancel-itinerary.main-v1-r1_guarded-clean.jsonl": "973d3409e7e75a76b81da34089757825f7d4b012e0feae998f6db886edf34aa8",
+        "main-single-t2-travel.cancel-itinerary.main-v1-r1_guarded-recoverable_fault.jsonl": "deb682a418af70ebc7ee3c462abc3f302c85f6c32aa36fd68af492b4fdd36198",
+        "main-single-t2-travel.cancel-itinerary.main-v1-r2_reliable-clean.jsonl": "03dce2d178b7e5ed2ef830930fc8e0bcd5a4400f2640b181122847329435379c",
+        "main-single-t2-travel.cancel-itinerary.main-v1-r2_reliable-recoverable_fault.jsonl": "abaaa97292b62e297565e97b512ee4af9463da23933b13a32900ef2b0693410d",
+        "main-single-t2-travel.clarify-budget.main-v1-r0_raw-clean.jsonl": "7bdbb7bcc929f70b5e8737b75f3540210d80539b661dd251c808551d5bd2b212",
+        "main-single-t2-travel.clarify-budget.main-v1-r0_raw-recoverable_fault.jsonl": "6d1fa1ce83eb3e8aa4c4dfe092748621fc1c491fac02ab4ad111daac7f7a342b",
+        "main-single-t2-travel.clarify-budget.main-v1-r1_guarded-clean.jsonl": "d2e443c1769ea33b5231ac28e5af44307654a90db53f67c36e2492355f47d9ee",
+        "main-single-t2-travel.clarify-budget.main-v1-r1_guarded-recoverable_fault.jsonl": "48a360bd428e17c8c14608537472dedb058c720be934a1023e71d76c045bb2c8",
+        "main-single-t2-travel.clarify-budget.main-v1-r2_reliable-clean.jsonl": "d567619ad081ddd493c91e99e5bec6babaa5186cf3e532bdf16c457d68a6d42e",
+        "main-single-t2-travel.clarify-budget.main-v1-r2_reliable-recoverable_fault.jsonl": "1cdad7434c8aee563670268e313157d295a1b87d57e2aeda2f2e6111a76b2797",
+        "main-single-t2-travel.inventory-conflict.main-v1-r0_raw-clean.jsonl": "48c809e7a228fcf3653160198deaac26485d0618a6b307d9a537c813411a8477",
+        "main-single-t2-travel.inventory-conflict.main-v1-r0_raw-recoverable_fault.jsonl": "4dd37fdc3ca858b8cc3bf7011133b5aeb4784fed21d7ea6286f7f22b1c61fdaf",
+        "main-single-t2-travel.inventory-conflict.main-v1-r1_guarded-clean.jsonl": "6abbad94344a0724b769c2a44dff61139e1b28309e6c9b7c72abced7210afa4f",
+        "main-single-t2-travel.inventory-conflict.main-v1-r1_guarded-recoverable_fault.jsonl": "79f1ae1fc0f0894aefa6b0f962672e38f5259bb8d2f83a22a72eeab8a490851e",
+        "main-single-t2-travel.inventory-conflict.main-v1-r2_reliable-clean.jsonl": "653eadb473649dc37da41ce281cd1b670891dfdb1c721295b7b8d83978143d65",
+        "main-single-t2-travel.inventory-conflict.main-v1-r2_reliable-recoverable_fault.jsonl": "7ab7cb0232a22e89bfbaa7f99ec3490eef677afb2369b41914e7fc42bac81270",
+        "main-single-t2-travel.rebook-flight.main-v1-r0_raw-clean.jsonl": "6210e4e2c4def4063d3eb0ebe114fe8e30b752ff2a59a9fd4a238c6c415a82be",
+        "main-single-t2-travel.rebook-flight.main-v1-r0_raw-recoverable_fault.jsonl": "fe8695c3b3b756e1792591762b2af3716727cb53771e532fa03cdcd922b1b602",
+        "main-single-t2-travel.rebook-flight.main-v1-r1_guarded-clean.jsonl": "b3e29fc183d4d0fd306cbd884ce3610f8e19550a56afe69cf8eaaffd1b1ce25c",
+        "main-single-t2-travel.rebook-flight.main-v1-r1_guarded-recoverable_fault.jsonl": "e131f6107df44e6789fa80a26f5daae4b270c680bb218373354f474e2c0469cb",
+        "main-single-t2-travel.rebook-flight.main-v1-r2_reliable-clean.jsonl": "8a1224e877da5e1d4e507cbf850274aaace0444d19f0ba9db4adccdb8624dedf",
+        "main-single-t2-travel.rebook-flight.main-v1-r2_reliable-recoverable_fault.jsonl": "237205c2759754a805872d6306e223c77d6287f76b2e6fe102399d9cff42b913",
+        "main-single-t2-travel.revise-dates.main-v1-r0_raw-clean.jsonl": "b7b22379e1aa30e8aef5429128dcb4a67d5419ca0f7af22898f36596b9a3ff92",
+        "main-single-t2-travel.revise-dates.main-v1-r0_raw-recoverable_fault.jsonl": "ab135e67cc2ee7f6c6bb2e9a2b922c34aa8eec2897326503b9834eaa32bcb2a3",
+        "main-single-t2-travel.revise-dates.main-v1-r1_guarded-clean.jsonl": "dc52d7ec61d65d2a671c22bc9ecaa1fc5f5d7645fde603a67308db25a3319e63",
+        "main-single-t2-travel.revise-dates.main-v1-r1_guarded-recoverable_fault.jsonl": "3fd7793ad2a92bc11bb086a8aa1da31b811457ee288e4b1eb1a93c4b31f6be86",
+        "main-single-t2-travel.revise-dates.main-v1-r2_reliable-clean.jsonl": "c04bd03c4bd702feca8969827b213a3498c5ba34d5b9e829349e16c442c394e5",
+        "main-single-t2-travel.revise-dates.main-v1-r2_reliable-recoverable_fault.jsonl": "1d2b1d7c97456da5380dac4943322ddc74a4fc687cc3f2c0da9098ff968248dd",
+        "main-single-t2-travel.split-booking-compensation.main-v1-r0_raw-clean.jsonl": "bc6320da6833543024a408ad7f0992551285e4c0cb8e95b2cd74a2c316914442",
+        "main-single-t2-travel.split-booking-compensation.main-v1-r0_raw-recoverable_fault.jsonl": "0e0c05ecdde015f4ba6ebc01c638e6d02f9d95fb9b93a324c5b1274a32149b1f",
+        "main-single-t2-travel.split-booking-compensation.main-v1-r1_guarded-clean.jsonl": "c4d73b58276ae1eef2b11485022a77f5ad0864402aa2bf07f71a3200c20f18be",
+        "main-single-t2-travel.split-booking-compensation.main-v1-r1_guarded-recoverable_fault.jsonl": "6baaa19b442b85a69f11326ffdbe6a23d0d3819fc0e0e483a2efad0edc839677",
+        "main-single-t2-travel.split-booking-compensation.main-v1-r2_reliable-clean.jsonl": "2b9571afa0243b048d6d09f5f32823466e36d2c412fff2a2a09f66dc794dfd54",
+        "main-single-t2-travel.split-booking-compensation.main-v1-r2_reliable-recoverable_fault.jsonl": "9da0cbaca4c1d30e2891d8240da824800dca5e1396184e7e9d4acee2f836adc9",
+        "main-single-t2-workspace.cancel-meeting.main-v1-r0_raw-clean.jsonl": "f5ca00cc72e61d65e98a5ef59b4a718926c0b71f9cd71940da1aadc6bf7fa01d",
+        "main-single-t2-workspace.cancel-meeting.main-v1-r0_raw-recoverable_fault.jsonl": "7f44649298e433c26b9c3c4e46a8f6a23a141954e65e4604a060880524759bb4",
+        "main-single-t2-workspace.cancel-meeting.main-v1-r1_guarded-clean.jsonl": "a0706f0bf0ba355d96a940a32ecdcf15f25c9135ef4b066df3be13d0932bd156",
+        "main-single-t2-workspace.cancel-meeting.main-v1-r1_guarded-recoverable_fault.jsonl": "a46d6827a03e2096edcacef52fcae4f31100d71bd307cfbee6163fb2fa0ec7e7",
+        "main-single-t2-workspace.cancel-meeting.main-v1-r2_reliable-clean.jsonl": "4b51fe368ea49ebb5281fce9f3c50d7dbcccaafb5328ea23cf83d617de26daf5",
+        "main-single-t2-workspace.cancel-meeting.main-v1-r2_reliable-recoverable_fault.jsonl": "6f9363a8fd44784906e83f8b364567d21169119fa07f481bb67257ae2349b0ed",
+        "main-single-t2-workspace.clarify-attendees.main-v1-r0_raw-clean.jsonl": "5d6ded951af9e02ea90315231e203da04865d1051be45d8c37c2a78467e2a84f",
+        "main-single-t2-workspace.clarify-attendees.main-v1-r0_raw-recoverable_fault.jsonl": "97379f5d516648e6b3345d2de1f21e7a1c8d3a291e0fa17d5be12d3ed514addf",
+        "main-single-t2-workspace.clarify-attendees.main-v1-r1_guarded-clean.jsonl": "d35f6ebe4f7c0eabf6116db0818dac5e392b159c6f54f150d7da890e420470c0",
+        "main-single-t2-workspace.clarify-attendees.main-v1-r1_guarded-recoverable_fault.jsonl": "2bcd3240d15b493ea88fcb21555a0dced0ab510baee570f351b8d7cc27ce5536",
+        "main-single-t2-workspace.clarify-attendees.main-v1-r2_reliable-clean.jsonl": "e25c7e76489a874d797f1a55c0a80a07d5607ab17cd7d321859e1ddde89904be",
+        "main-single-t2-workspace.clarify-attendees.main-v1-r2_reliable-recoverable_fault.jsonl": "4c4baaf216bd24c70ae51a38527e63393f0c2540e80fa5a23795ec7559f7bc87",
+        "main-single-t2-workspace.partial-change-compensation.main-v1-r0_raw-clean.jsonl": "ad0cd847fde676821ce711cd0002b28a8e2dd9caf0bba73686487e06acfb6371",
+        "main-single-t2-workspace.partial-change-compensation.main-v1-r0_raw-recoverable_fault.jsonl": "76a9b9f6c5b332194e08409491f990bae1352d61c28a18cff91152370d973513",
+        "main-single-t2-workspace.partial-change-compensation.main-v1-r1_guarded-clean.jsonl": "56cb3206f1a1485243a5d2fc8f220ce421f4b16121fc1eaa66c2b174077eadc2",
+        "main-single-t2-workspace.partial-change-compensation.main-v1-r1_guarded-recoverable_fault.jsonl": "71ac07a0d461b2cb878c08335283a26d3bc4c7adc6860c31787848036605c796",
+        "main-single-t2-workspace.partial-change-compensation.main-v1-r2_reliable-clean.jsonl": "bcf524388241833d8a1612e97d4d8c158f39917944d8434928ea3862a79a19d6",
+        "main-single-t2-workspace.partial-change-compensation.main-v1-r2_reliable-recoverable_fault.jsonl": "49c28792aa54248a045fee8471564dc018b32f7589f8902029e7f6732f06811c",
+        "main-single-t2-workspace.reschedule-meeting.main-v1-r0_raw-clean.jsonl": "844124b086b30239633db6c7f1b35a0e629ef695e2ed426f10f7f82f5ea37239",
+        "main-single-t2-workspace.reschedule-meeting.main-v1-r0_raw-recoverable_fault.jsonl": "cc7b2c729c30c40a34206bb599b56c64f03ec460d78ba5c940bb5138207c2733",
+        "main-single-t2-workspace.reschedule-meeting.main-v1-r1_guarded-clean.jsonl": "9291e7c955bbe8d0c012436d5b2e785ed1c56f02af017e2402b8287184f6797e",
+        "main-single-t2-workspace.reschedule-meeting.main-v1-r1_guarded-recoverable_fault.jsonl": "3f4446c045c2eabe8c8ac037e92e41d3031cff516ed0ceac999f4f4160eee3dc",
+        "main-single-t2-workspace.reschedule-meeting.main-v1-r2_reliable-clean.jsonl": "af1c074731203e5e82101d7e66d6d63a5f759f7d60895148b156144accb99727",
+        "main-single-t2-workspace.reschedule-meeting.main-v1-r2_reliable-recoverable_fault.jsonl": "ad164d0c069e9ac8304508ff04a837c6eafaad278ac4b1f1a6742bf0cb83df8e",
+        "main-single-t2-workspace.resolve-schedule-conflict.main-v1-r0_raw-clean.jsonl": "c88b1bfa9c361b46472846bc01eaddd2b2de3a39c18afd9a999f255c533d3cc3",
+        "main-single-t2-workspace.resolve-schedule-conflict.main-v1-r0_raw-recoverable_fault.jsonl": "2dc96cdbcd94e39542e80a6557bf48584771b9025fb3019bb1f83e45b8fdb417",
+        "main-single-t2-workspace.resolve-schedule-conflict.main-v1-r1_guarded-clean.jsonl": "ab8e27a8dcc0abeb0f126f5c7b89902955a3148a2c02c2bcb5a1e75a8aa5305a",
+        "main-single-t2-workspace.resolve-schedule-conflict.main-v1-r1_guarded-recoverable_fault.jsonl": "33f50cd34f6dc1463cd0bbd0a93d51d978097c01ea0f05f5ba33d1e0b8b3acfd",
+        "main-single-t2-workspace.resolve-schedule-conflict.main-v1-r2_reliable-clean.jsonl": "71efef891f2ef7f0b1a64e7d2f6adbbd4dc6f7094795121ebc7791fccfc0ac95",
+        "main-single-t2-workspace.resolve-schedule-conflict.main-v1-r2_reliable-recoverable_fault.jsonl": "dbf9be42edf87495894e80a8bbe2bfd025a0beb58ab5b940f3568d92612afb01",
+        "main-single-t2-workspace.revised-authorization.main-v1-r0_raw-clean.jsonl": "c1ec7ea27510ff5660e5e77f83aef8840ac0ee579c24e2452f2495c7a5375d08",
+        "main-single-t2-workspace.revised-authorization.main-v1-r0_raw-recoverable_fault.jsonl": "62bdf7de5f0271c5760aa9c6ba166f6e3d2b575a1773eea25b851172b2f01d52",
+        "main-single-t2-workspace.revised-authorization.main-v1-r1_guarded-clean.jsonl": "1e0582c4efc0818a66c2182c6f6c8b7b59e7e8e741710cf2ce90211b1674ae86",
+        "main-single-t2-workspace.revised-authorization.main-v1-r1_guarded-recoverable_fault.jsonl": "053e751bcf99ebb31c9aaacffc29ea0c3e73631715ddefb244757531f365e282",
+        "main-single-t2-workspace.revised-authorization.main-v1-r2_reliable-clean.jsonl": "d8c84ee40dfb5f079893763cd988a2f4159b9c031a8c2b58476f04e4226babf7",
+        "main-single-t2-workspace.revised-authorization.main-v1-r2_reliable-recoverable_fault.jsonl": "1a1655aee2c46f0e449cc4015c8579305fab66b43655a51ba6393d80b72ac2b1",
+        "main-single-t2-workspace.schedule-meeting.main-v1-r0_raw-clean.jsonl": "8e2185e03d55deb5cff7c32856a8eff7f4549821d7249f4100eb707f7fc83682",
+        "main-single-t2-workspace.schedule-meeting.main-v1-r0_raw-recoverable_fault.jsonl": "a22e449bf93db18c7968b43060739cf6941f103f1d8ea9110d52bd1526ee0133",
+        "main-single-t2-workspace.schedule-meeting.main-v1-r1_guarded-clean.jsonl": "3108434b33a58d6581150f136781df3a3e268ed59f9ba289223eaee873daee58",
+        "main-single-t2-workspace.schedule-meeting.main-v1-r1_guarded-recoverable_fault.jsonl": "b63c05d649415faa96bfcfcf7fb07a0eb90a7a0ac6d1488915747446472ef68b",
+        "main-single-t2-workspace.schedule-meeting.main-v1-r2_reliable-clean.jsonl": "0362b12a8101a27de2d985bf4c97fcc2c9e6eec6425bfea0cdba8086df74cb88",
+        "main-single-t2-workspace.schedule-meeting.main-v1-r2_reliable-recoverable_fault.jsonl": "08e29c9d30ddf576fa79d1699fbced10e0ca8c2dd1d1ae4077eab8a806f20de8",
+        "main-single-t2-workspace.share-document.main-v1-r0_raw-clean.jsonl": "68ed7ade55f4a3e54700e3b65602b71dd903de0a8c8544bccdb41d7ad8031a06",
+        "main-single-t2-workspace.share-document.main-v1-r0_raw-recoverable_fault.jsonl": "6decfcf50eede573d1534ad5f76419a411e3e121b81a84cc58a37ced74bbf6f7",
+        "main-single-t2-workspace.share-document.main-v1-r1_guarded-clean.jsonl": "774290fbcb869824c45047ed493b3df4809d5b3462249aa9fbc7a18772d1571f",
+        "main-single-t2-workspace.share-document.main-v1-r1_guarded-recoverable_fault.jsonl": "2db067c700f02eb012e9c2586a3d88ad28da48300971519358a3f3003023afd8",
+        "main-single-t2-workspace.share-document.main-v1-r2_reliable-clean.jsonl": "8e02d25d1f3855eac9d4a24818f4c47afaf9600fc79baf4954bafae8a6e93d77",
+        "main-single-t2-workspace.share-document.main-v1-r2_reliable-recoverable_fault.jsonl": "7cd29c63dc1845ce87e9cb53a516ad21cba6e22d7fff00de4d387f5becfae611"
+      }
+    },
+    "pricing": {
+      "cache_hit_input_per_million": 0.0028,
+      "cache_miss_input_per_million": 0.14,
+      "output_per_million": 0.28,
+      "source": "https://api-docs.deepseek.com/quick_start/pricing",
+      "observed_date": "2026-08-08"
+    },
+    "resume_used": false
+  },
+  "main_study_contract": {
+    "contract_version": "arl-main-study-v0.16.0",
+    "primary_hypothesis": "R2 improves recoverable-fault SafePass^3 over R1 while preserving clean SafeSuccess within a five-percentage-point noninferiority margin and without adding severe side effects.",
+    "runtime_names": [
+      "r0_raw",
+      "r1_guarded",
+      "r2_reliable"
+    ],
+    "conditions": [
+      "clean",
+      "recoverable_fault"
+    ],
+    "task_catalog": {
+      "template_count": 24,
+      "domain_template_counts": {
+        "workspace": 8,
+        "retail": 8,
+        "travel": 8
+      },
+      "fault_family_counts": {
+        "postcommit_response_loss": 4,
+        "retryable_invocation_error": 4,
+        "input_schema_drift": 4,
+        "output_schema_drift": 4,
+        "compatible_state_conflict": 4,
+        "bounded_compensation": 4
+      }
+    },
+    "model_slots": [
+      {
+        "slot_id": "strong_api",
+        "role": "strong tool-capable API model",
+        "provider": "deepseek-api",
+        "model_id": "deepseek-v4-flash",
+        "revision": "DeepSeek-V4-Flash/non-thinking",
+        "bound": true
+      },
+      {
+        "slot_id": "local_open",
+        "role": "reproducible local open-weight model",
+        "provider": null,
+        "model_id": null,
+        "revision": null,
+        "bound": false
+      }
+    ],
+    "stages": [
+      {
+        "stage_id": "scripted_smoke",
+        "task_count": 2,
+        "environment_seed_count": 1,
+        "condition_count": 2,
+        "runtime_count": 3,
+        "agent_configuration_count": 1,
+        "sampling_trial_count": 1,
+        "uses_models": false,
+        "confirmatory": false,
+        "episode_count": 12,
+        "formula": "2 × 1 × 2 × 3 × 1 × 1"
+      },
+      {
+        "stage_id": "pilot",
+        "task_count": 8,
+        "environment_seed_count": 1,
+        "condition_count": 2,
+        "runtime_count": 3,
+        "agent_configuration_count": 1,
+        "sampling_trial_count": 3,
+        "uses_models": true,
+        "confirmatory": false,
+        "episode_count": 144,
+        "formula": "8 × 1 × 2 × 3 × 1 × 3"
+      },
+      {
+        "stage_id": "main",
+        "task_count": 24,
+        "environment_seed_count": 1,
+        "condition_count": 2,
+        "runtime_count": 3,
+        "agent_configuration_count": 2,
+        "sampling_trial_count": 3,
+        "uses_models": true,
+        "confirmatory": true,
+        "episode_count": 864,
+        "formula": "24 × 1 × 2 × 3 × 2 × 3"
+      },
+      {
+        "stage_id": "full_three_seed",
+        "task_count": 24,
+        "environment_seed_count": 3,
+        "condition_count": 2,
+        "runtime_count": 3,
+        "agent_configuration_count": 2,
+        "sampling_trial_count": 3,
+        "uses_models": true,
+        "confirmatory": false,
+        "episode_count": 2592,
+        "formula": "24 × 3 × 2 × 3 × 2 × 3"
+      }
+    ],
+    "statistics": {
+      "primary_metric": "fault_safe_pass_at_3_r2_minus_r1",
+      "clean_noninferiority_margin": -0.05,
+      "bootstrap_resamples": 10000,
+      "bootstrap_cluster": "task_template",
+      "timeouts_and_failures_retained": true,
+      "per_model_results_required": true
+    }
+  },
+  "single_slot_preflight": {
+    "formula": "24 tasks × 1 seed × 2 conditions × 3 runtimes × 1 model × 3 trials",
+    "episode_count": 432,
+    "binding": {
+      "provider": "deepseek-api",
+      "model_id": "deepseek-v4-flash",
+      "revision": "DeepSeek-V4-Flash/non-thinking"
+    },
+    "thinking_mode": "disabled",
+    "sampling": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_output_tokens": 512,
+      "sampling_seed": null
+    },
+    "budget_per_episode": {
+      "max_calls": 8,
+      "max_input_tokens": 20000,
+      "max_output_tokens": 2000,
+      "max_monetary_cost": 0.01
+    },
+    "confirmatory": false
+  },
+  "aggregate": {
+    "episode_count": 432,
+    "task_count": 24,
+    "sampling_trial_count": 3,
+    "by_runtime": {
+      "r0_raw": {
+        "by_condition": {
+          "clean": {
+            "episodes": 72,
+            "safe_successes": 55,
+            "safe_pass_at_3_tasks": 18,
+            "safe_pass_at_3_rate": 0.75,
+            "provider_or_protocol_failures": 0
+          },
+          "recoverable_fault": {
+            "episodes": 72,
+            "safe_successes": 27,
+            "safe_pass_at_3_tasks": 8,
+            "safe_pass_at_3_rate": 0.3333333333333333,
+            "provider_or_protocol_failures": 0
+          }
+        },
+        "clean_capable_tasks_at_3": 18,
+        "recovered_fault_tasks_at_3": 8,
+        "recovery_rate_at_3": 0.4444444444444444
+      },
+      "r1_guarded": {
+        "by_condition": {
+          "clean": {
+            "episodes": 72,
+            "safe_successes": 54,
+            "safe_pass_at_3_tasks": 18,
+            "safe_pass_at_3_rate": 0.75,
+            "provider_or_protocol_failures": 0
+          },
+          "recoverable_fault": {
+            "episodes": 72,
+            "safe_successes": 15,
+            "safe_pass_at_3_tasks": 5,
+            "safe_pass_at_3_rate": 0.20833333333333334,
+            "provider_or_protocol_failures": 0
+          }
+        },
+        "clean_capable_tasks_at_3": 18,
+        "recovered_fault_tasks_at_3": 5,
+        "recovery_rate_at_3": 0.2777777777777778
+      },
+      "r2_reliable": {
+        "by_condition": {
+          "clean": {
+            "episodes": 72,
+            "safe_successes": 54,
+            "safe_pass_at_3_tasks": 18,
+            "safe_pass_at_3_rate": 0.75,
+            "provider_or_protocol_failures": 0
+          },
+          "recoverable_fault": {
+            "episodes": 72,
+            "safe_successes": 51,
+            "safe_pass_at_3_tasks": 17,
+            "safe_pass_at_3_rate": 0.7083333333333334,
+            "provider_or_protocol_failures": 0
+          }
+        },
+        "clean_capable_tasks_at_3": 18,
+        "recovered_fault_tasks_at_3": 17,
+        "recovery_rate_at_3": 0.9444444444444444
+      }
+    },
+    "model_usage": {
+      "model_calls": 1684,
+      "external_network_calls": 1684,
+      "input_tokens": 1614032,
+      "cache_hit_tokens": 1500800,
+      "cache_miss_tokens": 113232,
+      "output_tokens": 156207,
+      "reasoning_tokens": 0,
+      "total_tokens": 1770239,
+      "estimated_cost_usd": 0.06379268000000014,
+      "accepted_model_responses": 1684,
+      "model_protocol_error_calls": 0,
+      "provider_error_calls": 0,
+      "latency_ms_p50": 1185,
+      "latency_ms_p95": 1899
+    },
+    "system_fingerprints": [
+      "fp_a18b46594c_prod0820_fp8_kvcache_20260402"
+    ],
+    "primary_effects": {
+      "fault_recovery_rate_at_3_delta_r2_minus_r1": 0.6666666666666666,
+      "clean_safe_pass_at_3_delta_r2_minus_r1": 0.0
+    }
+  },
+  "validity": {
+    "checks": {
+      "single_slot_contract_still_gates_two_model_main": true,
+      "exact_432_single_slot_matrix": true,
+      "complete_24_task_pack": true,
+      "same_policy_contract_across_pairs_and_trials": true,
+      "clean_fault_reset_hash_match": true,
+      "exact_deepseek_flash_binding": true,
+      "non_thinking_mode_has_zero_reasoning_tokens": true,
+      "provider_returned_bound_model_and_fingerprint": true,
+      "zero_provider_transport_or_parse_errors": true,
+      "zero_local_model_protocol_errors": true,
+      "usage_totals_match_provider_records": true,
+      "per_episode_model_budgets_respected": true,
+      "digest_only_traces": true,
+      "credential_absent_from_persisted_evidence": true
+    },
+    "all_selected_checks_passed": true,
+    "policy_digests": {
+      "retail.cancel-order.main-v1": [
+        "7f299994bdd8a98f3a7f250b537c51a22c7afb8b4df5d111d127a636ddbcb706"
+      ],
+      "retail.discounted-order.main-v1": [
+        "dc49da9e19ef4fb79880b653221a0910119e0712123c250a14546076ee4dab2f"
+      ],
+      "retail.duplicate-order.main-v1": [
+        "23e8348534e9ad649ebd41e4f1d0db682a2cd0683ddb138c82eda40cf4f85991"
+      ],
+      "retail.eligible-exchange.main-v1": [
+        "ae99815e1107d90ed03dbb45ff633812dbb321c31de3ee2ef911ba5707ad7dd7"
+      ],
+      "retail.partial-refund.main-v1": [
+        "10575883a88f8c9bc01bc225a48615686899ea678899d597da8720b75b56bb54"
+      ],
+      "retail.payment-order-split.main-v1": [
+        "6c1f9ae508dca9b02d9eb26bfb6c8023e87d846f62f76c41509c2a5de665d01e"
+      ],
+      "retail.shipping-revision.main-v1": [
+        "3e7c302d2322e534c8f6692636ae552a50cb1396dff91651f6c471d3103048e1"
+      ],
+      "retail.stock-substitution.main-v1": [
+        "91570ddbcf07a49349fcbbd3715d91a74232fff99c4aa71e7c7dc916add54751"
+      ],
+      "travel.book-itinerary.main-v1": [
+        "c59579e226503d2753c8cb7f60ae863e1f05501a5bfe787918ddc56f428191dc"
+      ],
+      "travel.bundle-recovery.main-v1": [
+        "71437c221bab6e6b1fc59d2a24923bcf4b75b4073f2096d24bfd34435bf1a2f1"
+      ],
+      "travel.cancel-itinerary.main-v1": [
+        "aaebf1a2fa54582a2510f7343789b899abd5751530fc930f7c2282878112d8b2"
+      ],
+      "travel.clarify-budget.main-v1": [
+        "e377b5d14765733b7d3b5fc8c5d7d63d3adb67ba80fa14a0c0533d19eec81c85"
+      ],
+      "travel.inventory-conflict.main-v1": [
+        "46ec5a0bb576e794d1066042f1d9ef756886c69dc34a62fed05e3b5bb75f06f7"
+      ],
+      "travel.rebook-flight.main-v1": [
+        "d6e155c1c704ee12908970f641f3a0635891e9689a1288af8bb418234523e912"
+      ],
+      "travel.revise-dates.main-v1": [
+        "fd58cb5c6b6bc44aeae1a65d1fcc6d208f3b9529ca28c5be6ed76c36e727b7c8"
+      ],
+      "travel.split-booking-compensation.main-v1": [
+        "629a93f5e6c92d4c99c7de138dd62af1a2cfe4d88bd60d5f515e5c131746869c"
+      ],
+      "workspace.cancel-meeting.main-v1": [
+        "612600262c11e8f6f7cee5ad46b779464f03654edd8ca2a0e1159549842ba4c6"
+      ],
+      "workspace.clarify-attendees.main-v1": [
+        "f6e8d67fc5a60e57ff3d14084a5eecd459f3beaed1590907c1bf1018a25aaba0"
+      ],
+      "workspace.partial-change-compensation.main-v1": [
+        "568e6f9242f83a2c2da8062722df0b6a7ff59f1a2b56ac851472bd4d69eee0ba"
+      ],
+      "workspace.reschedule-meeting.main-v1": [
+        "37aec317a22ed9f43901a614d51de5794d4c63be78079206df3417e40f04f64c"
+      ],
+      "workspace.resolve-schedule-conflict.main-v1": [
+        "cf21d32cd9ffe4a721bad162f11cecae6ae69693dff144b72bf883d0695968a7"
+      ],
+      "workspace.revised-authorization.main-v1": [
+        "7b3e891f59e9edfb58f4a8f4091696723fc96ec78d27a7db40d9db08caba8426"
+      ],
+      "workspace.schedule-meeting.main-v1": [
+        "d0623c9a08fac302c49b9261b42e59146e20aee259772a115eff3e9559e7e5f8"
+      ],
+      "workspace.share-document.main-v1": [
+        "68313057120f5111184db8c585b32ea6945d1ddfe6b2e49df92f70b86e840180"
+      ]
+    },
+    "reset_hashes": {
+      "retail.cancel-order.main-v1": [
+        "68a0cde8c5ea773308a7a86ed6caa800b70ead6d20476acb237c0ea7f763a0ed"
+      ],
+      "retail.discounted-order.main-v1": [
+        "a73e57201e712ee54b70607a1dcc2924aee4bd4050ffd39f127cf3094ef21edf"
+      ],
+      "retail.duplicate-order.main-v1": [
+        "0eaed361c3b5a4981d0ac87262192cdb49874ba72bb150178fc20472255579a9"
+      ],
+      "retail.eligible-exchange.main-v1": [
+        "5fb208a8eb0f93356be5776f68bf2f3efb0ddc6a2c4a48147e3b82d73a969286"
+      ],
+      "retail.partial-refund.main-v1": [
+        "3930a06df1b0d328a556550c89a471f5467496da9b26488d7813366da899cb67"
+      ],
+      "retail.payment-order-split.main-v1": [
+        "2ef8bb5300d636fb4dbd7dff45093e62487561a2a225a1bc1f40c30e98fbf985"
+      ],
+      "retail.shipping-revision.main-v1": [
+        "9ae683446fc84dd22c04891b07dd6a1bde351d18be226b14b724f2850a3322bd"
+      ],
+      "retail.stock-substitution.main-v1": [
+        "b8b4ee7f68ab138e7bfc05041c1e19df89ce1ae577b03b792abe6c70defaa964"
+      ],
+      "travel.book-itinerary.main-v1": [
+        "958c862ec993331b985739d62d96e8b753d9079491851593826051a42b202700"
+      ],
+      "travel.bundle-recovery.main-v1": [
+        "294288fdb05af98eb1e1d65dd4fc148247529f73aac68b294b0f1c96f922541a"
+      ],
+      "travel.cancel-itinerary.main-v1": [
+        "be7adf2dbf619da6ae40b33b7003ce5b25e732ebed5651e6d83e7175cc8ac6c2"
+      ],
+      "travel.clarify-budget.main-v1": [
+        "c8ab0c0fb812021b9f81083a78a7f93004895590a301ea3bdaf3b97a31cfde0e"
+      ],
+      "travel.inventory-conflict.main-v1": [
+        "e407469fdc3daafa10410d56c6784c8befd7bf8418b99ee593bed64aa1e4654c"
+      ],
+      "travel.rebook-flight.main-v1": [
+        "5bc16fcb19471aa229389c2442f6597cb431b3bf61dabe40ba8bffd5ee330dba"
+      ],
+      "travel.revise-dates.main-v1": [
+        "5cd64cdea554e43c70a1faffc4efd4d7c45fae53a7822e78476dc5a9881ad611"
+      ],
+      "travel.split-booking-compensation.main-v1": [
+        "fc3e968484a0e19b597c3b9ac648510acaefec950c22b3d96cf17a60437dbb41"
+      ],
+      "workspace.cancel-meeting.main-v1": [
+        "781cc37a3cacd009b295f76fcc0e34c08f10f05a2483311f04cfddfafdba2348"
+      ],
+      "workspace.clarify-attendees.main-v1": [
+        "841c7a8de7195c02897cb1c2a935ca6c857d63edb6996c3c79ca9c5996b922f7"
+      ],
+      "workspace.partial-change-compensation.main-v1": [
+        "a08eba9b889cf3db2c7dea089a83a6e47bf627b0c71c3edc97ef60adeaee26c8"
+      ],
+      "workspace.reschedule-meeting.main-v1": [
+        "86e051b6a5ac79432e00ba8008dd681355771bbe0e4da09a1ee493d5321f319c"
+      ],
+      "workspace.resolve-schedule-conflict.main-v1": [
+        "e07d3ac2f823d62c56ea0d8c544fb64e620652473275be30416c713020a21af6"
+      ],
+      "workspace.revised-authorization.main-v1": [
+        "a404ea1a32ada5d65f054d1ed1e5a63950deac6cf9e62fbc62f764c9d4b82c6d"
+      ],
+      "workspace.schedule-meeting.main-v1": [
+        "5335425f9db8387898f85d4bed4bbb0dbf5f4bef228e95a292f22b7aeb8d2a8a"
+      ],
+      "workspace.share-document.main-v1": [
+        "d98391c687b7ff2df81e1d43809713a0c19be12e555e2dfdbffa0f09e8e6ae02"
+      ]
+    },
+    "trace_payloads": {
+      "trace_count": 432,
+      "forbidden_payload_findings": {},
+      "passed": true
+    },
+    "credential_audit": {
+      "checked_file_count": 865,
+      "exact_credential_match_files": [],
+      "passed": true
+    }
+  },
+  "readiness": {
+    "model_quality_checks": {
+      "infrastructure_valid": true,
+      "minimum_75_percent_clean_safe_pass_at_3_per_runtime": true,
+      "r2_clean_noninferiority_margin_minus_0_05": true
+    },
+    "ready_for_second_slot_execution": true,
+    "two_exact_model_bindings_present": false,
+    "ready_for_864_episode_confirmatory_main": false
+  },
+  "limitations": [
+    "This executes only the strong API slot and is not the two-model confirmatory main.",
+    "The API exposes neither an immutable serving-weight hash nor a sampling seed.",
+    "The new 16 fixtures have scripted validity evidence but only one model binding so far.",
+    "A second exact model binding is required before the 864-episode contract can run."
+  ],
+  "episode_evidence": {
+    "episode_count": 432,
+    "episodes_sha256": "1ae0f32f2c8667f62d03c285c13fdba733281d444d299e2a74822ac78d61e070",
+    "full_summary_sha256": "962a73f1369c09707dc0be7cc516c20bcd548625c47caed0b9d8af3656aa262f",
+    "full_summary_publicly_committed": false,
+    "full_episode_records": "local ignored full-summary.json and study/results",
+    "provider_content_persisted": false
+  }
+}

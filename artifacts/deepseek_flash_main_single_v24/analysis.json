@@ -1,0 +1,1382 @@
+{
+  "metadata": {
+    "input_summary_sha256": "962a73f1369c09707dc0be7cc516c20bcd548625c47caed0b9d8af3656aa262f",
+    "input_run_id": "arl-deepseek-flash-main-single-slot-v0.24.0",
+    "input_binding": {
+      "provider": "deepseek-api",
+      "model_id": "deepseek-v4-flash",
+      "revision": "DeepSeek-V4-Flash/non-thinking"
+    },
+    "source_manifest": {
+      "algorithm": "sha256(canonical_json({relative_path: file_sha256}))",
+      "sha256": "e91694df7191b3bae280cf4ab04ad6044684f55b1456d48fadcd251a89eafc7e",
+      "files": {
+        "scripts/build_main_single_slot_analysis.py": "0d004c7b963b9a3468be04b68afbd7fa2d458c65b91d2a506d89b480a940f9c3",
+        "src/arl/core/types.py": "58862356fa7aca2817fa1f30a7136409605501efc5a44b8e0a54b4eb2beb76b2",
+        "src/arl_analysis/__init__.py": "accc6231bb395b7b480939eb52c0c21726a359ad6b839625b980b2c6d4315cab",
+        "src/arl_analysis/bootstrap.py": "732a1a244911700a6d7af977e82bb54adfacd499d27c1c9e7c70a8086e29181d"
+      }
+    },
+    "raw_model_content_persisted": false
+  },
+  "analysis_contract": {
+    "analysis_id": "arl-main-single-slot-analysis-v1",
+    "primary_unit": "task template",
+    "safe_pass_at_3": "all three sampling trials must be SafeSuccess",
+    "bootstrap": {
+      "method": "paired nonparametric task-cluster bootstrap",
+      "resampling_unit": "task template with all R1/R2 clean/fault trial cells kept together",
+      "safe_pass_at_3": "all three sampling trials must be SafeSuccess",
+      "confidence_interval": "two-sided 95% nearest-rank percentile interval",
+      "iterations": 10000,
+      "seed": 20260808,
+      "task_count": 24
+    }
+  },
+  "task_count": 24,
+  "task_rows_sha256": "12deebac1925271b13b3c18fa14026e0cf5f61427ec981f705873ecd3b9ab52a",
+  "task_rows": [
+    {
+      "template_id": "retail.cancel-order.main-v1",
+      "domain": "retail",
+      "fault_family": "input_schema_drift",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "retail.discounted-order.main-v1",
+      "domain": "retail",
+      "fault_family": "postcommit_response_loss",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "retail.duplicate-order.main-v1",
+      "domain": "retail",
+      "fault_family": "retryable_invocation_error",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": false,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": false,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": false,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        }
+      }
+    },
+    {
+      "template_id": "retail.eligible-exchange.main-v1",
+      "domain": "retail",
+      "fault_family": "retryable_invocation_error",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "retail.partial-refund.main-v1",
+      "domain": "retail",
+      "fault_family": "postcommit_response_loss",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "retail.payment-order-split.main-v1",
+      "domain": "retail",
+      "fault_family": "bounded_compensation",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": false,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": false,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": false,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        }
+      }
+    },
+    {
+      "template_id": "retail.shipping-revision.main-v1",
+      "domain": "retail",
+      "fault_family": "compatible_state_conflict",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "retail.stock-substitution.main-v1",
+      "domain": "retail",
+      "fault_family": "output_schema_drift",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "travel.book-itinerary.main-v1",
+      "domain": "travel",
+      "fault_family": "input_schema_drift",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "travel.bundle-recovery.main-v1",
+      "domain": "travel",
+      "fault_family": "bounded_compensation",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "travel.cancel-itinerary.main-v1",
+      "domain": "travel",
+      "fault_family": "input_schema_drift",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": false,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": false,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": false,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        }
+      }
+    },
+    {
+      "template_id": "travel.clarify-budget.main-v1",
+      "domain": "travel",
+      "fault_family": "output_schema_drift",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": false,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": false,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": false,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        }
+      }
+    },
+    {
+      "template_id": "travel.inventory-conflict.main-v1",
+      "domain": "travel",
+      "fault_family": "compatible_state_conflict",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "travel.rebook-flight.main-v1",
+      "domain": "travel",
+      "fault_family": "retryable_invocation_error",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "travel.revise-dates.main-v1",
+      "domain": "travel",
+      "fault_family": "output_schema_drift",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "travel.split-booking-compensation.main-v1",
+      "domain": "travel",
+      "fault_family": "bounded_compensation",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        }
+      }
+    },
+    {
+      "template_id": "workspace.cancel-meeting.main-v1",
+      "domain": "workspace",
+      "fault_family": "retryable_invocation_error",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "workspace.clarify-attendees.main-v1",
+      "domain": "workspace",
+      "fault_family": "output_schema_drift",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "workspace.partial-change-compensation.main-v1",
+      "domain": "workspace",
+      "fault_family": "bounded_compensation",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": false,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": false,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": false,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        }
+      }
+    },
+    {
+      "template_id": "workspace.reschedule-meeting.main-v1",
+      "domain": "workspace",
+      "fault_family": "postcommit_response_loss",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "workspace.resolve-schedule-conflict.main-v1",
+      "domain": "workspace",
+      "fault_family": "compatible_state_conflict",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "workspace.revised-authorization.main-v1",
+      "domain": "workspace",
+      "fault_family": "compatible_state_conflict",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": false,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": false,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": false,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        }
+      }
+    },
+    {
+      "template_id": "workspace.schedule-meeting.main-v1",
+      "domain": "workspace",
+      "fault_family": "postcommit_response_loss",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "workspace.share-document.main-v1",
+      "domain": "workspace",
+      "fault_family": "input_schema_drift",
+      "runtimes": {
+        "r0_raw": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    }
+  ],
+  "by_fault_family": {
+    "bounded_compensation": {
+      "by_runtime": {
+        "r0_raw": {
+          "task_count": 4,
+          "clean_safe_pass_at_3_tasks": 2,
+          "clean_safe_pass_at_3_rate": 0.5,
+          "fault_safe_pass_at_3_tasks": 0,
+          "fault_safe_pass_at_3_rate": 0.0,
+          "recovered_fault_tasks_at_3": 0,
+          "fault_recovery_rate_at_3": 0.0
+        },
+        "r1_guarded": {
+          "task_count": 4,
+          "clean_safe_pass_at_3_tasks": 2,
+          "clean_safe_pass_at_3_rate": 0.5,
+          "fault_safe_pass_at_3_tasks": 0,
+          "fault_safe_pass_at_3_rate": 0.0,
+          "recovered_fault_tasks_at_3": 0,
+          "fault_recovery_rate_at_3": 0.0
+        },
+        "r2_reliable": {
+          "task_count": 4,
+          "clean_safe_pass_at_3_tasks": 2,
+          "clean_safe_pass_at_3_rate": 0.5,
+          "fault_safe_pass_at_3_tasks": 1,
+          "fault_safe_pass_at_3_rate": 0.25,
+          "recovered_fault_tasks_at_3": 1,
+          "fault_recovery_rate_at_3": 0.5
+        }
+      },
+      "fault_recovery_rate_at_3_delta_r2_minus_r1": 0.5
+    },
+    "compatible_state_conflict": {
+      "by_runtime": {
+        "r0_raw": {
+          "task_count": 4,
+          "clean_safe_pass_at_3_tasks": 3,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 1,
+          "fault_safe_pass_at_3_rate": 0.25,
+          "recovered_fault_tasks_at_3": 1,
+          "fault_recovery_rate_at_3": 0.3333333333333333
+        },
+        "r1_guarded": {
+          "task_count": 4,
+          "clean_safe_pass_at_3_tasks": 3,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 2,
+          "fault_safe_pass_at_3_rate": 0.5,
+          "recovered_fault_tasks_at_3": 2,
+          "fault_recovery_rate_at_3": 0.6666666666666666
+        },
+        "r2_reliable": {
+          "task_count": 4,
+          "clean_safe_pass_at_3_tasks": 3,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 3,
+          "fault_safe_pass_at_3_rate": 0.75,
+          "recovered_fault_tasks_at_3": 3,
+          "fault_recovery_rate_at_3": 1.0
+        }
+      },
+      "fault_recovery_rate_at_3_delta_r2_minus_r1": 0.33333333333333337
+    },
+    "input_schema_drift": {
+      "by_runtime": {
+        "r0_raw": {
+          "task_count": 4,
+          "clean_safe_pass_at_3_tasks": 3,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 0,
+          "fault_safe_pass_at_3_rate": 0.0,
+          "recovered_fault_tasks_at_3": 0,
+          "fault_recovery_rate_at_3": 0.0
+        },
+        "r1_guarded": {
+          "task_count": 4,
+          "clean_safe_pass_at_3_tasks": 3,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 0,
+          "fault_safe_pass_at_3_rate": 0.0,
+          "recovered_fault_tasks_at_3": 0,
+          "fault_recovery_rate_at_3": 0.0
+        },
+        "r2_reliable": {
+          "task_count": 4,
+          "clean_safe_pass_at_3_tasks": 3,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 3,
+          "fault_safe_pass_at_3_rate": 0.75,
+          "recovered_fault_tasks_at_3": 3,
+          "fault_recovery_rate_at_3": 1.0
+        }
+      },
+      "fault_recovery_rate_at_3_delta_r2_minus_r1": 1.0
+    },
+    "output_schema_drift": {
+      "by_runtime": {
+        "r0_raw": {
+          "task_count": 4,
+          "clean_safe_pass_at_3_tasks": 3,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 3,
+          "fault_safe_pass_at_3_rate": 0.75,
+          "recovered_fault_tasks_at_3": 3,
+          "fault_recovery_rate_at_3": 1.0
+        },
+        "r1_guarded": {
+          "task_count": 4,
+          "clean_safe_pass_at_3_tasks": 3,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 0,
+          "fault_safe_pass_at_3_rate": 0.0,
+          "recovered_fault_tasks_at_3": 0,
+          "fault_recovery_rate_at_3": 0.0
+        },
+        "r2_reliable": {
+          "task_count": 4,
+          "clean_safe_pass_at_3_tasks": 3,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 3,
+          "fault_safe_pass_at_3_rate": 0.75,
+          "recovered_fault_tasks_at_3": 3,
+          "fault_recovery_rate_at_3": 1.0
+        }
+      },
+      "fault_recovery_rate_at_3_delta_r2_minus_r1": 1.0
+    },
+    "postcommit_response_loss": {
+      "by_runtime": {
+        "r0_raw": {
+          "task_count": 4,
+          "clean_safe_pass_at_3_tasks": 4,
+          "clean_safe_pass_at_3_rate": 1.0,
+          "fault_safe_pass_at_3_tasks": 1,
+          "fault_safe_pass_at_3_rate": 0.25,
+          "recovered_fault_tasks_at_3": 1,
+          "fault_recovery_rate_at_3": 0.25
+        },
+        "r1_guarded": {
+          "task_count": 4,
+          "clean_safe_pass_at_3_tasks": 4,
+          "clean_safe_pass_at_3_rate": 1.0,
+          "fault_safe_pass_at_3_tasks": 0,
+          "fault_safe_pass_at_3_rate": 0.0,
+          "recovered_fault_tasks_at_3": 0,
+          "fault_recovery_rate_at_3": 0.0
+        },
+        "r2_reliable": {
+          "task_count": 4,
+          "clean_safe_pass_at_3_tasks": 4,
+          "clean_safe_pass_at_3_rate": 1.0,
+          "fault_safe_pass_at_3_tasks": 4,
+          "fault_safe_pass_at_3_rate": 1.0,
+          "recovered_fault_tasks_at_3": 4,
+          "fault_recovery_rate_at_3": 1.0
+        }
+      },
+      "fault_recovery_rate_at_3_delta_r2_minus_r1": 1.0
+    },
+    "retryable_invocation_error": {
+      "by_runtime": {
+        "r0_raw": {
+          "task_count": 4,
+          "clean_safe_pass_at_3_tasks": 3,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 3,
+          "fault_safe_pass_at_3_rate": 0.75,
+          "recovered_fault_tasks_at_3": 3,
+          "fault_recovery_rate_at_3": 1.0
+        },
+        "r1_guarded": {
+          "task_count": 4,
+          "clean_safe_pass_at_3_tasks": 3,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 3,
+          "fault_safe_pass_at_3_rate": 0.75,
+          "recovered_fault_tasks_at_3": 3,
+          "fault_recovery_rate_at_3": 1.0
+        },
+        "r2_reliable": {
+          "task_count": 4,
+          "clean_safe_pass_at_3_tasks": 3,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 3,
+          "fault_safe_pass_at_3_rate": 0.75,
+          "recovered_fault_tasks_at_3": 3,
+          "fault_recovery_rate_at_3": 1.0
+        }
+      },
+      "fault_recovery_rate_at_3_delta_r2_minus_r1": 0.0
+    }
+  },
+  "by_domain": {
+    "retail": {
+      "by_runtime": {
+        "r0_raw": {
+          "task_count": 8,
+          "clean_safe_pass_at_3_tasks": 6,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 3,
+          "fault_safe_pass_at_3_rate": 0.375,
+          "recovered_fault_tasks_at_3": 3,
+          "fault_recovery_rate_at_3": 0.5
+        },
+        "r1_guarded": {
+          "task_count": 8,
+          "clean_safe_pass_at_3_tasks": 6,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 1,
+          "fault_safe_pass_at_3_rate": 0.125,
+          "recovered_fault_tasks_at_3": 1,
+          "fault_recovery_rate_at_3": 0.16666666666666666
+        },
+        "r2_reliable": {
+          "task_count": 8,
+          "clean_safe_pass_at_3_tasks": 6,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 6,
+          "fault_safe_pass_at_3_rate": 0.75,
+          "recovered_fault_tasks_at_3": 6,
+          "fault_recovery_rate_at_3": 1.0
+        }
+      },
+      "fault_recovery_rate_at_3_delta_r2_minus_r1": 0.8333333333333334
+    },
+    "travel": {
+      "by_runtime": {
+        "r0_raw": {
+          "task_count": 8,
+          "clean_safe_pass_at_3_tasks": 6,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 3,
+          "fault_safe_pass_at_3_rate": 0.375,
+          "recovered_fault_tasks_at_3": 3,
+          "fault_recovery_rate_at_3": 0.5
+        },
+        "r1_guarded": {
+          "task_count": 8,
+          "clean_safe_pass_at_3_tasks": 6,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 2,
+          "fault_safe_pass_at_3_rate": 0.25,
+          "recovered_fault_tasks_at_3": 2,
+          "fault_recovery_rate_at_3": 0.3333333333333333
+        },
+        "r2_reliable": {
+          "task_count": 8,
+          "clean_safe_pass_at_3_tasks": 6,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 5,
+          "fault_safe_pass_at_3_rate": 0.625,
+          "recovered_fault_tasks_at_3": 5,
+          "fault_recovery_rate_at_3": 0.8333333333333334
+        }
+      },
+      "fault_recovery_rate_at_3_delta_r2_minus_r1": 0.5
+    },
+    "workspace": {
+      "by_runtime": {
+        "r0_raw": {
+          "task_count": 8,
+          "clean_safe_pass_at_3_tasks": 6,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 2,
+          "fault_safe_pass_at_3_rate": 0.25,
+          "recovered_fault_tasks_at_3": 2,
+          "fault_recovery_rate_at_3": 0.3333333333333333
+        },
+        "r1_guarded": {
+          "task_count": 8,
+          "clean_safe_pass_at_3_tasks": 6,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 2,
+          "fault_safe_pass_at_3_rate": 0.25,
+          "recovered_fault_tasks_at_3": 2,
+          "fault_recovery_rate_at_3": 0.3333333333333333
+        },
+        "r2_reliable": {
+          "task_count": 8,
+          "clean_safe_pass_at_3_tasks": 6,
+          "clean_safe_pass_at_3_rate": 0.75,
+          "fault_safe_pass_at_3_tasks": 6,
+          "fault_safe_pass_at_3_rate": 0.75,
+          "recovered_fault_tasks_at_3": 6,
+          "fault_recovery_rate_at_3": 1.0
+        }
+      },
+      "fault_recovery_rate_at_3_delta_r2_minus_r1": 0.6666666666666667
+    }
+  },
+  "clean_capability": {
+    "all_runtime_unsolved_task_count": 6,
+    "all_runtime_unsolved_tasks": [
+      "retail.duplicate-order.main-v1",
+      "retail.payment-order-split.main-v1",
+      "travel.cancel-itinerary.main-v1",
+      "travel.clarify-budget.main-v1",
+      "workspace.partial-change-compensation.main-v1",
+      "workspace.revised-authorization.main-v1"
+    ],
+    "r2_unsolved_task_count": 6,
+    "r2_unsolved_tasks": [
+      "retail.duplicate-order.main-v1",
+      "retail.payment-order-split.main-v1",
+      "travel.cancel-itinerary.main-v1",
+      "travel.clarify-budget.main-v1",
+      "workspace.partial-change-compensation.main-v1",
+      "workspace.revised-authorization.main-v1"
+    ]
+  },
+  "recoverable_fault_mechanism_counts": {
+    "r0_raw": {
+      "retry_count": 0,
+      "confirmation_count": 0,
+      "schema_adaptation_count": 0,
+      "result_normalization_count": 0,
+      "conflict_rebase_count": 0,
+      "compensation_action_count": 0
+    },
+    "r1_guarded": {
+      "retry_count": 21,
+      "confirmation_count": 0,
+      "schema_adaptation_count": 0,
+      "result_normalization_count": 0,
+      "conflict_rebase_count": 0,
+      "compensation_action_count": 0
+    },
+    "r2_reliable": {
+      "retry_count": 9,
+      "confirmation_count": 12,
+      "schema_adaptation_count": 9,
+      "result_normalization_count": 15,
+      "conflict_rebase_count": 12,
+      "compensation_action_count": 27
+    }
+  },
+  "recoverable_fault_failure_codes": {
+    "r0_raw": {
+      "model_budget_exhausted": 7,
+      "none": 65
+    },
+    "r1_guarded": {
+      "model_budget_exhausted": 9,
+      "none": 63
+    },
+    "r2_reliable": {
+      "model_budget_exhausted": 3,
+      "none": 69
+    }
+  },
+  "bootstrap": {
+    "analysis_contract": {
+      "method": "paired nonparametric task-cluster bootstrap",
+      "resampling_unit": "task template with all R1/R2 clean/fault trial cells kept together",
+      "safe_pass_at_3": "all three sampling trials must be SafeSuccess",
+      "confidence_interval": "two-sided 95% nearest-rank percentile interval",
+      "iterations": 10000,
+      "seed": 20260808,
+      "task_count": 24
+    },
+    "task_clusters": [
+      {
+        "template_id": "retail.cancel-order.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          }
+        }
+      },
+      {
+        "template_id": "retail.discounted-order.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          }
+        }
+      },
+      {
+        "template_id": "retail.duplicate-order.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": false,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": false,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          }
+        }
+      },
+      {
+        "template_id": "retail.eligible-exchange.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          }
+        }
+      },
+      {
+        "template_id": "retail.partial-refund.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          }
+        }
+      },
+      {
+        "template_id": "retail.payment-order-split.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": false,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": false,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          }
+        }
+      },
+      {
+        "template_id": "retail.shipping-revision.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          }
+        }
+      },
+      {
+        "template_id": "retail.stock-substitution.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          }
+        }
+      },
+      {
+        "template_id": "travel.book-itinerary.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          }
+        }
+      },
+      {
+        "template_id": "travel.bundle-recovery.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          }
+        }
+      },
+      {
+        "template_id": "travel.cancel-itinerary.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": false,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": false,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          }
+        }
+      },
+      {
+        "template_id": "travel.clarify-budget.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": false,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": false,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          }
+        }
+      },
+      {
+        "template_id": "travel.inventory-conflict.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          }
+        }
+      },
+      {
+        "template_id": "travel.rebook-flight.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          }
+        }
+      },
+      {
+        "template_id": "travel.revise-dates.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          }
+        }
+      },
+      {
+        "template_id": "travel.split-booking-compensation.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          }
+        }
+      },
+      {
+        "template_id": "workspace.cancel-meeting.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          }
+        }
+      },
+      {
+        "template_id": "workspace.clarify-attendees.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          }
+        }
+      },
+      {
+        "template_id": "workspace.partial-change-compensation.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": false,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": false,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          }
+        }
+      },
+      {
+        "template_id": "workspace.reschedule-meeting.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          }
+        }
+      },
+      {
+        "template_id": "workspace.resolve-schedule-conflict.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          }
+        }
+      },
+      {
+        "template_id": "workspace.revised-authorization.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": false,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": false,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          }
+        }
+      },
+      {
+        "template_id": "workspace.schedule-meeting.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          }
+        }
+      },
+      {
+        "template_id": "workspace.share-document.main-v1",
+        "runtimes": {
+          "r1_guarded": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": false,
+            "recovered_fault": false
+          },
+          "r2_reliable": {
+            "clean_safe_pass_at_3": true,
+            "fault_safe_pass_at_3": true,
+            "recovered_fault": true
+          }
+        }
+      }
+    ],
+    "task_cluster_sha256": "1ef411e54e59f4f54e02a4fa1d7b31640d9a106413fba10af3ea3d6126a433d1",
+    "estimates": {
+      "clean_safe_pass_at_3_delta_r2_minus_r1": {
+        "observed": 0.0,
+        "bootstrap_median": 0.0,
+        "ci_95_percentile": [
+          0.0,
+          0.0
+        ],
+        "probability_greater_than_zero": 0.0
+      },
+      "fault_recovery_rate_at_3_delta_r2_minus_r1": {
+        "observed": 0.6666666666666666,
+        "bootstrap_median": 0.6666666666666667,
+        "ci_95_percentile": [
+          0.4444444444444444,
+          0.8823529411764706
+        ],
+        "probability_greater_than_zero": 1.0
+      },
+      "r1_guarded_clean_safe_pass_at_3_rate": {
+        "observed": 0.75,
+        "bootstrap_median": 0.75,
+        "ci_95_percentile": [
+          0.5833333333333334,
+          0.9166666666666666
+        ],
+        "probability_greater_than_zero": 1.0
+      },
+      "r1_guarded_fault_recovery_rate_at_3": {
+        "observed": 0.2777777777777778,
+        "bootstrap_median": 0.2777777777777778,
+        "ci_95_percentile": [
+          0.07692307692307693,
+          0.5
+        ],
+        "probability_greater_than_zero": 0.9965
+      },
+      "r2_reliable_clean_safe_pass_at_3_rate": {
+        "observed": 0.75,
+        "bootstrap_median": 0.75,
+        "ci_95_percentile": [
+          0.5833333333333334,
+          0.9166666666666666
+        ],
+        "probability_greater_than_zero": 1.0
+      },
+      "r2_reliable_fault_recovery_rate_at_3": {
+        "observed": 0.9444444444444444,
+        "bootstrap_median": 0.9473684210526315,
+        "ci_95_percentile": [
+          0.8125,
+          1.0
+        ],
+        "probability_greater_than_zero": 1.0
+      }
+    },
+    "validity": {
+      "checks": {
+        "complete_three_trial_cells": true,
+        "paired_r1_r2_task_clusters": true,
+        "exact_iteration_count_per_metric": true,
+        "task_is_the_resampling_unit": true
+      },
+      "all_selected_checks_passed": true
+    },
+    "limitations": [
+      "The interval describes variation across the observed synthetic task templates.",
+      "It does not capture model-provider drift, new domains, or unseen fault families.",
+      "Small task packs produce discrete, potentially wide percentile intervals."
+    ]
+  },
+  "validity": {
+    "checks": {
+      "input_infrastructure_valid": true,
+      "exact_432_episode_input": true,
+      "exact_24_task_rows": true,
+      "six_fault_families_with_four_tasks_each": true,
+      "three_domains_with_eight_tasks_each": true,
+      "bootstrap_valid": true,
+      "bootstrap_observed_matches_frozen_aggregate": true
+    },
+    "all_selected_checks_passed": true
+  },
+  "limitations": [
+    "This analysis covers one exact model binding and is not the two-model main study.",
+    "Six tasks fail SafePass@3 under clean conditions for all three runtimes.",
+    "Fault-family and domain subgroups contain only four and eight tasks, respectively.",
+    "Bootstrap probability-above-zero is descriptive and is not a p-value."
+  ]
+}

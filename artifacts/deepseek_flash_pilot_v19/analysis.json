@@ -1,0 +1,225 @@
+{
+  "metadata": {
+    "package_version": "0.22.0",
+    "input_summary_sha256": "3e3d89cfdce912b400ff987d89616779ecc2563f223c1359cf34dc29e67b07a1",
+    "input_run_id": "arl-deepseek-flash-model-pilot-v0.19.0",
+    "input_binding": {
+      "provider": "deepseek-api",
+      "model_id": "deepseek-v4-flash",
+      "revision": "DeepSeek-V4-Flash/non-thinking"
+    },
+    "source_manifest": {
+      "algorithm": "sha256(canonical_json({relative_path: file_sha256}))",
+      "sha256": "088a27cbd8981684d412a849a2d4e7c3030927e0e473cb1ed3ba9633c7e14038",
+      "files": {
+        "scripts/build_model_pilot_analysis.py": "0ccd3028f2c5ceeba7e12ddbbc2b73cd1f70f28112647786d28cf15841a50519",
+        "src/arl/core/types.py": "58862356fa7aca2817fa1f30a7136409605501efc5a44b8e0a54b4eb2beb76b2",
+        "src/arl_analysis/__init__.py": "accc6231bb395b7b480939eb52c0c21726a359ad6b839625b980b2c6d4315cab",
+        "src/arl_analysis/bootstrap.py": "732a1a244911700a6d7af977e82bb54adfacd499d27c1c9e7c70a8086e29181d"
+      }
+    },
+    "raw_model_content_persisted": false
+  },
+  "analysis_contract": {
+    "method": "paired nonparametric task-cluster bootstrap",
+    "resampling_unit": "task template with all R1/R2 clean/fault trial cells kept together",
+    "safe_pass_at_3": "all three sampling trials must be SafeSuccess",
+    "confidence_interval": "two-sided 95% nearest-rank percentile interval",
+    "iterations": 10000,
+    "seed": 20260808,
+    "task_count": 8
+  },
+  "task_clusters": [
+    {
+      "template_id": "retail.discounted-order.main-v1",
+      "runtimes": {
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "retail.eligible-exchange.main-v1",
+      "runtimes": {
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "retail.shipping-revision.main-v1",
+      "runtimes": {
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "travel.book-itinerary.main-v1",
+      "runtimes": {
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "travel.bundle-recovery.main-v1",
+      "runtimes": {
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "workspace.clarify-attendees.main-v1",
+      "runtimes": {
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "workspace.reschedule-meeting.main-v1",
+      "runtimes": {
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    },
+    {
+      "template_id": "workspace.schedule-meeting.main-v1",
+      "runtimes": {
+        "r1_guarded": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": false,
+          "recovered_fault": false
+        },
+        "r2_reliable": {
+          "clean_safe_pass_at_3": true,
+          "fault_safe_pass_at_3": true,
+          "recovered_fault": true
+        }
+      }
+    }
+  ],
+  "task_cluster_sha256": "0663e0438a19076d6923049b1dd672df2a066415bd08fe0e69cdb2651ba4afbc",
+  "estimates": {
+    "clean_safe_pass_at_3_delta_r2_minus_r1": {
+      "observed": 0.0,
+      "bootstrap_median": 0.0,
+      "ci_95_percentile": [
+        0.0,
+        0.0
+      ],
+      "probability_greater_than_zero": 0.0
+    },
+    "fault_recovery_rate_at_3_delta_r2_minus_r1": {
+      "observed": 0.875,
+      "bootstrap_median": 0.875,
+      "ci_95_percentile": [
+        0.625,
+        1.0
+      ],
+      "probability_greater_than_zero": 1.0
+    },
+    "r1_guarded_clean_safe_pass_at_3_rate": {
+      "observed": 1.0,
+      "bootstrap_median": 1.0,
+      "ci_95_percentile": [
+        1.0,
+        1.0
+      ],
+      "probability_greater_than_zero": 1.0
+    },
+    "r1_guarded_fault_recovery_rate_at_3": {
+      "observed": 0.125,
+      "bootstrap_median": 0.125,
+      "ci_95_percentile": [
+        0.0,
+        0.375
+      ],
+      "probability_greater_than_zero": 0.6562
+    },
+    "r2_reliable_clean_safe_pass_at_3_rate": {
+      "observed": 1.0,
+      "bootstrap_median": 1.0,
+      "ci_95_percentile": [
+        1.0,
+        1.0
+      ],
+      "probability_greater_than_zero": 1.0
+    },
+    "r2_reliable_fault_recovery_rate_at_3": {
+      "observed": 1.0,
+      "bootstrap_median": 1.0,
+      "ci_95_percentile": [
+        1.0,
+        1.0
+      ],
+      "probability_greater_than_zero": 1.0
+    }
+  },
+  "validity": {
+    "checks": {
+      "complete_three_trial_cells": true,
+      "paired_r1_r2_task_clusters": true,
+      "exact_iteration_count_per_metric": true,
+      "task_is_the_resampling_unit": true
+    },
+    "all_selected_checks_passed": true
+  },
+  "limitations": [
+    "The interval describes variation across the observed synthetic task templates.",
+    "It does not capture model-provider drift, new domains, or unseen fault families.",
+    "Small task packs produce discrete, potentially wide percentile intervals."
+  ]
+}

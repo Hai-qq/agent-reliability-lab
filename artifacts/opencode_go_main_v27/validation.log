@@ -1,0 +1,75 @@
+OpenCode Go Two-Model Main v0.27 validation
+Date: 2026-08-09
+Disposition: COMPLETED, INVALID, EXPLORATORY ONLY
+
+Frozen bindings
+- opencode-go/deepseek-v4-flash/listing-2026-08-09/non-thinking
+- opencode-go/mimo-v2.5/listing-2026-08-09/default-inference
+- shared endpoint: https://opencode.ai/zen/go/v1/chat/completions
+
+Formal command
+ARL_PYTHON="$(uv python find 3.12)"
+env OPENCODE_GO_API_KEY="<process-only secret>" PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$ARL_PYTHON" scripts/run_opencode_go_main.py --stage formal --workspace artifacts/opencode_go_main_v27/study --summary artifacts/opencode_go_main_v27/full-summary.json --timeout-seconds 120
+
+Formal result
+- exit: 0
+- Python: 3.12.12
+- episodes: 864/864
+- total tokens: 3,703,051
+- usage-value estimate: USD 0.3720984904 (not an incremental subscription charge)
+- infrastructure validity: false
+- confirmatory readiness: false
+
+Failed infrastructure checks
+- zero_provider_transport_or_parse_errors: false
+  - opencode-mimo-t0-travel.revise-dates.main-v1-r0_raw-clean
+  - error: provider_http_503
+- zero_local_model_protocol_errors: false
+  - opencode-mimo-t2-retail.payment-order-split.main-v1-r1_guarded-clean
+  - error: model_protocol_error
+
+Model-quality readiness
+- Flash clean SafePass@3: R0 18/24; R1 18/24; R2 18/24
+- MiMo clean SafePass@3: R0 16/24; R1 17/24; R2 19/24
+- MiMo minimum 75% clean SafePass@3 per runtime: false
+
+Descriptive diagnostics only
+- Flash recovered fault tasks at R1/R2: 5/18 and 17/18
+- MiMo recovered fault tasks at R1/R2: 5/17 and 15/19
+- No confidence interval or confirmatory hypothesis result was generated.
+
+Analysis gate command
+env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 "$(uv python find 3.12)" scripts/build_opencode_go_analysis.py --input artifacts/opencode_go_main_v27/full-summary.json --output artifacts/opencode_go_main_v27/analysis.json
+
+Analysis gate result
+- exit: non-zero, expected fail-closed behavior
+- RuntimeError: Analysis input must pass the infrastructure validity gate
+- analysis.json: absent
+
+Evidence integrity
+- compact summary: 166,938 bytes
+- compact summary sha256: e6ca5e103e61019e5ed263c275a51c6c9458d13d9db35d5a7316dee92982a6dd
+- full summary: 8,048,978 bytes (local ignored evidence)
+- full summary sha256: 0349bf15636101ac003c2b844bb6ed9b54c7013bca45726aea541bcc0eb10861
+- study manifest sha256: 43a0e0360796b716d3b9212aaa1b5a20831b654b97d72a36678649b0a574ae2f
+- study state sha256: 4924d40317e239bfcf4d7b9e3a10b34d26d502d89f47ff8981432398c30c3a00
+- source manifest: 35 files, 0 current mismatches
+- source manifest sha256: 77dd9e4ae9a05da6bdefa1554ab72df1764d743aaa46f1e8c65bb41baee3ec3e
+- trace manifest: 864 files
+- trace manifest sha256: ece99158acbb5a94da1d6815919578ab21d0ebcfe2dd411248c0f391ebd2f35f
+- credential audit: 1,729 files checked, 0 exact credential matches
+- digest-only trace audit: 864/864 passed
+
+Passed validity boundaries
+- exact 864-episode matrix and both frozen model bindings
+- complete 24-task pack, equal policy contracts, equal reset states
+- requested/returned model IDs and inference controls
+- provider usage reconciliation and all per-episode hard budgets
+- digest-only traces and credential absence
+
+Limitations
+- Both models share OpenCode Go, so this is not cross-provider evidence.
+- Listing dates are not immutable serving-weight hashes.
+- The provider did not return a system_fingerprint for these calls.
+- The two unrecovered errors invalidate the entire preregistered run even though
+  the other 862 episodes completed.
