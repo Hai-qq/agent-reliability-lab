@@ -2,7 +2,10 @@
 
 ARL releases are built from a clean tagged checkout. The GitHub Release should include
 the wheel, sdist, checksums, public smoke evidence bundle, SPDX SBOM, source manifest,
-and GitHub artifact attestation. Verify downloaded assets before depositing them.
+and GitHub artifact attestation. The release job verifies the wheel in a fresh virtual
+environment, then installs that same wheel without dependencies before generating
+metadata with the packaged verifier code. Verify downloaded assets before depositing
+them.
 
 For long-term preservation, a maintainer may connect the repository or upload the
 verified release to a DOI-capable archival repository such as Zenodo or an institutional

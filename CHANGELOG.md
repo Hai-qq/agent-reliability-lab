@@ -28,6 +28,8 @@ No provider study is scheduled by this changelog.
 - Historical source manifests resolve historical Git bytes instead of incorrectly
   requiring equality with the current release worktree.
 - Validity error reporting no longer treats an aggregate boolean as a check object.
+- Release metadata generation installs the verified wheel before importing packaged
+  verifier code in the release runner.
 
 ### Evidence status
 
