@@ -48,7 +48,11 @@ def tracked_manifest(root: Path) -> dict[str, object]:
 def evidence_zip(root: Path) -> bytes:
     output = __import__("io").BytesIO()
     with zipfile.ZipFile(output, "w", zipfile.ZIP_STORED) as archive:
-        for path in sorted(item for item in root.rglob("*") if item.is_file()):
+        paths = sorted(
+            (item for item in root.rglob("*") if item.is_file()),
+            key=lambda path: path.relative_to(root).as_posix(),
+        )
+        for path in paths:
             relative = path.relative_to(root).as_posix()
             info = zipfile.ZipInfo(relative, ZIP_TIMESTAMP)
             info.create_system = 3
@@ -135,7 +139,8 @@ def main() -> int:
     )
     write_new(dist / "arl-smoke-v1.zip", evidence_zip(args.evidence))
     assets = sorted(
-        path for path in dist.iterdir() if path.is_file() and path.name != "checksums.txt"
+        (path for path in dist.iterdir() if path.is_file() and path.name != "checksums.txt"),
+        key=lambda path: path.name,
     )
     checksum_lines = [f"{digest(path.read_bytes())}  {path.name}" for path in assets]
     write_new(dist / "checksums.txt", ("\n".join(checksum_lines) + "\n").encode())

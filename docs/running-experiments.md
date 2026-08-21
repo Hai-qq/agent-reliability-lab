@@ -43,7 +43,7 @@ provider、价格、预算、source commit、schedule 和 evidence 计划。不�
 
 代码只使用 Python 标准库。`pyproject.toml` 声明 `requires-python >= 3.11`；每个正式 artifact 的精确解释器版本保存在自身 `summary.json` 与 `validation.log`。
 
-当前开发树在上述 Windows/Python 3.11.9 环境实测 294 tests 全部通过；指定
+当前开发树在上述 Windows/Python 3.11.9 环境实测 295 tests 全部通过；指定
 0.4.0 核心模块的 branch coverage 为 79%，高于 70% 门槛；Ruff 0.16.4
 check/format check 通过。GitHub Actions 已配置 Linux Python 3.11–3.14 以及
 macOS/Windows 最低、最高 Python 版本矩阵，但本次本地会话没有把尚未运行的远端
@@ -73,7 +73,7 @@ ruff check src scripts tests examples
 ruff format --check src scripts tests examples
 ```
 
-公开 clone 不包含被 `.gitignore` 排除的完整 v0.10–v0.13 树；上述条件分支会先从四个确定性 bundle 恢复并校验它们。本地完整树已存在时不重复恢复。本次 Windows/Python 3.11.9 验收实测 `Ran 294 tests ... OK`，Ruff check/format check 均通过；跨平台与其余 Python 版本由 CI 矩阵验证。历史增量的当时测试数和解释器版本保留在各自 `validation.log` 中。
+公开 clone 不包含被 `.gitignore` 排除的完整 v0.10–v0.13 树；上述条件分支会先从四个确定性 bundle 恢复并校验它们。本地完整树已存在时不重复恢复。本次 Windows/Python 3.11.9 验收实测 `Ran 295 tests ... OK`，Ruff check/format check 均通过；跨平台与其余 Python 版本由 CI 矩阵验证。历史增量的当时测试数和解释器版本保留在各自 `validation.log` 中。
 
 ## 运行 v0.1 配对实验
 

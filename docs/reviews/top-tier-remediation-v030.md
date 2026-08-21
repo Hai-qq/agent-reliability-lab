@@ -102,13 +102,13 @@ reported as complete.
 | v0.30 design-only protocol | verified locally | 48 templates, 10,368 scheduled cells, all scripted checks pass, zero provider/model/network calls |
 | Packaging and release automation | verified locally | Wheel/sdist, SBOM, source manifest, evidence ZIP, and checksums pass; remote release not executed |
 | Documentation and Evidence Explorer v2 | verified locally | Generated output is current; browser layout/filter/link checks pass with no console log entries |
-| Full repository verification | verified locally | 294 tests pass; scoped branch coverage 79%; lint, format, typing, schema, docs, and workflow checks pass |
+| Full repository verification | verified locally | 295 tests pass; scoped branch coverage 79%; lint, format, typing, schema, docs, and workflow checks pass |
 
 ## Final local verification ledger
 
 The final acceptance run used Windows 10 build 26200, Python 3.11.9, SQLite
-3.45.1, and Ruff 0.16.4. The complete `unittest` discovery ran 294 tests in
-25.041 seconds with no failure. Coverage over the new evidence, analysis, study, and
+3.45.1, and Ruff 0.16.4. The complete `unittest` discovery ran 295 tests in
+42.041 seconds with no failure. Coverage over the new evidence, analysis, study, and
 CLI surfaces was 79%, above the configured 70% threshold. A fresh sdist and wheel were
 built from the current tree; the wheel passed a clean-environment CLI/smoke/verifier
 check, and all generated release checksums matched.

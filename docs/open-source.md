@@ -49,7 +49,7 @@ v0.16 的 12-episode、v0.17 的 48-episode、v0.20 的 144-episode 与 v0.21
 的 168-episode formal/repeat 均 summary 和全部 traces 逐字节一致。
 
 0.4.0 当前本地门禁（Windows 10 build 26200、Python 3.11.9、Ruff 0.16.4）
-为 294 tests 全部通过，指定新核心模块 branch coverage 79%，Ruff check/format、
+为 295 tests 全部通过，指定新核心模块 branch coverage 79%，Ruff check/format、
 Mypy、五个公开 schema、54 条 smoke episode、证据确定性重建、文档链接、站点
 生成与 workflow pin 检查全部通过。当前 wheel/sdist 已在干净环境复核，release
 metadata、SBOM、证据 ZIP 和 checksums 可生成。远端 CI、Pages 与 release workflow
