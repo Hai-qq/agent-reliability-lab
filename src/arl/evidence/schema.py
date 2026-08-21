@@ -10,7 +10,7 @@ from __future__ import annotations
 import re
 from collections.abc import Mapping, Sequence
 from decimal import Decimal, InvalidOperation
-from typing import Any, cast
+from typing import Any
 
 SCHEMA_VERSION = "arl-evidence-v1"
 SHA256_PATTERN = re.compile(r"^[0-9a-f]{64}$")
@@ -163,7 +163,7 @@ def _require_int(value: Mapping[str, Any], key: str, *, minimum: int = 0) -> int
     item = value[key]
     if isinstance(item, bool) or not isinstance(item, int) or item < minimum:
         raise SchemaValidationError(f"{key} must be an integer >= {minimum}")
-    return cast(int, item)
+    return int(item)
 
 
 def _require_bool(value: Mapping[str, Any], key: str) -> bool:

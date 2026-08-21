@@ -368,7 +368,7 @@ class EvidenceBundleBuilder:
             "redaction-policy.json": canonical_json_bytes(policy),
             "README.md": (
                 "# Public ARL evidence bundle\n\n"
-                f"Study: `{study['study_id']}`  \n"
+                f"Study: `{study['study_id']}`\n\n"
                 f"Schema: `{SCHEMA_VERSION}`\n\n"
                 "Verify offline with `arl verify <this-directory>`. The manifest "
                 "binds every public file except itself. Ledger digests refer to the "

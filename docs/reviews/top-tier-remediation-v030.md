@@ -11,10 +11,11 @@
 - Canonical baseline artifact digest:
   `4f9412d42f312eeec57d77bb2e5b6da49162acc5fc20d58707d396b1eb3abe5a`
 
-The artifact digest is SHA-256 over canonical JSON mapping every tracked path below
-`artifacts/` to the SHA-256 of its bytes. Historical artifacts are immutable inputs to
-this remediation. Their study identifiers and package versions remain historical; the
-distribution version does not rewrite them.
+The artifact digest is SHA-256 over canonical JSON mapping every tracked Git blob path
+below `artifacts/` to the SHA-256 of its blob bytes. Using Git blobs makes this baseline
+independent of checkout-specific LF/CRLF conversion. Historical artifacts are immutable
+inputs to this remediation. Their study identifiers and package versions remain
+historical; the distribution version does not rewrite them.
 
 ## Baseline verification result
 
@@ -94,7 +95,7 @@ reported as complete.
 | Gate | State | Evidence |
 | --- | --- | --- |
 | Frozen baseline | verified | Commit and artifact digest above |
-| Historical artifact immutability | verified | 464 files, 13,968,430 bytes, canonical digest unchanged; dedicated byte test passes |
+| Historical artifact immutability | verified | 464 Git blobs, 13,968,430 bytes, canonical digest unchanged; dedicated byte test passes |
 | Public evidence schema and verifier | verified | Five generated schemas, 54 valid smoke episodes, mutation/fail-closed tests, deterministic rebuild |
 | CLI and offline smoke bundle | verified locally | Clean-wheel install, `arl --help`, smoke generation, and verifier pass |
 | Statistical and budget audit | verified locally | Paired estimands, cluster bootstrap, exact tests, reservation/reconciliation, and v0.29 diagnostics pass |
