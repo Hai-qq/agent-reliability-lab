@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "analysis_mode": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "condition_order": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "execution_order": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "expected_cells": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "expected_episode_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "expected_provider_event_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "model_bindings": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "provider_bindings": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "provider_calls_permitted": {
+      "type": "boolean"
+    },
+    "public_data_only": {
+      "const": true
+    },
+    "runtime_order": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "schedule_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schedule_seed": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "arl-evidence-v1"
+    },
+    "source_commit": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_manifest_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "study_contract_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "study_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "synthetic_only": {
+      "const": true
+    },
+    "task_catalog_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "task_catalog_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "analysis_mode",
+    "condition_order",
+    "execution_order",
+    "expected_cells",
+    "expected_episode_count",
+    "expected_provider_event_count",
+    "model_bindings",
+    "provider_bindings",
+    "provider_calls_permitted",
+    "public_data_only",
+    "runtime_order",
+    "schedule_digest",
+    "schedule_seed",
+    "schema_version",
+    "source_commit",
+    "source_manifest_digest",
+    "study_contract_version",
+    "study_id",
+    "synthetic_only",
+    "task_catalog_digest",
+    "task_catalog_version"
+  ],
+  "title": "ARL public study v1",
+  "type": "object"
+}

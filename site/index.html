@@ -1,23 +1,28 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="refresh" content="0; url=./artifacts/evidence_explorer_v14/index.html">
-    <meta name="description" content="Agent Reliability Lab evidence explorer">
-    <title>Agent Reliability Lab · Evidence Explorer</title>
-    <style>
-      :root { color-scheme: dark; font-family: ui-sans-serif, system-ui, sans-serif; }
-      body { display: grid; min-height: 100vh; margin: 0; place-items: center; background: #0b1020; color: #eef2ff; }
-      main { max-width: 38rem; padding: 2rem; text-align: center; }
-      a { color: #8dd9ff; }
-    </style>
-  </head>
-  <body>
-    <main>
-      <h1>Agent Reliability Lab</h1>
-      <p>Opening the Evidence Explorer…</p>
-      <p><a href="./artifacts/evidence_explorer_v14/index.html">Open Evidence Explorer</a></p>
-    </main>
-  </body>
-</html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'">
+<title>Agent Reliability Lab · Evidence Explorer</title>
+<style>
+:root{color-scheme:light;--green:#16835a;--green-dark:#0d5c40;--ink:#1d2924;--muted:#607169;--line:#dbe5df;--paper:#fff;--wash:#f4f8f5;--bad:#a43b32;--warn:#94650b}
+*{box-sizing:border-box}body{margin:0;background:var(--wash);color:var(--ink);font:15px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}header{background:var(--paper);border-bottom:1px solid var(--line)}.wrap{max-width:1180px;margin:auto;padding:28px 24px}.eyebrow{color:var(--green-dark);font-size:12px;font-weight:750;letter-spacing:.12em;text-transform:uppercase}h1{font-size:clamp(28px,5vw,48px);line-height:1.04;margin:8px 0 12px;letter-spacing:-.035em}h2{font-size:20px;margin:0}.lede{max-width:780px;color:var(--muted);font-size:17px}.notice{margin-top:18px;padding:12px 14px;background:#fff8e6;border:1px solid #ead8a8;border-radius:8px}.filters{display:grid;grid-template-columns:repeat(4,minmax(130px,1fr));gap:12px;margin:20px 0}.filters label{font-size:12px;font-weight:700;color:var(--muted)}select{display:block;width:100%;margin-top:5px;padding:9px;border:1px solid var(--line);border-radius:6px;background:white}.cards{display:grid;gap:16px}.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:20px;box-shadow:0 2px 8px #234b3820}.top{display:flex;gap:12px;align-items:flex-start;justify-content:space-between}.status{white-space:nowrap;border-radius:999px;padding:4px 9px;font-size:12px;font-weight:750;background:#e6f4ed;color:var(--green-dark)}.status.invalid,.status.blocked{background:#fbeae8;color:var(--bad)}.status.design_only{background:#fff4d9;color:var(--warn)}.meta{color:var(--muted);font-size:13px}.claim{margin:14px 0}.limits{color:var(--muted);font-size:13px;margin:10px 0;padding-left:20px}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}.metric{background:var(--wash);border-radius:7px;padding:10px}.metric b{display:block;font-size:18px}.metric span{font-size:12px;color:var(--muted)}table{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}th,td{text-align:left;border-top:1px solid var(--line);padding:8px 5px}code{font-size:12px}a{color:var(--green-dark)}.empty{color:var(--muted);font-style:italic}.commands{background:#12251d;color:#dff5e9;padding:10px 12px;border-radius:6px;overflow:auto}.foot{font-size:12px;color:var(--muted)}@media(max-width:760px){.filters,.metrics{grid-template-columns:1fr 1fr}.top{display:block}.status{display:inline-block;margin-top:8px}}@media(max-width:460px){.filters,.metrics{grid-template-columns:1fr}.wrap{padding:22px 15px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="eyebrow">Agent Reliability Lab</div><h1>Evidence Explorer</h1><p class="lede">Claims, validity states, paired results, errors and public bundle links from one versioned evidence contract.</p><div class="notice"><b>Fail-closed status:</b> v0.28 readiness failed; v0.29 infrastructure and readiness failed. Neither is a valid confirmatory result.</div></div></header>
+<main class="wrap"><div class="filters" aria-label="Evidence filters"><label>Model<select id="model"><option value="">All</option></select></label><label>Runtime<select id="runtime"><option value="">All</option></select></label><label>Domain<select id="domain"><option value="">All</option></select></label><label>Fault<select id="fault"><option value="">All</option></select></label></div><div id="cards" class="cards" aria-live="polite"></div><p class="foot" id="integrity"></p></main>
+<script>
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=v=>v===null||v===undefined?'N/A':typeof v==='number'?v.toFixed(3):esc(v);
+const filters={model:'models',runtime:'runtimes',domain:'domains',fault:'faults'};let DATA;
+function options(){for(const [id,key] of Object.entries(filters)){const values=new Set();for(const s of DATA.studies)for(const v of s.evidence?.filters?.[key]||[])values.add(v);const node=document.getElementById(id);for(const v of [...values].sort()){const o=document.createElement('option');o.value=v;o.textContent=v;node.appendChild(o)}node.addEventListener('change',render)}}
+function visible(s){if(!s.evidence)return !Object.keys(filters).some(id=>document.getElementById(id).value);return Object.entries(filters).every(([id,key])=>{const v=document.getElementById(id).value;return !v||s.evidence.filters[key].includes(v)})}
+function estimands(s){const rows=s.evidence?.paired_estimands||[];if(!rows.length)return '<p class="empty">Paired counts and confidence intervals are not materialized in public arl-evidence-v1.</p>';return `<table><thead><tr><th>Estimand</th><th>n</th><th>Estimate</th><th>95% CI</th><th>Discordant R1−/R2+ · R1+/R2−</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${esc(r.name)}</td><td>${esc(r.denominator)}</td><td>${fmt(r.point_estimate)}</td><td>[${fmt(r.ci_lower)}, ${fmt(r.ci_upper)}]</td><td>${esc(r.paired_2x2_counts?.r1_fail_r2_pass)} · ${esc(r.paired_2x2_counts?.r1_pass_r2_fail)}</td></tr>`).join('')}</tbody></table>`}
+function limitations(s){const rows=s.claim?.limitations||[];return rows.length?`<ul class="limits">${rows.map(v=>`<li>${esc(v)}</li>`).join('')}</ul>`:''}
+function card(s){const e=s.evidence,c=s.claim;const claim=c?.exact_claim_text||'No registered empirical claim.';const bundle=e?`<a href="${esc(e.bundle_download)}" download>Download bundle</a> · <a href="${esc(e.bundle)}/manifest.json">Open manifest</a> · <code>arl verify ${esc(e.bundle)}</code>`:'<span class="empty">No public episode bundle</span>';return `<article class="card"><div class="top"><div><div class="meta">${esc(s.contract_version)} · ${esc(s.analysis)}</div><h2>${esc(s.study_id)}</h2></div><span class="status ${esc(s.status)}">${esc(s.status)}</span></div><p class="claim">${esc(claim)}</p>${limitations(s)}<div class="metrics"><div class="metric"><b>${esc(e?.episode_count??'N/A')}</b><span>public episodes</span></div><div class="metric"><b>${esc(e?.provider_counts?.provider_failure_count??'N/A')}</b><span>provider failures</span></div><div class="metric"><b>${fmt(e?.cost_usd)}</b><span>public cost USD</span></div><div class="metric"><b>${fmt(e?.latency_ms)}</b><span>public latency ms</span></div></div>${estimands(s)}<p>${bundle}</p></article>`}
+function render(){document.getElementById('cards').innerHTML=DATA.studies.filter(visible).map(card).join('')||'<p class="empty">No study matches these filters.</p>'}
+fetch('evidence-index.json').then(r=>{if(!r.ok)throw new Error('index unavailable');return r.json()}).then(data=>{DATA=data;options();render();document.getElementById('integrity').textContent=`${data.explorer_version} · ${data.evidence_schema_version} · source ${data.source_digest}`}).catch(error=>{document.getElementById('cards').textContent=`Evidence index failed closed: ${error.message}`});
+</script>
+</body></html>

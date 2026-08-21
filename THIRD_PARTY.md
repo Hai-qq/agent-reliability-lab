@@ -1,5 +1,12 @@
 # Third-party provenance
 
+The 0.4.0 stable runtime, CLI, evidence implementation, paired analysis, budget logic,
+schedule PRNG, v0.30 design, and smoke bundle use only the Python standard library at
+runtime. Optional `dev`, `docs`, `validation`, and `security` extras are development
+tools and are resolved in `uv.lock`; they are not imported by the core runtime.
+Build/release tooling may generate an SBOM and provenance, but does not vendor those
+tools into the wheel.
+
 ARL Core v0.1、R2 v0.2、Multi-Task v0.3、Validity Gates v0.4、Retail v0.5、Travel v0.6、Schema Adapter v0.7、Conflict Recovery v0.8、Cross-Domain Resilience v0.9、Study Runtime v0.10、Parallel Study v0.11、Scenario Pack v0.12、Symbolic User v0.13、Evidence Explorer v0.14、Compact Bundle v0.15、Main Study Contract v0.16、Pilot Preflight v0.17、Model Pilot v0.18/v0.19、Main Task Pack v0.20、Mechanism Ablation v0.21、Single-Slot Study v0.24、Dual-Mode Amendment v0.25、OpenCode Go studies v0.27/v0.28 与 Prospective Holdout v0.29 没有 vendoring 第三方源码、数据、benchmark trace 或模型输出正文，也没有第三方 Python runtime dependency。当前实现为独立编写的本地合成原型；仓库根目录的 MIT License 只覆盖本项目原创代码与文档，不改变链接、服务或引用材料的许可。
 
 以下公开项目影响了 ARL 的设计术语和评测思路，但不作为运行时依赖：

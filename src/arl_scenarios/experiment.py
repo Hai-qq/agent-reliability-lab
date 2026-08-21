@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any
 
 from arl.core.types import Observation, canonical_json, digest_value
+from arl.history import verify_recorded_source_manifest
 from arl.runtime.journal import EventJournal
 from arl_resilience.contracts import GuardedAction, StateGuard
 from arl_resilience.evaluator import add_resilience_evidence
@@ -416,17 +417,9 @@ def historical_source_manifest_check(project_root: Path) -> dict[str, Any]:
     for version, relative_summary in _HISTORICAL_SUMMARIES.items():
         summary = json.loads((project_root / relative_summary).read_text(encoding="utf-8"))
         expected = summary["metadata"]["source_manifest"]
-        files = {
-            relative_path: hashlib.sha256((project_root / relative_path).read_bytes()).hexdigest()
-            for relative_path in sorted(expected["files"])
-        }
-        actual_sha = hashlib.sha256(canonical_json(files).encode("utf-8")).hexdigest()
         increments[version] = {
             "summary": relative_summary,
-            "expected_sha256": expected["sha256"],
-            "actual_sha256": actual_sha,
-            "file_count": len(files),
-            "matched": files == expected["files"] and actual_sha == expected["sha256"],
+            **verify_recorded_source_manifest(project_root, expected),
         }
     return {
         "increments": increments,
@@ -744,7 +737,11 @@ def run_scenario_pack(traces_dir: Path, project_root: Path) -> dict[str, Any]:
         value["passed"] for key, value in validity.items() if key != "all_selected_checks_passed"
     )
     if not validity["all_selected_checks_passed"]:
-        failed = [key for key, value in validity.items() if not value.get("passed", False)]
+        failed = [
+            key
+            for key, value in validity.items()
+            if key != "all_selected_checks_passed" and not value.get("passed", False)
+        ]
         raise AssertionError(f"Scenario-pack validity gates failed: {failed}")
 
     aggregate = _aggregate(primary)

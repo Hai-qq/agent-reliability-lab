@@ -1,0 +1,207 @@
+{
+  "evidence_schema_version": "arl-evidence-v1",
+  "explorer_version": "evidence-explorer-v2",
+  "source_digest": "394df22a7c7d270ddd73f94613a4da0e07782a6692a1f8ecd1d1283f5c202b38",
+  "statistics_source": "Python analysis.json only; front-end does not recompute",
+  "studies": [
+    {
+      "analysis": "exploratory_only",
+      "claim": {
+        "analysis_mode": "exploratory_only",
+        "claim_id": "ARL-V028-INFRASTRUCTURE",
+        "claim_status": "BLOCKED",
+        "exact_claim_text": "The saved v0.28 infrastructure checks passed, but Qwen readiness failed.",
+        "independent_replication_status": "NOT_REPORTED",
+        "infrastructure_valid": true,
+        "limitations": [
+          "Qwen readiness failed.",
+          "No confirmatory claim is permitted.",
+          "Both model slots used the same gateway and do not establish cross-provider replication."
+        ],
+        "model_provider_binding": "OpenCode Go gateway; Flash and Qwen slots",
+        "preregistration_status": "registered contract; confirmatory gate not reached",
+        "public_evidence_availability": "SUMMARY_AND_EXPLORATORY_ANALYSIS_ONLY",
+        "readiness_valid": false,
+        "source_commit": "71792c832b17cbf362f3a4a14e7e81b2b14426e9",
+        "study_contract_version": "v0.28",
+        "study_id": "opencode-go-flash-qwen-v0.28",
+        "superseded_by": null,
+        "supersedes": null,
+        "task_catalog_version": "main-pack-v1"
+      },
+      "contract_version": "v0.28",
+      "evidence": null,
+      "evidence_available": false,
+      "public_episode_evidence": "not_materialized",
+      "status": "blocked",
+      "study_id": "opencode-go-flash-qwen-v0.28"
+    },
+    {
+      "analysis": "descriptive_only",
+      "claim": {
+        "analysis_mode": "descriptive_aggregates_only",
+        "claim_id": "ARL-V029-DESCRIPTIVE",
+        "claim_status": "INVALID_FOR_INFERENCE",
+        "exact_claim_text": "The v0.29 run completed 2,592 scheduled episodes, but its saved outcomes are descriptive only.",
+        "independent_replication_status": "NOT_REPORTED",
+        "infrastructure_valid": false,
+        "limitations": [
+          "Two Qwen provider HTTP 503 outcomes were unrecovered.",
+          "Four Qwen episodes violated the frozen monetary cap.",
+          "Confirmatory and exploratory inference are blocked.",
+          "The public checkout lacks the ignored full episode ledger and traces.",
+          "Fixed serial execution order permits temporal/provider drift confounding."
+        ],
+        "model_provider_binding": "OpenCode Go gateway; Flash and Qwen slots",
+        "preregistration_status": "registered holdout; inference gates failed",
+        "public_evidence_availability": "NOT_MATERIALIZED",
+        "readiness_valid": false,
+        "source_commit": "71792c832b17cbf362f3a4a14e7e81b2b14426e9",
+        "study_contract_version": "v0.29",
+        "study_id": "opencode-go-holdout-v0.29",
+        "superseded_by": null,
+        "supersedes": null,
+        "task_catalog_version": "holdout-pack-v1"
+      },
+      "contract_version": "v0.29",
+      "evidence": null,
+      "evidence_available": false,
+      "public_episode_evidence": "not_materialized",
+      "status": "invalid",
+      "study_id": "opencode-go-holdout-v0.29"
+    },
+    {
+      "analysis": "preregistered_pending_execution",
+      "claim": {
+        "analysis_mode": "preregistered_design_only",
+        "claim_id": "ARL-V030-DESIGN",
+        "claim_status": "NO_RESULTS",
+        "exact_claim_text": "v0.30 is a design and scripted-preflight contract; it contains no model-performance result.",
+        "independent_replication_status": "PENDING_EXTERNAL_REPLICATION",
+        "infrastructure_valid": null,
+        "limitations": [
+          "No provider was called.",
+          "Scripted oracle checks are infrastructure tests, not agent outcomes.",
+          "Model binding, pricing snapshot, and execution commit remain future inputs."
+        ],
+        "model_provider_binding": "UNBOUND_MODEL_SLOTS",
+        "preregistration_status": "design_only_pending_external_execution",
+        "public_evidence_availability": "SCRIPTED_FIXTURE_ONLY",
+        "readiness_valid": null,
+        "source_commit": "PENDING_FUTURE_EXECUTION_COMMIT",
+        "study_contract_version": "arl-study-v0.30.0",
+        "study_id": "arl-study-v0.30.0",
+        "superseded_by": null,
+        "supersedes": null,
+        "task_catalog_version": "arl-planning-tasks-v0.30.0"
+      },
+      "contract_version": "arl-study-v0.30.0",
+      "evidence": null,
+      "evidence_available": false,
+      "public_episode_evidence": "scripted_fixture_only",
+      "status": "design_only",
+      "study_id": "arl-study-v0.30.0"
+    },
+    {
+      "analysis": "descriptive_scripted_only",
+      "claim": null,
+      "contract_version": "arl-smoke-study-v1",
+      "evidence": {
+        "analysis_status": "descriptive_scripted_smoke",
+        "bundle": "evidence/arl-smoke-v1",
+        "bundle_download": "bundles/arl-smoke-v1.zip",
+        "cost_usd": 0,
+        "episode_count": 54,
+        "filters": {
+          "domains": [
+            "synthetic-counter"
+          ],
+          "faults": [
+            "none",
+            "post_commit_timeout"
+          ],
+          "models": [
+            "scripted-policy"
+          ],
+          "runtimes": [
+            "R0",
+            "R1",
+            "R2"
+          ]
+        },
+        "latency_ms": 0,
+        "paired_estimands": [
+          {
+            "ci_lower": 0.3333333333333333,
+            "ci_upper": 0.3333333333333333,
+            "denominator": 9,
+            "name": "unconditional_paired_fault_safe_pass_difference",
+            "numerator": 3,
+            "paired_2x2_counts": {
+              "r1_fail_r2_fail": 0,
+              "r1_fail_r2_pass": 3,
+              "r1_pass_r2_fail": 0,
+              "r1_pass_r2_pass": 6
+            },
+            "point_estimate": 0.3333333333333333
+          },
+          {
+            "ci_lower": 0.3333333333333333,
+            "ci_upper": 0.3333333333333333,
+            "denominator": 9,
+            "name": "common_clean_fault_recovery_difference",
+            "numerator": 3,
+            "paired_2x2_counts": {
+              "r1_fail_r2_fail": 0,
+              "r1_fail_r2_pass": 3,
+              "r1_pass_r2_fail": 0,
+              "r1_pass_r2_pass": 6
+            },
+            "point_estimate": 0.3333333333333333
+          },
+          {
+            "ci_lower": 0.0,
+            "ci_upper": 0.0,
+            "denominator": 9,
+            "name": "clean_safe_pass_difference",
+            "numerator": 0,
+            "paired_2x2_counts": {
+              "r1_fail_r2_fail": 0,
+              "r1_fail_r2_pass": 0,
+              "r1_pass_r2_fail": 0,
+              "r1_pass_r2_pass": 9
+            },
+            "point_estimate": 0.0
+          },
+          {
+            "ci_lower": 0.0,
+            "ci_upper": 0.0,
+            "denominator": 9,
+            "name": "severe_side_effect_risk_difference",
+            "numerator": 0,
+            "paired_2x2_counts": {
+              "r1_fail_r2_fail": 9,
+              "r1_fail_r2_pass": 0,
+              "r1_pass_r2_fail": 0,
+              "r1_pass_r2_pass": 0
+            },
+            "point_estimate": 0.0
+          }
+        ],
+        "provider_counts": {
+          "accepted_decision_count": 0,
+          "logical_call_count": 0,
+          "parse_failure_count": 0,
+          "provider_failure_count": 0,
+          "transport_attempt_count": 0,
+          "usage_bearing_response_count": 0
+        },
+        "verification_check_count": 10
+      },
+      "evidence_available": true,
+      "public_episode_evidence": "materialized_example",
+      "status": "synthetic_smoke",
+      "study_id": "arl-smoke-v1"
+    }
+  ]
+}

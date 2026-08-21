@@ -1,5 +1,17 @@
 # Security policy
 
+## Public evidence boundary in 0.4.0
+
+`arl-evidence-v1` publication is deny-by-default. Unknown fields and suspected API keys,
+authorization/bearer values, cookies, credentials, email-like values, private keys, raw
+prompts/responses/reasoning, hidden system prompts, and non-allowlisted state abort bundle
+generation. `arl verify` is offline, checks the canonical redaction policy and file
+manifest, and returns non-zero on any mismatch. The committed smoke bundle contains
+only project-owned synthetic state and zero provider events.
+
+The generic `arl bundle` command accepts only the reviewed normalized three-file
+interchange. It intentionally does not ingest historical raw/full provider directories.
+
 ## Supported scope
 
 Agent Reliability Lab 是本地、合成、隔离的研究原型。benchmark 不连接真实账户或真实业务系统，也不授权对第三方系统进行扫描、凭据获取或对抗操作。v0.18、v0.19、v0.24/v0.25 提供可选的 DeepSeek runner；v0.27–v0.29 提供可选的 OpenCode Go runner。只有在用户明确授权并分别提供环境变量 `DEEPSEEK_API_KEY` 或 `OPENCODE_GO_API_KEY` 时才调用 provider，发送内容限本项目固定合成任务与结构化工具合同。

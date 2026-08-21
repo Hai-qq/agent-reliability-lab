@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "attempt_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "cost_usd": {
+      "pattern": "^(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "currency": {
+      "enum": [
+        "USD",
+        null
+      ]
+    },
+    "duration_ms": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "episode_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "error_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "event_type": {
+      "enum": [
+        "LogicalCallStarted",
+        "TransportAttemptStarted",
+        "TransportAttemptFailed",
+        "ProviderResponseReceived",
+        "ProviderUsageRecorded",
+        "ResponseParseFailed",
+        "DecisionAccepted",
+        "DecisionRejected",
+        "LogicalCallFinished"
+      ]
+    },
+    "input_tokens": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "logical_call_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "model_binding": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "ordinal": {
+      "minimum": 1,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "output_tokens": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "request_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "retry_decision": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "schema_version": {
+      "const": "arl-evidence-v1"
+    },
+    "sequence_index": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "turn_index": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "accepted",
+    "attempt_id",
+    "cost_usd",
+    "currency",
+    "duration_ms",
+    "episode_id",
+    "error_type",
+    "event_type",
+    "input_tokens",
+    "logical_call_id",
+    "model_binding",
+    "ordinal",
+    "output_tokens",
+    "request_digest",
+    "retry_decision",
+    "schema_version",
+    "sequence_index",
+    "status",
+    "turn_index"
+  ],
+  "title": "ARL provider audit event v1",
+  "type": "object"
+}

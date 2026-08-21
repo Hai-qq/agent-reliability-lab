@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from arl.core.types import canonical_json
+from arl.history import verify_recorded_source_manifest
 from arl_evidence import __version__
 
 
@@ -92,18 +93,8 @@ def _summary(path: Path) -> dict[str, Any]:
 
 def _source_manifest_check(project_root: Path, summary: dict[str, Any]) -> dict[str, Any]:
     expected = summary["metadata"]["source_manifest"]
-    files = {
-        relative_path: sha256_file(project_root / relative_path)
-        for relative_path in sorted(expected["files"])
-    }
-    actual_sha = hashlib.sha256(canonical_json(files).encode("utf-8")).hexdigest()
-    matched = files == expected["files"] and actual_sha == expected["sha256"]
-    return {
-        "file_count": len(files),
-        "sha256": actual_sha,
-        "matched": matched,
-        "passed": matched,
-    }
+    result = verify_recorded_source_manifest(project_root, expected)
+    return {**result, "sha256": result.get("recorded_sha256", expected.get("sha256"))}
 
 
 def _trace_manifest_check(
@@ -332,7 +323,11 @@ def collect_evidence(project_root: Path) -> dict[str, Any]:
         item["passed"] for key, item in validity.items() if key != "all_selected_checks_passed"
     )
     if not validity["all_selected_checks_passed"]:
-        failed = [key for key, item in validity.items() if not item.get("passed", False)]
+        failed = [
+            key
+            for key, item in validity.items()
+            if key != "all_selected_checks_passed" and not item.get("passed", False)
+        ]
         raise AssertionError(f"Evidence catalog validity gates failed: {failed}")
 
     return {

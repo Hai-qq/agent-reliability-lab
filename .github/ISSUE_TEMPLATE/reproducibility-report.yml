@@ -1,0 +1,38 @@
+name: Reproducibility report
+description: Report an independent reproduction, including a negative or failed result.
+title: "[reproducibility] "
+labels: ["reproducibility"]
+body:
+  - type: input
+    id: commit
+    attributes:
+      label: Source commit and release
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python, SQLite, installation method, and provider binding if separately authorized.
+    validations:
+      required: true
+  - type: textarea
+    id: commands
+    attributes:
+      label: Exact commands and outcomes
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Public bundle and verification
+      description: Link a public-safe bundle or state why evidence is not materialized.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Data boundary
+      options:
+        - label: I removed credentials, raw provider content, real accounts, and private data.
+          required: true

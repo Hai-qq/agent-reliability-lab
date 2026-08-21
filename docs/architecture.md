@@ -1,5 +1,38 @@
 # Agent Reliability Lab Architecture
 
+## Stable 0.4 architecture
+
+The installable distribution now exposes stable facades under `arl.runtime`,
+`arl.environments`, `arl.faults`, `arl.evaluation`, `arl.studies`, `arl.providers`,
+`arl.evidence`, and `arl.analysis`. Historical packages stay in place for artifact
+reproduction; they are not the public extension surface.
+
+```mermaid
+flowchart LR
+    P[AgentPolicy] --> R[ReliabilityRuntime]
+    R --> E[StatefulEnvironment]
+    F[FaultInjector] --> E
+    E --> V[StateEvaluator]
+    R --> A[Logical-call and transport-attempt audit]
+    A --> W[EvidenceWriter]
+    V --> W
+    W --> B[arl-evidence-v1 bundle]
+    B --> Q[Offline verifier]
+    B --> N[Public-ledger paired analysis]
+```
+
+The evidence boundary is fail-closed. It accepts only normalized synthetic fields,
+rejects unknown/private fields, writes canonical JSON and deterministic gzip, and binds
+every public file by SHA-256. The verifier recomputes aggregate and evaluator outcomes
+from public state. Provider calls are optional adapters and are never made by core,
+smoke, CI, documentation, or verification paths.
+
+The v0.30 scheduler freezes task-template × environment-seed × sampling-trial blocks,
+then deterministically balances runtime × condition × model-slot order using the
+recorded ARL SHA-256 counter PRNG. Resume accepts only an exact completed prefix. The
+primary methodology compares paired R1/R2 fault outcomes unconditionally and resamples
+whole task-template clusters.
+
 Agent Reliability Lab 将 Agent 可靠性拆成五个可独立验证的部分：确定性产品世界、状态化授权、分层 runtime、状态级 evaluator 和可重复实验 harness。benchmark 世界始终是本地合成数据；核心 scripted 路径不依赖外部服务。v0.16 冻结 provider-neutral Agent policy 边界和主实验合同，v0.17–v0.19 完成 8-task preflight/model pilot，v0.20–v0.21 补齐 24-task pack 并完成机制消融，v0.24 用经单独授权的 DeepSeek-V4-Flash backend 运行完整 432-episode non-thinking study 与 task-cluster 分析。v0.27 将相同 task/runtime/evaluator 合同扩展到 OpenCode Go 双模型矩阵；该 864-episode 运行因 provider/协议错误和模型资格门禁失败而保持无效。v0.28 在独立包中冻结全新的 Flash + Qwen 矩阵与 bounded transport retry，不复用已观察的 v0.27 episode。v0.29 再叠加 24 个新 task ID/request 和三个数据 seed，以独立 holdout 而不是原 cell 重试来复核 v0.28 结论。
 
 ```mermaid

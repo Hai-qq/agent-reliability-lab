@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from arl.core.types import canonical_json, digest_value
+from arl.history import verify_recorded_source_manifest
 from arl_parallel import __version__
 from arl_parallel.scheduler import ParallelRunReport, ParallelStudyScheduler
 from arl_study.experiment import execute_resilience_job, resilience_study_manifest
@@ -69,7 +70,7 @@ def execute_parallel_resilience_job(job: StudyJob, trace_path: Path) -> dict[str
             "state_hash_before": None,
             "state_hash_after": None,
         }
-        trace_path.write_text(canonical_json(event) + "\n", encoding="utf-8")
+        trace_path.write_bytes((canonical_json(event) + "\n").encode("utf-8"))
         raise SimulatedWorkerCrash(job.job_id)
     return execute_resilience_job(job, trace_path)
 
@@ -99,17 +100,9 @@ def historical_source_manifest_check(project_root: Path) -> dict[str, Any]:
     for version, relative_summary in _HISTORICAL_SUMMARIES.items():
         summary = json.loads((project_root / relative_summary).read_text(encoding="utf-8"))
         expected = summary["metadata"]["source_manifest"]
-        files = {
-            relative_path: hashlib.sha256((project_root / relative_path).read_bytes()).hexdigest()
-            for relative_path in sorted(expected["files"])
-        }
-        actual_sha = hashlib.sha256(canonical_json(files).encode("utf-8")).hexdigest()
         increments[version] = {
             "summary": relative_summary,
-            "expected_sha256": expected["sha256"],
-            "actual_sha256": actual_sha,
-            "file_count": len(files),
-            "matched": files == expected["files"] and actual_sha == expected["sha256"],
+            **verify_recorded_source_manifest(project_root, expected),
         }
     return {
         "increments": increments,

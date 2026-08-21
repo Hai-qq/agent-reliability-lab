@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aggregate_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "analysis_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "bundle_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "episode_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "episode_ledger_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "files": {
+      "additionalProperties": {
+        "additionalProperties": false,
+        "properties": {
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "size": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "sha256",
+          "size"
+        ],
+        "type": "object"
+      },
+      "minProperties": 1,
+      "type": "object"
+    },
+    "provider_event_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "provider_event_ledger_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "redaction_policy_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schedule_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "arl-evidence-v1"
+    },
+    "source_manifest_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "study_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "study_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "task_catalog_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "aggregate_digest",
+    "analysis_digest",
+    "bundle_version",
+    "episode_count",
+    "episode_ledger_digest",
+    "files",
+    "provider_event_count",
+    "provider_event_ledger_digest",
+    "redaction_policy_digest",
+    "schedule_digest",
+    "schema_version",
+    "source_manifest_digest",
+    "study_digest",
+    "study_id",
+    "task_catalog_digest"
+  ],
+  "title": "ARL evidence manifest v1",
+  "type": "object"
+}

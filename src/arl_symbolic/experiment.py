@@ -11,7 +11,8 @@ from collections.abc import Sequence
 from pathlib import Path
 from typing import Any
 
-from arl.core.types import canonical_json, digest_value
+from arl.core.types import digest_value
+from arl.history import verify_recorded_source_manifest
 from arl.runtime.journal import EventJournal
 from arl_scenarios.catalog import TASK_TEMPLATES, TEMPLATES_BY_ID
 from arl_scenarios.experiment import run_episode as run_downstream_episode
@@ -295,17 +296,9 @@ def historical_source_manifest_check(project_root: Path) -> dict[str, Any]:
     for version, relative_summary in _HISTORICAL_SUMMARIES.items():
         summary = json.loads((project_root / relative_summary).read_text(encoding="utf-8"))
         expected = summary["metadata"]["source_manifest"]
-        files = {
-            relative_path: hashlib.sha256((project_root / relative_path).read_bytes()).hexdigest()
-            for relative_path in sorted(expected["files"])
-        }
-        actual_sha = hashlib.sha256(canonical_json(files).encode("utf-8")).hexdigest()
         increments[version] = {
             "summary": relative_summary,
-            "expected_sha256": expected["sha256"],
-            "actual_sha256": actual_sha,
-            "file_count": len(files),
-            "matched": files == expected["files"] and actual_sha == expected["sha256"],
+            **verify_recorded_source_manifest(project_root, expected),
         }
     return {
         "increments": increments,
@@ -514,7 +507,11 @@ def run_symbolic_experiment(traces_dir: Path, project_root: Path) -> dict[str, A
         value["passed"] for key, value in validity.items() if key != "all_selected_checks_passed"
     )
     if not validity["all_selected_checks_passed"]:
-        failed = [key for key, value in validity.items() if not value.get("passed", False)]
+        failed = [
+            key
+            for key, value in validity.items()
+            if key != "all_selected_checks_passed" and not value.get("passed", False)
+        ]
         raise AssertionError(f"Symbolic-user validity gates failed: {failed}")
 
     return {

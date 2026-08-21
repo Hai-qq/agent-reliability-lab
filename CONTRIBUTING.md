@@ -1,39 +1,108 @@
 # Contributing
 
-感谢参与 Agent Reliability Lab。项目接受能提高本地 Agent runtime、stateful benchmark 和 reliability evaluation 可复现性的改进。
+Thank you for improving Agent Reliability Lab. Contributions should make the local
+runtime, stateful benchmark, methodology, or evidence chain more reproducible without
+rewriting historical results.
 
-## 本地开发
+## Development environment
 
-需要 Python 3.11 或更高版本，核心运行时没有第三方 Python 依赖。
+Python 3.11–3.14 is supported. Core runtime dependencies are empty; tooling is optional.
 
 ```bash
 git clone https://github.com/Hai-qq/agent-reliability-lab.git
 cd agent-reliability-lab
+python -m pip install -e ".[dev,validation]"
 
-env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 \
-  python scripts/manage_artifact_bundles.py restore \
-  --bundle-dir artifacts/release_bundle_v15 \
-  --project-root .
-
-env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 \
-  python -m unittest discover -s tests -p 'test_*.py' -v
-
-ruff check src scripts tests
-ruff format --check src scripts tests
+python scripts/manage_artifact_bundles.py restore \
+  --bundle-dir artifacts/release_bundle_v15 --project-root .
+python -m unittest discover -s tests -p "test_*.py"
+ruff check src scripts tests examples
+ruff format --check src scripts tests examples
+mypy src/arl/evidence src/arl/analysis src/arl/studies src/arl/cli.py
+arl verify evidence/arl-smoke-v1
+python scripts/sync_evidence_schemas.py --check
+python scripts/build_evidence_explorer_v2.py --check
 ```
 
-恢复命令面向不含本地完整 evidence 树的全新 clone；它会先验证四个公开 bundle，并拒绝覆盖已有 artifact 目标。
+The restore command is for a fresh clone and refuses to overwrite existing artifact
+targets. Do not delete a local evidence tree merely to make restore pass.
 
-完整实验命令和固定版本见 [Experiment Guide](./docs/running-experiments.md)。
+## Adding an environment
 
-## 贡献边界
+Implement `arl.environments.StatefulEnvironment` with deterministic `reset`, typed
+`step`, and integrity-hashable `snapshot`. Use project-owned synthetic records, logical
+time, explicit schema versions, and state-level invariants. Add clean/fault tests,
+deterministic reset tests, and a minimal example or study binding.
 
-- 只使用官方开源 benchmark 的本地、合成、隔离环境。
-- 不提交真实账户、真实网络目标、凭据、cookie、私钥或第三方私有数据。
-- 不把 prompt-injection、攻击/防御或模型/API 集成混入普通可靠性实验；新增此类范围必须先单独讨论授权、成本和安全边界。
-- 已授权的模型 runner 只能从环境变量读取 credential、只能处理本项目合成 payload，并必须记录精确 model binding、硬预算、provider/协议错误和 digest-only audit；下一次 provider response 必须在调用前纳入预算检查，禁止将 key 放入 CLI、配置、日志、trace 或 artifact。
-- 新 runner 必须拒绝覆盖已有结果路径；trace 默认只保存 digest 与类型化元数据。
-- 行为变更应带定向测试，并同步 README、相关文档、结果 manifest 和限制说明。
-- 不复制上游 benchmark 源码、数据或受限许可内容；引用边界见 [THIRD_PARTY.md](./THIRD_PARTY.md)。
+## Adding a fault
 
-提交 pull request 前，请确认 Python 3.11/3.12 测试和 Ruff 均通过，并在 PR 中写明命令、结果、限制及是否产生新 artifact。
+Implement `arl.faults.FaultInjector` and publish a fault contract containing the
+precondition, exact injection point, observable symptom, hidden ground truth,
+valid/prohibited recovery sets, required final invariants, forbidden side effects,
+recoverability, applicable runtime mechanism, and mutation tests. A new task ID alone
+is not an unseen fault mechanism.
+
+## Adding an evaluator
+
+Implement `arl.evaluation.StateEvaluator`. Bind each clause to an allowlisted public
+state path and normalized event evidence. Tests must reject do-nothing, false-success,
+duplicate-side-effect, unsafe-retry, and relevant state mutations. A trace hash alone
+does not establish an evaluator outcome when the trace is unavailable.
+
+## Adding a study
+
+Freeze a separately versioned study contract, task/fault/evaluator catalogs, source
+commit, model/provider binding, token budget, optional model-specific monetary policy,
+readiness and infrastructure gates, schedule seed/order, estimands, missing/error rules,
+and claim wording before execution. R1/R2 are the primary v0.30 comparison; R0 is
+descriptive. Resume must retain the frozen order.
+
+Run the complete scripted preflight first. Scripted oracle results validate the harness
+and must never be presented as model performance. Provider execution requires separate
+authorization and is never a routine PR/CI step.
+
+## Generating evidence
+
+Use the strict normalized interchange and explicit state allowlist:
+
+```bash
+arl bundle PRIVATE_DIR --public-output evidence/STUDY_ID \
+  --public-state-field status --public-state-field another_synthetic_field
+arl verify evidence/STUDY_ID
+```
+
+Unknown fields, secret-like content, non-canonical ledgers, missing/duplicate/extra
+cells, digest mismatches, and evaluator inconsistencies fail closed. Never persist API
+keys, authorization headers, cookies, raw prompts, raw responses, raw reasoning, hidden
+system prompts, real account information, or unallowlisted state.
+
+## Artifact immutability
+
+Existing tracked artifacts are evidence of record. Do not overwrite, delete, reformat,
+or regenerate them in place. New runners must require a non-existing output path. A
+corrected publication receives a new bundle/version and an explicit supersession link;
+historical study validity and thresholds do not change.
+
+## Provider authorization boundary
+
+Do not add or run a model/API integration without explicit authorization for that
+study, provider, model, cost, and data scope. Authorized adapters may read a credential
+only from the documented environment variable, process project-owned synthetic
+payloads, reserve the maximum legal response before the call, and record only normalized
+digest/usage/error metadata. Never put credentials in arguments, config, logs, traces,
+issues, or fixtures. CI must not call providers.
+
+## Reporting a failed reproduction
+
+Use the reproducibility-report issue template. Include the source commit, distribution
+and study versions, platform/Python/SQLite versions, exact offline command, verifier
+output, artifact/bundle digests, and the first divergent check. Do not attach secrets or
+raw third-party content. Preserve negative outcomes and mark unavailable evidence as
+`NOT_MATERIALIZED` rather than reconstructing it.
+
+## Pull requests
+
+Describe changed contracts and user-visible behavior, tests actually run, artifact
+integrity result, documentation updates, and known limits. Keep changes scoped; avoid
+whole-repository formatting or historical package migration. See [SECURITY.md](./SECURITY.md),
+[methodology](./docs/methodology.md), and [third-party provenance](./THIRD_PARTY.md).
