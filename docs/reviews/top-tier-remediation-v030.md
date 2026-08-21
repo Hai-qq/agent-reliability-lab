@@ -120,3 +120,17 @@ reported no console log entries. These are local acceptance results: the GitHub-
 OS/Python matrix, Pages deployment, CodeQL, dependency review, Scorecard, release
 environment protection, and tag release remain external GitHub operations and were not
 represented as run in this checkout.
+
+## Post-review remote closure
+
+The ledger above remains the time-bounded local acceptance record. Remote closure was
+subsequently completed on 2026-08-21: protected `main`, release/tag/Pages environment
+controls, GitHub-hosted CI and security checks, and the protected
+[`v0.4.0` release](https://github.com/Hai-qq/agent-reliability-lab/releases/tag/v0.4.0)
+were exercised. The first clean release preflight exposed a missing wheel-install step;
+that defect was fixed through
+[PR #12](https://github.com/Hai-qq/agent-reliability-lab/pull/12), passed all 19 required
+checks, and was merged before the tag was created. The release assets and provenance
+were then independently downloaded and verified. See the
+[maintainer checklist](../maintainer-checklist.md) for the dated receipt and the reusable
+future-release procedure.

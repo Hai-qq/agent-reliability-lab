@@ -3,6 +3,34 @@
 The following controls require a maintainer to configure GitHub UI/repository settings;
 workflow files cannot prove they are enabled.
 
+## Latest verified execution
+
+As of 2026-08-21, the repository controls and the
+[`v0.4.0` release](https://github.com/Hai-qq/agent-reliability-lab/releases/tag/v0.4.0)
+were verified as follows:
+
+- `main` requires pull requests, branch synchronization, conversation resolution, and
+  19 app-bound CI, evidence, package, documentation, and security checks. The rule is
+  enforced for administrators and prohibits force pushes and deletion. The approving
+  review count is zero because this is currently a single-maintainer repository.
+- The active `v*` tag ruleset restricts creation, deletion, and non-fast-forward updates;
+  only the `Hai-qq` user is an audited bypass actor.
+- Private vulnerability reporting, Dependabot alerts, Dependabot security updates,
+  secret scanning, and push protection are enabled.
+- The protected `release` environment requires `Hai-qq` review and accepts only `v*`
+  tags. The `github-pages` environment accepts only `main`. Repository and `release`
+  environment secret counts were both zero, and PyPI publication remains absent.
+- [Release run 32495993842](https://github.com/Hai-qq/agent-reliability-lab/actions/runs/32495993842)
+  targeted commit `8b3f97c218f9843ba26b281c65f27902a738b85e` and passed identity,
+  wheel verification, metadata, checksums, provenance attestation, and asset upload.
+- A clean post-publication download audit matched all six GitHub asset digests, all five
+  entries in `checksums.txt`, and all six SLSA provenance attestations. The downloaded
+  wheel and sdist each passed a Python 3.11 clean install, CLI smoke, verifier, and
+  version check. The 874-file source manifest matched the raw Git blobs at the tag.
+
+The unchecked boxes below remain a reusable settings/release procedure rather than a
+live status dashboard. Re-run every applicable check for future releases.
+
 ## Repository settings
 
 - [ ] Protect `main` and require pull requests.
