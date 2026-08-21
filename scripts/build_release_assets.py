@@ -47,14 +47,14 @@ def tracked_manifest(root: Path) -> dict[str, object]:
 
 def evidence_zip(root: Path) -> bytes:
     output = __import__("io").BytesIO()
-    with zipfile.ZipFile(output, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+    with zipfile.ZipFile(output, "w", zipfile.ZIP_STORED) as archive:
         for path in sorted(item for item in root.rglob("*") if item.is_file()):
             relative = path.relative_to(root).as_posix()
             info = zipfile.ZipInfo(relative, ZIP_TIMESTAMP)
             info.create_system = 3
             info.external_attr = 0o100644 << 16
-            info.compress_type = zipfile.ZIP_DEFLATED
-            archive.writestr(info, path.read_bytes(), compresslevel=9)
+            info.compress_type = zipfile.ZIP_STORED
+            archive.writestr(info, path.read_bytes())
     return output.getvalue()
 
 

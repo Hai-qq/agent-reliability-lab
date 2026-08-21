@@ -18,4 +18,6 @@ The page lists every registered study, including invalid, blocked, descriptive, 
 design-only states. Model/runtime/domain/fault filters operate only on public episode
 facets. v0.28/v0.29 remain visible even though no public v1 episode ledger exists.
 Each materialized study links both its public manifest and a deterministic downloadable
-ZIP generated from the same verified bundle bytes.
+ZIP generated from the same verified bundle bytes. ZIP members use normalized names,
+timestamps, modes, ordering, and `ZIP_STORED`; avoiding deflate makes the archive bytes
+independent of the runner's zlib implementation.

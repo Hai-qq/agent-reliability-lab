@@ -24,13 +24,13 @@ ZIP_TIMESTAMP = (1980, 1, 1, 0, 0, 0)
 
 def _bundle_zip(bundle: Path) -> bytes:
     output = io.BytesIO()
-    with zipfile.ZipFile(output, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+    with zipfile.ZipFile(output, "w", zipfile.ZIP_STORED) as archive:
         for path in sorted(item for item in bundle.rglob("*") if item.is_file()):
             info = zipfile.ZipInfo(path.relative_to(bundle).as_posix(), ZIP_TIMESTAMP)
             info.create_system = 3
             info.external_attr = 0o100644 << 16
-            info.compress_type = zipfile.ZIP_DEFLATED
-            archive.writestr(info, path.read_bytes(), compresslevel=9)
+            info.compress_type = zipfile.ZIP_STORED
+            archive.writestr(info, path.read_bytes())
     return output.getvalue()
 
 

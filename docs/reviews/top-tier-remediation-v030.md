@@ -7,9 +7,9 @@
 - Baseline commit: `71792c832b17cbf362f3a4a14e7e81b2b14426e9`
 - Baseline distribution version: `0.3.0`
 - Remediation distribution version: `0.4.0`
-- Baseline artifact inventory: 464 tracked files, 13,968,430 bytes
+- Baseline artifact inventory: 464 tracked Git blobs, 13,968,008 bytes
 - Canonical baseline artifact digest:
-  `4f9412d42f312eeec57d77bb2e5b6da49162acc5fc20d58707d396b1eb3abe5a`
+  `5d80a1b067fc17bc7c8a21772386037d049eb4d8253aafbb1bcee1e9176a2922`
 
 The artifact digest is SHA-256 over canonical JSON mapping every tracked Git blob path
 below `artifacts/` to the SHA-256 of its blob bytes. Using Git blobs makes this baseline
@@ -95,7 +95,7 @@ reported as complete.
 | Gate | State | Evidence |
 | --- | --- | --- |
 | Frozen baseline | verified | Commit and artifact digest above |
-| Historical artifact immutability | verified | 464 Git blobs, 13,968,430 bytes, canonical digest unchanged; dedicated byte test passes |
+| Historical artifact immutability | verified | 464 Git blobs, 13,968,008 bytes, canonical digest unchanged; dedicated byte test passes |
 | Public evidence schema and verifier | verified | Five generated schemas, 54 valid smoke episodes, mutation/fail-closed tests, deterministic rebuild |
 | CLI and offline smoke bundle | verified locally | Clean-wheel install, `arl --help`, smoke generation, and verifier pass |
 | Statistical and budget audit | verified locally | Paired estimands, cluster bootstrap, exact tests, reservation/reconciliation, and v0.29 diagnostics pass |
