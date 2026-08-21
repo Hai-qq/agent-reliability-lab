@@ -108,8 +108,8 @@ class EventJournal:
         )
         self._events.append(event)
         if self.path is not None:
-            line = canonical_json(event.as_dict()) + "\n"
-            with self.path.open("a", encoding="utf-8") as handle:
+            line = (canonical_json(event.as_dict()) + "\n").encode("utf-8")
+            with self.path.open("ab") as handle:
                 handle.write(line)
                 handle.flush()
                 os.fsync(handle.fileno())

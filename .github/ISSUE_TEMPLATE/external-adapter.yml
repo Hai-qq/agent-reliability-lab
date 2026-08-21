@@ -1,0 +1,37 @@
+name: External adapter proposal
+description: Propose an environment, fault, runtime, provider, or evaluator adapter.
+title: "[adapter] "
+labels: ["adapter"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Adapter kind
+      options: [Environment, Fault, Runtime, Evaluator, Provider]
+    validations:
+      required: true
+  - type: textarea
+    id: contract
+    attributes:
+      label: Protocol and synthetic-data contract
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies, licenses, and external services
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Tests, redaction, and evidence plan
+    validations:
+      required: true
+  - type: checkboxes
+    id: authorization
+    attributes:
+      label: Authorization boundary
+      options:
+        - label: This proposal does not authorize provider calls, real-system testing, or credential use.
+          required: true

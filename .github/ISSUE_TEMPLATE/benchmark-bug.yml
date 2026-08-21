@@ -1,0 +1,32 @@
+name: Benchmark bug
+description: Report a deterministic environment, runtime, fault, evaluator, or verifier defect.
+title: "[benchmark bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include credentials, raw provider content, real account data, or private state.
+  - type: input
+    id: version
+    attributes:
+      label: Distribution and study versions
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal local reproduction
+      description: Include source commit, platform, Python/SQLite, exact offline command, and synthetic fixture.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Verifier output and digests
+      description: Provide public-safe hashes and typed errors only.

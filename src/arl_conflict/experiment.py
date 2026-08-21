@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 
 from arl.core.types import Observation, StepResult, canonical_json, digest_value
+from arl.history import verify_recorded_source_manifest
 from arl.runtime.journal import EventJournal
 from arl_conflict import __version__
 from arl_conflict.env import (
@@ -295,18 +296,9 @@ def historical_source_manifest_check(project_root: Path) -> dict[str, Any]:
     for version, relative_summary in _HISTORICAL_SUMMARIES.items():
         summary = json.loads((project_root / relative_summary).read_text(encoding="utf-8"))
         manifest = summary["metadata"]["source_manifest"]
-        expected_files = manifest["files"]
-        actual_files = {
-            relative_path: hashlib.sha256((project_root / relative_path).read_bytes()).hexdigest()
-            for relative_path in sorted(expected_files)
-        }
-        actual_sha = hashlib.sha256(canonical_json(actual_files).encode("utf-8")).hexdigest()
         details[version] = {
             "summary": relative_summary,
-            "expected_sha256": manifest["sha256"],
-            "actual_sha256": actual_sha,
-            "file_count": len(actual_files),
-            "matched": actual_files == expected_files and actual_sha == manifest["sha256"],
+            **verify_recorded_source_manifest(project_root, manifest),
         }
     return {"increments": details, "passed": all(item["matched"] for item in details.values())}
 

@@ -2,6 +2,8 @@ cff-version: 1.2.0
 message: "If you use Agent Reliability Lab, please cite this repository."
 title: "Agent Reliability Lab"
 type: software
+version: 0.4.0
+date-released: 2026-08-21
 abstract: >-
   An original, deterministic agent runtime and stateful reliability benchmark
   for evaluating recovery, side effects, safety, and reproducibility in local
@@ -10,6 +12,7 @@ authors:
   - family-names: "Hai-qq"
     alias: "Hai-qq"
 repository-code: "https://github.com/Hai-qq/agent-reliability-lab"
+url: "https://hai-qq.github.io/agent-reliability-lab/"
 license: MIT
 keywords:
   - AI agents

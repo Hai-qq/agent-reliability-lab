@@ -1,17 +1,56 @@
 # ARL 实验运行与验证指南
 
+## 0.4.0 离线入口
+
+`pyproject.toml` 是 Python distribution version 的唯一来源；历史 study contract
+仍保留 v0.1–v0.29。安装后不需要 `PYTHONPATH`：
+
+```bash
+python -m pip install -e ".[dev,validation]"
+arl doctor
+arl run smoke --output /tmp/arl-smoke
+arl verify /tmp/arl-smoke
+arl analyze /tmp/arl-smoke
+```
+
+v0.30 仅执行 scripted preflight，不调用 provider：
+
+```bash
+python scripts/run_v030_scripted_preflight.py
+```
+
+任何新的 provider study 都不属于常规验证流程，必须先获得单独授权并冻结模型、
+provider、价格、预算、source commit、schedule 和 evidence 计划。不得补跑 v0.28/v0.29
+失败 cell；不得读取或创建 credential 来完成本指南中的离线命令。
+
 ## 环境
 
-- macOS arm64
-- Python `3.12.12`（v0.7–v0.28 正式 artifact 与 v0.29 scripted preflight；v0.29 provider formal 记录为 `3.12.13`；v0.1–v0.6 历史 artifact 使用 `3.12.2`）
-- Python SQLite runtime `3.50.4`（v0.7–v0.28 与 v0.29 scripted preflight；v0.29 provider formal 只冻结解释器版本，没有单列 SQLite 版本）
-- Ruff `0.15.17`
-- 根 project 保持 `0.3.0` 以保留 v0.3 manifest；v0.4–v0.29 使用独立包和源码/结果 manifest
+历史正式 artifact 主要来自 macOS arm64：Python `3.12.12`（v0.7–v0.28
+正式 artifact 与 v0.29 scripted preflight；v0.29 provider formal 记录为
+`3.12.13`；v0.1–v0.6 使用 `3.12.2`），对应的 Python SQLite runtime
+主要为 `3.50.4`。每个 artifact 的精确环境仍以自身 `summary.json` 与
+`validation.log` 为准。
+
+本次 0.4.0 remediation 的本地验收环境为：
+
+- Windows 10 build 26200
+- Python `3.11.9`
+- Python SQLite runtime `3.45.1`
+- Ruff `0.16.4`
+- 当前 Python distribution 为 `0.4.0`；历史 manifest 继续记录各自冻结的 root/study 版本，
+  校验器从当前工作树或 Git 历史解析对应字节，不重写历史 manifest
 - 第三方 Python runtime dependencies：无
 
 代码只使用 Python 标准库。`pyproject.toml` 声明 `requires-python >= 3.11`；每个正式 artifact 的精确解释器版本保存在自身 `summary.json` 与 `validation.log`。
 
-当前开发分支以 Python `3.11.15` 和 `3.12.12` 各运行 267 tests，全部通过；Ruff 0.15.17 check/format check 通过。v0.16–v0.24、v0.27、v0.28 正式实验 JSON、v0.29 scripted preflight 以及 v0.25/v0.28 canary 使用 Python 3.12.12；v0.29 provider formal 自身记录为 Python 3.12.13。v0.15 发布冻结时的 173-test、v0.16 初次验收时的 187-test 与 v0.17 验收时的 200-test 结果仍保存在各自 validation log 中。
+当前开发树在上述 Windows/Python 3.11.9 环境实测 295 tests 全部通过；指定
+0.4.0 核心模块的 branch coverage 为 79%，高于 70% 门槛；Ruff 0.16.4
+check/format check 通过。GitHub Actions 已配置 Linux Python 3.11–3.14 以及
+macOS/Windows 最低、最高 Python 版本矩阵，但本次本地会话没有把尚未运行的远端
+CI 写成已通过。v0.16–v0.24、v0.27、v0.28 正式实验 JSON、v0.29 scripted
+preflight 以及 v0.25/v0.28 canary 使用 Python 3.12.12；v0.29 provider formal
+自身记录为 Python 3.12.13。v0.15 发布冻结时的 173-test、v0.16 初次验收时的
+187-test 与 v0.17 验收时的 200-test 结果仍保存在各自 validation log 中。
 
 ## 运行测试
 
@@ -30,11 +69,11 @@ fi
 env PYTHONPATH="$ARL_PROJECT/src" PYTHONDONTWRITEBYTECODE=1 \
   "$ARL_PYTHON" -m unittest discover -s tests -p 'test_*.py' -v
 
-ruff check src scripts tests
-ruff format --check src scripts tests
+ruff check src scripts tests examples
+ruff format --check src scripts tests examples
 ```
 
-公开 clone 不包含被 `.gitignore` 排除的完整 v0.10–v0.13 树；上述条件分支会先从四个确定性 bundle 恢复并校验它们。本地完整树已存在时不重复恢复。当前开发分支在 Python 3.11/3.12 均实测 `Ran 267 tests ... OK`，Ruff check/format check 均通过。历史增量的当时测试数和解释器版本保留在各自 `validation.log` 中。
+公开 clone 不包含被 `.gitignore` 排除的完整 v0.10–v0.13 树；上述条件分支会先从四个确定性 bundle 恢复并校验它们。本地完整树已存在时不重复恢复。本次 Windows/Python 3.11.9 验收实测 `Ran 295 tests ... OK`，Ruff check/format check 均通过；跨平台与其余 Python 版本由 CI 矩阵验证。历史增量的当时测试数和解释器版本保留在各自 `validation.log` 中。
 
 ## 运行 v0.1 配对实验
 

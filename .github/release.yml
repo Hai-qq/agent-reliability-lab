@@ -1,0 +1,15 @@
+changelog:
+  exclude:
+    labels:
+      - skip-changelog
+  categories:
+    - title: Security
+      labels: [security]
+    - title: Evidence and methodology
+      labels: [evidence, methodology, reproducibility]
+    - title: Runtime and benchmark
+      labels: [runtime, benchmark, enhancement]
+    - title: Maintenance
+      labels: [dependencies, documentation, maintenance]
+    - title: Other changes
+      labels: ["*"]

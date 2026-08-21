@@ -4,12 +4,15 @@ on:
   push:
     branches:
       - main
-      - agent/reliability-suite-v015
     paths:
       - ".github/workflows/pages.yml"
-      - "artifacts/**"
       - "docs/**"
+      - "evidence/**"
+      - "schemas/**"
+      - "scripts/build_evidence_explorer_v2.py"
       - "site/**"
+      - "src/arl/evidence/**"
+      - "src/arl/registry.py"
   workflow_dispatch:
 
 permissions: {}
@@ -29,6 +32,18 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.11"
+      - name: Verify generated evidence inputs
+        run: |
+          python -m pip install -e .
+          arl verify evidence/arl-smoke-v1
+          python scripts/sync_evidence_schemas.py --check
+          python scripts/build_evidence_explorer_v2.py --check
       - name: Configure GitHub Pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
       - name: Assemble public site
@@ -37,15 +52,19 @@ jobs:
           set -euo pipefail
           mkdir -p _site
           cp site/index.html _site/index.html
+          cp site/evidence-index.json _site/evidence-index.json
+          cp -R site/bundles _site/bundles
           touch _site/.nojekyll
           while IFS= read -r -d '' file; do
             target="_site/${file}"
             mkdir -p "$(dirname "${target}")"
             cp "${file}" "${target}"
-          done < <(git ls-files -z -- artifacts docs)
-          test -f _site/artifacts/evidence_explorer_v14/index.html
-          test -f _site/artifacts/evidence_explorer_v14/evidence.json
-          test -f _site/docs/evidence-explorer-v14.md
+          done < <(git ls-files -z -- docs evidence schemas)
+          test -f _site/evidence-index.json
+          test -f _site/bundles/arl-smoke-v1.zip
+          test -f _site/evidence/arl-smoke-v1/manifest.json
+          test -f _site/docs/evidence-explorer-v2.md
+          ! grep -q "evidence_explorer_v14" _site/index.html
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
